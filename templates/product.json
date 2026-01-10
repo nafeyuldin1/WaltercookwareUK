@@ -637,6 +637,8 @@
         "testimonial_VDept8": {
           "type": "testimonial",
           "settings": {
+            "image_desktop": "shopify://shop_images/PC_daily_mail-min.png",
+            "image_mobile": "shopify://shop_images/PC_daily_mail-min.png",
             "logo_width": 120,
             "logo_width_mobile": 80,
             "quote": "<p>\"non-stick pans can emit toxins of PTFE that can cause flu-like symptoms in humans\"</p>"
@@ -645,6 +647,8 @@
         "testimonial_48Rz8m": {
           "type": "testimonial",
           "settings": {
+            "image_desktop": "shopify://shop_images/abc_6baee25f-0ac7-4107-9674-d08d28af1c3f.png",
+            "image_mobile": "shopify://shop_images/abc_6baee25f-0ac7-4107-9674-d08d28af1c3f.png",
             "logo_width": 198,
             "logo_width_mobile": 118,
             "quote": "<p>\"California Moves to Ban ‘Forever Chemicals’ in Cookware\"</p>"
@@ -653,6 +657,8 @@
         "testimonial_qhTciH": {
           "type": "testimonial",
           "settings": {
+            "image_desktop": "shopify://shop_images/Vector_fc8b58e5-1a0c-4227-92d8-7b81c1e8a2d3.webp",
+            "image_mobile": "shopify://shop_images/Vector_fc8b58e5-1a0c-4227-92d8-7b81c1e8a2d3.webp",
             "logo_width": 120,
             "logo_width_mobile": 80,
             "quote": "<p>\"Walter Titanium: The Benchmark for Non-Toxic Cookware That Lasts a Lifetime\"</p>"
@@ -661,6 +667,8 @@
         "testimonial_cxNH3D": {
           "type": "testimonial",
           "settings": {
+            "image_desktop": "shopify://shop_images/Vector.webp",
+            "image_mobile": "shopify://shop_images/Vector.webp",
             "logo_width": 120,
             "logo_width_mobile": 80,
             "quote": "<p>“Non-Stick Pans May Release PTFE Toxins Linked to Flu-Like Symptoms in Humans”</p>"
@@ -710,6 +718,7 @@
         "signature_img": "shopify://shop_images/Gemini_Generated_Image_yxffpiyxffpiyxff.png",
         "sig_width_d": 120,
         "sig_width_m": 100,
+        "video": "shopify://files/videos/39096c381ed148688fa55fc0abf345e7 (1).mp4",
         "video_url_mp4": "",
         "enable_autoplay": true,
         "enable_loop": true,
@@ -916,6 +925,7 @@
         "benefit_card_jGgcH8": {
           "type": "benefit_card",
           "settings": {
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_14.png",
             "img_bottom": false,
             "title": "Optimize Health & Performance",
             "text": "<p>With Walter, you reduce exposure to chemicals, allergens, and contaminants often found in traditional cookware. Cooking clean supports both physical well-being and mental focus.</p>"
@@ -924,6 +934,7 @@
         "benefit_card_xEPDXN": {
           "type": "benefit_card",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_q2ln7tq2ln7tq2ln.png",
             "img_bottom": true,
             "title": "Cook Healthier Meals",
             "text": "<p>Walter cookware helps you use less oil while preserving more nutrients in your food. Every dish delivers more from what you cook — because how you cook matters just as much as what’s on your plate.</p>"
@@ -932,6 +943,7 @@
         "benefit_card_qCjfiU": {
           "type": "benefit_card",
           "settings": {
+            "image": "shopify://shop_images/couple-indoors-being-happy-dancing-kitchen.jpg",
             "img_bottom": false,
             "title": "Increase Longevity",
             "text": "<p>Toxins, heavy metals, and microplastics contribute to cellular damage and long-term health risks. Titanium removes exposure at the source — allowing your body to focus on balance and recovery instead of constant defense.</p>"
@@ -940,6 +952,7 @@
         "benefit_card_9GQdWn": {
           "type": "benefit_card",
           "settings": {
+            "image": "shopify://shop_images/pattern-min.jpg",
             "img_bottom": true,
             "title": "Convenience Without Compromise",
             "text": "<p>Our engineered SlipScale™ surface pattern provides reliable non-stick performance without chemical coatings, while maintaining long-term durability</p>"
@@ -948,6 +961,7 @@
         "benefit_card_An9M6q": {
           "type": "benefit_card",
           "settings": {
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_15.png",
             "img_bottom": false,
             "title": "Piece Of Mind",
             "text": "<p>Every Walter product is rigorously tested and independently certified. Designed with wellness in mind, it delivers one of the purest and safest cooking surfaces ever created.</p>"
@@ -956,6 +970,7 @@
         "benefit_card_XcqEwN": {
           "type": "benefit_card",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_8baxbf8baxbf8bax.png",
             "img_bottom": true,
             "title": "Buy Once, Use Forever",
             "text": "<p>Engineered to last for generations — consistently safe, dependable, and ready for everyday use.</p>"
@@ -1060,6 +1075,7 @@
         "bg_color": "#00221c",
         "text_color": "#c8beab",
         "focus_color": "#bca588",
+        "section_image": "shopify://shop_images/review_collectie.png",
         "btn_label": "",
         "btn_link": "shopify://collections/all",
         "btn_bg": "#ffffff",
@@ -1374,6 +1390,7 @@
         "layer_yDq3ct": {
           "type": "layer",
           "settings": {
+            "image": "shopify://shop_images/pan_first_with_shadow-min.webp",
             "offset_y": 0,
             "title": "Titanium SlipScale",
             "description": "Non-toxic and non-stick."
@@ -1382,6 +1399,7 @@
         "layer_3g4pcF": {
           "type": "layer",
           "settings": {
+            "image": "shopify://shop_images/pan_MID_with_shadow-min.webp",
             "offset_y": 0,
             "title": "Recycled Aluminum III",
             "description": "Even heat distribution."
@@ -1390,6 +1408,7 @@
         "layer_yUg9LH": {
           "type": "layer",
           "settings": {
+            "image": "shopify://shop_images/pan_MID_with_shadow-min_1.webp",
             "offset_y": 0,
             "title": "Recycled Aluminum II",
             "description": "Fast heat response."
@@ -1398,6 +1417,7 @@
         "layer_6PqkXa": {
           "type": "layer",
           "settings": {
+            "image": "shopify://shop_images/pan_MID_with_shadow-min_2.webp",
             "offset_y": 0,
             "title": "Induction Steel Base",
             "description": "Strong magnetic performance."
@@ -1406,6 +1426,7 @@
         "layer_LF3hE3": {
           "type": "layer",
           "settings": {
+            "image": "shopify://shop_images/pan_LAST_with_shadow-min.webp",
             "offset_y": 0,
             "title": "Daily Use Design",
             "description": "Built to last."
