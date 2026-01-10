@@ -54,39 +54,27 @@
       "blocks": {
         "logo_YP6U6H": {
           "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Bon_Appetit_logo.png"
-          }
+          "settings": {}
         },
         "logo_R8RNhH": {
           "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/NewYorkTimes.png"
-          }
+          "settings": {}
         },
         "logo_KGPDxC": {
           "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Men_s_Health.png"
-          }
+          "settings": {}
         },
         "logo_NbnmLX": {
           "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Bon_Appetit_logo.png"
-          }
+          "settings": {}
         },
         "logo_efLXNi": {
           "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/GQ_Logo_1.png"
-          }
+          "settings": {}
         },
         "logo_gJEViQ": {
           "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Time_Magazine_logo.png"
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -105,6 +93,8 @@
         "height_mobile": 90,
         "margin_top": 0,
         "margin_bottom": 0,
+        "video_desktop": "shopify://files/videos/39096c381ed148688fa55fc0abf345e7 (1).mp4",
+        "video_mobile": "shopify://files/videos/39096c381ed148688fa55fc0abf345e7 (1).mp4",
         "overlay_color": "#000000",
         "overlay_opacity": 30,
         "kicker": "🎁 Seasonal Offers — Limited Time 🎁",
@@ -220,7 +210,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "best-sellers",
-            "custom_image": "shopify://shop_images/1_57c84b8a-99a9-464f-b96f-0a072b54cbcd.png",
             "badge_text": "Up To 55% OFF",
             "badge_bg": "#962b34",
             "badge_color": "#ffffff"
@@ -230,7 +219,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "pans",
-            "custom_image": "shopify://shop_images/Ontwerp_zonder_titel_11_3dec7aff-464c-4053-94e7-59a27360361b.png",
             "badge_text": "50% OFF",
             "badge_bg": "#962b34",
             "badge_color": "#ffffff"
@@ -240,7 +228,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "bundles",
-            "custom_image": "shopify://shop_images/1_3a5aa74f-9f96-432c-8d5c-038cf4e29c24.png",
             "badge_text": "50% OFF",
             "badge_bg": "#962b34",
             "badge_color": "#ffffff"
@@ -250,7 +237,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "kitchen-essentials",
-            "custom_image": "shopify://shop_images/1_42a53e7f-1fbb-460a-b73d-7037b112c3ac_1.png",
             "badge_text": "50% OFF",
             "badge_bg": "#962b34",
             "badge_color": "#ffffff"
@@ -330,42 +316,36 @@
         "benefit_kt7rby": {
           "type": "benefit",
           "settings": {
-            "icon": "shopify://shop_images/icons.png",
             "text": "Sustainable"
           }
         },
         "benefit_rYar4w": {
           "type": "benefit",
           "settings": {
-            "icon": "shopify://shop_images/icons_1_438d954c-e905-4307-a3e3-a7e3914450fc.png",
             "text": "Easy Returns"
           }
         },
         "benefit_b6DU3g": {
           "type": "benefit",
           "settings": {
-            "icon": "shopify://shop_images/icons_13.png",
             "text": "Certified"
           }
         },
         "benefit_LREDqa": {
           "type": "benefit",
           "settings": {
-            "icon": "shopify://shop_images/icons_12.png",
             "text": "100% TOXIN-FREE"
           }
         },
         "benefit_pdfnEU": {
           "type": "benefit",
           "settings": {
-            "icon": "shopify://shop_images/icons_12.png",
             "text": "PFAS-FREE"
           }
         },
         "benefit_rtfxiY": {
           "type": "benefit",
           "settings": {
-            "icon": "shopify://shop_images/icons_14.png",
             "text": "ANTIBACTERIAL"
           }
         }
@@ -397,7 +377,6 @@
         "card_NCUGkM": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/macaron_2-min.webp",
             "pill_text": "TITANIUM PAN",
             "video_url": "",
             "title": "Fantastic!",
@@ -408,7 +387,6 @@
         "card_HCyaDP": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/steak_2-min.webp",
             "pill_text": "TITANIUM PAN",
             "video_url": "",
             "title": "Fantastic!",
@@ -419,7 +397,6 @@
         "card_JYqxFd": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/steak-min.jpg",
             "pill_text": "TITANIUM PAN",
             "video_url": "",
             "title": "Fantastic!",
@@ -495,6 +472,7 @@
         "signature_img": "shopify://shop_images/Gemini_Generated_Image_yxffpiyxffpiyxff.png",
         "sig_width_d": 120,
         "sig_width_m": 100,
+        "video": "shopify://files/videos/ddc68cd8c922480c80c731398f9b52fd.mp4",
         "video_url_mp4": "",
         "enable_autoplay": true,
         "enable_loop": true,
@@ -876,7 +854,6 @@
         "heading_color": "#bca588",
         "heading_size_d": 48,
         "heading_size_m": 28,
-        "image_desktop": "shopify://shop_images/homepage_new_pan-min.webp",
         "bg_color": "#03231a",
         "text_item": "#d4c7b4",
         "text_muted": "#b9b2a8",
@@ -916,7 +893,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/Frame_427318199_5_8b2bc32b-31cb-4649-9ad6-b3d64b514283.png",
             "name": "Sarah",
             "text": "I’ve cooked with a lot of pans over the years, but this one surprised me. Heat distribution is even, nothing sticks, and cleaning takes seconds. It just feels solid and well thought out."
           }
@@ -925,7 +901,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_559118356_IMTAH7GFqQryY31UuUUkeqzGULsK63jv.jpg",
             "name": "Sophie L.",
             "text": "Honestly didn’t expect to like it this much. I use it daily now and it still looks brand new. No weird coating, no hassle."
           }
@@ -934,7 +909,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_380701970_y1Kl4n5yt0oWaaso9q6ehWNahdCzfxsU.jpg",
             "name": "Daniel R",
             "text": "The weight feels right, not too heavy but definitely not cheap. I like knowing I’m not dealing with coatings that wear off. This feels like something I’ll use for years."
           }
@@ -943,7 +917,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_272237170_MOq1cLrwJPFXSeG4jtOEH9424Vm6z2GB.jpg",
             "name": "Emma K.",
             "text": "I cook for my family almost every day and this pan made things easier immediately. Food releases well, cleaning is quick, and it just feels more hygienic than what I had before."
           }
@@ -952,7 +925,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_144596516_QKBKJW8fSrWYBW7S4BHAVcegYq5nCwXT.jpg",
             "name": "Lucas",
             "text": "At first I was skeptical because it’s different from what I’m used to. After a week, I get it. Great control, easy maintenance, and no fuss."
           }
@@ -961,7 +933,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_503416148_p7Bi9dBjXGPu9jDBD8ucNRQsMMXacVZE.jpg",
             "name": "Nina S.",
             "text": "This pan replaced two others in my kitchen. I use it for everything now. Simple, sturdy, and does exactly what it’s supposed to do."
           }
@@ -970,7 +941,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_501018486_SQE0vK8bwMaFAbsHbp5JV2r1rnE1hT9z.jpg",
             "name": "Robert J.",
             "text": "You can tell this isn’t mass-market cookware. The build quality stands out, and I like that there’s nothing to flake or peel over time."
           }
@@ -979,7 +949,6 @@
           "type": "review",
           "settings": {
             "cat_id": "cat1",
-            "image": "shopify://shop_images/240_F_118536990_7Rm4ncWkWNUln4zv8w3UZduWAIWpkVDi.jpg",
             "name": "Laura",
             "text": "I was mainly looking for something easier to clean. Ended up loving how evenly it cooks as well. Big upgrade from my old pan."
           }
@@ -988,7 +957,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_310879035_AigVCcewILsIlmibph8MmAMioBYHK9NL.jpg",
             "name": "Thomas W.",
             "text": "Used it on gas and induction, works perfectly on both. No learning curve, just a solid pan that performs consistently."
           }
@@ -997,7 +965,6 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_548704461_KqiE8A53nXLaE30s3pFmX2uwm0nszjIG.jpg",
             "name": "Anna",
             "text": "This feels like cookware made by someone who actually cooks. Practical, durable, and not overdesigned. Very happy with it"
           }
@@ -1006,7 +973,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_567507965_MGA37X5EKGSiKWMQYjlCF9m40FBel8ZQ.jpg",
             "name": "Mark J.",
             "text": "I didn’t expect to replace all my boards, but here we are. This one is just easier to live with."
           }
@@ -1015,7 +981,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_299219009_E5kSuYAUP9FygYqSfLiLcs1ltKLauAtz.jpg",
             "name": "Kevin R",
             "text": "Cleaning used to annoy me. With this board it’s a non-issue."
           }
@@ -1024,7 +989,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_306161749_BmNByNMUXfsk5iBWXY3L02wFgkRYrG7s.jpg",
             "name": "Laura",
             "text": "I like that it doesn’t absorb anything. It feels cleaner when prepping food."
           }
@@ -1033,7 +997,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_436299039_nMXOyMWsoDPJIXK05mGK7emCRAa6FlWs.jpg",
             "name": "Thomas B.",
             "text": "At first it felt different, now it feels normal. My old wooden boards feel outdated."
           }
@@ -1042,7 +1005,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_604976565_7S9VCiGlwFlYfDnpp9Tect8QptezlU9h.jpg",
             "name": "Daniel S.",
             "text": "This feels like something you buy once and don’t think about again."
           }
@@ -1051,7 +1013,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_488491148_HfKqygPZcDdDHTZJMr2KZQrQxjDY6X3f.jpg",
             "name": "Emma",
             "text": "I cook a lot and this board stays neutral. No smells, no stains."
           }
@@ -1060,7 +1021,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_448408464_AAI9YjQesKAojm0BH3Bsky0g12zk35oc.jpg",
             "name": "Peter L.",
             "text": "Very low maintenance. That’s the biggest win for me."
           }
@@ -1069,7 +1029,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_322272754_zIqTdyYL5MKRy3Bz8ifSSXeTuE3UMMIC.jpg",
             "name": "Sophie K.",
             "text": "I didn’t know a cutting board could feel this solid. It doesn’t move or flex."
           }
@@ -1078,7 +1037,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/1000_F_581648206_YD6pOlR16m82WLdjqpd30eiMkgCZGJRl.jpg",
             "name": "Ryan M.",
             "text": "I was skeptical, but after a few weeks I get why people like this.”"
           }
@@ -1087,7 +1045,6 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
-            "image": "shopify://shop_images/240_F_443711688_LCPcTeda2wlKFJNTPjTLPVFmuf0nnP1F.jpg",
             "name": "Anna",
             "text": "Simple, clean, and practical. That’s all I really want in my kitchen."
           }
@@ -1152,8 +1109,6 @@
       "disabled": true,
       "name": "Heritage Banner",
       "settings": {
-        "image_desktop": "shopify://shop_images/desktop_1-min_2000x_877c42c7-fbe3-41a2-bd63-2bbcc4052f64.webp",
-        "image_mobile": "shopify://shop_images/desktop_1-min_2000x_877c42c7-fbe3-41a2-bd63-2bbcc4052f64.webp",
         "heading": "Rooted In <strong>Tradition</strong>.Designed To Outlast You.",
         "kicker": "At Taima®, We Don’t Just Make Kitchenware. We Uphold A Standard.",
         "content": "<p>Shaped by the legacy of Japanese craftsmanship, where perfection isn’t a choice, it’s a duty. And durability isn’t a feature - it’s expected. We chose titanium not because it was easy, but<strong> because it was right.</strong></p><p>We chose <strong>Integrity </strong>over shortcuts.<br/><strong>Purpose</strong> over profit.<br/><strong>Excellence</strong> over mass production.</p><p>That’s why everything we create is built with obsession, backed for life, and made to earn your trust, not your attention. Because when something is made right…It never needs to be replaced.</p><p>All of our products are crafted from 100% sustainable pure titanium. Not just for unmatched hygiene and durability. But as part of our promise to protect your health & the planet.</p>",
@@ -1168,8 +1123,6 @@
       "type": "missin-hero",
       "name": "Mission Hero",
       "settings": {
-        "image_desktop": "shopify://shop_images/homepage_2-min.webp",
-        "image_mobile": "shopify://shop_images/homepage_2_mob-min.avif",
         "heading": "The Mission Is Simple.",
         "subheading": "<p>Safe. Durable. Effortless.<br/>Kitchenware you never have to worry about.</p>",
         "kicker": "Simple as that.",
