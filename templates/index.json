@@ -894,6 +894,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/Frame_427318199_5_8b2bc32b-31cb-4649-9ad6-b3d64b514283.png",
             "name": "Sarah",
             "text": "I’ve cooked with a lot of pans over the years, but this one surprised me. Heat distribution is even, nothing sticks, and cleaning takes seconds. It just feels solid and well thought out."
           }
@@ -902,6 +903,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_559118356_IMTAH7GFqQryY31UuUUkeqzGULsK63jv.jpg",
             "name": "Sophie L.",
             "text": "Honestly didn’t expect to like it this much. I use it daily now and it still looks brand new. No weird coating, no hassle."
           }
@@ -910,6 +912,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_380701970_y1Kl4n5yt0oWaaso9q6ehWNahdCzfxsU.jpg",
             "name": "Daniel R",
             "text": "The weight feels right, not too heavy but definitely not cheap. I like knowing I’m not dealing with coatings that wear off. This feels like something I’ll use for years."
           }
@@ -918,6 +921,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_272237170_MOq1cLrwJPFXSeG4jtOEH9424Vm6z2GB.jpg",
             "name": "Emma K.",
             "text": "I cook for my family almost every day and this pan made things easier immediately. Food releases well, cleaning is quick, and it just feels more hygienic than what I had before."
           }
@@ -926,6 +930,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_144596516_QKBKJW8fSrWYBW7S4BHAVcegYq5nCwXT.jpg",
             "name": "Lucas",
             "text": "At first I was skeptical because it’s different from what I’m used to. After a week, I get it. Great control, easy maintenance, and no fuss."
           }
@@ -934,6 +939,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_503416148_p7Bi9dBjXGPu9jDBD8ucNRQsMMXacVZE.jpg",
             "name": "Nina S.",
             "text": "This pan replaced two others in my kitchen. I use it for everything now. Simple, sturdy, and does exactly what it’s supposed to do."
           }
@@ -942,6 +948,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_501018486_SQE0vK8bwMaFAbsHbp5JV2r1rnE1hT9z.jpg",
             "name": "Robert J.",
             "text": "You can tell this isn’t mass-market cookware. The build quality stands out, and I like that there’s nothing to flake or peel over time."
           }
@@ -950,6 +957,7 @@
           "type": "review",
           "settings": {
             "cat_id": "cat1",
+            "image": "shopify://shop_images/240_F_118536990_7Rm4ncWkWNUln4zv8w3UZduWAIWpkVDi.jpg",
             "name": "Laura",
             "text": "I was mainly looking for something easier to clean. Ended up loving how evenly it cooks as well. Big upgrade from my old pan."
           }
@@ -958,6 +966,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_310879035_AigVCcewILsIlmibph8MmAMioBYHK9NL.jpg",
             "name": "Thomas W.",
             "text": "Used it on gas and induction, works perfectly on both. No learning curve, just a solid pan that performs consistently."
           }
@@ -966,6 +975,7 @@
           "type": "review",
           "settings": {
             "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_548704461_KqiE8A53nXLaE30s3pFmX2uwm0nszjIG.jpg",
             "name": "Anna",
             "text": "This feels like cookware made by someone who actually cooks. Practical, durable, and not overdesigned. Very happy with it"
           }
@@ -974,6 +984,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_567507965_MGA37X5EKGSiKWMQYjlCF9m40FBel8ZQ.jpg",
             "name": "Mark J.",
             "text": "I didn’t expect to replace all my boards, but here we are. This one is just easier to live with."
           }
@@ -982,6 +993,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_299219009_E5kSuYAUP9FygYqSfLiLcs1ltKLauAtz.jpg",
             "name": "Kevin R",
             "text": "Cleaning used to annoy me. With this board it’s a non-issue."
           }
@@ -990,6 +1002,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_306161749_BmNByNMUXfsk5iBWXY3L02wFgkRYrG7s.jpg",
             "name": "Laura",
             "text": "I like that it doesn’t absorb anything. It feels cleaner when prepping food."
           }
@@ -998,6 +1011,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_436299039_nMXOyMWsoDPJIXK05mGK7emCRAa6FlWs.jpg",
             "name": "Thomas B.",
             "text": "At first it felt different, now it feels normal. My old wooden boards feel outdated."
           }
@@ -1006,6 +1020,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_604976565_7S9VCiGlwFlYfDnpp9Tect8QptezlU9h.jpg",
             "name": "Daniel S.",
             "text": "This feels like something you buy once and don’t think about again."
           }
@@ -1014,6 +1029,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_488491148_HfKqygPZcDdDHTZJMr2KZQrQxjDY6X3f.jpg",
             "name": "Emma",
             "text": "I cook a lot and this board stays neutral. No smells, no stains."
           }
@@ -1022,6 +1038,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_448408464_AAI9YjQesKAojm0BH3Bsky0g12zk35oc.jpg",
             "name": "Peter L.",
             "text": "Very low maintenance. That’s the biggest win for me."
           }
@@ -1030,6 +1047,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_322272754_zIqTdyYL5MKRy3Bz8ifSSXeTuE3UMMIC.jpg",
             "name": "Sophie K.",
             "text": "I didn’t know a cutting board could feel this solid. It doesn’t move or flex."
           }
@@ -1038,6 +1056,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/1000_F_581648206_YD6pOlR16m82WLdjqpd30eiMkgCZGJRl.jpg",
             "name": "Ryan M.",
             "text": "I was skeptical, but after a few weeks I get why people like this.”"
           }
@@ -1046,6 +1065,7 @@
           "type": "review",
           "settings": {
             "cat_id": "board",
+            "image": "shopify://shop_images/240_F_443711688_LCPcTeda2wlKFJNTPjTLPVFmuf0nnP1F.jpg",
             "name": "Anna",
             "text": "Simple, clean, and practical. That’s all I really want in my kitchen."
           }
