@@ -202,6 +202,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Product Care & Details",
+            "custom_icon": "shopify://shop_images/icons_5_2fea245a-4a2d-4762-8989-55e29299c2c7.svg",
             "icon": "none",
             "content": "<h3>Seasoning (Important for Best Results)</h3><p>Before first use, heat the pan over medium-low heat with a small amount of high-smoke-point oil for 2–3 minutes. This prepares the surface for optimal cooking performance. With continued use, the pan naturally improves over time.</p><h3>Materials & Construction</h3><p>Designed with a full-clad, multi-layer build for consistent performance:</p><ul><li>Titanium cooking surface with a textured pattern to support controlled food release<br/></li><li>Two aluminum core layers to promote even heat distribution<br/></li><li>Two stainless steel outer layers for strength, stability, and resistance to warping<br/></li></ul><h3>Size & Compatibility</h3><ul><li>Suitable for all cooktops, including induction, gas, and electric<br/></li><li>Oven and open-flame safe up to 600°C / 1112°F<br/></li><li>Built for frequent use, even at high temperatures<br/></li><li>Safe to use with metal utensils<br/></li></ul><h3>Cleaning & Maintenance</h3><ul><li>Dishwasher safe for easy cleanup<br/></li><li>Durable titanium surface allows for abrasive cleaning when needed<br/></li><li>No special soaps or tools required</li></ul>",
             "page": "",
@@ -249,6 +250,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Review Highlights",
+            "custom_icon": "shopify://shop_images/icons_22_1.svg",
             "icon": "none",
             "content": "",
             "page": "",
@@ -301,6 +303,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Your Key Questions, Answered",
+            "custom_icon": "shopify://shop_images/icons_23_1.svg",
             "icon": "none",
             "content": "<h2>Why Ours Is Priced Higher</h2><p>If you’ve come across cheaper “pure titanium” pans online — or even bought one — that’s understandable. Most of them aren’t truly titanium at all. They’re typically industrial steel alloys with a trace amount of titanium added, just enough to justify the label. That lowers production costs, but removes the very benefits people are looking for, while introducing new downsides.</p><p><strong>Walter</strong> is different. It’s crafted from <strong>certified 99.86% pure Grade 1 titanium</strong> — a material that’s exceptionally difficult and expensive to work with. That challenge is exactly why it performs the way it does, and why we’re able to support it with verified proof.</p><h2>How SlipScale™ Works</h2><p>SlipScale™ is a first-of-its-kind surface technology that redefines non-stick performance — without coatings. Instead of relying on chemicals, the surface is precisely imprinted with a micro-scale pattern that improves food release by up to <strong>3×</strong>.</p><p>These micro-ridges reduce direct contact between food and the pan while helping oils spread evenly. The result is a natural release layer that allows food to glide smoothly instead of sticking.</p><h2>How It Helps Preserve Nutrients</h2><p>Pure titanium conducts heat efficiently and evenly, allowing you to cook at lower temperatures without sacrificing performance. Research shows that lower-temperature cooking can help retain <strong>up to 30% more nutrients</strong>, particularly heat-sensitive vitamins like vitamin C, compared to conventional cookware.</p><h2>What Biocompatibility Means</h2><p>Titanium is considered the most biocompatible metal available — meaning the human body does not react negatively to it. This is why it’s widely used in surgical implants. It remains stable, non-reactive, and safe for repeated, direct contact with food.</p><h2>Why Acidic Foods Damage Other Pans</h2><p>Ingredients like lemon, tomato, and pepper release acids that can react with steel or synthetic non-stick coatings. Over time, this can degrade the surface and allow metals or chemicals to leach into food.</p><p>Titanium is the most corrosion-resistant metal known. It remains completely stable, regardless of acidity, ensuring consistent performance with any recipe.</p><h2>Is It Truly Pure?</h2><p>Yes. Each pan is tested by <strong>SGS</strong>, the world’s leading independent testing laboratory. Verification confirms a purity level of <strong>99.86% Grade 1 titanium</strong> — the highest practical purity available for cookware.</p><h2>What FDA-Compliant Means</h2><p>FDA compliance confirms the pan meets strict food-contact safety standards. That means:</p><ul><li>No harmful coatings<br/></li><li>No unsafe metals<br/></li><li>No chemical exposure<br/></li><li>Lead-free construction<br/></li></ul><p>Nothing unnecessary near your food — just clean, stable materials.</p>",
             "page": "",
@@ -348,6 +351,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Shipping, Returns & Warranty",
+            "custom_icon": "shopify://shop_images/icons_24_1.svg",
             "icon": "none",
             "content": "<p>Please allow <strong>1–4 business days</strong> for order processing and dispatch (up to 2 additional days during peak holiday periods).</p><p><strong>Standard delivery time:</strong> <strong>7–12 business days</strong> for orders shipped to the <strong>USA, UK, Canada, Australia, and New Zealand</strong>.</p><p>We offer a <strong>30-day return policy</strong>, giving you 30 days from delivery to request a return.</p><p>Walter products are built for everyday use and long-lasting performance.</p><p>Our warranty covers <strong>manufacturing defects and damage upon arrival</strong>.</p>",
             "page": "",
@@ -394,6 +398,7 @@
         "impact_note_KwNV8U": {
           "type": "impact_note",
           "settings": {
+            "icon": "shopify://shop_images/icons_2_1.avif",
             "bg_color": "#03231a",
             "text_color": "#d4c7b4",
             "text": "Every order supports the future of toxin-free living by helping fund the next generation of safe, non-toxic kitchenware."
@@ -559,6 +564,7 @@
         "slide_9kQBcy": {
           "type": "slide",
           "settings": {
+            "video_file": "shopify://files/videos/bdfa6c735e554e90a06f619daae8244e (1).mp4",
             "video_url": "",
             "mp4_url": "",
             "quote": "\"Nonstick without chemicals or coatings, this is revolutionary\""
@@ -567,6 +573,7 @@
         "slide_jFzY9a": {
           "type": "slide",
           "settings": {
+            "video_file": "shopify://files/videos/2098cc6d0de04fba80b47c709be211a8 (1).mp4",
             "video_url": "",
             "mp4_url": "",
             "quote": "\"I wanted to test Walter for a full week, but after the first day I already knew.\""
@@ -575,6 +582,7 @@
         "slide_ndUw9b": {
           "type": "slide",
           "settings": {
+            "video_file": "shopify://files/videos/d19dce61594e4ad3b2805dea173624a1 (1).mp4",
             "video_url": "",
             "mp4_url": "",
             "quote": "For Walter Cookware"
@@ -583,6 +591,7 @@
         "slide_yM9TtG": {
           "type": "slide",
           "settings": {
+            "video_file": "shopify://files/videos/f94025676a7c423e9153b70fa434a4f9.mov",
             "video_url": "",
             "mp4_url": "",
             "quote": "\"Finally cooking with a pan that doesn’t rely on chemical coatings.\""
