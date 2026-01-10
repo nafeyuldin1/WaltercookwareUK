@@ -1,0 +1,616 @@
+{%- comment -%}
+  FAQ with Sidebar Section
+  Fully Dynamic with Category Groups and Questions
+  Fixed: Schema Preset Error resolved by adding dedicated Image Picker
+{%- endcomment -%}
+
+{%- style -%}
+  #cbx-faq-{{ section.id }} {
+    /* CSS Variables from Settings */
+    --bg: {{ section.settings.bg_color }};
+    --text: {{ section.settings.text_color }};
+    --sidebar-bg: {{ section.settings.sidebar_bg_color }};
+    --heading: {{ section.settings.heading_color }};
+    --accent: {{ section.settings.accent_color }};
+    --border: {{ section.settings.border_color }};
+    
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  #cbx-faq-{{ section.id }} .cbx-faq-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 40px; 
+    padding-right: 40px;
+  }
+
+  /* --- SIDEBAR --- */
+  #cbx-faq-{{ section.id }} .cbx-sidebar {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    padding-right: 20px;
+  }
+  
+  #cbx-faq-{{ section.id }} .cbx-side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #cbx-faq-{{ section.id }} .cbx-side-link {
+    display: block;
+    padding: 12px 0;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 16px;
+    border-left: 2px solid transparent;
+    padding-left: 16px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+  
+  #cbx-faq-{{ section.id }} .cbx-side-link:hover,
+  #cbx-faq-{{ section.id }} .cbx-side-link.open-active {
+    opacity: 1;
+    color: var(--heading);
+    border-left-color: var(--heading);
+  }
+
+  /* --- MAIN CONTENT --- */
+  #cbx-faq-{{ section.id }} .cbx-faq-header .cbx-title {
+    font-size: {{ section.settings.title_size }}px;
+    color: var(--heading);
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+
+  #cbx-faq-{{ section.id }} .faq-group {
+    margin-bottom: 60px;
+    scroll-margin-top: 140px; /* Offset for sticky header */
+  }
+
+  #cbx-faq-{{ section.id }} .faq-group-title {
+    font-size: 32px;
+    color: var(--heading);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* --- ACCORDION STYLES --- */
+  #cbx-faq-{{ section.id }} .faq-accordion {
+    border-bottom: 1px solid var(--border);
+  }
+  
+  #cbx-faq-{{ section.id }} .faq-q {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--heading);
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  #cbx-faq-{{ section.id }} .faq-q::-webkit-details-marker { display: none; }
+
+  #cbx-faq-{{ section.id }} .faq-icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  #cbx-faq-{{ section.id }} .faq-icon::before,
+  #cbx-faq-{{ section.id }} .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--heading);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+  }
+  #cbx-faq-{{ section.id }} .faq-icon::before { width: 100%; height: 2px; }
+  #cbx-faq-{{ section.id }} .faq-icon::after { width: 2px; height: 100%; }
+
+  #cbx-faq-{{ section.id }} .faq-accordion[open] .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  #cbx-faq-{{ section.id }} .faq-body {
+    overflow: hidden;
+    transition: height 0.3s ease, opacity 0.3s ease;
+  }
+  
+  #cbx-faq-{{ section.id }} .faq-a {
+    padding-bottom: 24px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  #cbx-faq-{{ section.id }} .faq-a p { margin-bottom: 16px; margin-top: 0; }
+  #cbx-faq-{{ section.id }} .faq-a a { color: var(--heading); text-decoration: underline; }
+  
+  #cbx-faq-{{ section.id }} .faq-a img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 12px;
+    display: block;
+  }
+
+  /* --- MOBILE PILLS (Sticky) --- */
+  #cbx-faq-{{ section.id }} .cbx-mobile-nav {
+    display: none; /* Hidden on desktop */
+    position: sticky;
+    top: 0; /* JS will adjust */
+    z-index: 90;
+    background: var(--bg);
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  #cbx-faq-{{ section.id }} .cbx-mobile-scroller {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+  }
+  #cbx-faq-{{ section.id }} .cbx-mobile-scroller::-webkit-scrollbar { display: none; }
+
+  #cbx-faq-{{ section.id }} .cbx-pill-faq {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  
+  #cbx-faq-{{ section.id }} .cbx-pill-faq.open-active {
+    background: var(--heading);
+    color: var(--bg);
+    border-color: var(--heading);
+  }
+
+  /* Fixed bar inserted by JS */
+  .cbx-faq-fixedbar {
+    position: fixed;
+    top: 98px; left: 0; width: 100%;
+    background: var(--bg); 
+    z-index: 999;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    padding: 10px 16px;
+    border-bottom: 1px solid #333;
+    pointer-events: none;
+  }
+  .cbx-faq-fixedbar.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 1024px) {
+    #cbx-faq-{{ section.id }} .cbx-faq-layout {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+    #cbx-faq-{{ section.id }} .cbx-sidebar { display: none; }
+    #cbx-faq-{{ section.id }} .cbx-mobile-nav { display: block; }
+  }
+{%- endstyle -%}
+
+<section id="cbx-faq-{{ section.id }}" class="cbx-faq cbx-faq-with" data-section-id="{{ section.id }}">
+  <div class="cbx-faq-layout">
+    
+    <aside class="cbx-sidebar">
+      <nav class="cbx-side-nav" aria-label="FAQ navigation">
+        <ul>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'category' -%}
+              <li>
+                <a class="cbx-side-link {% if forloop.first %}open-active{% endif %}" 
+                   data-nav-id="{{ block.id }}" 
+                   href="#{{ block.settings.title | handleize }}">
+                  <span>{{ block.settings.title }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="cbx-faq-main">
+      
+      <header class="cbx-faq-header">
+        <h1 class="cbx-title">{{ section.settings.title }}</h1>
+      </header>
+
+      <div class="cbx-mobile-nav cbx-mobile-nav-sticky">
+        <div class="cbx-mobile-scroller">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'category' -%}
+              <a class="cbx-pill-faq {% if forloop.first %}open-active{% endif %}" 
+                 data-nav-id="{{ block.id }}" 
+                 href="#{{ block.settings.title | handleize }}">
+                {{ block.settings.title }}
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="cbx-faq-content">
+        {%- assign category_open = false -%}
+        
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'category' -%}
+            {%- if category_open -%}
+              </div> </section> {%- endif -%}
+            
+            <section id="{{ block.settings.title | handleize }}" class="faq-group" {{ block.shopify_attributes }}>
+              <h2 class="faq-group-title">{{ block.settings.title }}</h2>
+              <div class="faq-group-inner">
+              {%- assign category_open = true -%}
+          
+          {%- elsif block.type == 'question' -%}
+            {%- if category_open -%}
+              <details class="faq-accordion" {{ block.shopify_attributes }} {% if block.settings.open_by_default %}open{% endif %}>
+                <summary class="faq-q">
+                  <span class="faq-title">{{ block.settings.question }}</span>
+                  <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="faq-body">
+                  <div class="faq-a rte">
+                    {{ block.settings.answer }}
+                    {%- if block.settings.answer_image != blank -%}
+                      {{ block.settings.answer_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+                    {%- endif -%}
+                  </div>
+                </div>
+              </details>
+            {%- endif -%}
+          {%- endif -%}
+          
+          {%- if forloop.last and category_open -%}
+            </div> </section> {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="cbx-faq-fixedbar-{{ section.id }}" class="cbx-faq-fixedbar" style="background: {{ section.settings.bg_color }}; border-color: {{ section.settings.border_color }};">
+  <div class="cbx-mobile-scroller">
+    </div>
+</div>
+
+<script>
+  (function () {
+    const sectionId = '{{ section.id }}';
+    const section = document.querySelector(`.cbx-faq[data-section-id="${sectionId}"]`);
+    if (!section) return;
+
+    // --- 1. Mobile Fixed Bar Sync ---
+    const inSectionBar = section.querySelector('.cbx-mobile-nav-sticky');
+    const inSectionScroller = inSectionBar ? inSectionBar.querySelector('.cbx-mobile-scroller') : null;
+    const fixedBar = document.getElementById(`cbx-faq-fixedbar-${sectionId}`);
+    const fixedScroller = fixedBar ? fixedBar.querySelector('.cbx-mobile-scroller') : null;
+
+    if (inSectionScroller && fixedScroller) {
+      fixedScroller.innerHTML = inSectionScroller.innerHTML;
+
+      function updateVisibility() {
+        if (window.innerWidth > 1024) {
+          fixedBar.classList.remove('is-visible');
+          return;
+        }
+        const rect = inSectionBar.getBoundingClientRect();
+        // Assuming ~98px header height
+        if (rect.bottom <= 98) {
+          fixedBar.classList.add('is-visible');
+        } else {
+          fixedBar.classList.remove('is-visible');
+        }
+      }
+
+      window.addEventListener('scroll', updateVisibility);
+      window.addEventListener('resize', updateVisibility);
+    }
+
+    // --- 2. Active State Logic & Smooth Scroll ---
+    const allLinks = [
+      ...Array.from(section.querySelectorAll('.cbx-side-link')),
+      ...Array.from(section.querySelectorAll('.cbx-pill-faq')),
+      ...(fixedScroller ? Array.from(fixedScroller.querySelectorAll('.cbx-pill-faq')) : [])
+    ];
+
+    function setActive(id) {
+      allLinks.forEach(link => {
+        if(link.dataset.navId === id) link.classList.add('open-active');
+        else link.classList.remove('open-active');
+      });
+    }
+
+    function smoothScroll(e) {
+      const href = this.getAttribute('href');
+      if(!href.startsWith('#')) return;
+      e.preventDefault();
+      
+      const targetId = href.substring(1);
+      const target = document.getElementById(targetId);
+      
+      if(target) {
+        const headerOffset = 140; 
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = target.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+        
+        setActive(this.dataset.navId);
+      }
+    }
+
+    allLinks.forEach(link => link.addEventListener('click', smoothScroll));
+
+    // --- 3. Accordion Animation ---
+    const accordions = section.querySelectorAll('.faq-accordion');
+    
+    accordions.forEach(acc => {
+      const summary = acc.querySelector('summary');
+      const body = acc.querySelector('.faq-body');
+      
+      if(acc.hasAttribute('open')) {
+        body.style.height = 'auto';
+        body.style.opacity = '1';
+      } else {
+        body.style.height = '0px';
+        body.style.opacity = '0';
+      }
+
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const isOpen = acc.hasAttribute('open');
+        
+        accordions.forEach(other => {
+          if(other !== acc && other.hasAttribute('open')) {
+            closeAccordion(other);
+          }
+        });
+
+        if(isOpen) {
+          closeAccordion(acc);
+        } else {
+          openAccordion(acc);
+        }
+      });
+    });
+
+    function openAccordion(el) {
+      const body = el.querySelector('.faq-body');
+      el.setAttribute('open', '');
+      body.style.display = 'block';
+      const height = body.scrollHeight + 'px';
+      
+      requestAnimationFrame(() => {
+        body.style.height = height;
+        body.style.opacity = '1';
+      });
+
+      setTimeout(() => { body.style.height = 'auto'; }, 300);
+    }
+
+    function closeAccordion(el) {
+      const body = el.querySelector('.faq-body');
+      const height = body.scrollHeight + 'px';
+      
+      body.style.height = height;
+      
+      requestAnimationFrame(() => {
+        body.style.height = '0px';
+        body.style.opacity = '0';
+      });
+
+      setTimeout(() => { el.removeAttribute('open'); }, 300);
+    }
+
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ with Sidebar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Page Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 24,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Size",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "sidebar_bg_color",
+      "label": "Sidebar Background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Headings Color",
+      "default": "#bca588"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#b0b0b0"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category / Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Name",
+          "default": "General"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Ask a question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer Text",
+          "default": "<p>Provide the answer here.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "answer_image",
+          "label": "Answer Image (Optional)",
+          "info": "Useful for comparison charts or diagrams."
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ with Sidebar",
+      "blocks": [
+        { "type": "category", "settings": { "title": "About Us" } },
+        { "type": "question", "settings": { "question": "What makes Taima® unique?", "answer": "<p>At Taima®, we don’t follow the path of traditional cookware companies...</p><p><strong>First</strong>, we craft every product exclusively from <strong>certified pure titanium</strong>...</p>", "open_by_default": true } },
+        { "type": "question", "settings": { "question": "Where does the Taima name come from?", "answer": "<p>The name <strong>Taima</strong>® comes from combining two principles at the heart of Japanese design...</p>" } },
+        { "type": "question", "settings": { "question": "Where are Taima® products made?", "answer": "<p>Our products are designed in California, then crafted in world-class titanium factories in China...</p>" } },
+        { "type": "question", "settings": { "question": "Do Taima® products come with a warranty?", "answer": "<p>Yes. Every Taima® product is backed with a <strong>Lifetime Warranty</strong>...</p>" } },
+        { "type": "question", "settings": { "question": "Why do 500,000+ people love Taima®?", "answer": "<p>Because people are done being lied to...</p>" } },
+        { "type": "question", "settings": { "question": "Is all titanium the same?", "answer": "<p>No, and that’s where most people get tricked...</p>" } },
+        { "type": "question", "settings": { "question": "What impact does my purchase have?", "answer": "<p>A portion of every sale is reinvested directly into <strong>research and development...</strong></p>" } },
+        { "type": "category", "settings": { "title": "About Pure Titanium" } },
+        { "type": "question", "settings": { "question": "What is titanium & why does it matter for my safety?", "answer": "<p>Titanium is simply one of the strongest, non-toxic and most biocompatible metals on Earth...</p>" } },
+        { "type": "question", "settings": { "question": "Why titanium instead of wood, plastic or non-stick?", "answer": "<p>Because every other option comes with long-term health risks...</p>" } },
+        { "type": "question", "settings": { "question": "Is titanium safe for food contact?", "answer": "<p>Yes. Titanium never leaches, corrodes, or reacts with your food...</p>" } },
+        { "type": "question", "settings": { "question": "Is titanium completely toxin-free?", "answer": "<p>Yes. Pure titanium is 100% toxin-free...</p>" } },
+        { "type": "question", "settings": { "question": "Titanium antibacterial properties explained", "answer": "<p>Yes - naturally. Its dense, non-porous surface gives bacteria nowhere to hide...</p>" } },
+        { "type": "question", "settings": { "question": "What does “biocompatible” mean?", "answer": "<p>Pure titanium is the most biocompatible metal on Earth...</p>" } },
+        { "type": "question", "settings": { "question": "Does it have heavy metals? Does it corrode?", "answer": "<p>No. Pure titanium is the most corrosion-resistant metal in the world...</p>" } },
+        { "type": "question", "settings": { "question": "How long do Taima pure titanium products last?", "answer": "<p>Unlike wood, plastic, or coated cookware, pure titanium products don’t degrade with time...</p>" } },
+        { "type": "question", "settings": { "question": "Are titanium products dishwasher safe?", "answer": "<p>Absolutely. Unlike non-stick coated pans...</p>" } },
+        { "type": "question", "settings": { "question": "Will titanium damage my knives or cooking tools?", "answer": "<p>No - titanium is softer than the hardened steel used in 99% of kitchen knives...</p>" } },
+        { "type": "question", "settings": { "question": "Are there any downsides to pure titanium kitchenware?", "answer": "<p>Only one: the upfront cost, titanium is a premium metal...</p>" } },
+        { "type": "question", "settings": { "question": "Is titanium environmentally friendly?", "answer": "<p>Yes. Titanium is fully recyclable...</p>" } },
+        { "type": "question", "settings": { "question": "Does Taima® titanium meet FDA food-contact safety standards?", "answer": "<p>Yes. Every Taima® product is rigorously tested and certified...</p>" } },
+        { "type": "question", "settings": { "question": "Is titanium hypoallergenic?", "answer": "<p>Yes. Unlike stainless steel (which can leach nickel and chromium)...</p>" } },
+        { "type": "question", "settings": { "question": "Is titanium magnetic?", "answer": "<p>Pure titanium itself is not magnetic...</p>" } },
+        { "type": "category", "settings": { "title": "Orders & Shipping" } },
+        { "type": "question", "settings": { "question": "Where do you ship?", "answer": "<p>We proudly ship worldwide. Wherever you are...</p>" } },
+        { "type": "question", "settings": { "question": "How long does it take to process an order?", "answer": "<p>All orders are processed within 1-4 business days...</p>" } },
+        { "type": "question", "settings": { "question": "When will I receive my order?", "answer": "<p>Delivery times vary by country and region...</p>" } },
+        { "type": "question", "settings": { "question": "Will I receive tracking details?", "answer": "<p>Yes. As soon as your order is processed...</p>" } },
+        { "type": "question", "settings": { "question": "What if my order is delayed or lost?", "answer": "<p>If your order hasn’t been processed yet, we can update your details...</p>" } },
+        { "type": "question", "settings": { "question": "How can I contact you about my order?", "answer": "<p>Our support team is always here to help...</p>" } },
+        { "type": "question", "settings": { "question": "The product I want is out of stock. What now?", "answer": "<p>Restocks can’t always be guaranteed...</p>" } },
+        { "type": "category", "settings": { "title": "Regular Cookware" } },
+        { "type": "question", "settings": { "question": "Downsides of non-stick coated pans", "answer": "<p>The most toxic pan surface there is...</p>" } },
+        { "type": "question", "settings": { "question": "Downsides of stainless steel pans", "answer": "<p>Requires lots of oil to prevent sticking...</p>" } },
+        { "type": "question", "settings": { "question": "Downsides of ceramic pans", "answer": "<p>Ceramic coatings are very fragile...</p>" } },
+        { "type": "question", "settings": { "question": "Downsides of cast iron pans", "answer": "<p>Incredibly heavy and high-maintenance...</p>" } },
+        { "type": "question", "settings": { "question": "How does titanium compare to regular cookware?", "answer": "<p>See comparison chart below:</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

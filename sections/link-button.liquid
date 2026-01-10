@@ -1,0 +1,242 @@
+{%- comment -%}
+  Link Button Row Section
+  Fully Dynamic with Customizer Settings
+{%- endcomment -%}
+
+{%- style -%}
+  #link-row-{{ section.id }} .link-row__wrap {
+    /* CSS Variables from Settings */
+    --bg: {{ section.settings.bg_color }};
+    --text: {{ section.settings.text_color }};
+    --border: {{ section.settings.border_color }};
+    
+    background: var(--bg);
+    color: var(--text);
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  #link-row-{{ section.id }} .link-row__grid {
+    display: grid;
+    /* Dynamically set columns based on block count (max 4) */
+    grid-template-columns: repeat({{ section.blocks.size }}, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  #link-row-{{ section.id }} .link-row__btn {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    text-decoration: none;
+    font-size: {{ section.settings.font_size }}px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0.96px;
+    text-transform: capitalize;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  #link-row-{{ section.id }} .link-row__btn:hover {
+    transform: translateY(-1px);
+    /* Modern CSS mix to darken border slightly on hover */
+    border-color: color-mix(in srgb, var(--border), #999 40%);
+  }
+
+  #link-row-{{ section.id }} .link-row__btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255,255,255,.12);
+  }
+
+  /* --- Responsive Scaling Logic --- */
+
+  /* Laptop Scaling (-10%) */
+  @media (min-width: 751px) and (max-width: 1799px) {
+    #link-row-{{ section.id }} .link-row__wrap { 
+      padding-top: calc({{ section.settings.padding_top }}px * 0.9);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.9);
+      padding-left: 108px;
+      padding-right: 108px;
+    }
+    #link-row-{{ section.id }} .link-row__grid { gap: 21.6px; }
+    #link-row-{{ section.id }} .link-row__btn {
+      padding: 28.8px 21.6px;
+      border-radius: 14.4px;
+      font-size: calc({{ section.settings.font_size }}px * 0.9);
+      letter-spacing: 0.864px;
+    }
+  }
+
+  /* Large Screen Scaling (+30%) */
+  @media (min-width: 2200px) {
+    #link-row-{{ section.id }} .link-row__wrap { 
+      padding-top: calc({{ section.settings.padding_top }}px * 1.3);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 1.3);
+      padding-left: 156px;
+      padding-right: 156px;
+    }
+    #link-row-{{ section.id }} .link-row__grid { gap: 31.2px; }
+    #link-row-{{ section.id }} .link-row__btn {
+      padding: 41.6px 31.2px;
+      border-radius: 20.8px;
+      font-size: calc({{ section.settings.font_size }}px * 1.3);
+      letter-spacing: 1.248px;
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 749px) {
+    #link-row-{{ section.id }} .link-row__wrap { 
+      padding: {{ section.settings.padding_top }}px 16px {{ section.settings.padding_bottom }}px 16px;
+    }
+    #link-row-{{ section.id }} .link-row__grid { 
+      grid-template-columns: 1fr; 
+      gap: 12px; 
+    }
+    #link-row-{{ section.id }} .link-row__btn {
+      padding: 20px;
+      font-size: 16px;
+      letter-spacing: 0.64px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="link-row-{{ section.id }}" class="link-row" aria-label="Quick links">
+  <div class="link-row__wrap">
+    <div class="link-row__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.label != blank -%}
+          <a class="link-row__btn" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+            {{ block.settings.label }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Link Button Row",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size (Desktop)",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 120
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_button",
+      "name": "Link Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Link Button Row",
+      "blocks": [
+        {
+          "type": "link_button",
+          "settings": {
+            "label": "See Science Behind Titanium"
+          }
+        },
+        {
+          "type": "link_button",
+          "settings": {
+            "label": "Read FAQ’s"
+          }
+        },
+        {
+          "type": "link_button",
+          "settings": {
+            "label": "Shop Best Seller Pan"
+          }
+        },
+        {
+          "type": "link_button",
+          "settings": {
+            "label": "Shop Best Seller Board"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

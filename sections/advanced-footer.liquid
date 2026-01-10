@@ -1,0 +1,685 @@
+{%- style -%}
+  /* Dynamic Variables */
+  #shopify-section-{{ section.id }} .footer-adv {
+    --bg: {{ section.settings.color_bg }};
+    --fg: {{ section.settings.color_text }};
+    --muted: {{ section.settings.color_muted }};
+    --accent: {{ section.settings.color_accent }};
+    --border-color: {{ section.settings.color_border }};
+  }
+
+  /* Marquee — seamless loop */
+  #shopify-section-{{ section.id }} .footer-adv__marquee {
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    background: var(--bg);
+    color: var(--fg);
+    white-space: nowrap;
+    position: relative;
+  }
+
+  /* Animate the TRACK */
+  #shopify-section-{{ section.id }} .marquee__track {
+    display: inline-flex;
+    align-items: center;
+    gap: 80vw;
+    padding: 32px 16px;
+    white-space: nowrap;
+    will-change: transform;
+    animation: footer-marquee {{ section.settings.marquee_speed }}s linear infinite;
+  }
+
+  #shopify-section-{{ section.id }} .marquee__seq {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .marquee__icon {
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .marquee__text {
+    color: var(--fg);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 2.56px;
+    white-space: nowrap;
+  }
+
+  @keyframes footer-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Footer Inner */
+  #shopify-section-{{ section.id }} .footer-adv__inner {
+    background: var(--bg);
+    max-width: 1920px;
+    padding: 64px 120px;
+    margin: 0 auto;
+    color: var(--fg);
+  }
+
+  #shopify-section-{{ section.id }} .footer-adv__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr 0.3fr;
+    gap: 48px;
+  }
+
+  /* Logo & Blurb */
+  #shopify-section-{{ section.id }} .footer-adv__logo img {
+    height: auto;
+    width: auto;
+    max-width: {{ section.settings.logo_width }}px;
+  }
+
+  #shopify-section-{{ section.id }} .footer-adv__blurb {
+    margin: 64px 0 32px;
+    max-width: 365px;
+    color: var(--fg);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+
+  #shopify-section-{{ section.id }} .footer-adv__blurb p { margin: 0; }
+
+  /* Newsletter Form */
+  #shopify-section-{{ section.id }} .footer-adv__nl-form { margin: 0; }
+  
+  #shopify-section-{{ section.id }} .nl-form__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 365px;
+    border-radius: 12px;
+    border: 1px solid var(--fg);
+    padding: 0;
+  }
+  
+  #shopify-section-{{ section.id }} .nl-form__input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 10px 12px;
+    color: var(--muted);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.56px;
+  }
+  
+  #shopify-section-{{ section.id }} .nl-form__input::placeholder { color: var(--muted); opacity: 0.7; }
+
+  #shopify-section-{{ section.id }} .nl-form__btn {
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    padding: 0 24px;
+    border-radius: 12px;
+    /* Metallic Gradient preserved */
+    background: linear-gradient(87deg, #FFF -96.92%, #999 -88.86%, #BFBFBF -84.16%, #EBEBEB -71.32%, #ABABAB -50.9%, #EBEBEB -40%, #FFF -27.43%);
+    color: #121212;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0.64px;
+    text-transform: capitalize;
+  }
+
+  #shopify-section-{{ section.id }} .nl-form__note {
+    margin-top: 12px;
+    color: var(--muted);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.56px;
+  }
+
+  /* Link Columns */
+  #shopify-section-{{ section.id }} .footer-adv__links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  #shopify-section-{{ section.id }} .links-col__title {
+    margin: 0 0 16px;
+    color: var(--fg);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.32px;
+    text-transform: capitalize;
+  }
+
+  #shopify-section-{{ section.id }} .links-col__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .links-col__link {
+    text-decoration: none;
+    color: var(--muted);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.56px;
+  }
+  
+  #shopify-section-{{ section.id }} .links-col__link:hover {
+    text-decoration: underline;
+    color: var(--accent);
+  }
+
+  /* Contact Column */
+  #shopify-section-{{ section.id }} .footer-adv__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .contact__title,
+  #shopify-section-{{ section.id }} .contact__email-text {
+    margin: 0 0 16px;
+    color: var(--fg);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.32px;
+    text-transform: capitalize;
+  }
+  
+  #shopify-section-{{ section.id }} .contact__email-text { margin-bottom: 12px; }
+
+  #shopify-section-{{ section.id }} .contact__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    text-decoration: none;
+    width: max-content;
+    border-radius: 12px;
+    background: linear-gradient(87deg, #FFF -96.92%, #999 -88.86%, #BFBFBF -84.16%, #EBEBEB -71.32%, #ABABAB -50.9%, #EBEBEB -40%, #FFF -27.43%);
+    color: #121212;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0.64px;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .contact__email {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--muted);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.56px;
+  }
+  
+  #shopify-section-{{ section.id }} .contact__email svg path { fill: var(--accent); }
+
+  /* Copyright */
+  #shopify-section-{{ section.id }} .footer-adv__copyright {
+    background: var(--bg);
+    border-top: 1px solid var(--border-color);
+  }
+  
+  #shopify-section-{{ section.id }} .footer-adv__copy-inner {
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 32px 0;
+  }
+  
+  #shopify-section-{{ section.id }} .copy__text {
+    margin: 0;
+    color: var(--muted);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+
+  /* MEDIA QUERIES */
+
+  /* Mobile */
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .footer-adv__blurb { font-size: 14px; letter-spacing: 0.56px; text-align: center; }
+    #shopify-section-{{ section.id }} .nl-form__input { padding: 9px 12px; }
+    #shopify-section-{{ section.id }} .nl-form__note { text-align: center; }
+    #shopify-section-{{ section.id }} .marquee__text { font-size: 32px; letter-spacing: 1.28px; }
+    #shopify-section-{{ section.id }} .footer-adv__grid { grid-template-columns: 1fr; gap: 64px; }
+    #shopify-section-{{ section.id }} .footer-adv__links { grid-template-columns: 1fr; gap: 32px; justify-items: center; }
+    #shopify-section-{{ section.id }} .links-col { text-align: center; }
+    #shopify-section-{{ section.id }} .footer-adv__contact { align-items: center; gap: 0; }
+    #shopify-section-{{ section.id }} .copy__text { text-align: center; }
+    #shopify-section-{{ section.id }} .footer-adv__inner { padding: 32px 16px; }
+    #shopify-section-{{ section.id }} .footer-adv__logo img { max-width: 243px; }
+    #shopify-section-{{ section.id }} .footer-adv__logo { display: flex; justify-content: center; }
+    #shopify-section-{{ section.id }} .nl-form__row { max-width: 100%; }
+    #shopify-section-{{ section.id }} .contact__btn { justify-content: center; font-weight: 500; }
+    #shopify-section-{{ section.id }} .footer-adv__copyright { margin-top: 32px; }
+    #shopify-section-{{ section.id }} .marquee__icon, 
+    #shopify-section-{{ section.id }} .marquee__icon svg { width: 32px; height: 32px; }
+    #shopify-section-{{ section.id }} .links-col__link { font-size: 12px; letter-spacing: 0.48px; }
+  }
+
+  /* Large Screens (2200px+) */
+  @media (min-width: 2200px) {
+    #shopify-section-{{ section.id }} .footer-adv__inner { max-width: 2496px; padding: 83.2px 156px; }
+    #shopify-section-{{ section.id }} .footer-adv__grid { gap: 62.4px; }
+    #shopify-section-{{ section.id }} .footer-adv__logo img { max-width: 338px; }
+    #shopify-section-{{ section.id }} .footer-adv__blurb { margin: 83.2px 0 41.6px; max-width: 474.5px; font-size: 20.8px; letter-spacing: 0.832px; }
+    #shopify-section-{{ section.id }} .nl-form__row { border-radius: 15.6px; }
+    #shopify-section-{{ section.id }} .nl-form__input { font-size: 18.2px; padding: 13px 15.6px; }
+    #shopify-section-{{ section.id }} .nl-form__btn { height: 52px; padding: 0 31.2px; border-radius: 15.6px; font-size: 20.8px; letter-spacing: 0.832px; }
+    #shopify-section-{{ section.id }} .nl-form__note { font-size: 18.2px; }
+    #shopify-section-{{ section.id }} .footer-adv__links { gap: 41.6px; }
+    #shopify-section-{{ section.id }} .links-col__title { font-size: 20.8px; letter-spacing: 0.416px; margin: 0 0 20.8px; }
+    #shopify-section-{{ section.id }} .links-col__list { gap: 2.6px; }
+    #shopify-section-{{ section.id }} .links-col__link { font-size: 18.2px; letter-spacing: 0.728px; }
+    #shopify-section-{{ section.id }} .footer-adv__contact { gap: 15.6px; }
+    #shopify-section-{{ section.id }} .contact__title { font-size: 20.8px; letter-spacing: 0.416px; margin: 0 0 20.8px; }
+    #shopify-section-{{ section.id }} .contact__btn { padding: 15.6px 31.2px; border-radius: 15.6px; font-size: 20.8px; letter-spacing: 0.832px; margin-bottom: 20.8px; }
+    #shopify-section-{{ section.id }} .contact__email-text { font-size: 20.8px; letter-spacing: 0.416px; }
+    #shopify-section-{{ section.id }} .contact__email { font-size: 18.2px; letter-spacing: 0.728px; gap: 10.4px; }
+    #shopify-section-{{ section.id }} .footer-adv__copy-inner { max-width: 2184px; padding: 41.6px 0; }
+    #shopify-section-{{ section.id }} .copy__text { font-size: 20.8px; letter-spacing: 0.832px; }
+    #shopify-section-{{ section.id }} .marquee__track { padding: 41.6px 20.8px; }
+    #shopify-section-{{ section.id }} .marquee__icon { width: 62.4px; height: 62.4px; }
+    #shopify-section-{{ section.id }} .marquee__text { font-size: 83.2px; letter-spacing: 3.328px; }
+  }
+
+  /* Mid Desktop (750-1799px) */
+  @media (min-width: 750px) and (max-width: 1799px) {
+    #shopify-section-{{ section.id }} .footer-adv__inner { max-width: 1728px; padding: 57.6px 108px; }
+    #shopify-section-{{ section.id }} .footer-adv__grid { gap: 43.2px; }
+    #shopify-section-{{ section.id }} .footer-adv__logo img { max-width: 234px; }
+    #shopify-section-{{ section.id }} .footer-adv__blurb { margin: 57.6px 0 28.8px; max-width: 328.5px; font-size: 14.4px; letter-spacing: 0.576px; }
+    #shopify-section-{{ section.id }} .nl-form__row { border-radius: 10.8px; }
+    #shopify-section-{{ section.id }} .nl-form__input { font-size: 12.6px; padding: 9px 10.8px; }
+    #shopify-section-{{ section.id }} .nl-form__btn { height: 36px; padding: 0 21.6px; border-radius: 10.8px; font-size: 14.4px; letter-spacing: 0.576px; }
+    #shopify-section-{{ section.id }} .nl-form__note { font-size: 12.6px; }
+    #shopify-section-{{ section.id }} .footer-adv__links { gap: 28.8px; }
+    #shopify-section-{{ section.id }} .links-col__title { font-size: 14.4px; letter-spacing: 0.288px; margin: 0 0 14.4px; }
+    #shopify-section-{{ section.id }} .links-col__list { gap: 1.8px; }
+    #shopify-section-{{ section.id }} .links-col__link { font-size: 12.6px; letter-spacing: 0.504px; }
+    #shopify-section-{{ section.id }} .footer-adv__contact { gap: 10.8px; }
+    #shopify-section-{{ section.id }} .contact__title { font-size: 14.4px; letter-spacing: 0.288px; margin: 0 0 14.4px; }
+    #shopify-section-{{ section.id }} .contact__btn { padding: 10.8px 21.6px; border-radius: 10.8px; font-size: 14.4px; letter-spacing: 0.576px; margin-bottom: 14.4px; }
+    #shopify-section-{{ section.id }} .contact__email-text { font-size: 14.4px; letter-spacing: 0.288px; }
+    #shopify-section-{{ section.id }} .contact__email { font-size: 12.6px; letter-spacing: 0.504px; gap: 7.2px; }
+    #shopify-section-{{ section.id }} .footer-adv__copy-inner { max-width: 1512px; padding: 28.8px 0; }
+    #shopify-section-{{ section.id }} .copy__text { font-size: 14.4px; letter-spacing: 0.576px; }
+    #shopify-section-{{ section.id }} .marquee__track { padding: 28.8px 14.4px; }
+    #shopify-section-{{ section.id }} .marquee__icon { width: 43.2px; height: 43.2px; }
+    #shopify-section-{{ section.id }} .marquee__text { font-size: 57.6px; letter-spacing: 2.304px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .marquee__track { animation: none; transform: none; }
+  }
+  
+  #shopify-section-{{ section.id }} .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+{%- endstyle -%}
+
+<section id="footer-adv-{{ section.id }}" class="footer-adv" role="contentinfo">
+  
+  {% if section.settings.show_marquee %}
+  <div class="footer-adv__marquee" aria-label="Brand message">
+    <div class="marquee__track">
+      {% for i in (1..2) %}
+      <div class="marquee__seq" {% if i == 2 %}aria-hidden="true"{% endif %}>
+        <span class="marquee__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 24H44M24 4C18.8645 9.39231 16 16.5535 16 24C16 31.4465 18.8645 38.6077 24 44C29.1355 38.6077 32 31.4465 32 24C32 16.5535 29.1355 9.39231 24 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="marquee__text">{{ section.settings.marquee_text }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="footer-adv__inner">
+    <div class="footer-adv__grid">
+      
+      <div class="footer-adv__brand">
+        {% if section.settings.logo != blank %}
+        <div class="footer-adv__logo">
+          {{ section.settings.logo | image_url: width: 600 | image_tag: loading: 'lazy', alt: shop.name }}
+        </div>
+        {% endif %}
+
+        {% if section.settings.blurb != blank %}
+        <div class="footer-adv__blurb rte">
+          {{ section.settings.blurb }}
+        </div>
+        {% endif %}
+
+        {% form 'customer', class: 'footer-adv__nl-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label for="footer-email-{{ section.id }}" class="sr-only">Email</label>
+          
+          <div class="nl-form__row">
+            <input id="footer-email-{{ section.id }}" class="nl-form__input" type="email" name="contact[email]" value="{{ form.email }}" autocapitalize="off" autocomplete="email" placeholder="{{ section.settings.nl_placeholder }}" required>
+            <button class="nl-form__btn" type="submit">{{ section.settings.nl_btn_text }}</button>
+          </div>
+          
+          {%- if form.errors -%}
+            <small class="nl-form__note" style="color: #ff6b6b;">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+          {%- elsif form.posted_successfully? -%}
+            <small class="nl-form__note" style="color: #ffffff;">{{ section.settings.nl_success }}</small>
+          {%- else -%}
+            {% if section.settings.nl_spam_text != blank %}
+            <p class="nl-form__note">{{ section.settings.nl_spam_text }}</p>
+            {% endif %}
+          {%- endif -%}
+        {% endform %}
+      </div>
+
+      <div class="footer-adv__links">
+        {%- for i in (1..3) -%}
+          {%- capture menu_handle_key -%}menu_{{ i }}{%- endcapture -%}
+          {%- capture menu_title_key -%}menu_{{ i }}_title{%- endcapture -%}
+          {%- assign menu = linklists[section.settings[menu_handle_key]] -%}
+          {%- assign title = section.settings[menu_title_key] -%}
+          
+          <nav class="links-col">
+            {% if title != blank %}
+              <h4 class="links-col__title">{{ title }}</h4>
+            {% elsif menu.title != blank %}
+              <h4 class="links-col__title">{{ menu.title }}</h4>
+            {% endif %}
+            
+            <ul class="links-col__list">
+              {% for link in menu.links %}
+                <li><a href="{{ link.url }}" class="links-col__link">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {%- endfor -%}
+      </div>
+
+      <div class="footer-adv__contact">
+        {% if section.settings.contact_title != blank %}
+          <h4 class="contact__title">{{ section.settings.contact_title }}</h4>
+        {% endif %}
+
+        {% if section.settings.contact_btn_label != blank %}
+          <a class="contact__btn" href="{{ section.settings.contact_btn_url }}">{{ section.settings.contact_btn_label }}</a>
+        {% endif %}
+
+        {% if section.settings.contact_email_text != blank %}
+        <p class="contact__email-text">{{ section.settings.contact_email_text }}</p>
+        {% endif %}
+
+        {% if section.settings.contact_email != blank %}
+          <a class="contact__email" href="mailto:{{ section.settings.contact_email }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                <path d="M0.805622 2.5166H15.1945C15.2943 2.5166 15.3943 2.53223 15.4942 2.56347C15.5941 2.59473 15.6815 2.6416 15.7565 2.7041C15.8314 2.7666 15.8908 2.83952 15.9344 2.92285C15.9782 3.00618 16 3.09473 16 3.18848V13.8447C16 13.9384 15.9782 14.027 15.9344 14.1104C15.8908 14.1937 15.8314 14.2666 15.7565 14.3291C15.6815 14.3916 15.5941 14.4385 15.4942 14.4697C15.3943 14.501 15.2943 14.5166 15.1945 14.5166H0.805622C0.705701 14.5166 0.605778 14.501 0.505856 14.4697C0.405934 14.4385 0.318502 14.3916 0.24356 14.3291C0.168619 14.2666 0.10929 14.1937 0.065574 14.1104C0.021858 14.027 0 13.9384 0 13.8447V3.18848C0 3.09473 0.021858 3.00618 0.065574 2.92285C0.10929 2.83952 0.168619 2.7666 0.24356 2.7041C0.318502 2.6416 0.405934 2.59473 0.505856 2.56347C0.605778 2.53223 0.705701 2.5166 0.805622 2.5166ZM14.3888 5.34472L8.05622 10.0791L1.61124 5.3291V13.1885H14.3888V5.34472ZM2.00469 3.84472L8.05622 8.29785L13.9954 3.84472H2.00469Z" fill="white"/>
+            </svg>
+            <span>{{ section.settings.contact_email }}</span>
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-adv__copyright">
+    <div class="footer-adv__copy-inner">
+      <p class="copy__text">{{ section.settings.copyright_text | replace: '[year]', 'now' | date: "%Y" }}</p>
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Advanced Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top Marquee"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_marquee",
+      "label": "Show Marquee",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "marquee_text",
+      "label": "Marquee Text",
+      "default": "Taima® is the original brand of certified pure titanium kitchenware."
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Scroll Speed",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Brand Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Max Width",
+      "default": 260
+    },
+    {
+      "type": "richtext",
+      "id": "blurb",
+      "label": "Description Text",
+      "default": "<p>We only send you things worth opening. Breakthroughs, exclusive launches, toxin-free living tips, and the latest in innovation.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "nl_placeholder",
+      "label": "Placeholder",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "nl_btn_text",
+      "label": "Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "nl_spam_text",
+      "label": "Note",
+      "default": "We hate spam too."
+    },
+    {
+      "type": "text",
+      "id": "nl_success",
+      "label": "Success Message",
+      "default": "Thanks for subscribing!"
+    },
+    {
+      "type": "header",
+      "content": "Navigation Columns"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Title",
+      "default": "Policies"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Title",
+      "default": "Products"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu 2"
+    },
+    {
+      "type": "text",
+      "id": "menu_3_title",
+      "label": "Menu 3 Title",
+      "default": "Company"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_3",
+      "label": "Menu 3"
+    },
+    {
+      "type": "header",
+      "content": "Contact Column"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Title",
+      "default": "Get In Touch"
+    },
+    {
+      "type": "text",
+      "id": "contact_btn_label",
+      "label": "Button Label",
+      "default": "Go To Contact Form"
+    },
+    {
+      "type": "url",
+      "id": "contact_btn_url",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "contact_email_text",
+      "label": "Email Intro Text",
+      "default": "Or Drop Us an Email:"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Email Address",
+      "default": "Hello@TaimaTitanium.com"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "© [year], Taima",
+      "info": "Use [year] to auto-insert current year."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Background",
+      "default": "#0b0b0b"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Primary Text",
+      "default": "#f6f6f6"
+    },
+    {
+      "type": "color",
+      "id": "color_muted",
+      "label": "Muted Text",
+      "default": "#b0b0b0"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Accent (Hover)",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_border",
+      "label": "Borders",
+      "default": "#333333"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advanced Footer"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,395 @@
+{% schema %}
+{
+  "name": "Not Available Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_desktop",
+      "label": "Background Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Background Image (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 500,
+      "max": 1500,
+      "step": 10,
+      "unit": "px",
+      "label": "Section Height (Desktop)",
+      "default": 1050
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 300,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Section Height (Mobile)",
+      "default": 680
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Not on Amazon. Not Anywhere Else."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Beware of imitators & counterfeit listings using our name on Amazon & other platforms. The only place to get certified Taima® Pure Titanium products is right here, through our official website."
+    },
+    {
+      "type": "header",
+      "content": "Bottom Info"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_icon",
+      "label": "Bottom Icon (Globe/Link)"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom Link Text",
+      "default": "www.taimatitanium.com"
+    },
+    {
+      "type": "url",
+      "id": "bottom_link",
+      "label": "Bottom Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#BCA588"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_m",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Feature Icon",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 20,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "Icon Width",
+          "default": 55
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Not Available Section",
+      "blocks": [
+        { "type": "icon" },
+        { "type": "icon" },
+        { "type": "icon" },
+        { "type": "icon" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div id="section-{{ section.id }}" class="shopify-section">
+  <div class="not-available-section">
+    <div class="not-available-wrapper">
+      
+      <div class="not-available-heading-wrapper">
+        {% if section.settings.heading != blank %}
+          <h2 class="not-available-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        
+        <div class="not-available-img_wrapper">
+          {% for block in section.blocks %}
+            {% if block.settings.icon_image != blank %}
+              <img 
+                src="{{ block.settings.icon_image | image_url: width: 300 }}" 
+                alt="{{ block.settings.icon_image.alt | default: 'Icon' }}"
+                loading="lazy"
+                class="na-icon-img"
+                style="width: {{ block.settings.icon_width }}px; height: auto;"
+              >
+            {% else %}
+               {{ 'image' | placeholder_svg_tag: 'placeholder-svg-icon' }}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="not-available-subtext-wrapper">
+        {% if section.settings.subtext != blank %}
+          <p class="not-available-subtext">{{ section.settings.subtext }}</p>
+        {% endif %}
+        
+        <div class="not-available-below">
+          {% if section.settings.bottom_icon != blank %}
+             {{ section.settings.bottom_icon | image_url: width: 50 | image_tag: loading: 'lazy', alt: 'link icon' }}
+          {% endif %}
+          
+          {% if section.settings.bottom_text != blank %}
+            {% if section.settings.bottom_link != blank %}
+              <a href="{{ section.settings.bottom_link }}" class="not-available-below-text">{{ section.settings.bottom_text }}</a>
+            {% else %}
+              <p class="not-available-below-text">{{ section.settings.bottom_text }}</p>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<style>
+/* Scoped Variables */
+#section-{{ section.id }} {
+  --na-text-color: {{ section.settings.text_color }};
+  --na-height-desktop: {{ section.settings.height_desktop }}px;
+  --na-height-mobile: {{ section.settings.height_mobile }}px;
+  --na-pt-desktop: {{ section.settings.padding_top }}px;
+  --na-pt-mobile: {{ section.settings.padding_top_m }}px;
+}
+
+#section-{{ section.id }} .not-available-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: var(--na-height-desktop);
+  padding-top: var(--na-pt-desktop);
+  display: flex;
+  align-items: flex-start;
+  background-color: #121212;
+  
+  /* Background Logic with Gradients */
+  background-image: 
+    {% if section.settings.bg_image_desktop != blank %}
+      url({{ section.settings.bg_image_desktop | image_url: width: 1800 }}),
+    {% endif %}
+    linear-gradient(0deg, rgb(18, 18, 18), rgb(18, 18, 18)), 
+    linear-gradient(rgb(18, 18, 18) 0%, rgba(18, 18, 18, 0) 100%);
+}
+
+/* Icons Wrapper */
+#section-{{ section.id }} .not-available-img_wrapper {
+  margin-top: 40px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Specific Icon Style Fix */
+#section-{{ section.id }} .na-icon-img {
+  display: block;
+  object-fit: contain;
+  max-width: none !important; /* Prevents theme CSS from forcing 100% width */
+}
+
+#section-{{ section.id }} .placeholder-svg-icon {
+  width: 40px; height: 40px; background: #333; opacity: 0.5;
+}
+
+/* Bottom Link Area */
+#section-{{ section.id }} .not-available-below {
+  display: flex;
+  gap: 8px;
+  margin-top: 21px;
+  align-items: center;
+}
+
+#section-{{ section.id }} .not-available-below img {
+  max-width: 24px;
+  width: 100%;
+  height: auto;
+}
+
+#section-{{ section.id }} .not-available-below-text {
+  margin: 0;
+  color: var(--na-text-color);
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.64px;
+  text-decoration: none;
+}
+
+/* Layout Wrapper */
+#section-{{ section.id }} .not-available-wrapper {
+  max-width: 1680px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 16px;
+}
+
+/* Headings & Text */
+#section-{{ section.id }} .not-available-heading {
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 48px;
+  line-height: 130%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  max-width: 440px;
+  color: var(--na-text-color);
+  margin: 0;
+}
+
+#section-{{ section.id }} .not-available-subtext {
+  max-width: 343px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: var(--na-text-color);
+  margin: 0;
+}
+
+/* Responsive: Laptop */
+@media (min-width: 768px) and (max-width: 1740px) {
+  #section-{{ section.id }} .not-available-wrapper {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  #section-{{ section.id }} .not-available-section {
+    height: var(--na-height-mobile);
+    padding-top: var(--na-pt-mobile);
+    background-size: cover;
+    background-position: bottom center;
+    
+    /* Mobile Background Image Logic */
+    background-image: 
+      {% if section.settings.bg_image_mobile != blank %}
+        url({{ section.settings.bg_image_mobile | image_url: width: 800 }}),
+      {% elsif section.settings.bg_image_desktop != blank %}
+        url({{ section.settings.bg_image_desktop | image_url: width: 800 }}),
+      {% endif %}
+      linear-gradient(0deg, rgb(18, 18, 18), rgb(18, 18, 18)), 
+      linear-gradient(rgb(18, 18, 18) 0%, rgba(18, 18, 18, 0) 100%);
+  }
+
+  #section-{{ section.id }} .not-available-wrapper {
+    max-width: 358px;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  #section-{{ section.id }} .not-available-heading {
+    font-size: 23px;
+  }
+
+  #section-{{ section.id }} .not-available-subtext {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  
+  #section-{{ section.id }} .not-available-heading-wrapper {
+    max-width: 210px;
+  }
+  
+  #section-{{ section.id }} .not-available-img_wrapper {
+    margin-top: 24px;
+  }
+}
+
+/* Responsive: Large Screens */
+@media (min-width: 2200px) {
+  #section-{{ section.id }} .not-available-section {
+    height: calc(var(--na-height-desktop) * 1.3);
+    padding-top: 104px;
+  }
+  #section-{{ section.id }} .not-available-wrapper {
+    max-width: 2184px;
+    padding: 0 20.8px;
+  }
+  #section-{{ section.id }} .not-available-heading {
+    font-size: 62.4px;
+    max-width: 572px;
+    letter-spacing: 0.052em;
+  }
+  #section-{{ section.id }} .not-available-subtext {
+    font-size: 20.8px;
+    max-width: 445.9px;
+    letter-spacing: 0.052em;
+  }
+  #section-{{ section.id }} .not-available-img_wrapper {
+    gap: 15.6px;
+  }
+  #section-{{ section.id }} .not-available-below {
+    gap: 10.4px;
+  }
+  #section-{{ section.id }} .not-available-below img {
+    max-width: 31.2px;
+  }
+  #section-{{ section.id }} .not-available-below-text {
+    font-size: 20.8px;
+  }
+}
+</style>

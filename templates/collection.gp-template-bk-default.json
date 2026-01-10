@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "banner",
+    "product-grid",
+    "collections_blocks_ECW76R",
+    "trust_tiles_NCjiWa"
+  ],
+  "sections": {
+    "banner": {
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_collection_description": true,
+        "show_collection_image": false
+      },
+      "type": "main-collection-banner"
+    },
+    "collections_blocks_ECW76R": {
+      "name": "Collection Blocks",
+      "settings": {
+        "collection": "{{ collection }}",
+        "color_accent": "#bca588",
+        "color_badge_bg": "#932933",
+        "color_badge_text": "#c8beab",
+        "color_bg": "#121212",
+        "color_border": "#454545",
+        "color_card_bg": "#252525",
+        "color_discount_bg": "#bca588",
+        "color_discount_text": "#121212",
+        "color_sidebar_bg": "#121212",
+        "color_text_main": "#f6f4f0",
+        "color_text_sub": "#b0b0b0",
+        "compare_price_font_size": 22,
+        "discount_font_size": 12,
+        "heading": "Better Cooking Starts Here.",
+        "image_desktop": "shopify://shop_images/Gemini_Generated_Image_ksdj0mksdj0mksdj.jpg",
+        "image_mobile": "shopify://shop_images/Gemini_Generated_Image_cy2t1acy2t1acy2t.jpg",
+        "menu": "collection-sidebar-menu",
+        "price_font_size": 23,
+        "subheading": "Save more when you choose complete titanium sets."
+      },
+      "type": "collections-blocks"
+    },
+    "product-grid": {
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "filter_type": "horizontal",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "products_per_page": 16,
+        "quick_add": "none",
+        "show_rating": false,
+        "show_secondary_image": false,
+        "show_vendor": false
+      },
+      "type": "main-collection-product-grid"
+    },
+    "trust_tiles_NCjiWa": {
+      "block_order": [
+        "image_nrMWc3",
+        "image_iXgWjT",
+        "image_jrdw63",
+        "image_9BDfgY",
+        "image_nTTEpW",
+        "image_YC9hiT",
+        "image_qNpgP4",
+        "image_YTBhUc",
+        "image_N7RnL8"
+      ],
+      "blocks": {
+        "image_9BDfgY": {
+          "settings": {
+            "image": "shopify://shop_images/10_0bbe8944-54b0-42d3-9a3c-559c654b3c98.png"
+          },
+          "type": "image"
+        },
+        "image_N7RnL8": {
+          "settings": {
+            "image": "shopify://shop_images/11_54ede970-ecfc-405c-8efc-9e130dfa5cc9.png"
+          },
+          "type": "image"
+        },
+        "image_YC9hiT": {
+          "settings": {
+            "image": "shopify://shop_images/3_f718bc4f-abb0-4493-ba60-cae81f5af9d2.png"
+          },
+          "type": "image"
+        },
+        "image_YTBhUc": {
+          "settings": {
+            "image": "shopify://shop_images/1_c0781936-cfde-4876-aaef-de70fd94b193.png"
+          },
+          "type": "image"
+        },
+        "image_iXgWjT": {
+          "settings": {
+            "image": "shopify://shop_images/9_24e9260c-5888-421e-a267-e966601370b4.png"
+          },
+          "type": "image"
+        },
+        "image_jrdw63": {
+          "settings": {
+            "image": "shopify://shop_images/8_8516f4b2-f12c-43cd-bb09-acfb71530bf1.png"
+          },
+          "type": "image"
+        },
+        "image_nTTEpW": {
+          "settings": {
+            "image": "shopify://shop_images/5_1fa26ace-00da-417f-bfe4-8018f8ed17ca.png"
+          },
+          "type": "image"
+        },
+        "image_nrMWc3": {
+          "settings": {
+            "image": "shopify://shop_images/6_45ecdc6a-5ea1-40f6-9524-dffe4f11ab37.png"
+          },
+          "type": "image"
+        },
+        "image_qNpgP4": {
+          "settings": {
+            "image": "shopify://shop_images/7_aaa76b05-5745-4c63-8dec-949e5f0c291a.png"
+          },
+          "type": "image"
+        }
+      },
+      "name": "Trust Band Tiles",
+      "settings": {
+        "color_accent": "#bca588",
+        "color_bg": "#121212",
+        "color_text": "#ffffff",
+        "heading": "Trusted By <strong>650,000+</strong> Kitchens Worldwide",
+        "show_stars": true
+      },
+      "type": "trust-tiles"
+    }
+  }
+}

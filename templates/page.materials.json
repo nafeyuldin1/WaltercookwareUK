@@ -1,0 +1,118 @@
+{
+  "sections": {
+    "rich_text_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_block": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why materials matter",
+            "heading_size": "h2"
+          }
+        },
+        "text_block": {
+          "type": "text",
+          "settings": {
+            "text": "<p>What you use to cook has a direct impact on your health and the taste of what you eat. At Walter Cookware, we believe that a kitchen should be free of harmful substances — and built to last for generations. That's why we start with the basics: the materials.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_block",
+        "text_block"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "custom_news_card": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style='max-width: 600px; margin: 0 auto; background: #FFFFFF; border: 1px solid #e0e0e0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); font-family: serif;'><div style='display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;'><span style='background: #D32F2F; color: #FFFFFF; padding: 4px 8px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;'>THE TIMES</span><span style='color: #9E9E9E; font-size: 14px;'>February 8, 2025</span></div><h3 style='font-size: 22px; color: #000000; margin: 0 0 15px 0; line-height: 1.3;'>The Hidden Dangers: PFAS \"Forever Chemicals\" in the Kitchen</h3><p style='font-size: 16px; color: #424242; line-height: 1.6; margin-bottom: 20px; font-family: sans-serif;'>Every time you use non-stick coated cookware, plastic packaging, or baking paper, there's a chance you're exposing yourself to PFAS—synthetic fluorochemicals known for their persistence in the environment and body.</p><div style='background: #FFEBEE; border-radius: 8px; padding: 15px; display: flex; align-items: center; gap: 15px;'><div style='font-size: 38px; font-weight: bold; color: #D32F2F;'>95%</div><div style='font-size: 13px; color: #616161; font-family: sans-serif;'>More than 95% of people tested in various studies already have PFAS in their blood.</div></div></div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "rich_text_titanium": {
+      "type": "rich-text",
+      "blocks": {
+        "text_block": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>Titanium at the core</h4><p>The dangers of PFAS in traditional cookware are now well known. Research shows that more than 95% of people already have these substances in their blood, often due to exposure to non-stick coatings, plastics, and packaging.</p><p>That's why <strong>titanium</strong> is at the core of everything we make. It is naturally safe, durable, and completely free of PFAS, PFOA, BPA, and other harmful coatings that wear off over time. Only pure, stable materials touch your food — today and in the future.</p><h4>Free from harmful substances</h4><p>Many cookware products still rely on synthetic coatings and plastic components that release microparticles when heated or worn. At Walter, we avoid this completely. Our products contain no toxic chemicals, no coatings that peel off, and no hidden risks. What remains is peace of mind in the kitchen — and confidence in what you eat.</p><h4>Built for everyday life</h4><p>Titanium is incredibly durable, does not rust, and remains stable at high temperatures. No peeling coating, no loss of performance, no compromises. This is cookware you can use every day, year after year, without ever compromising on quality.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_block"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_sketch_section": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/deep_pan_sektch_siraat.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_layers": {
+      "type": "rich-text",
+      "blocks": {
+        "text_block": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>The 3-layer construction</h4><p>Each piece of Walter Cookware is constructed from three carefully selected layers that work together for optimal performance:</p><p><strong>Titanium cooking surface</strong> — 100% safe and free from PFAS, PFOA, and other harmful substances. Only pure titanium comes into contact with your food.</p><p><strong>Aluminum core</strong> — ensures even heat distribution across the entire surface, without hot spots.</p><p><strong>Stainless steel exterior</strong> — provides extra strength and scratch resistance, and is fully compatible with all heat sources, including induction.</p><p>Our 3-ply construction combines safety, durability, and professional performance — exactly what you expect from cookware that is designed to last a lifetime.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_block"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "rich_text_intro",
+    "custom_news_card",
+    "rich_text_titanium",
+    "main",
+    "image_sketch_section",
+    "rich_text_layers"
+  ]
+}

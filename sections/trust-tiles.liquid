@@ -1,0 +1,212 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .trust-band {
+    --bg-color: {{ section.settings.color_bg }};
+    --text-color: {{ section.settings.color_text }};
+    --accent-color: {{ section.settings.color_accent }};
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 64px 0;
+    width: 100%;
+  }
+
+  /* Header Styles */
+  #shopify-section-{{ section.id }} .trust-head {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  #shopify-section-{{ section.id }} .trust-stars {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  
+  #shopify-section-{{ section.id }} .trust-stars svg path {
+    fill: var(--accent-color);
+  }
+
+  #shopify-section-{{ section.id }} .trust-heading {
+    margin: 0;
+    font-family: "Neue Montreal", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.28px;
+    text-transform: capitalize;
+    color: var(--text-color);
+  }
+
+  /* Bolding makes text the accent color */
+  #shopify-section-{{ section.id }} .trust-heading strong,
+  #shopify-section-{{ section.id }} .trust-heading span.accent {
+    color: var(--accent-color);
+    font-weight: 400;
+  }
+
+  /* Tiles Grid */
+  #shopify-section-{{ section.id }} .trust-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
+    gap: 0;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .tile {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #181818; /* Placeholder bg */
+  }
+
+  #shopify-section-{{ section.id }} .tile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  #shopify-section-{{ section.id }} .tile:hover .tile-img {
+    transform: scale(1.05);
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 900px) {
+    #shopify-section-{{ section.id }} .trust-band {
+      padding: 120px 0;
+    }
+    
+    #shopify-section-{{ section.id }} .trust-heading {
+      font-size: 48px;
+      letter-spacing: 1.92px;
+    }
+
+    #shopify-section-{{ section.id }} .trust-tiles {
+      grid-template-columns: repeat(8, 1fr); /* 8 columns on desktop */
+    }
+
+    /* Hide the 9th item on desktop so it stays a single clean row */
+    #shopify-section-{{ section.id }} .trust-tiles .tile:nth-child(9) {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
+<section class="trust-band" data-section-id="{{ section.id }}">
+  <div class="trust-head">
+    
+    {%- if section.settings.show_stars -%}
+      <div class="trust-stars" aria-hidden="true">
+        {%- for i in (1..5) -%}
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <g clip-path="url(#clip0_1000_{{ section.id }}_{{ i }})">
+              <path d="M24 9.42469C24 9.63669 23.875 9.86769 23.625 10.1177L18.389 15.2227L19.629 22.4347C19.639 22.5017 19.644 22.5987 19.644 22.7237C19.6497 22.9058 19.5968 23.0849 19.493 23.2347C19.443 23.3036 19.3766 23.359 19.2997 23.3957C19.2229 23.4324 19.138 23.4492 19.053 23.4447C18.87 23.4447 18.678 23.3867 18.476 23.2707L12 19.8687L5.524 23.2727C5.312 23.3877 5.12 23.4457 4.947 23.4457C4.745 23.4457 4.594 23.3757 4.493 23.2357C4.38884 23.0861 4.33556 22.9069 4.341 22.7247C4.341 22.6667 4.351 22.5707 4.371 22.4357L5.611 15.2247L0.361 10.1187C0.12 9.85769 0 9.62769 0 9.42469C0 9.06969 0.27 8.84769 0.808 8.76169L8.048 7.70869L11.293 1.14669C11.476 0.751687 11.711 0.554688 12 0.554688C12.289 0.554688 12.524 0.751687 12.707 1.14669L15.952 7.70869L23.192 8.76169C23.731 8.84769 24 9.06969 24 9.42469Z" fill="#B57C46"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_1000_{{ section.id }}_{{ i }}"><rect width="24" height="24" fill="white"/></clipPath>
+            </defs>
+          </svg>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="trust-heading">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+  </div>
+
+  <div class="trust-tiles">
+    {%- for block in section.blocks -%}
+      <div class="tile" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'tile-img' }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'tile-img' }}
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust Band Tiles",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show 5 Stars",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted By <strong>500,000+</strong> Kitchens Worldwide",
+      "info": "Bold text will appear in the accent color."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Accent Color (Stars/Bold)",
+      "default": "#BCA588"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Tile Image",
+      "limit": 9,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Aspect ratio 1:1 recommended"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Band Tiles",
+      "blocks": [
+        {"type": "image"},
+        {"type": "image"},
+        {"type": "image"},
+        {"type": "image"},
+        {"type": "image"},
+        {"type": "image"},
+        {"type": "image"},
+        {"type": "image"}
+      ]
+    }
+  ]
+}
+{% endschema %}

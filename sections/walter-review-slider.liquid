@@ -1,0 +1,816 @@
+{% comment %}
+  Section: Reviews Hero Slider (Final Fixed)
+  - Mobile Arrows moved below slider items
+  - Mobile Alignment: Left
+  - Opacity: 1 (No fading)
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .reviews-sec {
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    overflow: hidden;
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .reviews-sec__inner {
+    margin: 0 auto;
+    display: grid;
+    /* Desktop: Sidebar (280px) + Gap (48px) + Slider (Remaining) */
+    grid-template-columns: 280px minmax(0, 1fr); 
+    gap: 48px;
+    padding-top: {{ section.settings.pt_d }}px;
+    padding-bottom: {{ section.settings.pb_d }}px;
+    padding-left: {{ section.settings.pad_x_d }}px;
+    padding-right: {{ section.settings.pad_x_d }}px;
+    max-width: {{ section.settings.max_width }}px;
+    align-items: center;
+  }
+
+  /* --- LEFT SIDEBAR --- */
+  #shopify-section-{{ section.id }} .reviews-sec__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Ensure Left Align Desktop */
+    z-index: 2;
+  }
+
+  #shopify-section-{{ section.id }} .reviews-sec__stars {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  
+  #shopify-section-{{ section.id }} .reviews-sec__stars svg {
+    width: {{ section.settings.star_size }}px;
+    height: {{ section.settings.star_size }}px;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .reviews-sec__stars path {
+    fill: {{ section.settings.star_color }};
+  }
+
+  #shopify-section-{{ section.id }} .reviews-sec__title {
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.title_size_d }}px;
+    line-height: 1.2;
+    margin: 0 0 24px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .reviews-sec__title strong {
+    color: {{ section.settings.highlight_color }};
+    font-weight: 700;
+  }
+
+  /* Navigation Buttons Common Styles */
+  #shopify-section-{{ section.id }} .nav-btn {
+    width: 64px;
+    height: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  
+  #shopify-section-{{ section.id }} .nav-btn:hover {
+    opacity: 0.8;
+  }
+
+  #shopify-section-{{ section.id }} .nav-btn svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .nav-btn rect {
+    stroke: {{ section.settings.nav_border_color }};
+    fill: transparent;
+  }
+  #shopify-section-{{ section.id }} .nav-btn path {
+    stroke: {{ section.settings.nav_arrow_color }};
+  }
+
+  /* Active/Next Button Colors */
+  #shopify-section-{{ section.id }} .nav-btn--next rect {
+    fill: {{ section.settings.nav_bg_active }};
+    stroke: {{ section.settings.nav_bg_active }};
+  }
+  #shopify-section-{{ section.id }} .nav-btn--next path {
+    stroke: {{ section.settings.nav_arrow_active }};
+  }
+
+  /* Desktop Nav specific */
+  #shopify-section-{{ section.id }} .reviews-sec__nav--desktop {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+  }
+
+  /* Mobile Nav specific */
+  #shopify-section-{{ section.id }} .reviews-sec__nav--mobile {
+    display: none; /* Hidden by default on desktop */
+    gap: 12px;
+    margin-top: 24px;
+    justify-content: flex-start; /* Left align arrows */
+  }
+
+  /* --- RIGHT SIDE (Slider) --- */
+  #shopify-section-{{ section.id }} .reviews-sec__right {
+    width: 100%;
+    position: relative;
+    display: block; 
+  }
+
+  #shopify-section-{{ section.id }} .slick-list {
+    margin: 0 -{{ section.settings.card_gap }}px;
+    padding: 0 !important;
+  }
+  
+  #shopify-section-{{ section.id }} .slick-slide {
+    margin: 0 {{ section.settings.card_gap }}px;
+    height: auto;
+  }
+
+  /* Card Styling - Opacity FIXED to 1 */
+  #shopify-section-{{ section.id }} .review-card {
+    opacity: 1 !important; /* Always visible */
+    transition: opacity 0.3s ease;
+    display: block !important;
+  }
+
+  #shopify-section-{{ section.id }} .review-card__media-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .media-square {
+    position: relative;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    /* Aspect Ratio fallback */
+    padding-bottom: 100%; 
+    height: 0;
+  }
+  
+  @supports (aspect-ratio: 1 / 1) {
+    #shopify-section-{{ section.id }} .media-square {
+      aspect-ratio: 1 / 1;
+      padding-bottom: 0;
+      height: 100%;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .media-square img,
+  #shopify-section-{{ section.id }} .media-square video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Pill Label */
+  #shopify-section-{{ section.id }} .pill {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: {{ section.settings.pill_bg }};
+    color: {{ section.settings.pill_text }};
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 30px;
+    z-index: 2;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  /* Video Wrapper */
+  #shopify-section-{{ section.id }} .video-wrap {
+    padding-bottom: 177.77%; 
+  }
+  @supports (aspect-ratio: 9 / 16) {
+    #shopify-section-{{ section.id }} .video-wrap {
+      aspect-ratio: 9 / 16;
+      padding-bottom: 0;
+    }
+  }
+  
+  /* Play Icon Centering */
+  #shopify-section-{{ section.id }} .video-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+  }
+  
+  #shopify-section-{{ section.id }} .video-overlay img {
+    filter: brightness(0.9);
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .play-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  #shopify-section-{{ section.id }} .play-icon svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    transform: translateX(2px);
+  }
+
+  /* Card Content */
+  #shopify-section-{{ section.id }} .review-card__content {
+    padding: 0 4px;
+    text-align: left; /* Ensure text is left aligned */
+  }
+
+  #shopify-section-{{ section.id }} .review-card__title {
+    color: {{ section.settings.card_title_color }};
+    font-size: {{ section.settings.card_title_size }}px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .review-card__quote {
+    color: {{ section.settings.card_text_color }};
+    font-size: {{ section.settings.card_quote_size }}px;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .review-card__author {
+    color: {{ section.settings.card_text_color }};
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.8;
+  }
+
+  /* --- RESPONSIVE MOBILE FIXES --- */
+  @media (max-width: 990px) {
+    #shopify-section-{{ section.id }} .reviews-sec__inner {
+      grid-template-columns: 100%; /* Stack vertical */
+      gap: 24px;
+      padding-top: {{ section.settings.pt_m }}px;
+      padding-bottom: {{ section.settings.pb_m }}px;
+      padding-left: {{ section.settings.pad_x_m }}px;
+      padding-right: {{ section.settings.pad_x_m }}px;
+      /* LEFT ALIGN FIX */
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    #shopify-section-{{ section.id }} .reviews-sec__left {
+      width: 100%;
+      align-items: flex-start; /* Left align Sidebar content */
+      margin-bottom: 0;
+    }
+
+    #shopify-section-{{ section.id }} .reviews-sec__title {
+      font-size: {{ section.settings.title_size_m }}px;
+      text-align: left;
+    }
+
+    /* Hide Desktop Nav on Mobile */
+    #shopify-section-{{ section.id }} .reviews-sec__nav--desktop {
+      display: none;
+    }
+
+    /* Show Mobile Nav (Below Slider) */
+    #shopify-section-{{ section.id }} .reviews-sec__nav--mobile {
+      display: flex;
+    }
+    
+    #shopify-section-{{ section.id }} .nav-btn {
+       width: 56px;
+       height: 56px;
+    }
+
+    /* Ensure slider width */
+    #shopify-section-{{ section.id }} .reviews-sec__right {
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+{%- endstyle -%}
+
+<section id="reviews-sec-{{ section.id }}" class="reviews-sec">
+  <div class="reviews-sec__inner">
+    
+    <aside class="reviews-sec__left">
+      {%- if section.settings.show_stars -%}
+      <div class="reviews-sec__stars" aria-hidden="true">
+        {%- for i in (1..5) -%}
+          <svg viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 12.7669C32 13.0495 31.8333 13.3575 31.5 13.6909L24.5187 20.4975L26.172 30.1135C26.1853 30.2029 26.192 30.3322 26.192 30.4989C26.1996 30.7417 26.1291 30.9805 25.9907 31.1802C25.924 31.2721 25.8354 31.3459 25.733 31.3948C25.6305 31.4437 25.5174 31.4662 25.404 31.4602C25.16 31.4602 24.904 31.3829 24.6347 31.2282L16 26.6922L7.36533 31.2309C7.08267 31.3842 6.82667 31.4615 6.596 31.4615C6.32667 31.4615 6.12533 31.3682 5.99067 31.1815C5.85179 30.982 5.78074 30.7432 5.788 30.5002C5.788 30.4229 5.80133 30.2949 5.828 30.1149L7.48133 20.5002L0.481333 13.6922C0.16 13.3442 0 13.0375 0 12.7669C0 12.2935 0.36 11.9975 1.07733 11.8829L10.7307 10.4789L15.0573 1.72952C15.3013 1.20285 15.6147 0.940186 16 0.940186C16.3853 0.940186 16.6987 1.20285 16.9427 1.72952L21.2693 10.4789L30.9227 11.8829C31.6413 11.9975 32 12.2935 32 12.7669Z" fill="currentColor"/>
+          </svg>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+
+      <h2 class="reviews-sec__title">{{ section.settings.heading }}</h2>
+
+      <div class="reviews-sec__nav--desktop">
+        <button class="nav-btn nav-btn--prev js-prev-{{ section.id }}" aria-label="Previous">
+          <svg width="66" height="65" viewBox="0 0 66 65" fill="none">
+            <rect x="1" width="64" height="64" rx="12" stroke-width="1.5"></rect>
+            <path d="M37.1654 23.6667L28.832 32L37.1654 40.3334" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <button class="nav-btn nav-btn--next js-next-{{ section.id }}" aria-label="Next">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="12"></rect>
+            <path d="M27.8346 23.6667L36.168 32L27.8346 40.3334" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <div class="reviews-sec__right">
+      <div class="reviews-slider js-reviews-slider-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          <article class="review-card" {{ block.shopify_attributes }}>
+            <div class="review-card__media-row">
+              
+              <div class="media-square">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'card-img' }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'card-img' }}
+                {%- endif -%}
+                
+                {%- if block.settings.pill_text != blank -%}
+                  <span class="pill">{{ block.settings.pill_text }}</span>
+                {%- endif -%}
+              </div>
+
+              <div class="media-square video-wrap" data-user-unmuted="0">
+                <button class="video-overlay" type="button" aria-label="Play video">
+                  {%- if block.settings.video_poster != blank -%}
+                    {{ block.settings.video_poster | image_url: width: 600 | image_tag: loading: 'lazy' }}
+                  {%- elsif block.settings.video != blank -%}
+                    {{ block.settings.video.preview_image | image_url: width: 600 | image_tag: loading: 'lazy' }}
+                  {%- else -%}
+                    {{ 'collection-1' | placeholder_svg_tag }}
+                  {%- endif -%}
+                  
+                  <span class="play-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                  </span>
+                </button>
+                
+                {%- if block.settings.video != blank -%}
+                  {{ block.settings.video | video_tag: image_size: '600x', loop: true, muted: true, playsinline: true, preload: 'none', class: 'js-video' }}
+                {%- elsif block.settings.video_url != blank -%}
+                   <video playsinline="true" loop="loop" preload="none" class="js-video">
+                     <source src="{{ block.settings.video_url }}" type="video/mp4">
+                   </video>
+                {%- endif -%}
+              </div>
+            </div>
+
+            <div class="review-card__content">
+              {%- if block.settings.title != blank -%}
+                <div class="review-card__title">{{ block.settings.title }}</div>
+              {%- endif -%}
+              {%- if block.settings.quote != blank -%}
+                <div class="review-card__quote">"{{ block.settings.quote }}"</div>
+              {%- endif -%}
+              {%- if block.settings.author != blank -%}
+                <div class="review-card__author">{{ block.settings.author }}</div>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      <div class="reviews-sec__nav--mobile">
+        <button class="nav-btn nav-btn--prev js-prev-{{ section.id }}" aria-label="Previous">
+          <svg width="66" height="65" viewBox="0 0 66 65" fill="none">
+            <rect x="1" width="64" height="64" rx="12" stroke-width="1.5"></rect>
+            <path d="M37.1654 23.6667L28.832 32L37.1654 40.3334" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <button class="nav-btn nav-btn--next js-next-{{ section.id }}" aria-label="Next">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="12"></rect>
+            <path d="M27.8346 23.6667L36.168 32L27.8346 40.3334" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var $ = window.jQuery;
+    if (!$ || !$.fn || !$.fn.slick) return;
+
+    var sectionId = "{{ section.id }}";
+    var $section  = $('#reviews-sec-' + sectionId);
+    var $slider   = $section.find('.js-reviews-slider-' + sectionId);
+
+    // Settings
+    var slidesDesktop = {{ section.settings.slides_desktop }};
+    var slidesMobile  = {{ section.settings.slides_mobile }};
+    
+    function initSlick() {
+      if (!$slider.length || $slider.hasClass('slick-initialized')) return;
+
+      $slider.slick({
+        arrows: false,
+        dots: false,
+        infinite: true,
+        slidesToShow: slidesDesktop,
+        slidesToScroll: 1,
+        swipeToSlide: true,
+        variableWidth: false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: { slidesToShow: 2 }
+          },
+          {
+            breakpoint: 750,
+            settings: {
+              slidesToShow: slidesMobile,
+              centerMode: false, /* Center mode off for left align feel */
+              variableWidth: false
+            }
+          }
+        ]
+      });
+
+      // Bind Both Desktop and Mobile Buttons
+      $section.find('.js-prev-' + sectionId).on('click', function() { $slider.slick('slickPrev'); });
+      $section.find('.js-next-' + sectionId).on('click', function() { $slider.slick('slickNext'); });
+
+      handleVideoLogic($slider);
+    }
+
+    function handleVideoLogic($slider) {
+      $slider.on('click', '.video-overlay', function() {
+        var $wrap = $(this).closest('.video-wrap');
+        var vid = $wrap.find('video').get(0);
+        if(vid) {
+          $(this).hide();
+          vid.muted = false;
+          vid.volume = 1;
+          vid.play();
+        }
+      });
+      $slider.on('click', 'video', function() {
+        if(this.paused) {
+          this.play();
+          $(this).siblings('.video-overlay').hide();
+        } else {
+          this.pause();
+          $(this).siblings('.video-overlay').show();
+        }
+      });
+      $slider.on('beforeChange', function() {
+        $slider.find('video').each(function() {
+          this.pause();
+          $(this).siblings('.video-overlay').show();
+        });
+      });
+    }
+
+    initSlick();
+    document.addEventListener('shopify:section:load', function(e) {
+      if(e.detail.sectionId === sectionId) {
+        $section = $('#reviews-sec-' + sectionId);
+        $slider = $section.find('.js-reviews-slider-' + sectionId);
+        initSlick();
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Reviews Hero Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "slides_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Cards to show on Desktop",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "slides_mobile",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "label": "Cards to show on Mobile",
+      "default": 1.1
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "label": "Gap between Cards",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Sidebar Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show Stars",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "star_size",
+      "min": 16,
+      "max": 40,
+      "label": "Star Size",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#B57C46"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted By <strong>550,000+</strong> Kitchens"
+    },
+    {
+      "type": "range",
+      "id": "title_size_d",
+      "min": 20,
+      "max": 80,
+      "label": "Heading Desktop",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_size_m",
+      "min": 16,
+      "max": 50,
+      "label": "Heading Mobile",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#f6f4f0"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color",
+      "default": "#bca588"
+    },
+    {
+      "type": "header",
+      "content": "Nav Buttons"
+    },
+    {
+      "type": "color",
+      "id": "nav_border_color",
+      "label": "Border",
+      "default": "#D4C7B4"
+    },
+    {
+      "type": "color",
+      "id": "nav_arrow_color",
+      "label": "Arrow",
+      "default": "#D4C7B4"
+    },
+    {
+      "type": "color",
+      "id": "nav_bg_active",
+      "label": "Active BG",
+      "default": "#A3835F"
+    },
+    {
+      "type": "color",
+      "id": "nav_arrow_active",
+      "label": "Active Arrow",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Card Style"
+    },
+    {
+      "type": "color",
+      "id": "pill_bg",
+      "label": "Pill Background",
+      "default": "#b57c46"
+    },
+    {
+      "type": "color",
+      "id": "pill_text",
+      "label": "Pill Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title",
+      "default": "#f7f7f7"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "min": 14,
+      "max": 30,
+      "label": "Title Size",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Quote Color",
+      "default": "#b0b0b0"
+    },
+    {
+      "type": "range",
+      "id": "card_quote_size",
+      "min": 12,
+      "max": 24,
+      "label": "Quote Size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 2000,
+      "step": 50,
+      "default": 1800,
+      "label": "Max Width"
+    },
+    {
+      "type": "range",
+      "id": "pt_d",
+      "label": "Desktop Top",
+      "default": 120,
+      "step": 2,
+
+      "min": 0,
+      "max": 200
+    },
+    {
+      "type": "range",
+      "id": "pb_d",
+      "label": "Desktop Bottom",
+      "default": 120,
+      "min": 0,
+      "step": 2,
+
+      "max": 200
+    },
+    {
+      "type": "range",
+      "id": "pad_x_d",
+      "label": "Desktop Side",
+      "default": 80,
+      "min": 0,
+      "step": 2,
+
+      "max": 100
+      
+    },
+    {
+      "type": "range",
+      "id": "pt_m",
+      "label": "Mobile Top",
+      "default": 60,
+      "min": 0,
+      "step": 2,
+
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "pb_m",
+      "label": "Mobile Bottom",
+      "default": 60,
+      "min": 0,
+      "step": 2,
+
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "pad_x_m",
+      "label": "Mobile Side",
+      "default": 16,
+      "step": 2,
+
+      "min": 0,
+      "max": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "pill_text", "label": "Label", "default": "TITANIUM PAN" },
+        { "type": "video", "id": "video", "label": "Video" },
+        { "type": "text", "id": "video_url", "label": "MP4 Link" },
+        { "type": "image_picker", "id": "video_poster", "label": "Poster" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Title Here" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Review text here." },
+        { "type": "text", "id": "author", "label": "Author", "default": "Name" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Hero Slider",
+      "blocks": [
+        {"type": "card"},
+        {"type": "card"},
+        {"type": "card"}
+      ]
+    }
+  ]
+}
+{% endschema %}

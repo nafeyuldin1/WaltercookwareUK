@@ -1,0 +1,634 @@
+{% schema %}
+{
+  "name": "Best Sellers Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "SECTION SETTINGS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading Text",
+      "default": "Shop Best Sellers"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Select Products",
+      "limit": 12
+    },
+    {
+      "type": "header",
+      "content": "LAYOUT SETTINGS"
+    },
+    {
+      "type": "range",
+      "id": "items_desktop",
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "label": "Products per row (Desktop)",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "SECTION TYPOGRAPHY"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Section Title (Desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Section Title (Mobile)",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "PRODUCT PRICE TYPOGRAPHY"
+    },
+    {
+      "type": "range",
+      "id": "price_size_desktop",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Price Size (Desktop)",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "price_size_mobile",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Price Size (Mobile)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "compare_size_desktop",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Compare Price Size (Desktop)",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "compare_size_mobile",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Compare Price Size (Mobile)",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "COLORS"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Heading & Arrows Color",
+      "default": "#BCA588"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "card_text",
+      "label": "Product Title Color",
+      "default": "#F6F4F0"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Current Price Color",
+      "default": "#F6F4F0"
+    },
+    {
+      "type": "color",
+      "id": "compare_price_color",
+      "label": "Compare Price Color",
+      "default": "#BCA588"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Badge Background",
+      "default": "#932933"
+    },
+    {
+      "type": "color",
+      "id": "badge_fg",
+      "label": "Badge Text Color",
+      "default": "#c8beab"
+    },
+    {
+      "type": "header",
+      "content": "SECTION PADDING"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best Sellers Slider"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  /* Section Scoped Variables based on User Settings */
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  #best-sellers-{{ section.id }} {
+    --text-main: {{ section.settings.text_color }};
+    --card-bg: {{ section.settings.card_bg }};
+    --card-text: {{ section.settings.card_text }};
+    
+    /* Price Colors */
+    --price-main: {{ section.settings.price_color }};
+    --price-compare: {{ section.settings.compare_price_color }};
+
+    --badge-bg: {{ section.settings.badge_bg }};
+    --badge-fg: {{ section.settings.badge_fg }};
+    
+    /* Font Sizes - Section Title */
+    --fs-desktop: {{ section.settings.title_size_desktop }}px;
+    --fs-mobile: {{ section.settings.title_size_mobile }}px;
+    
+    /* Font Sizes - Prices (Desktop Defaults) */
+    --price-fs-desktop: {{ section.settings.price_size_desktop }}px;
+    --compare-fs-desktop: {{ section.settings.compare_size_desktop }}px;
+    
+    /* Font Sizes - Prices (Mobile Defaults) */
+    --price-fs-mobile: {{ section.settings.price_size_mobile }}px;
+    --compare-fs-mobile: {{ section.settings.compare_size_mobile }}px;
+
+    /* Layout */
+    --desktop-items: {{ section.settings.items_desktop }};
+  }
+
+  /* Inner Layout & Padding */
+  #best-sellers-{{ section.id }} .best-sellers__inner {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Header */
+  #best-sellers-{{ section.id }} .best-sellers__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 40px 0;
+  }
+  
+  #best-sellers-{{ section.id }} .best-sellers__title {
+    margin: 0;
+    color: var(--text-main);
+    font-size: var(--fs-desktop);
+    font-weight: 400;
+    line-height: 1.2;
+    text-transform: capitalize;
+  }
+
+  /* Navigation Arrows */
+  #best-sellers-{{ section.id }} .best-sellers__nav {
+    display: flex;
+    gap: 12px;
+  }
+  
+  #best-sellers-{{ section.id }} .best-sellers__arrow {
+    width: 56px; height: 56px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: none; cursor: pointer; padding: 0; background: none;
+    transition: opacity 0.3s;
+  }
+  #best-sellers-{{ section.id }} .best-sellers__arrow:hover { opacity: 0.7; }
+  #best-sellers-{{ section.id }} .best-sellers__arrow svg { width: 100%; height: auto; }
+
+  /* Slider Track Styles */
+  #best-sellers-{{ section.id }} .best-sellers__track {
+    opacity: 0; /* Hidden until loaded to prevent CLS */
+    transition: opacity 0.4s ease;
+  }
+  #best-sellers-{{ section.id }} .best-sellers__track.slick-initialized,
+  #best-sellers-{{ section.id }} .best-sellers__track.is-native {
+    opacity: 1;
+  }
+
+  /* Card Styles */
+  #best-sellers-{{ section.id }} .product-card {
+    margin: 0 10px;
+    position: relative;
+    border-radius: 16px;
+    border: 1px solid #333;
+    background: var(--card-bg);
+    overflow: hidden;
+    display: flex !important; /* Force flex for Slick */
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Badge */
+  #best-sellers-{{ section.id }} .product-card__badge {
+    position: absolute; top: 10px; left: 10px; z-index: 2;
+    padding: 4px 12px;
+    background: var(--badge-bg);
+    color: var(--badge-fg);
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Image Area */
+  #best-sellers-{{ section.id }} .product-card__media {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-bottom: 100%; /* 1:1 Aspect Ratio */
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+  
+  #best-sellers-{{ section.id }} .product-card__media img,
+  #best-sellers-{{ section.id }} .product-card__media svg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  
+  #best-sellers-{{ section.id }} .product-card:hover .product-card__media img {
+    transform: scale(1.05);
+  }
+
+  /* Content Area */
+  #best-sellers-{{ section.id }} .product-card__content {
+    padding: 16px;
+    border-top: 1px solid #333;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  #best-sellers-{{ section.id }} .product-card__title {
+    color: var(--card-text);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+
+  #best-sellers-{{ section.id }} .product-card__price {
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  }
+  
+  /* UPDATED PRICE CLASSES WITH COLOR SETTINGS */
+  #best-sellers-{{ section.id }} .price-compare {
+    color: var(--price-compare);
+    font-size: var(--compare-fs-desktop);
+    text-decoration: line-through;
+  }
+  
+  #best-sellers-{{ section.id }} .price-current {
+    color: var(--price-main);
+    font-size: var(--price-fs-desktop);
+  }
+
+  /* --- NEW DISCOUNT BADGE STYLE --- */
+  #best-sellers-{{ section.id }} .discount-badge {
+    padding: 2px 10px;
+    background: var(--text-main); /* Uses gold/accent color */
+    color: var(--card-bg); /* Uses dark color for text */
+    border-radius: 32px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* ---------------- MOBILE STYLES (Native Scroll) ---------------- */
+  @media (max-width: 749px) {
+    #best-sellers-{{ section.id }} .best-sellers__inner {
+      padding-left: 16px; padding-right: 16px;
+      padding-top: 40px; /* Reduced mobile padding */
+    }
+
+    #best-sellers-{{ section.id }} .best-sellers__header {
+      flex-direction: row; /* Keep arrow next to title or wrap? */
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    #best-sellers-{{ section.id }} .best-sellers__title {
+      font-size: var(--fs-mobile);
+    }
+    
+    #best-sellers-{{ section.id }} .best-sellers__arrow {
+      width: 40px; height: 40px;
+    }
+
+    /* Update Price Size for Mobile */
+    #best-sellers-{{ section.id }} .price-compare {
+      font-size: var(--compare-fs-mobile);
+    }
+    #best-sellers-{{ section.id }} .price-current {
+      font-size: var(--price-fs-mobile);
+    }
+    #best-sellers-{{ section.id }} .discount-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+    }
+
+    /* Native Horizontal Scroll */
+    #best-sellers-{{ section.id }} .best-sellers__track {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 16px 20px 16px; /* Spacing for shadow/scrollbar */
+      gap: 12px;
+    }
+    
+    /* Hide scrollbar */
+    #best-sellers-{{ section.id }} .best-sellers__track::-webkit-scrollbar { display: none; }
+    
+    #best-sellers-{{ section.id }} .product-card {
+      flex: 0 0 240px; /* Fixed width for mobile cards */
+      margin: 0;
+      scroll-snap-align: start;
+    }
+  }
+{% endstyle %}
+
+<section id="best-sellers-{{ section.id }}" class="best-sellers-section">
+  <div class="best-sellers__inner page-width">
+    
+    <div class="best-sellers__header">
+      <h2 class="best-sellers__title">{{ section.settings.title }}</h2>
+
+      <div class="best-sellers__nav">
+        <button class="best-sellers__arrow best-sellers__arrow--prev js-prev-{{ section.id }}" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 65" fill="none">
+            <rect x="1" width="64" height="64" rx="12" stroke="{{ section.settings.text_color }}" stroke-width="1.5"></rect>
+            <path d="M37.1654 23.6667L28.832 32L37.1654 40.3334" stroke="{{ section.settings.text_color }}" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <button class="best-sellers__arrow best-sellers__arrow--next js-next-{{ section.id }}" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="12" fill="{{ section.settings.text_color }}"></rect>
+            <path d="M27.8346 23.6667L36.168 32L27.8346 40.3334" stroke="{{ section.settings.bg_color }}" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="best-sellers__track js-slider-{{ section.id }}">
+      {%- if section.settings.product_list != blank -%}
+        {%- for product in section.settings.product_list -%}
+          <article class="product-card">
+            
+            {%- if product.compare_at_price > product.price -%}
+              {%- assign saved_amt = product.compare_at_price | minus: product.price -%}
+              {%- assign saved_pct = saved_amt | times: 100.0 | divided_by: product.compare_at_price | round -%}
+             {% if product.metafields.custom.badge_text %} <div class="product-card__badge">  {{ product.metafields.custom.badge_text }}   </div> {% endif %}
+            {%- endif -%}
+
+            <a href="{{ product.url }}" class="product-card__media">
+              {%- if product.featured_image -%}
+                {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.title }}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag }}
+              {%- endif -%}
+            </a>
+
+            <div class="product-card__content">
+              <a href="{{ product.url }}" class="product-card__title">{{ product.title }} {%  if product.metafields.custom.pieces_count != blank  %}  <span style=" color: #D4C7B4;"> {{ product.metafields.custom.pieces_count }}</span> {%  endif %} </a>
+              <div style="font-size: 12px; line-height: 1.3; color: #D4C7B4;" class="product-card__subtitle"> {% if product.metafields.custom.product_short_description != blank %} {{ product.metafields.custom.product_short_description | metafield_tag }} {% else %} The ultimate toxin-free collection for limitless cooking (14-piece) {% endif %} </div>
+              <div class="product-card__price">
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="price-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+                {%- endif -%}
+                <span class="price-current">{{ product.price | money_without_trailing_zeros }}</span>
+
+                {%- comment -%} DISCOUNT BADGE START {%- endcomment -%}
+                {%- if product.compare_at_price > product.price -%}
+                   {%- assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+                   <span class="discount-badge">-{{ savings }}%</span>
+                {%- endif -%}
+                {%- comment -%} DISCOUNT BADGE END {%- endcomment -%}
+
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        {% for i in (1..5) %}
+          <article class="product-card">
+             <div class="product-card__badge">Sale | Save 50%</div>
+             <div class="product-card__media">
+               {{ 'product-' | append: i | placeholder_svg_tag }}
+             </div>
+             <div class="product-card__content">
+               <div class="product-card__title">Example Product Title</div>
+               <div class="product-card__price">
+                 <span class="price-compare">$100.00</span>
+                 <span class="price-current">$50.00</span>
+                 <span class="discount-badge">-50%</span>
+               </div>
+             </div>
+          </article>
+        {% endfor %}
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    // Dependencies check
+    var $ = window.jQuery;
+    if(!$) { console.warn('Best Sellers: jQuery not found'); return; }
+
+    var sectionId = '{{ section.id }}';
+    var sliderSelector = '.js-slider-' + sectionId;
+    var prevSelector = '.js-prev-' + sectionId;
+    var nextSelector = '.js-next-' + sectionId;
+    
+    // Liquid Settings passed to JS
+    var desktopItems = {{ section.settings.items_desktop }};
+
+    // Mobile Query
+    var mql = window.matchMedia('(max-width: 749px)');
+    var isNative = false;
+
+    // --- 1. Native Scroll Logic (Mobile) ---
+    function enableNative() {
+      var track = document.querySelector(sliderSelector);
+      if(!track) return;
+      
+      track.classList.add('is-native');
+      isNative = true;
+
+      // Enable custom arrows to scroll the native div
+      var scrollAmount = 260; // Card width + gap
+      
+      var nextBtn = document.querySelector(nextSelector);
+      var prevBtn = document.querySelector(prevSelector);
+
+      // Remove old listeners (cloning node is a quick hack to clear listeners)
+      if(nextBtn) {
+        var newNext = nextBtn.cloneNode(true);
+        nextBtn.parentNode.replaceChild(newNext, nextBtn);
+        newNext.addEventListener('click', function() {
+          track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+      }
+
+      if(prevBtn) {
+        var newPrev = prevBtn.cloneNode(true);
+        prevBtn.parentNode.replaceChild(newPrev, prevBtn);
+        newPrev.addEventListener('click', function() {
+          track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+      }
+    }
+
+    // --- 2. Slick Slider Logic (Desktop) ---
+    function initSlick() {
+      var $slider = $(sliderSelector);
+      
+      // If already initialized, don't re-init
+      if($slider.hasClass('slick-initialized')) return;
+      
+      $slider.removeClass('is-native'); // Remove native class if exists
+
+      $slider.slick({
+        slidesToShow: desktopItems,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: false, // We use custom arrows
+        dots: false,
+        variableWidth: false,
+        speed: 400,
+        cssEase: 'ease-out'
+      });
+
+      // Hook up custom arrows to Slick
+      var nextBtn = document.querySelector(nextSelector);
+      var prevBtn = document.querySelector(prevSelector);
+
+      if(nextBtn) {
+        var newNext = nextBtn.cloneNode(true);
+        nextBtn.parentNode.replaceChild(newNext, nextBtn);
+        newNext.addEventListener('click', function() { $slider.slick('slickNext'); });
+      }
+
+      if(prevBtn) {
+        var newPrev = prevBtn.cloneNode(true);
+        prevBtn.parentNode.replaceChild(newPrev, prevBtn);
+        newPrev.addEventListener('click', function() { $slider.slick('slickPrev'); });
+      }
+    }
+
+    function destroySlick() {
+      var $slider = $(sliderSelector);
+      if($slider.hasClass('slick-initialized')) {
+        $slider.slick('unslick');
+      }
+    }
+
+    // --- 3. Switcher Logic ---
+    function handleResize() {
+      if(mql.matches) {
+        // Mobile: Kill slick, use Native
+        destroySlick();
+        enableNative();
+      } else {
+        // Desktop: Init Slick
+        if(isNative) {
+           // Cleanup native if needed, though usually just CSS handles it
+           isNative = false;
+        }
+        initSlick();
+      }
+    }
+
+    // Run on load
+    // Small timeout to ensure jQuery/Slick loaded
+    setTimeout(function(){
+      handleResize();
+    }, 100);
+
+    // Listen for resize
+    mql.addEventListener('change', handleResize);
+
+    // Shopify Editor support
+    document.addEventListener('shopify:section:load', function(e) {
+      if(e.detail.sectionId === sectionId) {
+        handleResize();
+      }
+    });
+  });
+</script>

@@ -1,0 +1,449 @@
+{% comment %}
+  Custom Dynamic Announcement Bar
+  Based on user provided snippet using Slick Slider.
+{% endcomment %}
+
+<script>
+  if (typeof jQuery === 'undefined') {
+    document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"><\/script>');
+    document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"><\/script>');
+  }
+</script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+
+{%- style -%}
+  /* Scoped Variables based on Section Settings */
+  #announcement-{{ section.id }} {
+    --nb-bg: {{ section.settings.bg_color }};
+    --nb-text: {{ section.settings.text_color }};
+    --nb-link: {{ section.settings.link_color }};
+    --nb-link-hover: {{ section.settings.link_hover_color }};
+    --nb-divider: {{ section.settings.divider_color }};
+    --nb-fs-d: {{ section.settings.font_size_desktop }}px;
+    --nb-fs-m: {{ section.settings.font_size_mobile }}px;
+    --nb-fw: {{ section.settings.font_weight }};
+    --nb-py: {{ section.settings.padding_y }}px;
+    --nb-pm: {{ section.settings.padding_m }}px;
+    --nb-maxw: {{ section.settings.max_width }}px;
+  }
+
+  /* Structural CSS */
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    top: 0;
+    z-index: 1000;
+  }
+
+  #announcement-{{ section.id }} {
+    position: relative;
+    background-color: var(--nb-bg);
+    color: var(--nb-text);
+    
+    /* Dynamic Background Images */
+    {% if section.settings.bg_image_desktop != blank %}
+      background-image: url({{ section.settings.bg_image_desktop | image_url: width: 2000 }});
+    {% endif %}
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Mobile Background */
+  @media (max-width: 749px) {
+    #announcement-{{ section.id }} {
+      {% if section.settings.bg_image_mobile != blank %}
+        background-image: url({{ section.settings.bg_image_mobile | image_url: width: 1000 }});
+      {% else %}
+         background-image: none; /* Fallback to color or desktop if no mobile img */
+      {% endif %}
+    }
+  }
+
+  #announcement-{{ section.id }}[hidden] { display: none !important; }
+
+  #announcement-{{ section.id }} .anc-inner {
+    margin: 0 auto;
+    padding: var(--nb-py) 16px;
+    max-width: var(--nb-maxw);
+  }
+
+  /* Prevent FOUC */
+  #announcement-{{ section.id }} .anc-slider:not(.is-ready) .anc-slide:not(:first-child) {
+    display: none !important;
+  }
+
+  /* Grid Layout */
+  #announcement-{{ section.id }} .anc-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #announcement-{{ section.id }} .anc-left,
+  #announcement-{{ section.id }} .anc-right { opacity: 0.85; }
+
+  #announcement-{{ section.id }} .anc-center {
+    justify-self: center;
+    text-align: center;
+    font-weight: var(--nb-fw);
+    font-size: var(--nb-fs-d);
+    letter-spacing: 0.06em;
+    {% if section.settings.text_transform %}text-transform: uppercase;{% endif %}
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #announcement-{{ section.id }} a.anc-link {
+    color: var(--nb-link);
+    text-decoration: underline;
+    margin-left: 8px;
+  }
+  #announcement-{{ section.id }} a.anc-link:hover { color: var(--nb-link-hover); }
+
+  /* Close Button */
+  #announcement-{{ section.id }} .anc-close {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--nb-text);
+    opacity: .7;
+    cursor: pointer;
+    padding: 6px;
+    margin-left: 8px;
+    line-height: 0;
+  }
+  #announcement-{{ section.id }} .anc-close:hover { opacity: 1; }
+
+  /* Mobile Styles */
+  @media (max-width: 749px) {
+    #announcement-{{ section.id }} .anc-inner { padding: var(--nb-pm) 0; }
+    #announcement-{{ section.id }} .anc-grid {
+      grid-template-columns: 1fr auto; 
+      /* If you want close button on mobile, keep auto. If centered only: 1fr */
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    #announcement-{{ section.id }} .anc-left { display: none; }
+    
+    #announcement-{{ section.id }} .anc-center {
+      font-size: var(--nb-fs-m);
+      width: 100%;
+    }
+
+    #announcement-{{ section.id }} .anc-right {
+      position: absolute;
+      right: 10px;
+    }
+  }
+{%- endstyle -%}
+
+<div id="announcement-{{ section.id }}" role="region" class="anc-bar" aria-label="Announcement" data-bar-id="{{ section.id }}">
+  <div class="anc-inner">
+    <div class="anc-slider">
+      {%- for block in section.blocks -%}
+        <div class="anc-slide" {{ block.shopify_attributes }}>
+          <div class="anc-grid">
+            
+            <div class="anc-left">
+              {% if block.settings.left_text != blank %}
+                {{ block.settings.left_text }}
+              {% endif %}
+            </div>
+
+            <div class="anc-center">
+              <span class="anc-main">{{ block.settings.text }}</span>
+              {%- if block.settings.link_url != blank and block.settings.link_text != blank -%}
+                <a class="anc-link" href="{{ block.settings.link_url }}">
+                  {{ block.settings.link_text }}
+                </a>
+              {%- endif -%}
+            </div>
+
+            <div class="anc-right" style="justify-self:end; display:flex; align-items:center;">
+              {% if section.settings.show_close %}
+                <button type="button" class="anc-close" aria-label="Close">
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L13 13M1 13L13 1"/></svg>
+                </button>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var root = document.getElementById('announcement-{{ section.id }}');
+    if(!root) return;
+    var KEY = 'announcement_closed_{{ section.id }}';
+
+    // 1. Handle Local Storage (Close Button Memory)
+    try {
+      if (!document.documentElement.hasAttribute('data-design-mode') && localStorage.getItem(KEY) === '1') {
+        root.hidden = true;
+      }
+    } catch(e){}
+
+    root.addEventListener('click', function(ev){
+      var btn = ev.target.closest('.anc-close');
+      if(!btn) return;
+      root.hidden = true;
+      try { localStorage.setItem(KEY, '1'); } catch(e){}
+    });
+
+    // 2. Initialize Slick Slider
+    function initSlick(){
+      var sliderEl = root.querySelector('.anc-slider');
+      if (!sliderEl || !window.jQuery || !jQuery.fn.slick) {
+        // Retry if jQuery/Slick loaded async
+        setTimeout(initSlick, 100); 
+        return;
+      }
+
+      var $ = window.jQuery;
+      var slideCount = sliderEl.children.length;
+
+      // Avoid slider if only 1 slide
+      if (slideCount <= 1) {
+        sliderEl.classList.add('is-ready');
+        return;
+      }
+
+      $(sliderEl).on('init', function(){
+        sliderEl.classList.add('is-ready');
+      });
+
+      $(sliderEl).slick({
+        arrows: false,
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: {{ section.settings.autoplay }},
+        autoplaySpeed: {{ section.settings.autoplay_speed }} * 1000,
+        speed: {{ section.settings.speed }},
+        pauseOnHover: true,
+        vertical: true,
+        verticalSwiping: true,
+        cssEase: 'ease-in-out',
+        adaptiveHeight: false
+      });
+    }
+
+    // Load Check
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSlick);
+    } else {
+      initSlick();
+    }
+    
+    // Refresh on Theme Editor Change
+    if (window.Shopify && Shopify.designMode) {
+      document.addEventListener('shopify:section:load', initSlick);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Dynamic Announcement Bar",
+  "class": "section-announcement-bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#937d61"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#c8beab"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_desktop",
+      "label": "Desktop Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Mobile Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size_desktop",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Font Size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Font Size",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "font_weight",
+      "min": 300,
+      "max": 900,
+      "step": 100,
+      "label": "Font Weight",
+      "default": 500
+    },
+    {
+      "type": "checkbox",
+      "id": "text_transform",
+      "label": "Uppercase Text",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Links & Layout"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link Color",
+      "default": "#c8beab"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link Hover Color",
+      "default": "#ebd7b5"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop Vertical Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_m",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Vertical Padding",
+      "default": 10
+    },
+    {
+      "type": "checkbox",
+      "id": "show_close",
+      "label": "Show Close Button",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 1,
+      "max": 10,
+      "step": 0.5,
+      "unit": "s",
+      "label": "Autoplay Speed",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 100,
+      "max": 2000,
+      "step": 100,
+      "unit": "ms",
+      "label": "Transition Speed",
+      "default": 1000
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Message Text",
+          "default": "Welcome to our store"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "left_text",
+          "label": "Left Side Text (Optional)",
+          "info": "Hidden on mobile"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Walter Announcement Bar",
+      "blocks": [
+        {
+          "type": "announcement",
+          "settings": {
+            "text": "FREE SHIPPING | LIFETIME WARRANTY"
+          }
+        },
+        {
+          "type": "announcement",
+          "settings": {
+            "text": "HOLIDAY SALE - BIGGEST DEALS 🔥"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

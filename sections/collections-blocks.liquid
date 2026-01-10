@@ -1,0 +1,653 @@
+{%- style -%}
+  /* Dynamic Variables */
+  #shopify-section-{{ section.id }} .cbx-collection {
+    --bg-color: {{ section.settings.color_bg }};
+    --sidebar-bg: {{ section.settings.color_sidebar_bg }};
+    --text-main: {{ section.settings.color_text_main }};
+    --text-sub: {{ section.settings.color_text_sub }};
+    --accent: {{ section.settings.color_accent }};
+    --border: {{ section.settings.color_border }};
+    
+    --card-bg: {{ section.settings.color_card_bg }};
+    --badge-bg: {{ section.settings.color_badge_bg }};
+    --badge-text: {{ section.settings.color_badge_text }};
+
+    /* --- PRICE VARIABLES --- */
+    --price-size: {{ section.settings.price_font_size }}px;
+    --compare-size: {{ section.settings.compare_price_font_size }}px;
+
+    /* --- DISCOUNT BADGE VARIABLES --- */
+    --discount-bg: {{ section.settings.color_discount_bg }};
+    --discount-text: {{ section.settings.color_discount_text }};
+    --discount-size: {{ section.settings.discount_font_size }}px;
+  }
+
+  /* Layout */
+  #shopify-section-{{ section.id }} .cbx-layout {
+    display: flex;
+    margin: 0 auto;
+    background: var(--bg-color);
+    padding: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #shopify-section-{{ section.id }} .cbx-sidebar {
+    flex: 0 0 300px;
+    padding-top: 96px;
+    max-height: 1080px;
+    border-right: 1px solid var(--border);
+    background: var(--sidebar-bg);
+    /* Make sidebar sticky so it stays visible during infinite scroll */
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    backdrop-filter: blur(5px);
+  }
+
+  #shopify-section-{{ section.id }} .cbx-main {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-top: 48px;
+  }
+
+  /* Hero */
+  #shopify-section-{{ section.id }} .cbx-hero {
+    display: grid;
+    gap: 0;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    background: #181818; 
+  }
+
+  #shopify-section-{{ section.id }} .cbx-hero-text { padding: 0 80px; min-width: 405px; }
+  
+  #shopify-section-{{ section.id }} .cbx-title {
+    color: var(--accent);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.28px;
+    text-transform: capitalize;
+    margin: 0 0 16px;
+  }
+  
+  #shopify-section-{{ section.id }} .cbx-subtitle {
+    color: var(--text-sub);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+    margin: 0;
+  }
+  
+  #shopify-section-{{ section.id }} .cbx-hero-media { overflow: hidden; }
+  #shopify-section-{{ section.id }} .cbx-hero-img { width: 100%; height: auto; display: block; object-fit: cover; }
+  
+  /* Mobile Hero */
+  #shopify-section-{{ section.id }} .cbx-hero-media--mobile { display: none; overflow: hidden; }
+  #shopify-section-{{ section.id }} .cbx-hero-img--mobile { width: 100%; height: auto; display: block; }
+
+  /* Sidebar Nav */
+  #shopify-section-{{ section.id }} .cbx-side-nav ul { list-style: none; margin: 0; padding: 0; }
+  
+  #shopify-section-{{ section.id }} .cbx-side-link {
+    display: flex; align-items: center; justify-content: space-between;
+    text-decoration: none; color: inherit;
+    padding: 20px 48px;
+    border-radius: 0; border: none; background: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-sub);
+    font-size: 16px; font-weight: 500;
+    line-height: 100%; letter-spacing: 0.64px; text-transform: capitalize;
+  }
+  
+  #shopify-section-{{ section.id }} .cbx-side-link:hover { opacity: 1; border-color: rgba(255,255,255,.18); color: var(--text-main); }
+  #shopify-section-{{ section.id }} .cbx-side-link.is-active { color: var(--text-main); font-weight: 700; }
+
+  /* Mobile Nav */
+  #shopify-section-{{ section.id }} .cbx-mobile-nav { display: none; }
+  
+  #shopify-section-{{ section.id }} .cbx-mobile-scroller {
+    display: flex; gap: 8px; overflow: auto;
+    padding-top: 16px; margin: 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center; padding-right: 30px;
+    background: var(--bg-color);
+  }
+  
+  #shopify-section-{{ section.id }} .cbx-pill {
+    max-width: fit-content; flex: 0 0 auto;
+    text-decoration: none; padding: 8px 16px;
+    color: var(--text-sub);
+    text-align: center;
+    font-size: 14px; font-weight: 500;
+    line-height: 140%; letter-spacing: 0.28px;
+    text-transform: capitalize;
+    white-space: nowrap;
+  }
+  
+  #shopify-section-{{ section.id }} .cbx-pill.is-active { color: var(--text-main); border-bottom: 1px solid var(--text-main); }
+  #shopify-section-{{ section.id }} .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+  #shopify-section-{{ section.id }} .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  /* Grid & Card */
+  #shopify-section-{{ section.id }} .cbx-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 48px 80px 80px;
+    align-items: stretch;
+  }
+
+  #shopify-section-{{ section.id }} .cbx-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .cbx-card-media { position: relative; display: block; background: #181818; }
+  #shopify-section-{{ section.id }} .cbx-card-img { width: 100%; height: auto; display: block; aspect-ratio: 1 / 1; object-fit: cover; }
+  
+  /* Top Left Badge */
+  #shopify-section-{{ section.id }} .cbx-top-badge {
+    position: absolute; top: 8px; left: 8px; z-index: 2;
+    padding: 6px 10px;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border-radius: 6px;
+    font-size: 12px; font-weight: 400; line-height: 1; letter-spacing: .24px;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .cbx-card-body {
+    padding: 16px;
+    background: var(--card-bg);
+    display: flex; flex-direction: column;
+    min-height: 0; height: 100%;
+  }
+  
+  #shopify-section-{{ section.id }} .cbx-spacer-flex { flex: 1 1 auto; }
+
+  /* Stars */
+  #shopify-section-{{ section.id }} .cbx-stars-row { display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
+  #shopify-section-{{ section.id }} .cbx-stars { display: flex; gap: 2px; }
+  #shopify-section-{{ section.id }} .cbx-stars svg { width: 10px; height: 11px; }
+  #shopify-section-{{ section.id }} .cbx-reviews { color: var(--accent);  font-size: 14px; font-weight: 400; letter-spacing: 0.56px; }
+
+  /* Card Titles */
+  #shopify-section-{{ section.id }} .cbx-card-title {
+    color: var(--text-main);
+    font-size: 16px; font-weight: 500;
+    line-height: 140%; letter-spacing: 0.32px;
+    text-transform: capitalize;
+    margin: 0 0 6px;
+  }
+  #shopify-section-{{ section.id }} .cbx-card-title p { margin: 0; }
+  #shopify-section-{{ section.id }} .cbx-card-title a { text-decoration: none; color: inherit; }
+
+  /* Description/Badges */
+  #shopify-section-{{ section.id }} .cbx-badges {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin: 0 0 4px; min-height: 42px;
+    align-items: flex-start;
+  }
+  #shopify-section-{{ section.id }} .cbx-badge-item {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--accent);
+    line-height: 1.5; letter-spacing: 0.56px;
+    font-size: 14px;
+  }
+
+  /* Price */
+  #shopify-section-{{ section.id }} .cbx-price-row { display: flex; gap: 8px; align-items: center; margin-top: auto; flex-wrap: wrap; }
+  
+  #shopify-section-{{ section.id }} .cbx-price { 
+    color: var(--text-main);  
+    font-size: var(--price-size); 
+    font-weight: 400; 
+    letter-spacing: 0.64px; 
+  }
+  
+  #shopify-section-{{ section.id }} .cbx-compare { 
+    color: var(--accent); 
+    font-size: var(--compare-size); 
+    font-weight: 500; 
+    letter-spacing: 0.32px; 
+    text-decoration: line-through; 
+  }
+
+  #shopify-section-{{ section.id }} .cbx-discount-badge {
+    padding: 2px 12px;
+    color: var(--discount-text);
+    background: var(--discount-bg);
+    font-size: var(--discount-size);
+    border-radius: 32px;
+  }
+
+  /* --- Infinite Scroll Loader --- */
+  #shopify-section-{{ section.id }} .cbx-load-more {
+    grid-column: 1 / -1;
+    display: flex; justify-content: center; padding: 20px;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  #shopify-section-{{ section.id }} .cbx-load-more.is-visible { opacity: 1; }
+  #shopify-section-{{ section.id }} .cbx-spinner {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top-color: var(--accent);
+    animation: cbx-spin 1s linear infinite;
+  }
+  @keyframes cbx-spin { 100% { transform: rotate(360deg); } }
+
+  /* Media Queries */
+  @media screen and (max-width: 750px){
+    #shopify-section-{{ section.id }} .cbx-price { font-size: calc(var(--price-size) * 0.9); }
+    #shopify-section-{{ section.id }} .cbx-compare { font-size: calc(var(--compare-size) * 0.9); }
+    #shopify-section-{{ section.id }} .cbx-discount-badge { font-size: calc(var(--discount-size) * 0.9); padding: 2px 8px; }
+  }
+
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .cbx-layout { flex-direction: column; }
+    #shopify-section-{{ section.id }} .cbx-sidebar { display: none; }
+    #shopify-section-{{ section.id }} .cbx-main { width: 100%; }
+    #shopify-section-{{ section.id }} .cbx-hero { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .cbx-mobile-nav { display: block; }
+    #shopify-section-{{ section.id }} .cbx-hero-media { display: none; }
+    #shopify-section-{{ section.id }} .cbx-hero-media--mobile { display: block; }
+    
+    {% if section.settings.image_mobile == blank %}
+      #shopify-section-{{ section.id }} .cbx-hero-media { display: block !important; }
+      #shopify-section-{{ section.id }} .cbx-hero-media--mobile { display: none !important; }
+    {% endif %}
+  }
+
+  @media (max-width: 750px) {
+    #shopify-section-{{ section.id }} .cbx-grid { grid-template-columns: repeat(2, 1fr); padding: 16px; gap: 8px; }
+    #shopify-section-{{ section.id }} .cbx-card-body { padding: 14px; }
+    #shopify-section-{{ section.id }} .cbx-main { padding-top: 0; }
+    #shopify-section-{{ section.id }} .cbx-hero-text { padding: 24px 16px; }
+    #shopify-section-{{ section.id }} .cbx-title { font-size: 24px; letter-spacing: 0.96px; }
+    #shopify-section-{{ section.id }} .cbx-subtitle { font-size: 14px; letter-spacing: 0.28px; }
+    #shopify-section-{{ section.id }} .cbx-card-title { font-size: 14px; }
+  }
+
+  /* Big Screens Scale Up Logic */
+  @media (min-width: 2200px) {
+    #shopify-section-{{ section.id }} .cbx-sidebar { flex-basis: 390px; padding-top: 125px; }
+    #shopify-section-{{ section.id }} .cbx-hero { grid-template-columns: 1fr 1326px; }
+    #shopify-section-{{ section.id }} .cbx-title { font-size: 42px; }
+    #shopify-section-{{ section.id }} .cbx-grid { gap: 31px; padding: 62px 104px; }
+  }
+{%- endstyle -%}
+
+<section class="cbx-collection {% if section.settings.image_mobile != blank %}has-mobile-hero{% endif %}" data-section-id="{{ section.id }}">
+  <div class="cbx-layout">
+    
+    <aside class="cbx-sidebar">
+      <nav class="cbx-side-nav" aria-label="Collection navigation">
+        <ul>
+          {%- for link in linklists[section.settings.menu].links -%}
+            <li>
+              <a class="cbx-side-link {% if link.active %}is-active{% endif %}" href="{{ link.url }}">
+                <span>{{ link.title }}</span>
+              </a>
+            </li>
+          {%- else -%}
+            <li><a class="cbx-side-link" href="#"><span>Shop All</span></a></li>
+            <li><a class="cbx-side-link is-active" href="#"><span>🎁 Holiday Sale</span></a></li>
+            <li><a class="cbx-side-link" href="#"><span>Best Sellers</span></a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="cbx-main">
+      
+      <div class="cbx-hero">
+        <div class="cbx-hero-text">
+          <h1 class="cbx-title">{{ section.settings.heading }}</h1>
+          <p class="cbx-subtitle">{{ section.settings.subheading }}</p>
+        </div>
+
+        <div class="cbx-hero-media">
+          {% if section.settings.image_desktop != blank %}
+            {{ section.settings.image_desktop | image_url: width: 1600 | image_tag: loading: 'lazy', class: 'cbx-hero-img' }}
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'cbx-hero-img cbx-placeholder' }}
+          {% endif %}
+        </div>
+
+        <div class="cbx-hero-media--mobile">
+          {% if section.settings.image_mobile != blank %}
+            {{ section.settings.image_mobile | image_url: width: 800 | image_tag: loading: 'lazy', class: 'cbx-hero-img--mobile' }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="cbx-mobile-nav">
+        <div class="cbx-mobile-scroller scrollbar-none">
+          {%- for link in linklists[section.settings.menu].links -%}
+            <a class="cbx-pill {% if link.active %}is-active{% endif %}" href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+          {%- else -%}
+            <a class="cbx-pill" href="#">Shop All</a>
+            <a class="cbx-pill is-active" href="#">🎁 Holiday Sale</a>
+            <a class="cbx-pill" href="#">Best Sellers</a>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- assign collection = collections[section.settings.collection] -%}
+      {%- paginate collection.products by 16 -%}
+        <div class="cbx-grid" id="cbx-grid-{{ section.id }}">
+          {%- if collection != blank -%}
+            {%- for product in collection.products -%}
+              <article class="cbx-card">
+                <a class="cbx-card-media" href="{{ product.url }}">
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'cbx-card-img' }}
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'cbx-card-img' }}
+                  {% endif %}
+                  {% if product.metafields.custom.badge_text %}    <span class="cbx-top-badge">{{ product.metafields.custom.badge_text }} </span> 
+                 {% endif %}
+                </a>
+
+                <div class="cbx-card-body">
+                  <div class="cbx-stars-row">
+                    <div class="cbx-stars">
+                      {% for i in (1..5) %}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 11" fill="none"><path d="M10 4.42728C10 4.51561 9.94792 4.61186 9.84375 4.71603L7.66208 6.84311L8.17875 9.84811C8.18292 9.87603 8.185 9.91645 8.185 9.96853C8.18739 10.0444 8.16533 10.1191 8.12208 10.1814C8.10126 10.2102 8.07357 10.2332 8.04155 10.2485C8.00953 10.2638 7.97418 10.2708 7.93875 10.2689C7.8625 10.2689 7.7825 10.2448 7.69833 10.1964L5 8.77894L2.30167 10.1973C2.21333 10.2452 2.13333 10.2694 2.06125 10.2694C1.97708 10.2694 1.91417 10.2402 1.87208 10.1819C1.82869 10.1195 1.80648 10.0449 1.80875 9.96895C1.80875 9.94478 1.81292 9.90478 1.82125 9.84853L2.33792 6.84395L0.150417 4.71645C0.05 4.6077 0 4.51186 0 4.42728C0 4.27936 0.1125 4.18686 0.336667 4.15103L3.35333 3.71228L4.70542 0.978112C4.78167 0.813529 4.87958 0.731445 5 0.731445C5.12042 0.731445 5.21833 0.813529 5.29458 0.978112L6.64667 3.71228L9.66333 4.15103C9.88792 4.18686 10 4.27936 10 4.42728Z" fill="#B57C46"></path></svg>
+                      {% endfor %}
+                    </div>
+                    <span class="cbx-reviews"> {% if product.metafields.custom.product_review_count %} ({{ product.metafields.custom.product_review_count }}) {%else %}  ({{ product.id | modulo: 500 | plus: 120 }}) {% endif %} </span>
+                  </div>
+
+                  <h3 class="cbx-card-title">
+                    <a href="{{ product.url }}">{{ product.title }} {% if product.metafields.custom.pieces_count %} <span style=" color: #D4C7B4;"> {{ product.metafields.custom.pieces_count }} </span> {%  endif %} </a>
+                  </h3>
+
+                  <div class="cbx-badges">
+                    {% if product.metafields.custom.short_description != blank %}
+                      <span class="cbx-badge-item">{{ product.metafields.custom.short_description }}</span>
+                    {% else %}
+                      <span class="cbx-badge-item"> {% if product.metafields.custom.product_short_description != blank %} {{product.metafields.custom.product_short_description | metafield_tag }}   {% else %} {{ product.description | strip_html | truncatewords: 8 }} {% endif %} </span>
+                    {% endif %}
+                  </div>
+
+                  <div class="cbx-spacer-flex"></div>
+
+                  <div class="cbx-price-row">
+                    {% if product.compare_at_price > product.price %}
+                      <s class="cbx-compare">{{ product.compare_at_price | money_without_trailing_zeros }}</s>
+                    {% endif %}
+                    
+                    <span class="cbx-price">{{ product.price | money_without_trailing_zeros }}</span>
+                    
+                    {% if product.compare_at_price > product.price %}
+                      {% assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round %}
+                      <span class="cbx-discount-badge">-{{ savings }}%</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </article>
+            {%- endfor -%}
+          {%- else -%}
+            {% for i in (1..4) %}
+              <article class="cbx-card">
+                <div class="cbx-card-media">
+                  {{ 'product-' | append: i | placeholder_svg_tag: 'cbx-card-img' }}
+                  <span class="cbx-top-badge">EXAMPLE</span>
+                </div>
+                <div class="cbx-card-body">
+                  <h3 class="cbx-card-title">Product Title {{ i }}</h3>
+                  <div class="cbx-price-row">
+                    <span class="cbx-price">$99</span>
+                  </div>
+                </div>
+              </article>
+            {% endfor %}
+          {%- endif -%}
+
+          {%- if paginate.next -%}
+            <div class="cbx-load-more" data-next-url="{{ paginate.next.url }}">
+              <div class="cbx-spinner"></div>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endpaginate -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const gridId = "cbx-grid-{{ section.id }}";
+    
+    // Intersection Observer for Infinite Scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadMoreProducts(entry.target);
+        }
+      });
+    }, { rootMargin: '300px' }); // Start loading before reaching exact bottom
+
+    // Watch the trigger
+    const trigger = document.querySelector(`#${gridId} .cbx-load-more`);
+    if(trigger) observer.observe(trigger);
+
+    function loadMoreProducts(trigger) {
+      if(trigger.classList.contains('is-loading')) return;
+      
+      const url = trigger.getAttribute('data-next-url');
+      if(!url) return;
+
+      trigger.classList.add('is-loading');
+      trigger.classList.add('is-visible'); // Show spinner
+
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          
+          // Get new products
+          const newProducts = doc.querySelectorAll(`#${gridId} .cbx-card`);
+          const grid = document.getElementById(gridId);
+          
+          if(grid && newProducts.length > 0) {
+            // Append before the trigger
+            newProducts.forEach(prod => grid.insertBefore(prod, trigger));
+          }
+          
+          // Update Trigger URL or Remove
+          const nextTrigger = doc.querySelector(`#${gridId} .cbx-load-more`);
+          if(nextTrigger) {
+             trigger.setAttribute('data-next-url', nextTrigger.getAttribute('data-next-url'));
+             trigger.classList.remove('is-loading');
+             trigger.classList.remove('is-visible'); // Hide spinner when done
+          } else {
+             trigger.remove(); // No more pages
+          }
+        })
+        .catch(err => {
+          console.error('Infinite Scroll Error:', err);
+          trigger.classList.remove('is-loading');
+        });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collection Blocks",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "BIGGEST HOLIDAY SALE"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "The biggest sale of the year is here! Save up to 55% on pure titanium cookware bundles."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Image (1600x500)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image (1200x600)"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Sidebar Menu",
+      "info": "Used for sidebar and mobile scroller"
+    },
+    {
+      "type": "header",
+      "content": "Product Grid"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection to Show"
+    },
+    {
+      "type": "header",
+      "content": "Price Settings"
+    },
+    {
+      "type": "range",
+      "id": "price_font_size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Price Font Size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "compare_price_font_size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Compare Price Font Size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Discount Badge Settings"
+    },
+    {
+      "type": "color",
+      "id": "color_discount_bg",
+      "label": "Badge Background",
+      "default": "#BCA588"
+    },
+    {
+      "type": "color",
+      "id": "color_discount_text",
+      "label": "Badge Text",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "discount_font_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge Font Size",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Section Background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "color_sidebar_bg",
+      "label": "Sidebar Background",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "color_text_main",
+      "label": "Main Text / Heading",
+      "default": "#F6F4F0"
+    },
+    {
+      "type": "color",
+      "id": "color_text_sub",
+      "label": "Subtitle / Links",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Accent Color (Gold)",
+      "default": "#BCA588"
+    },
+    {
+      "type": "color",
+      "id": "color_border",
+      "label": "Border Colors",
+      "default": "#454545"
+    },
+    {
+      "type": "header",
+      "content": "Card Colors"
+    },
+    {
+      "type": "color",
+      "id": "color_card_bg",
+      "label": "Card Background",
+      "default": "#252525"
+    },
+    {
+      "type": "color",
+      "id": "color_badge_bg",
+      "label": "Top Badge Background (Red)",
+      "default": "#932933"
+    },
+    {
+      "type": "color",
+      "id": "color_badge_text",
+      "label": "Top Badge Text",
+      "default": "#c8beab"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Blocks"
+    }
+  ]
+}
+{% endschema %}

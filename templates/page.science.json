@@ -1,0 +1,426 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "science_sticky_qpGgMU": {
+      "type": "science-sticky",
+      "blocks": {
+        "content_block_DEULDJ": {
+          "type": "content_block",
+          "settings": {
+            "title": "What Is Titanium & Why Is It Important",
+            "text": "<p>Titanium is not just another metal. It’s one of the strongest, most resilient, and most biocompatible materials known to man.</p>"
+          }
+        },
+        "content_block_ALyEt3": {
+          "type": "content_block",
+          "settings": {
+            "title": "Biocompatibility",
+            "text": "<p>It is the only metal used in surgery because the body does not reject it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_DEULDJ",
+        "content_block_ALyEt3"
+      ],
+      "name": "Science Sticky Video",
+      "settings": {
+        "pull_up_behind_header": true,
+        "text_start_offset": 440,
+        "bg_color": "#000000",
+        "heading_color": "#ffffff",
+        "text_color": "#d6d6d6",
+        "intro_highlight_color": "#e7e7e7",
+        "accent_color": "#bca588",
+        "heading": "The Science Behind Titanium",
+        "heading_size": 64,
+        "kicker": "Why We Chose The World’s Most Trusted Metal For Your Kitchen",
+        "kicker_size": 20,
+        "intro_text": "<p>Few metals in human history have earned the level of trust titanium holds.</p><p><strong>Let’s break it down.</strong></p>",
+        "video_hosted": "shopify://files/videos/aa9a976050b64588b569c1a06a3e7434.HD-720p-3.0Mbps-57513084.mp4",
+        "video_url": "",
+        "block_heading_size": 48
+      }
+    },
+     "walter_rethink_cookware_MyXhDw": {
+      "type": "walter-rethink-cookware",
+      "blocks": {
+        "card_BM4wqE": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/pan_7-min_a4756bb1-2df2-477f-aa72-faca4dff9604.webp",
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        },
+        "card_Amxkbp": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/board_9-min_3c8a74f1-e8ef-4d6f-b216-71a175e29248.webp",
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        },
+        "card_jxn998": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/chef_pan-min_59dd09c3-bc24-496b-9866-a37324176598.webp",
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        },
+        "card_FTbHKR": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/review_man-min.webp",
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        },
+        "card_76b6RG": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/board-min_17b1843e-87da-43ae-b30b-95c6c3a5d98a.webp",
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_BM4wqE",
+        "card_Amxkbp",
+        "card_jxn998",
+        "card_FTbHKR",
+        "card_76b6RG"
+      ],
+      "name": "Rethink Cookware",
+      "settings": {
+        "bg_color": "#121212",
+        "heading_color": "#d4c7b4",
+        "subheading_color": "#b0b0b0",
+        "card_text_color": "#b0b0b0",
+        "card_title_color": "#ffffff",
+        "border_color": "#333333",
+        "title": "It’s Time To Rethink Your Cookware",
+        "subtitle": "From toxin risks to high maintenance, these outdated pans just don’t measure up to Titanium…",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_m": 64,
+        "padding_bottom_m": 64
+      }
+    },
+    "benefits_cards_FeykYQ": {
+      "type": "benefits-cards",
+      "blocks": {
+        "benefit_card_dLjA9n": {
+          "type": "benefit_card",
+          "settings": {
+            "svg_code": "",
+            "title": "Completely Toxin-Free",
+            "text": "<p>Pure titanium is chemically stable in cooking conditions.</p>"
+          }
+        },
+        "benefit_card_yqdP6N": {
+          "type": "benefit_card",
+          "settings": {
+            "svg_code": "",
+            "title": "Most Biocompatible",
+            "text": "<p>That’s why surgeons trust it in the body. It doesn’t break down or leach toxins.</p>"
+          }
+        },
+        "benefit_card_3RWQkn": {
+          "type": "benefit_card",
+          "settings": {
+            "svg_code": "",
+            "title": "Naturally Kills Bacteria",
+            "text": "<p>Titanium’s dense, non-porous surface leaves nowhere for bacteria to hide.</p>"
+          }
+        },
+        "benefit_card_M3R6ce": {
+          "type": "benefit_card",
+          "settings": {
+            "svg_code": "",
+            "title": "Never Rusts",
+            "text": "<p>Titanium forms a stable dioxide layer that works like permanent armor.</p>"
+          }
+        },
+        "benefit_card_38wNwa": {
+          "type": "benefit_card",
+          "settings": {
+            "svg_code": "",
+            "title": "Never Rusts",
+            "text": "<p>Titanium forms a stable dioxide layer that works like permanent armor.</p>"
+          }
+        },
+        "benefit_card_teRfWX": {
+          "type": "benefit_card",
+          "settings": {
+            "svg_code": "",
+            "title": "Never Rusts",
+            "text": "<p>Titanium forms a stable dioxide layer that works like permanent armor.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_card_dLjA9n",
+        "benefit_card_yqdP6N",
+        "benefit_card_3RWQkn",
+        "benefit_card_M3R6ce",
+        "benefit_card_38wNwa",
+        "benefit_card_teRfWX"
+      ],
+      "name": "Titanium Benefits",
+      "settings": {
+        "heading": "<p>Real Pure Titanium.</p><p>Real Benefits.</p>",
+        "subtext": "<p>Not all titanium is created equal. Most cut costs by using titanium coatings...<br/><br/>And because it’s pure, you get every one of titanium’s unique benefits in your hands:<br/><br/></p>",
+        "image": "shopify://shop_images/sticker-min_1200x_d3d70f13-a97a-41f2-9753-333fc0b63e9c.jpg",
+        "bg_color": "#121212",
+        "heading_color": "#bca588",
+        "text_color": "#cfcfcf",
+        "subtext_color": "#b0b0b0",
+        "highlight_color": "#e7e7e7",
+        "border_color": "#333333",
+        "icon_color": "#bca588",
+        "heading_size": 48,
+        "card_title_size": 20,
+        "card_text_size": 16,
+        "padding_top": 152,
+        "padding_bottom": 152
+      }
+    },
+     "walter_material_E66app": {
+      "type": "walter-material",
+      "blocks": {
+        "category_eyD7mB": {
+          "type": "category",
+          "settings": {
+            "title": "Pans",
+            "cat_id": "cat1"
+          }
+        },
+        "category_tRGwUc": {
+          "type": "category",
+          "settings": {
+            "title": "Cutting Boards",
+            "cat_id": "cat2"
+          }
+        },
+        "category_g4qVKD": {
+          "type": "category",
+          "settings": {
+            "title": "Utensils",
+            "cat_id": "cat3"
+          }
+        },
+        "category_zVLQ87": {
+          "type": "category",
+          "settings": {
+            "title": "Water Bottles",
+            "cat_id": "cat3"
+          }
+        },
+        "card_cpfxmP": {
+          "type": "card",
+          "settings": {
+            "cat_id": "cat1",
+            "image": "shopify://shop_images/non_stick-min.jpg",
+            "badge_text": "FOREVER CHEMICALS",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "title": "Non-Stick Coated / Teflon",
+            "text": "Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins."
+          }
+        },
+        "card_jA6dHG": {
+          "type": "card",
+          "settings": {
+            "cat_id": "cat1",
+            "image": "shopify://shop_images/steel-min_ffa0915f-a72e-44ed-84d6-12d76921a216.webp",
+            "badge_text": "Stainless Steel",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "title": "Stainless Steel",
+            "text": "Requires lots of oil to prevent sticking, and reacts with acidic foods - altering taste and potentially leaching metals in lower-quality pans. Tougher to clean, high effort to maintain."
+          }
+        },
+        "card_khxby6": {
+          "type": "card",
+          "settings": {
+            "cat_id": "cat1",
+            "image": "shopify://shop_images/ceramic-min_c6855de1-b4bc-4ad4-8545-880b3ec41164.webp",
+            "badge_text": "FOREVER CHEMICALS",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "title": "Ceramic",
+            "text": "Ceramic coatings are very fragile, once chipped, they expose toxic aluminum base. Most only last 1- 2 years before losing their non-stick. Expensive to replace, unreliable\nlong-term."
+          }
+        },
+        "card_68YLXk": {
+          "type": "card",
+          "settings": {
+            "cat_id": "cat1",
+            "image": "shopify://shop_images/ceramic-min_c6855de1-b4bc-4ad4-8545-880b3ec41164.webp",
+            "badge_text": "FOREVER CHEMICALS",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "title": "Cast Iron",
+            "text": "Ceramic coatings are very fragile, once chipped, they expose toxic aluminum base. Most only last 1- 2 years before losing their non-stick. Expensive to replace, unreliable\nlong-term."
+          }
+        }
+      },
+      "block_order": [
+        "category_eyD7mB",
+        "category_tRGwUc",
+        "category_g4qVKD",
+        "category_zVLQ87",
+        "card_cpfxmP",
+        "card_jA6dHG",
+        "card_khxby6",
+        "card_68YLXk"
+      ],
+      "name": "Materials Comparison",
+      "settings": {
+        "cols_desktop": 5,
+        "cols_mobile": 1.1,
+        "bg_color": "#121212",
+        "text_color": "#ede6da",
+        "heading": "Titanium Isn’t Competing. It’s Replacing.",
+        "heading_color": "#bca588",
+        "heading_size_d": 48,
+        "heading_size_m": 31,
+        "subtext": "From toxin & bacteria risks to high maintenance, these “outdated” kitchenware materials just don’t measure up.",
+        "sub_color": "#b0b0b0",
+        "sub_size_d": 16,
+        "sub_size_m": 14,
+        "border_color": "#454545",
+        "tab_text_color": "#b0b0b0",
+        "tab_active_bg": "#a3835f",
+        "tab_active_text": "#121212",
+        "card_bg": "#121212",
+        "card_border": "#333333",
+        "badge_bg": "#c20c25",
+        "badge_text": "#ffffff",
+        "card_title_color": "#ffffff",
+        "card_title_size": 24,
+        "card_body_color": "#b0b0b0",
+        "card_body_size": 16,
+        "max_width": 1920,
+        "pt_d": 120,
+        "pb_d": 120,
+        "pad_x_d": 120,
+        "pt_m": 64,
+        "pb_m": 64,
+        "pad_x_m": 16
+      }
+    },
+    "secreat_advanteage_XmpYTY": {
+      "type": "secreat-advanteage",
+      "blocks": {
+        "card_GUCEra": {
+          "type": "card",
+          "settings": {
+            "svg_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"151\" height=\"151\" viewbox=\"0 0 151 151\" fill=\"none\"><path d=\"M98.4954 49.4908L61.707 88.895L63.4432 105.311L112.341 76.1922L98.4954 49.4908ZM98.4954 49.4908L116.23 35.7774L123.745 38.5666L103.621 59.3793M63.2813 96.6037L108.569 68.9176\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path><line x1=\"1.25\" y1=\"114.28\" x2=\"149.341\" y2=\"114.28\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><path d=\"M41.8908 92.9926L46.5078 100.155L49.3437 95.7604L55.1189 104.716\" stroke=\"#4D5746\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path><path d=\"M95.439 101.295L87.7969 105.066L87.6233 99.8381L78.0662 104.552\" stroke=\"#4D5746\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path></svg>",
+            "title": "Stress Doesn’t Concentrate, It Disperses.",
+            "text": "<p>When your knife hits titanium, the force doesn’t crack or splinter like wood. Instead, it spreads evenly across thousands of tightly packed crystal boundaries.</p>"
+          }
+        },
+        "card_86tHmi": {
+          "type": "card",
+          "settings": {
+            "svg_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"151\" viewbox=\"0 0 150 151\" fill=\"none\"><circle cx=\"56.1029\" cy=\"65.5462\" r=\"11.6263\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><circle cx=\"24.9654\" cy=\"40.6324\" r=\"9.96543\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><circle cx=\"24.9625\" cy=\"81.5323\" r=\"8.92736\" stroke=\"#4D5746\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><circle cx=\"104.483\" cy=\"74.6811\" r=\"10.7959\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><circle cx=\"122.543\" cy=\"43.1238\" r=\"12.4568\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><circle cx=\"80.6038\" cy=\"72.6048\" r=\"4.98271\" stroke=\"#4D5746\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><circle cx=\"51.1272\" cy=\"36.4803\" r=\"4.98271\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><circle cx=\"47.1786\" cy=\"90.6674\" r=\"5.19033\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><line x1=\"35.0318\" y1=\"46.3059\" x2=\"47.2474\" y2=\"56.7251\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><line x1=\"52.882\" y1=\"92.756\" x2=\"57.1582\" y2=\"96.1769\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><line x1=\"36.0379\" y1=\"38.0063\" x2=\"44.7643\" y2=\"37.0367\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><line x1=\"96.7563\" y1=\"43.6253\" x2=\"108.791\" y2=\"43.1676\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><line x1=\"109.556\" y1=\"63.8596\" x2=\"114.462\" y2=\"54.4499\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><circle cx=\"88.4924\" cy=\"43.5393\" r=\"7.05884\" stroke=\"#4D5746\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle><circle cx=\"70.6435\" cy=\"104.993\" r=\"14.9481\" stroke=\"#4D5746\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></circle></svg>",
+            "title": "It gets tougher the more you use it.",
+            "text": "<p>Titanium has a rare property called work-hardening. Every time pressure is applied, the atoms actually shift and rearrange to make that exact spot more resistant.</p>"
+          }
+        },
+        "card_NAMKXC": {
+          "type": "card",
+          "settings": {
+            "svg_code": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"150\" height=\"151\" viewbox=\"0 0 150 151\" fill=\"none\"><path d=\"M101.527 96.3701L80.7031 108.14\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\" stroke-dasharray=\"8 8\"></path><path d=\"M62 93.667C62 96.4284 59.7614 98.667 57 98.667C54.2386 98.667 52 96.4284 52 93.667C52 90.9056 54.2386 88.667 57 88.667C59.7614 88.667 62 90.9056 62 93.667Z\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path><path d=\"M112 93.667C112 96.4284 109.761 98.667 107 98.667C104.239 98.667 102 96.4284 102 93.667C102 90.9056 104.239 88.667 107 88.667C109.761 88.667 112 90.9056 112 93.667Z\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path><path d=\"M80.7578 115.513L91.888 124.852\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\" stroke-dasharray=\"8 8\"></path><path d=\"M51.5267 96.3703L30.7031 108.14M62.2499 93.417H100.75M60.7659 97.5902L70.9231 106.901M110.766 97.5902L120.923 106.901\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\" stroke-dasharray=\"8 8\"></path><line x1=\"25.25\" y1=\"47.917\" x2=\"25.25\" y2=\"105.417\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><line x1=\"125.25\" y1=\"47.917\" x2=\"125.25\" y2=\"105.417\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><line x1=\"57.25\" y1=\"29.917\" x2=\"57.25\" y2=\"87.417\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\" stroke-dasharray=\"8 8\"></line><line x1=\"107.25\" y1=\"29.917\" x2=\"107.25\" y2=\"87.417\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\" stroke-dasharray=\"8 8\"></line><path d=\"M80 111.667C80 114.428 77.7614 116.667 75 116.667C72.2386 116.667 70 114.428 70 111.667C70 108.906 72.2386 106.667 75 106.667C77.7614 106.667 80 108.906 80 111.667Z\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path><path d=\"M69.6305 114.396L60.6785 120.215L51.7266 126.034\" stroke=\"#163025\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\" stroke-dasharray=\"8 8\"></path><path d=\"M29.1751 44.156L42.5809 55.4048M51.5269 25.3703L30.7033 37.1401M119.611 44.3913L102.724 55.0564M101.527 25.3703L80.7033 37.1401M69.6332 43.3963L51.7293 55.0338M52.25 59.417H90.75M62.25 22.417H100.75M80.761 44.5129L91.8912 53.8522M60.7661 26.5902L70.9232 35.9009M110.766 26.5902L120.923 35.9009M62 22.667C62 25.4284 59.7614 27.667 57 27.667C54.2386 27.667 52 25.4284 52 22.667C52 19.9056 54.2386 17.667 57 17.667C59.7614 17.667 62 19.9056 62 22.667ZM30 40.667C30 43.4284 27.7614 45.667 25 45.667C22.2386 45.667 20 43.4284 20 40.667C20 37.9056 22.2386 35.667 25 35.667C27.7614 35.667 30 37.9056 30 40.667ZM52 58.667C52 61.4284 49.7614 63.667 47 63.667C44.2386 63.667 42 61.4284 42 58.667C42 55.9056 44.2386 53.667 47 53.667C49.7614 53.667 52 55.9056 52 58.667ZM112 22.667C112 25.4284 109.761 27.667 107 27.667C104.239 27.667 102 25.4284 102 22.667C102 19.9056 104.239 17.667 107 17.667C109.761 17.667 112 19.9056 112 22.667ZM80 40.667C80 43.4284 77.7614 45.667 75 45.667C72.2386 45.667 70 43.4284 70 40.667C70 37.9056 72.2386 35.667 75 35.667C77.7614 35.667 80 37.9056 80 40.667ZM130 40.667C130 43.4284 127.761 45.667 125 45.667C122.239 45.667 120 43.4284 120 40.667C120 37.9056 122.239 35.667 125 35.667C127.761 35.667 130 37.9056 130 40.667ZM102 58.667C102 61.4284 99.7614 63.667 97 63.667C94.2386 63.667 92 61.4284 92 58.667C92 55.9056 94.2386 53.667 97 53.667C99.7614 53.667 102 55.9056 102 58.667Z\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path><path d=\"M55 77.667C55 80.4284 52.7614 82.667 50 82.667C47.2386 82.667 45 80.4284 45 77.667C45 74.9056 47.2386 72.667 50 72.667C52.7614 72.667 55 74.9056 55 77.667Z\" fill=\"#4D5746\"></path><path d=\"M105 77.667C105 80.4284 102.761 82.667 100 82.667C97.2386 82.667 95 80.4284 95 77.667C95 74.9056 97.2386 72.667 100 72.667C102.761 72.667 105 74.9056 105 77.667Z\" fill=\"#4D5746\"></path><path d=\"M73 95.667C73 98.4284 70.7614 100.667 68 100.667C65.2386 100.667 63 98.4284 63 95.667C63 92.9056 65.2386 90.667 68 90.667C70.7614 90.667 73 92.9056 73 95.667Z\" fill=\"#4D5746\"></path><path d=\"M55.2495 77.417H93.7495M53.7656 81.5902L63.9227 90.9009M94.5267 80.3701L73.7031 92.14M55 77.667C55 80.4284 52.7614 82.667 50 82.667C47.2386 82.667 45 80.4284 45 77.667C45 74.9056 47.2386 72.667 50 72.667C52.7614 72.667 55 74.9056 55 77.667ZM105 77.667C105 80.4284 102.761 82.667 100 82.667C97.2386 82.667 95 80.4284 95 77.667C95 74.9056 97.2386 72.667 100 72.667C102.761 72.667 105 74.9056 105 77.667ZM73 95.667C73 98.4284 70.7614 100.667 68 100.667C65.2386 100.667 63 98.4284 63 95.667C63 92.9056 65.2386 90.667 68 90.667C70.7614 90.667 73 92.9056 73 95.667Z\" stroke=\"#4D5746\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path><line x1=\"97.25\" y1=\"64.917\" x2=\"97.25\" y2=\"122.417\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><line x1=\"47.25\" y1=\"64.917\" x2=\"47.25\" y2=\"122.417\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></line><path d=\"M29.1751 115.156L42.5809 126.405M119.611 115.391L102.724 126.056M52.25 130.417H90.75M30 111.667C30 114.428 27.7614 116.667 25 116.667C22.2386 116.667 20 114.428 20 111.667C20 108.906 22.2386 106.667 25 106.667C27.7614 106.667 30 108.906 30 111.667ZM52 129.667C52 132.428 49.7614 134.667 47 134.667C44.2386 134.667 42 132.428 42 129.667C42 126.906 44.2386 124.667 47 124.667C49.7614 124.667 52 126.906 52 129.667ZM130 111.667C130 114.428 127.761 116.667 125 116.667C122.239 116.667 120 114.428 120 111.667C120 108.906 122.239 106.667 125 106.667C127.761 106.667 130 108.906 130 111.667ZM102 129.667C102 132.428 99.7614 134.667 97 134.667C94.2386 134.667 92 132.428 92 129.667C92 126.906 94.2386 124.667 97 124.667C99.7614 124.667 102 126.906 102 129.667Z\" stroke=\"#BCA588\" stroke-width=\"2.5\" stroke-miterlimit=\"10\" stroke-linecap=\"square\"></path></svg>",
+            "title": "Durability without compromise.",
+            "text": "<p>This unique structure explains why titanium doesn’t fatigue, doesn’t corrode, and doesn’t fracture the way other kitchen materials do. It simply endures.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_GUCEra",
+        "card_86tHmi",
+        "card_NAMKXC"
+      ],
+      "name": "Secret Advantage",
+      "settings": {
+        "heading": "Titanium’s Secret Advantage:",
+        "subheading": "A Molecular Structure Unlike Any Other",
+        "text": "<p>Every material breaks down in its own way - wood absorbs and cracks, plastic shaves into microplastics, and steel corrodes under heat and acids - but titanium’s crystal structure resists all of it.</p><p>Its atoms arrange in what’s called a Hexagonal Close-Packed (HCP) crystal structure - think of it like an interlocking 3D puzzle where every piece supports the others. There are no weak links.</p><h6>Here’s why that matters in your kitchen:</h6>",
+        "bg_color": "#03231a",
+        "heading_color": "#bca588",
+        "subheading_color": "#ffffff",
+        "text_color": "#b0b0b0",
+        "card_title_color": "#ffffff",
+        "accent_color": "#c9a371",
+        "heading_size": 48,
+        "subheading_size": 24,
+        "card_title_size": 20,
+        "card_text_size": 16,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "walter_video_cta_K3jaGt": {
+      "type": "walter-video-cta",
+      "name": "Walter Video CTA",
+      "settings": {
+        "heading": "Titanium Was Never Meant For The Kitchen, Until Now",
+        "text": "<p>For centuries, titanium was reserved for places where lives and missions depended on it. Surgeons. Astronauts. Engineers. Soldiers.</p><p>Nobody dared to bring it into the kitchen, because it was too difficult & too expensive…</p><p>But that’s exactly why we did it.</p><p>Taima® exists because your health deserves the same uncompromising standard as a spacecraft, a life-changing implant, or a jet that defies gravity.</p>",
+        "btn_label": "Shop Taima®",
+        "btn_link": "shopify://collections/all",
+        "video_hosted": "shopify://files/videos/TitanCore - Pure titanium non-stick cooking without PTFEPFOAPFAS.mp4",
+        "video_url": "",
+        "bg_color": "#121212",
+        "heading_color": "#bca588",
+        "text_color": "#b0b0b0",
+        "btn_bg_color": "#ffffff",
+        "btn_text_color": "#121212",
+        "heading_size": 48,
+        "text_size": 16,
+        "btn_size": 20,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "science_sticky_qpGgMU",
+    "walter_rethink_cookware_MyXhDw",
+    "benefits_cards_FeykYQ",
+    "walter_material_E66app",
+    "secreat_advanteage_XmpYTY",
+    "walter_video_cta_K3jaGt"
+  ]
+}

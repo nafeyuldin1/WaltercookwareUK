@@ -1,0 +1,544 @@
+{% comment %}
+  Section: Engineered Exploded View
+  Status: Fixed Desktop & Mobile (Exact Replica of Reference)
+{% endcomment %}
+
+{%- style -%}
+  #ieo-{{ section.id }} {
+    --bg-color: {{ section.settings.bg_color }};
+    --title-color: {{ section.settings.title_color }};
+    --line-color: {{ section.settings.line_color }};
+    --item-title-color: {{ section.settings.item_title_color }};
+    --item-desc-color: {{ section.settings.item_desc_color }};
+    --st: {{ section.settings.anim_speed }}ms;
+  }
+{%- endstyle -%}
+
+<section id="ieo-{{ section.id }}" class="ieo" style="background-color: var(--bg-color);">
+  <div class="ieo-inner">
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="ieo-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ieo-layout">
+      
+      <div class="ieo-visual">
+        {% for block in section.blocks %}
+          {% assign i = forloop.index0 %}
+          {% assign step = forloop.index %}
+          
+          {%- comment -%} Z-Index Logic: Pan (0) is highest, layers go down {%- endcomment -%}
+          {% assign z_index = 1000 | minus: i %}
+
+          {%- comment -%} 
+            Auto Offset Logic: 
+            If user sets 0 in schema, we auto-calculate based on index to fix layout.
+            Equation: (Index - 1) * 120px. 
+            First 2 items (Pan & Layer 1) stay at 0 offset.
+          {%- endcomment -%}
+          {% assign offset_val = block.settings.offset_y %}
+          
+          {% if offset_val == 0 and i > 1 %}
+             {% assign calc_mult = i | minus: 1 %}
+             {% assign offset_val = calc_mult | times: 120 %}
+          {% endif %}
+
+          {% if block.settings.image != blank %}
+            <img 
+              class="ieo-layer {% if forloop.first %}ieo-pan{% endif %} from-left" 
+              style="--off: {{ offset_val }}px; --i: {{ i }}; z-index: {{ z_index }};" 
+              data-step="{{ step }}" 
+              src="{{ block.settings.image | image_url: width: 1600 }}" 
+              alt="{{ block.settings.image.alt | escape }}" 
+              loading="lazy"
+              width="800"
+              height="800"
+            >
+          {% else %}
+             {{ 'image' | placeholder_svg_tag: 'ieo-layer placeholder-svg' }}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="ieo-right">
+        <ul class="ieo-list">
+          {% for block in section.blocks %}
+            {% assign i = forloop.index0 %}
+            {% assign step = forloop.index %}
+            
+            <li class="ieo-li" data-step="{{ step }}" style="--i: {{ i }};" {{ block.shopify_attributes }}>
+              <span class="ieo-line"></span>
+              <div class="ieo-text">
+                {% if block.settings.title != blank %}
+                  <div class="ieo-li-title">{{ block.settings.title }}</div>
+                {% endif %}
+                
+                {% if block.settings.description != blank %}
+                  <div class="ieo-li-desc">{{ block.settings.description }}</div>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* =========================================
+   1. BASE STYLES (Desktop Default 1800px+)
+   ========================================= */
+#ieo-{{ section.id }} .ieo-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: {{ section.settings.padding_top }}px 24px {{ section.settings.padding_bottom }}px 24px;
+  overflow: visible; /* Important so Pan doesn't get cut off */
+}
+
+#ieo-{{ section.id }} .ieo-title {
+  margin: 0 0 64px;
+  font-family: 'Neue Montreal', sans-serif;
+  color: var(--title-color);
+  font-size: {{ section.settings.heading_size }}px;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1.92px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+#ieo-{{ section.id }} .ieo-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 48px;
+  align-items: center;
+}
+
+/* Visual Stack */
+#ieo-{{ section.id }} .ieo-visual {
+  position: relative;
+  height: 930px;
+  margin-left: auto;
+  width: min(600px, 44vw);
+  aspect-ratio: 1/1;
+}
+
+#ieo-{{ section.id }} .ieo-layer {
+  position: absolute;
+  left: 100px; 
+  top: 20px; 
+  right: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  /* Desktop Logic: Vertical translate comes from liquid variable --off */
+  transform: translateY(var(--off, 0px)) scale(.98);
+  transition: transform .7s ease, opacity .7s ease;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,.25));
+  transition-delay: calc(var(--i) * 2 * var(--st));
+}
+
+#ieo-{{ section.id }} .ieo-pan { top: -100px; } /* Pan sits higher */
+
+/* Animation States */
+#ieo-{{ section.id }} .ieo-layer.from-left { transform: translateX(-40vw) translateY(var(--off, 0px)) scale(.96); }
+#ieo-{{ section.id }} .ieo-layer.is-on { opacity: 1; transform: translateX(0) translateY(var(--off, 0px)) scale(1); }
+
+/* Right List */
+#ieo-{{ section.id }} .ieo-right { margin-right: auto; }
+#ieo-{{ section.id }} .ieo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 46px; }
+
+#ieo-{{ section.id }} .ieo-li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateX(-40vw) translateY(8px);
+  transition: transform .7s ease, opacity .7s ease;
+  will-change: transform, opacity;
+  transition-delay: calc(var(--i) * 2 * var(--st));
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#ieo-{{ section.id }} .ieo-li.is-on {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#ieo-{{ section.id }} .ieo-line {
+  background: var(--line-color);
+  height: 2px;
+  flex: 0 0 157px;
+  position: relative;
+}
+
+#ieo-{{ section.id }} .ieo-text { max-width: 520px; }
+
+#ieo-{{ section.id }} .ieo-li-title {
+  color: var(--item-title-color);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 0.48px;
+  text-transform: capitalize;
+}
+
+#ieo-{{ section.id }} .ieo-li-desc {
+  margin-top: 16px;
+  color: var(--item-desc-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.64px;
+}
+
+/* =========================================
+   2. MOBILE STYLES (Max 749px)
+   ========================================= */
+@media (max-width: 749px) {
+  #ieo-{{ section.id }} {
+     padding-top: {{ section.settings.padding_top | divided_by: 1.5 }}px;
+     padding-bottom: {{ section.settings.padding_bottom | divided_by: 1.5 }}px;
+  }
+  #ieo-{{ section.id }} .ieo-inner { padding-left: 16px; padding-right: 16px; }
+  #ieo-{{ section.id }} .ieo-layout { grid-template-columns: 1fr 202px; gap: 0; }
+  
+  #ieo-{{ section.id }} .ieo-visual {
+    max-width: auto;
+    aspect-ratio: auto;
+    height: 600px;
+    width: 157px;
+    margin: 0;
+  }
+  
+  #ieo-{{ section.id }} .ieo-layer {
+    max-width: none;
+    width: 334px;
+    left: -91px;
+    top: -101px;
+    opacity: 0;
+    /* Mobile Offset Calculation override: 101px steps */
+    transform: translateX(-40vw) translateY(calc(var(--i) * 101px)) scale(.96);
+  }
+  
+  #ieo-{{ section.id }} .ieo-pan { width: 334px; left: -91px; top: -108px; }
+  
+  #ieo-{{ section.id }} .ieo-layer.is-on {
+    opacity: 1 !important;
+    transform: translateX(0) translateY(calc(var(--i) * 101px)) scale(1) !important;
+  }
+  
+  #ieo-{{ section.id }} .ieo-list { gap: 20px; }
+  #ieo-{{ section.id }} .ieo-title { font-size: 24px; letter-spacing: 0.26px; margin-bottom: 80px; }
+  
+  #ieo-{{ section.id }} .ieo-li-title { font-size: 14px; letter-spacing: .28px; }
+  #ieo-{{ section.id }} .ieo-li-desc { font-size: 14px; letter-spacing: .16px; margin-top: 8px; }
+
+  #ieo-{{ section.id }} .ieo-li {
+    opacity: 0;
+    transform: translateX(-40vw) translateY(8px);
+    transition-delay: 0s !important; /* Mobile instant */
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  #ieo-{{ section.id }} .ieo-li.is-on {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  
+  #ieo-{{ section.id }} .ieo-line { flex: 0 0 40px; }
+  #ieo-{{ section.id }} .ieo-text { max-width: 145px; }
+}
+
+/* =========================================
+   3. LAPTOP / MD DESKTOP (750px - 1799px)
+   ========================================= */
+@media (min-width: 750px) and (max-width: 1799.98px) {
+  #ieo-{{ section.id }} .ieo-inner { max-width: 1260px; padding-top: 43.2px; padding-bottom: 43.2px; }
+  #ieo-{{ section.id }} .ieo-title { font-size: 43.2px; margin-bottom: 28.8px; }
+  #ieo-{{ section.id }} .ieo-layout { gap: 43.2px; }
+  
+  #ieo-{{ section.id }} .ieo-visual { height: 837px; width: min(540px, 44vw); }
+  #ieo-{{ section.id }} .ieo-layer { left: 90px; top: 18px; }
+  #ieo-{{ section.id }} .ieo-pan { top: -90px; }
+  
+  #ieo-{{ section.id }} .ieo-list { gap: 41.4px; }
+  #ieo-{{ section.id }} .ieo-li { gap: 14.4px; transform: translateX(-40vw) translateY(7.2px); }
+  
+  /* Critical for Alignment on Laptop */
+  #ieo-{{ section.id }} .ieo-line { height: 1.8px; flex: 0 0 141.3px; }
+  
+  #ieo-{{ section.id }} .ieo-text { max-width: 468px; }
+  #ieo-{{ section.id }} .ieo-li-title { font-size: 21.6px; letter-spacing: 0.432px; }
+  #ieo-{{ section.id }} .ieo-li-desc { margin-top: 14.4px; font-size: 14.4px; letter-spacing: 0.576px; }
+}
+
+/* =========================================
+   4. ULTRA WIDE (2200px+)
+   ========================================= */
+@media (min-width: 2200px) {
+  #ieo-{{ section.id }} .ieo-inner { max-width: 1820px; padding-left: 31.2px; padding-right: 31.2px; }
+  #ieo-{{ section.id }} .ieo-title { font-size: 41.6px; margin-bottom: 41.6px; }
+  #ieo-{{ section.id }} .ieo-layout { gap: 62.4px; }
+  
+  #ieo-{{ section.id }} .ieo-visual { height: 1209px; width: min(780px, 44vw); }
+  #ieo-{{ section.id }} .ieo-layer { left: 130px; top: 26px; }
+  #ieo-{{ section.id }} .ieo-pan { top: -130px; }
+  
+  #ieo-{{ section.id }} .ieo-list { gap: 59.8px; }
+  #ieo-{{ section.id }} .ieo-li { gap: 20.8px; transform: translateX(-40vw) translateY(10.4px); }
+  #ieo-{{ section.id }} .ieo-line { height: 2.6px; flex: 0 0 204.1px; }
+  #ieo-{{ section.id }} .ieo-text { max-width: 676px; }
+  #ieo-{{ section.id }} .ieo-li-title { font-size: 31.2px; letter-spacing: 0.624px; }
+  #ieo-{{ section.id }} .ieo-li-desc { margin-top: 20.8px; font-size: 20.8px; letter-spacing: 0.832px; }
+}
+
+/* Specific Small Mobile Tweaks */
+@media (min-width: 399px) and (max-width: 500px) {
+  #ieo-{{ section.id }} .ieo-right { margin-left: -13px; }
+  #ieo-{{ section.id }} .ieo-visual { margin-left: 0; }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sectionId = "ieo-{{ section.id }}";
+  const sec = document.getElementById(sectionId);
+  if (!sec) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const layers = Array.from(sec.querySelectorAll('.ieo-layer'));
+  const layersByStep = new Map(layers.map(el => [ Number(el.getAttribute('data-step')), el ]));
+  const listItems = Array.from(sec.querySelectorAll('.ieo-li[data-step]'));
+  const itemsByStep = new Map(listItems.map(el => [ Number(el.getAttribute('data-step')), el ]));
+
+  if (prefersReduced) {
+    layers.forEach(el => el.classList.add('is-on'));
+    listItems.forEach(el => el.classList.add('is-on'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const step = Number(entry.target.getAttribute('data-step'));
+      const layer = layersByStep.get(step);
+      const li    = itemsByStep.get(step);
+      if (layer) layer.classList.add('is-on');
+      if (li)    li.classList.add('is-on');
+      
+      io.unobserve(entry.target);
+    });
+  }, {
+    root: null,
+    rootMargin: '-10% 0% -10% 0%',
+    threshold: 0
+  });
+
+  listItems.forEach(el => io.observe(el));
+
+  document.addEventListener('shopify:section:load', (e) => {
+    if (!sec.contains(e.target)) return;
+    io.disconnect();
+    const freshItems = Array.from(sec.querySelectorAll('.ieo-li[data-step]'));
+    freshItems.forEach(el => io.observe(el));
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Engineered View Layers",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#07231b"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading Color",
+      "default": "#BCA588"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Connector Line Color",
+      "default": "#A3835F"
+    },
+    {
+      "type": "color",
+      "id": "item_title_color",
+      "label": "List Title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "item_desc_color",
+      "label": "List Description Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Engineered From The Inside Out"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Font Size (Desktop)",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Animation Settings"
+    },
+    {
+      "type": "range",
+      "id": "anim_speed",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "unit": "ms",
+      "label": "Animation Speed (Delay)",
+      "default": 220
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "layer",
+      "name": "Layer",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Layer Image"
+        },
+        {
+          "type": "header",
+          "content": "Positioning"
+        },
+        {
+          "type": "number",
+          "id": "offset_y",
+          "label": "Vertical Offset (px)",
+          "info": "Leave 0 to auto-calculate. Or use steps of 120 (0, 0, 120, 240, 360...)",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Layer Material"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Benefit of this layer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Engineered View Layers",
+      "blocks": [
+        {
+          "type": "layer",
+          "settings": {
+            "title": "Pure Titanium",
+            "description": "Non-toxic. Non-stick.",
+            "offset_y": 0
+          }
+        },
+        {
+          "type": "layer",
+          "settings": {
+            "title": "Aluminum Core",
+            "description": "Internal Heat",
+            "offset_y": 0
+          }
+        },
+        {
+          "type": "layer",
+          "settings": {
+            "title": "Inner Core",
+            "description": "Stabilizes heat",
+            "offset_y": 120
+          }
+        },
+        {
+          "type": "layer",
+          "settings": {
+            "title": "Outer Core",
+            "description": "Pulls heat in",
+            "offset_y": 240
+          }
+        },
+         {
+          "type": "layer",
+          "settings": {
+            "title": "Base Steel",
+            "description": "Induction Ready",
+            "offset_y": 360
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

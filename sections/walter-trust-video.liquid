@@ -1,0 +1,675 @@
+{% comment %}
+  Section: Trusted Slider
+  Description: A video testimonial slider with dynamic settings (Native Video Upload Supported).
+{% endcomment %}
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<style>
+  #shopify-section-{{ section.id }} .trusted-slider-section-wrapper {
+    position: relative;
+    overflow: hidden;
+    color: {{ section.settings.text_color }};
+    background: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  /* Dynamic Heading */
+  #shopify-section-{{ section.id }} .trusted-slider-header {
+    font-family: 'Neue Montreal', sans-serif; /* Make sure this font is loaded in theme */
+    font-weight: 400;
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 130%;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 0 0 48px;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .trusted-slider-header .highlight {
+    color: {{ section.settings.highlight_color }};
+  }
+
+  /* Slider Layout */
+  .trusted-slider { width: 100%; margin: 0 auto; }
+  .trusted-slide {
+    height: 419px;
+    flex: 0 0 auto;
+    text-align: center;
+    position: relative;
+    margin-right: 32px;
+    outline: none;
+  }
+
+  .trusted-slide-content {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, {{ section.settings.bg_color }} 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 24px 24px;
+    padding: 16px;
+    pointer-events: none;
+  }
+
+  /* Media Wrapper */
+  .video-container {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+    background: #0f0f0f;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+
+  .video-container .video-thumbnail,
+  .video-container iframe.trusted-yt,
+  .video-container video.trusted-html5,
+  .video-container .embed-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-thumbnail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Play Icon */
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .play-icon svg {
+    width: 48px;
+    height: 48px;
+    fill: #fff;
+  }
+
+  /* Loader */
+  .video-loader {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(1px);
+    z-index: 3;
+  }
+  .video-container.is-loading .video-loader { display: flex; }
+  .video-loader::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255,255,255,.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: ts-spin .9s linear infinite;
+  }
+  @keyframes ts-spin { to { transform: rotate(360deg); } }
+
+  /* Text & Stars */
+  .quote {
+    font-family: 'Neue Montreal', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-transform: capitalize;
+    color: {{ section.settings.quote_color }};
+    padding-bottom: 12px;
+  }
+  .stars {
+    font-size: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+  }
+  .stars svg path {
+    fill: {{ section.settings.star_color }};
+  }
+
+  /* Prebuffer */
+  .video-container .prebuffer,
+  .video-container .prebuffer video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .trusted-slide { margin-right: 12px; width: 236px !important; }
+    #shopify-section-{{ section.id }} .trusted-slider-header {
+      font-size: {{ section.settings.heading_size_mobile }}px;
+      max-width: 300px;
+      margin: 0 auto 32px;
+    }
+    #shopify-section-{{ section.id }} .trusted-slider-section-wrapper {
+      padding-top: {{ section.settings.padding_top | divided_by: 2 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | divided_by: 2 }}px;
+    }
+  }
+
+  /* Slick Overrides */
+  .trusted-slider .slick-track { display: flex !important; align-items: stretch; }
+  .trusted-slider .slick-slide { height: auto; }
+  @media (min-width: 769px) { .trusted-slider .slick-list { margin: 0 -16px; } }
+</style>
+
+<link rel="preconnect" href="https://www.youtube.com">
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://i.ytimg.com">
+
+<div class="trusted-slider-section trusted-slider-section-wrapper">
+  
+  {% if section.settings.heading_text_before != blank %}
+  <h3 class="trusted-slider-header">
+    {{ section.settings.heading_text_before }}
+    <span class="highlight">{{ section.settings.heading_highlight }}</span>
+    {{ section.settings.heading_text_after }}
+  </h3>
+  {% endif %}
+
+  <div class="trusted-slider">
+    {% for block in section.blocks %}
+      <div class="trusted-slide" {{ block.shopify_attributes }}>
+        
+        {% comment %}
+          LOGIC: Prioritize Native Video Upload > YouTube > Manual URL
+        {% endcomment %}
+        {% assign video_source = "" %}
+        
+        {% if block.settings.video_file != blank %}
+          {% comment %} Extract the MP4 URL from Shopify Video Object {% endcomment %}
+          {% for source in block.settings.video_file.sources %}
+            {% if source.format == 'mp4' %}
+              {% assign video_source = source.url %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% elsif block.settings.video_url.type == 'youtube' %}
+          {% assign video_source = block.settings.video_url %}
+        {% elsif block.settings.mp4_url != blank %}
+          {% assign video_source = block.settings.mp4_url %}
+        {% endif %}
+
+        <div class="video-container" 
+             data-video="{{ video_source }}" 
+             data-prepared="false">
+          
+          {% assign thumb_img = block.settings.thumbnail %}
+          {% if thumb_img == blank and block.settings.video_file != blank %}
+             {% comment %} Fallback to video preview image if uploaded {% endcomment %}
+             {% assign thumb_img = block.settings.video_file.preview_image %}
+          {% endif %}
+
+          {% if thumb_img != blank %}
+            <img class="video-thumbnail" 
+                 src="{{ thumb_img | image_url: width: 600 }}" 
+                 alt="{{ block.settings.quote | escape }}" 
+                 loading="lazy">
+          {% else %}
+             <div class="video-thumbnail" style="background:#222; display:flex; align-items:center; justify-content:center; color:#555;"></div>
+          {% endif %}
+
+          <div class="play-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+          </div>
+          
+          <div class="video-loader"></div>
+          
+          {% unless block.settings.video_url.type == 'youtube' %}
+             {% if video_source != blank %}
+                <div class="prebuffer">
+                  <video class="trusted-html5" preload="metadata" playsinline muted>
+                    <source src="{{ video_source }}" type="video/mp4">
+                  </video>
+                </div>
+             {% endif %}
+          {% endunless %}
+        </div>
+
+        <div class="trusted-slide-content">
+          {% if block.settings.quote != blank %}
+            <div class="quote">"{{ block.settings.quote }}"</div>
+          {% endif %}
+          
+          <div class="stars">
+            {% for i in (1..5) %}
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 5.16489C14 5.28856 13.9271 5.42331 13.7812 5.56914L10.7269 8.54706L11.4502 12.7541C11.4561 12.7931 11.459 12.8497 11.459 12.9226C11.4623 13.0289 11.4315 13.1334 11.3709 13.2207C11.3418 13.2609 11.303 13.2932 11.2582 13.3146C11.2133 13.336 11.1639 13.3459 11.1142 13.3432C11.0075 13.3432 10.8955 13.3094 10.7777 13.2417L7 11.2572L3.22233 13.2429C3.09867 13.31 2.98667 13.3438 2.88575 13.3438C2.76792 13.3438 2.67983 13.303 2.62092 13.2213C2.56016 13.134 2.52907 13.0295 2.53225 12.9232C2.53225 12.8894 2.53808 12.8334 2.54975 12.7546L3.27308 8.54822L0.210583 5.56972C0.07 5.41747 0 5.28331 0 5.16489C0 4.95781 0.1575 4.82831 0.471333 4.77814L4.69467 4.16389L6.58758 0.336056C6.69433 0.105639 6.83142 -0.00927734 7 -0.00927734C7.16858 -0.00927734 7.30567 0.105639 7.41242 0.336056L9.30533 4.16389L13.5287 4.77814C13.8431 4.82831 14 4.95781 14 5.16489Z"></path>
+              </svg>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const sectionId = "#shopify-section-{{ section.id }}";
+  const $slider = $(sectionId + ' .trusted-slider');
+
+  /* ---------- Slick ---------- */
+  $slider.slick({
+    slidesToShow: {{ section.settings.slides_to_show }},
+    slidesToScroll: 1,
+    autoplay: false,
+    arrows: false,
+    dots: false,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          variableWidth: true,
+          infinite: true
+        }
+      }
+    ]
+  });
+
+  /* ---------- Helpers ---------- */
+  const isMobile = () => window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+  let mobileUserHasInteracted = false;
+
+  const getYouTubeId = (url) => {
+    try {
+      const u = new URL(url);
+      if (u.hostname.includes('youtu.be')) return u.pathname.slice(1);
+      if (u.searchParams.get('v')) return u.searchParams.get('v');
+      const parts = u.pathname.split('/');
+      return parts.pop() || parts.pop() || "";
+    } catch(e) { return ""; }
+  };
+
+  const isYouTubeUrl = (url) => /youtube\.com|youtu\.be/.test(url || "");
+
+  const pauseContainer = (container) => {
+    const iframe = container.querySelector('iframe.trusted-yt');
+    const video  = container.querySelector('video.trusted-html5');
+    if (iframe) {
+      try {
+        iframe.contentWindow.postMessage(JSON.stringify({ event: "command", func: "pauseVideo", args: [] }), "*");
+      } catch(e){}
+    }
+    if (video) {
+      try { video.pause(); } catch(e){}
+    }
+    container.dataset.playing = "false";
+  };
+
+  const playContainer = (container, opts = {}) => {
+    const reset = opts.reset === true;
+    const iframe = container.querySelector('iframe.trusted-yt');
+    const video  = container.querySelector('video.trusted-html5');
+
+    if (iframe) {
+      try {
+        if (reset) {
+          iframe.contentWindow.postMessage(JSON.stringify({ event: "command", func: "seekTo", args: [0, true] }), "*");
+        }
+        iframe.contentWindow.postMessage(JSON.stringify({ event: "command", func: "unMute", args: [] }), "*");
+        iframe.contentWindow.postMessage(JSON.stringify({ event: "command", func: "playVideo", args: [] }), "*");
+      } catch(e){}
+      container.dataset.playing = "true";
+    }
+
+    if (video) {
+      try {
+        if (reset) video.currentTime = 0;
+        video.muted = false;
+        video.removeAttribute('muted');
+        video.volume = 1;
+        video.play().then(() => {
+          container.dataset.playing = "true";
+        }).catch(() => {});
+      } catch(e){}
+    }
+  };
+
+  const pauseAllExcept = (exceptEl) => {
+    document.querySelectorAll(".video-container").forEach(c => {
+      if (c !== exceptEl && c.dataset.playing === "true") pauseContainer(c);
+    });
+  };
+
+  /* ---------- Prepare ---------- */
+  function prepareContainer(container){
+    if (container.dataset.prepared === "true") return;
+    const videoUrl = container.dataset.video || "";
+    if (!videoUrl) return;
+
+    if (!container.querySelector('.video-loader')) {
+      const loader = document.createElement('div');
+      loader.className = 'video-loader';
+      container.appendChild(loader);
+    }
+
+    if (isYouTubeUrl(videoUrl)) {
+      container.dataset.prepared = "true";
+      return;
+    }
+    container.dataset.prepared = "true";
+  }
+
+  function buildNow(container){
+    const videoUrl = container.dataset.video || "";
+    const isYT = isYouTubeUrl(videoUrl);
+
+    const html = isYT
+      ? (() => {
+          const ytId = getYouTubeId(videoUrl);
+          return `<iframe class="trusted-yt" width="100%" height="100%"
+                    src="https://www.youtube.com/embed/${ytId}?autoplay=1&mute=0&controls=0&playsinline=1&enablejsapi=1&modestbranding=1&rel=0&origin=${location.origin}"
+                    frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+        })()
+      : `<video class="trusted-html5" playsinline width="100%" height="100%"><source src="${videoUrl}" type="video/mp4"></video>`;
+
+    const oldPre = container.querySelector('.prebuffer');
+    if (oldPre) oldPre.remove();
+
+    const wrap = document.createElement('div');
+    wrap.className = 'embed-wrap';
+    wrap.innerHTML = html;
+    container.appendChild(wrap);
+
+    container.dataset.mounted = "true";
+    container.dataset.playing = "false";
+    return wrap;
+  }
+
+  function usePreparedHtml5(container){
+    const pre = container.querySelector('.prebuffer');
+    if (!pre) return false;
+    const v = pre.querySelector('video.trusted-html5');
+    if (!v) return false;
+    
+    pre.classList.remove('prebuffer');
+    pre.classList.add('embed-wrap');
+    pre.style.opacity = '1';
+    pre.style.pointerEvents = 'auto';
+    container.dataset.mounted = "true";
+    return v;
+  }
+
+  // Observer
+  const containers = Array.from(document.querySelectorAll(sectionId + " .video-container"));
+  const ioPrep = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        prepareContainer(entry.target);
+        ioPrep.unobserve(entry.target);
+      }
+    });
+  }, { root: null, rootMargin: '600px', threshold: 0.01 });
+  containers.forEach(c => ioPrep.observe(c));
+
+  /* ---------- Click Handling ---------- */
+  document.querySelectorAll(sectionId + " .video-container").forEach(container => {
+    container.addEventListener("click", () => {
+      if (isMobile()) mobileUserHasInteracted = true;
+      const mounted = container.dataset.mounted === "true";
+      const playing = container.dataset.playing === "true";
+      const isYT = isYouTubeUrl(container.dataset.video || "");
+
+      if (mounted) {
+        if (playing) {
+          pauseContainer(container);
+        } else {
+          pauseAllExcept(container);
+          playContainer(container, { reset: false });
+          const thumb = container.querySelector('.video-thumbnail');
+          const icon  = container.querySelector('.play-icon');
+          if (thumb) thumb.style.display = 'none';
+          if (icon) icon.style.display = 'none';
+        }
+        return;
+      }
+
+      pauseAllExcept(container);
+      if (!isYT) {
+        let promoted = usePreparedHtml5(container);
+        if (!promoted) buildNow(container);
+      } else {
+        buildNow(container);
+      }
+
+      const thumb = container.querySelector('.video-thumbnail');
+      const icon  = container.querySelector('.play-icon');
+      if (thumb) thumb.style.display = 'none';
+      if (icon) icon.style.display = 'none';
+      playContainer(container, { reset: true });
+    }, { passive: true });
+  });
+
+  /* ---------- Slider Change ---------- */
+  $slider.on('afterChange', function(event, slick, currentSlide) {
+    const slides = slick.$slides;
+    slides.each(function(idx, slide) {
+      const container = slide.querySelector('.video-container');
+      if (container && container.dataset.mounted === "true" && container.dataset.playing === "true") {
+        pauseContainer(container);
+      }
+    });
+
+    if (!isMobile() || !mobileUserHasInteracted) return;
+    const current = slick.$slides.get(currentSlide);
+    if (!current) return;
+    const container = current.querySelector('.video-container');
+    if (!container) return;
+
+    const isYT = isYouTubeUrl(container.dataset.video || "");
+    if (container.dataset.mounted !== "true") {
+      if (!isYT) {
+        let promoted = usePreparedHtml5(container);
+        if (!promoted) buildNow(container);
+      } else {
+        buildNow(container);
+      }
+      const thumb = container.querySelector('.video-thumbnail');
+      const icon  = container.querySelector('.play-icon');
+      if (thumb) thumb.style.display = 'none';
+      if (icon) icon.style.display = 'none';
+    }
+    pauseAllExcept(container);
+    playContainer(container, { reset: false });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Trusted Video Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading_text_before",
+      "label": "Heading Text (Start)",
+      "default": "Trusted By"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Highlight Text",
+      "default": "500,000+"
+    },
+    {
+      "type": "text",
+      "id": "heading_text_after",
+      "label": "Heading Text (End)",
+      "default": "People Worldwide"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Size (Desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 16,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Size (Mobile)",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color",
+      "default": "#BCA588"
+    },
+    {
+      "type": "color",
+      "id": "quote_color",
+      "label": "Quote Text Color",
+      "default": "#E9E2D8"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#B57C46"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "slides_to_show",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Slides to Show (Desktop)",
+      "default": 7
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Video Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Video Thumbnail",
+          "info": "Leave blank to use video preview image if uploaded"
+        },
+        {
+          "type": "header",
+          "content": "Video Source (Choose One)"
+        },
+        {
+          "type": "video",
+          "id": "video_file",
+          "label": "Shopify Hosted Video",
+          "info": "Upload video directly here (Recommended)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "OR YouTube Link",
+          "accept": ["youtube"]
+        },
+        {
+          "type": "text",
+          "id": "mp4_url",
+          "label": "OR Manual MP4 URL",
+          "info": "Fallback if you have an external link"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote Text",
+          "default": "This product is amazing!"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trusted Video Slider",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}

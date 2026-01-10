@@ -1,0 +1,685 @@
+{% comment %}
+  Section: Behind The Scenes / Our Story
+  Description: Dynamic video section with split mobile content layout.
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .bts-section {
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    position: relative;
+    /* Desktop Padding */
+    padding-top: {{ section.settings.pt_d }}px;
+    padding-bottom: {{ section.settings.pb_d }}px;
+    padding-left: {{ section.settings.pl_d }}px;
+    padding-right: {{ section.settings.pr_d }}px;
+  }
+
+  #shopify-section-{{ section.id }} .bts-container {
+    display: flex;
+    flex-direction: row; /* Default */
+    align-items: center;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    gap: {{ section.settings.col_gap }}px;
+  }
+
+  /* Flip Layout Logic */
+  {% if section.settings.layout_flip %}
+  #shopify-section-{{ section.id }} .bts-container {
+    flex-direction: row-reverse;
+  }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .bts-content {
+    flex: 1;
+    max-width: 874px;
+  }
+
+  #shopify-section-{{ section.id }} .bts-video {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    max-width: 966px; 
+  }
+
+  #shopify-section-{{ section.id }} .bts-video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: {{ section.settings.video_radius }}px;
+  }
+
+  #shopify-section-{{ section.id }} .bts-video-el {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+  }
+
+  #shopify-section-{{ section.id }} .bts-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    transition: opacity 0.3s ease;
+  }
+
+  /* Hide overlay if Autoplay is enabled via CSS class */
+  #shopify-section-{{ section.id }} .bts-video-overlay.is-hidden {
+    display: none !important;
+  }
+
+  #shopify-section-{{ section.id }} .bts-thumbnail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .bts-play-button {
+    z-index: 3;
+    transition: transform 0.2s ease;
+  }
+  #shopify-section-{{ section.id }} .bts-video-overlay:hover .bts-play-button {
+    transform: scale(1.1);
+  }
+
+  /* Typography */
+  #shopify-section-{{ section.id }} .bts-heading {
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size_d }}px;
+    font-weight: 400;
+    line-height: 130%;
+    text-transform: capitalize;
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+
+  #shopify-section-{{ section.id }} .bts-paragraph {
+    color: {{ section.settings.body_color }};
+    font-size: {{ section.settings.body_size_d }}px;
+    line-height: 150%;
+    margin-bottom: 48px;
+  }
+  
+  #shopify-section-{{ section.id }} .bts-paragraph p {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .bts-quote {
+    color: {{ section.settings.quote_color }};
+    font-size: {{ section.settings.quote_size_d }}px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 140%;
+    margin: 0 0 16px;
+    border: none;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .bts-founder {
+    color: {{ section.settings.founder_color }};
+    font-size: {{ section.settings.founder_size_d }}px;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .bts-signature {
+    width: {{ section.settings.sig_width_d }}px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Visibility Utilities */
+  #shopify-section-{{ section.id }} .desktop-only { display: block; }
+  #shopify-section-{{ section.id }} .mobile-only { display: none; }
+
+  /* Responsive Design */
+  @media (max-width: 1100px) {
+    #shopify-section-{{ section.id }} .bts-section {
+      padding-top: {{ section.settings.pt_m }}px;
+      padding-bottom: {{ section.settings.pb_m }}px;
+      padding-left: {{ section.settings.pad_x_m }}px;
+      padding-right: {{ section.settings.pad_x_m }}px;
+    }
+
+    #shopify-section-{{ section.id }} .bts-container {
+      flex-direction: column; /* Stack on mobile */
+      gap: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .bts-content {
+      padding: 0;
+      text-align: left;
+      max-width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .desktop-only { display: none; }
+    #shopify-section-{{ section.id }} .mobile-only { display: block; }
+
+    /* Mobile Typography */
+    #shopify-section-{{ section.id }} .bts-heading {
+      font-size: {{ section.settings.heading_size_m }}px;
+    }
+    #shopify-section-{{ section.id }} .bts-paragraph {
+      font-size: {{ section.settings.body_size_m }}px;
+      margin-bottom: 0; /* Gap handled by container */
+    }
+    #shopify-section-{{ section.id }} .bts-quote {
+      font-size: {{ section.settings.quote_size_m }}px;
+      margin-top: 24px;
+    }
+    #shopify-section-{{ section.id }} .bts-founder {
+      font-size: {{ section.settings.founder_size_m }}px;
+      margin: 0;
+      align-self: center;
+    }
+    
+    #shopify-section-{{ section.id }} .bts-mobile-founder {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+    }
+    
+    #shopify-section-{{ section.id }} .bts-signature {
+      width: {{ section.settings.sig_width_m }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="bts-section" id="bts-section-{{ section.id }}">
+  <div class="bts-container page-width">
+    
+    <div class="bts-content">
+      <div class="bts-full-content desktop-only">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bts-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        
+        {%- if section.settings.text != blank -%}
+          <div class="bts-paragraph">{{ section.settings.text }}</div>
+        {%- endif -%}
+        
+        {%- if section.settings.quote != blank -%}
+          <blockquote class="bts-quote">“{{ section.settings.quote }}”</blockquote>
+        {%- endif -%}
+        
+        {%- if section.settings.founder_name != blank -%}
+          <p class="bts-founder">{{ section.settings.founder_name }}</p>
+        {%- endif -%}
+        
+        {%- if section.settings.signature_img != blank -%}
+          {{ section.settings.signature_img | image_url: width: 400 | image_tag: loading: 'lazy', class: 'bts-signature', alt: 'Founder Signature' }}
+        {%- endif -%}
+      </div>
+
+      <div class="bts-text-top mobile-only">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bts-heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="bts-paragraph">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="bts-video">
+      <div class="bts-video-wrapper">
+        
+        <div class="bts-video-overlay js-video-overlay {% if section.settings.enable_autoplay %}is-hidden{% endif %}">
+          {%- if section.settings.video_thumbnail != blank -%}
+            {{ section.settings.video_thumbnail | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'bts-thumbnail', alt: 'Video Thumbnail' }}
+          {%- elsif section.settings.video != blank -%}
+             {{ section.settings.video.preview_image | image_url: width: 1200 | image_tag: loading: 'lazy', class: 'bts-thumbnail', alt: 'Video Thumbnail' }}
+          {%- endif -%}
+          
+          <div class="bts-play-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <foreignObject x="-4" y="-4" width="88" height="88">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(5px);height:100%;width:100%"></div>
+              </foreignObject>
+              <circle cx="40" cy="40" r="33.3333" fill="white" fill-opacity="0.2" stroke="white" stroke-opacity="0.1"/>
+              <path d="M33.334 29.3335V50.6668L50.0959 40.0002L33.334 29.3335Z" fill="white"/>
+            </svg>
+          </div>
+        </div>
+
+        <video class="bts-video-el js-video-el" 
+               playsinline 
+               preload="metadata"
+               {% if section.settings.show_controls %}controls{% endif %}
+               {% if section.settings.enable_autoplay %}autoplay muted{% endif %}
+               {% if section.settings.enable_loop %}loop{% endif %}
+               {% if section.settings.start_muted %}muted{% endif %}
+        >
+          {%- if section.settings.video != blank -%}
+            {%- for source in section.settings.video.sources -%}
+              <source data-src="{{ source.url }}" type="{{ source.mime_type }}">
+            {%- endfor -%}
+          {%- elsif section.settings.video_url_mp4 != blank -%}
+            <source data-src="{{ section.settings.video_url_mp4 }}" type="video/mp4">
+          {%- endif -%}
+        </video>
+        
+      </div>
+
+      <div class="bts-text-bottom mobile-only">
+        {%- if section.settings.quote != blank -%}
+          <blockquote class="bts-quote">“{{ section.settings.quote }}”</blockquote>
+        {%- endif -%}
+        
+        <div class="bts-mobile-founder">
+          {%- if section.settings.founder_name != blank -%}
+            <p class="bts-founder">{{ section.settings.founder_name }}</p>
+          {%- endif -%}
+          
+          {%- if section.settings.signature_img != blank -%}
+            {{ section.settings.signature_img | image_url: width: 300 | image_tag: loading: 'lazy', class: 'bts-signature', alt: 'Founder Signature' }}
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sectionContainer = document.getElementById("bts-section-{{ section.id }}");
+    if(!sectionContainer) return;
+
+    const overlay = sectionContainer.querySelector(".js-video-overlay");
+    const video   = sectionContainer.querySelector(".js-video-el");
+    
+    if (!video) return;
+
+    // Load video source on init
+    const sources = video.querySelectorAll('source[data-src]');
+    sources.forEach(srcEl => {
+        if(srcEl.dataset.src) srcEl.src = srcEl.dataset.src;
+    });
+    video.load(); 
+
+    // If Autoplay is NOT enabled, we use the click handler
+    if (overlay && !overlay.classList.contains('is-hidden')) {
+        overlay.addEventListener("click", function () {
+            try { video.currentTime = 0; } catch(e) {}
+            
+            // If user explicitly clicks play, we can unmute unless "Start Muted" is checked in settings
+            {% unless section.settings.start_muted %}
+            video.muted = false;
+            video.removeAttribute('muted');
+            video.volume = 1;
+            {% endunless %}
+
+            const playVideo = () => {
+                video.play().catch(err => console.log('Playback blocked', err));
+                overlay.style.display = "none";
+                // Show controls after play if enabled
+                {% if section.settings.show_controls %}
+                video.controls = true;
+                {% endif %}
+            };
+
+            if (video.readyState >= 2) {
+                playVideo();
+            } else {
+                video.addEventListener('canplay', playVideo, { once: true });
+            }
+        }, { passive: true });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Behind The Scenes",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 2000,
+      "step": 20,
+      "unit": "px",
+      "label": "Container Max Width",
+      "default": 1800
+    },
+    {
+      "type": "checkbox",
+      "id": "layout_flip",
+      "label": "Flip Content (Video Left, Text Right)",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "col_gap",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Column Gap (Desktop)",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Content - Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Prioritizing Your Health In Everything We Create."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_d",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "label": "Heading Size (Desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_m",
+      "min": 16,
+      "max": 50,
+      "step": 1,
+      "label": "Heading Size (Mobile)",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Content - Body Text"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Paragraph Text",
+      "default": "<p>Titanium has long been used in medical & aerospace industries.</p>"
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Body Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "range",
+      "id": "body_size_d",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "label": "Body Size (Desktop)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "body_size_m",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "label": "Body Size (Mobile)",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Content - Quote & Founder"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote Text",
+      "default": "Health Is The Most Valuable Thing We Have."
+    },
+    {
+      "type": "color",
+      "id": "quote_color",
+      "label": "Quote Color",
+      "default": "#E9E2D8"
+    },
+    {
+      "type": "range",
+      "id": "quote_size_d",
+      "min": 14,
+      "max": 40,
+      "label": "Quote Size (Desktop)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "quote_size_m",
+      "min": 12,
+      "max": 30,
+      "label": "Quote Size (Mobile)",
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "founder_name",
+      "label": "Founder Name",
+      "default": "Paul S., Founder"
+    },
+    {
+      "type": "color",
+      "id": "founder_color",
+      "label": "Founder Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "range",
+      "id": "founder_size_d",
+      "min": 12,
+      "max": 30,
+      "label": "Founder Size (Desktop)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "founder_size_m",
+      "min": 12,
+      "max": 30,
+      "label": "Founder Size (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "image_picker",
+      "id": "signature_img",
+      "label": "Signature Image"
+    },
+    {
+      "type": "range",
+      "id": "sig_width_d",
+      "min": 50,
+      "max": 200,
+      "step": 5,
+      "label": "Signature Width (Desktop)",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "sig_width_m",
+      "min": 50,
+      "max": 150,
+      "step": 5,
+      "label": "Signature Width (Mobile)",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Video Media"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Shopify Hosted Video"
+    },
+    {
+      "type": "text",
+      "id": "video_url_mp4",
+      "label": "MP4 Link (Fallback)",
+      "info": "Use if not using Shopify video picker"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_thumbnail",
+      "label": "Cover Image / Thumbnail",
+      "info": "Shown before video plays"
+    },
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable Autoplay",
+      "info": "Autoplay forces the video to be Muted.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "label": "Loop Video",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "start_muted",
+      "label": "Start Muted",
+      "info": "Video starts without sound even if clicked.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show Video Controls",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "video_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "label": "Video Corner Radius",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "pt_d",
+      "label": "Desktop Top",
+      "default": 80,
+      "step": 2,
+      "min": 0,
+      "max": 150
+    },
+    {
+      "type": "range",
+      "id": "pb_d",
+      "label": "Desktop Bottom",
+      "default": 80,
+      "step": 2,
+      "min": 0,
+      "max": 150
+    },
+    {
+      "type": "range",
+      "id": "pl_d",
+      "label": "Desktop Left",
+      "default": 0,
+      "step": 2,
+      "min": 0,
+      "max": 150
+    },
+    {
+      "type": "range",
+      "id": "pr_d",
+      "label": "Desktop Right",
+      "step": 2,
+      "default": 80,
+      "min": 0,
+      "max": 150
+    },
+    {
+      "type": "range",
+      "id": "pt_m",
+      "label": "Mobile Top",
+      "step": 2,
+      "default": 64,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "pb_m",
+      "label": "Mobile Bottom",
+      "step": 2,
+      "default": 64,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "pad_x_m",
+      "label": "Mobile Side Padding",
+      "step": 2,
+      "default": 16,
+      "min": 0,
+      "max": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Behind The Scenes"
+    }
+  ]
+}
+{% endschema %}

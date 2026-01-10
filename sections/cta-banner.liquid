@@ -1,0 +1,352 @@
+{%- comment -%}
+  CTA Image Banner Section
+  Fully Dynamic with Responsive Scaling
+{%- endcomment -%}
+
+{%- style -%}
+  #cta-banner-{{ section.id }} {
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.bg_fallback }};
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Desktop Image */
+    {%- if section.settings.image_desktop != blank -%}
+      background-image: url({{ section.settings.image_desktop | image_url: width: 2000 }});
+    {%- endif -%}
+  }
+
+  #cta-banner-{{ section.id }} .cta-banner__inner {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 120px;
+    padding-right: 120px;
+    text-align: {{ section.settings.text_alignment }};
+    margin: 0 auto;
+  }
+
+  /* Headings & Text */
+  #cta-banner-{{ section.id }} .cta-banner__heading {
+    margin: 0 0 16px;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.92px;
+    text-transform: capitalize;
+  }
+
+  #cta-banner-{{ section.id }} .cta-banner__subheading {
+    margin: 0 0 64px;
+    color: {{ section.settings.subtext_color }};
+    font-size: {{ section.settings.subtext_size }}px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0.96px;
+    text-transform: capitalize;
+  }
+  
+  #cta-banner-{{ section.id }} .cta-banner__subheading p { margin: 0; }
+
+  /* Button Styles */
+  #cta-banner-{{ section.id }} .cta-banner__btn {
+    display: inline-block;
+    padding: 18px 24px;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 100%;
+    background: {{ section.settings.btn_bg_color }};
+    color: {{ section.settings.btn_text_color }};
+    font-size: {{ section.settings.btn_font_size }}px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0.8px;
+    text-transform: capitalize;
+    text-decoration: none;
+    border: 1px solid {{ section.settings.btn_bg_color }};
+    transition: opacity 0.3s ease;
+  }
+  
+  #cta-banner-{{ section.id }} .cta-banner__btn:hover {
+    opacity: 0.9;
+  }
+
+  /* --- Responsive Scaling Logic --- */
+
+  /* Laptop Scaling (-10%) */
+  @media (min-width: 751px) and (max-width: 1799px) {
+    #cta-banner-{{ section.id }} .cta-banner__inner { 
+      padding-top: calc({{ section.settings.padding_top }}px * 0.9);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.9);
+      padding-left: 108px; 
+      padding-right: 108px;
+    } 
+    #cta-banner-{{ section.id }} .cta-banner__heading {
+      font-size: calc({{ section.settings.heading_size }}px * 0.9);
+      letter-spacing: 1.728px;
+    }
+    #cta-banner-{{ section.id }} .cta-banner__subheading {
+      font-size: calc({{ section.settings.subtext_size }}px * 0.9);
+      letter-spacing: 0.864px;
+      margin-bottom: 57.6px;
+    }
+    #cta-banner-{{ section.id }} .cta-banner__btn {
+      padding: 16.2px 21.6px;
+      font-size: calc({{ section.settings.btn_font_size }}px * 0.9);
+    }
+  }
+
+  /* Large Screen Scaling (+30%) */
+  @media (min-width: 2200px) {
+    #cta-banner-{{ section.id }} .cta-banner__inner { 
+      padding-top: calc({{ section.settings.padding_top }}px * 1.3);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 1.3);
+      padding-left: 156px; 
+      padding-right: 156px;
+    }
+    #cta-banner-{{ section.id }} .cta-banner__heading {
+      font-size: calc({{ section.settings.heading_size }}px * 1.3);
+      letter-spacing: 2.496px;
+    }
+    #cta-banner-{{ section.id }} .cta-banner__subheading {
+      font-size: calc({{ section.settings.subtext_size }}px * 1.3);
+      letter-spacing: 1.248px;
+      margin-bottom: 83.2px;
+    }
+    #cta-banner-{{ section.id }} .cta-banner__btn {
+      padding: 23.4px 31.2px;
+      max-width: 520px;
+      font-size: calc({{ section.settings.btn_font_size }}px * 1.3);
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 749px) {
+    #cta-banner-{{ section.id }} {
+      /* Mobile Image Switch */
+      {%- if section.settings.image_mobile != blank -%}
+        background-image: url({{ section.settings.image_mobile | image_url: width: 1200 }});
+      {%- elsif section.settings.image_desktop != blank -%}
+        background-image: url({{ section.settings.image_desktop | image_url: width: 1200 }});
+      {%- endif -%}
+    }
+    
+    #cta-banner-{{ section.id }} .cta-banner__inner { 
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    #cta-banner-{{ section.id }} .cta-banner__heading {
+      font-size: 32px;
+      letter-spacing: 1.28px;
+      margin-bottom: 16px;
+    }
+    #cta-banner-{{ section.id }} .cta-banner__subheading {
+      font-size: 16px;
+      letter-spacing: 0.64px;
+      margin-bottom: 32px;
+    }
+    #cta-banner-{{ section.id }} .cta-banner__btn {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+{%- endstyle -%}
+
+<section id="cta-banner-{{ section.id }}" class="cta-banner" aria-label="{{ section.settings.heading | escape }}">
+  <div class="cta-banner__inner">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cta-banner__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subtext != blank -%}
+      <div class="cta-banner__subheading rte">
+        {{ section.settings.subtext }}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.btn_label != blank -%}
+      <a class="cta-banner__btn" href="{{ section.settings.btn_link }}">{{ section.settings.btn_label }}</a>
+    {%- endif -%}
+    
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA Image Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image",
+      "info": "Optional. Falls back to desktop image if blank."
+    },
+    {
+      "type": "color",
+      "id": "bg_fallback",
+      "label": "Background Fallback Color",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Experience Taima® Difference Today!"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subheading",
+      "default": "<p>550,000+ Health-Conscious People Are Already Using Taima In Their Kitchens.</p>"
+    },
+    {
+      "type": "text_alignment",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Protect Your Health"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Subtext Color",
+      "default": "#E9E2D8"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Typography (Desktop Base)"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "subtext_size",
+      "min": 14,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtext Size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "btn_font_size",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Font Size",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop Top Padding",
+      "default": 135
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop Bottom Padding",
+      "default": 135
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile Top Padding",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile Bottom Padding",
+      "default": 120
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Image Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,489 @@
+{% schema %}
+{
+  "name": "Rethink Cookware",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#D4C7B4"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card Text Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "It’s Time To Rethink Your Cookware"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "From toxin risks to high maintenance, these outdated pans just don’t measure up to Titanium…"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_m",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_m",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Cookware Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Non-Stick Coated"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Worst type of pan surface there is. Releases toxic chemicals.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Read More…"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rethink Cookware",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Non-Stick / Teflon"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Stainless Steel"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Ceramic"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Cast Iron"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div id="section-{{ section.id }}" class="shopify-section rethink-cookware-section">
+  <section class="rc">
+    <div class="rc-inner">
+      
+      {% if section.settings.title != blank or section.settings.subtitle != blank %}
+      <header class="rc-head">
+        {% if section.settings.title != blank %}
+          <h2 class="rc-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        
+        {% if section.settings.subtitle != blank %}
+          <p class="rc-sub">{{ section.settings.subtitle }}</p>
+        {% endif %}
+      </header>
+      {% endif %}
+
+      <div class="rc-list">
+        {% for block in section.blocks %}
+          <article class="rc-card" {{ block.shopify_attributes }}>
+            
+            <div class="rc-media">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 680 | image_tag: 
+                  loading: 'lazy', 
+                  sizes: '(max-width: 749px) 240px, 300px', 
+                  alt: block.settings.image.alt 
+                }}
+              {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'rc-media-ph' }}
+              {% endif %}
+            </div>
+
+            <div class="rc-body">
+              {% if block.settings.title != blank %}
+                <h3 class="rc-card-title">{{ block.settings.title }}</h3>
+              {% endif %}
+              
+              {% if block.settings.text != blank %}
+                <div class="rc-text rte">{{ block.settings.text }}</div>
+              {% endif %}
+              
+              {% if block.settings.link_text != blank and block.settings.link_url != blank %}
+                <a class="rc-link" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
+              {% endif %}
+            </div>
+
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+/* Scoped Variables based on Settings */
+#section-{{ section.id }} {
+  --rc-bg: {{ section.settings.bg_color }};
+  --rc-heading: {{ section.settings.heading_color }};
+  --rc-subheading: {{ section.settings.subheading_color }};
+  --rc-card-text: {{ section.settings.card_text_color }};
+  --rc-card-title: {{ section.settings.card_title_color }};
+  --rc-border: {{ section.settings.border_color }};
+}
+
+/* Wrapper */
+#section-{{ section.id }} .rc { 
+  background: var(--rc-bg); 
+  color: #fff; 
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+#section-{{ section.id }} .rc-inner { max-width:1680px; margin:0 auto; }
+
+/* Header */
+#section-{{ section.id }} .rc-title {
+  margin: 0 0 16px;
+  font-family: 'Neue Montreal', sans-serif; 
+  color: var(--rc-heading);
+  text-align: center;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1.92px;
+  text-transform: capitalize;
+}
+#section-{{ section.id }} .rc-sub {
+  margin: 0 0 48px;
+  font-family: 'Neue Montreal', sans-serif; 
+  color: var(--rc-subheading);
+  text-align: center; 
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.64px;
+}
+
+/* Desktop list (grid) - Dynamic Columns based on Block count */
+#section-{{ section.id }} .rc-list {
+  display: grid;
+  grid-template-columns: repeat({{ section.blocks.size }}, minmax(0, 1fr));
+  gap: 32px;
+  padding: 0 40px; /* Safety padding for edges */
+}
+
+/* Card */
+#section-{{ section.id }} .rc-card {
+  background: transparent;
+  border-radius: 24px;
+  border: 1.5px solid var(--rc-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+#section-{{ section.id }} .rc-media {
+  padding: 0;
+  border-bottom: 1.5px solid var(--rc-border);
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  overflow: hidden;
+}
+#section-{{ section.id }} .rc-media img,
+#section-{{ section.id }} .rc-media svg {
+  width: 100%; 
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+#section-{{ section.id }} .rc-media-ph {
+  width: 100%; height: 200px; background: #2a2a2a; fill: #555;
+}
+
+#section-{{ section.id }} .rc-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+#section-{{ section.id }} .rc-card-title {
+  margin: 0 0 16px;
+  font-family: 'Neue Montreal', sans-serif; 
+  color: var(--rc-card-title);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; 
+  letter-spacing: 0.48px;
+  text-transform: capitalize;
+}
+#section-{{ section.id }} .rc-text {
+  font-family: 'Neue Montreal', sans-serif; 
+  color: var(--rc-card-text);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.64px;
+  margin-bottom: 16px;
+}
+#section-{{ section.id }} .rc-text p { margin: 0; }
+#section-{{ section.id }} .rc-link {
+  display: inline-block; 
+  margin-top: auto; 
+  text-decoration: none; 
+  color: var(--rc-card-text);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; 
+  letter-spacing: 0.64px;
+}
+
+/* Mobile: slick logic */
+@media (max-width: 749px){
+  #section-{{ section.id }} .rc {
+    padding-top: {{ section.settings.padding_top_m }}px;
+    padding-bottom: {{ section.settings.padding_bottom_m }}px;
+  }
+  #section-{{ section.id }} .rc-list { 
+    display: block; 
+    padding-left: 16px;
+    padding-right: 0;
+  }  
+  #section-{{ section.id }} .rc-head {
+    padding: 0 16px;
+  }
+  #section-{{ section.id }} .rc-card {
+    width: 240px;  /* fixed slide width */
+    margin: 0 6px; /* results in 12px gap overall */
+    min-height: 503.4px;
+  }
+  #section-{{ section.id }} .rc-media img { 
+    max-width: 100%; 
+  }
+  #section-{{ section.id }} .rc-title {
+    font-size: 24px;
+  }
+  #section-{{ section.id }} .rc-sub {
+    font-size: 14px;
+    letter-spacing: 0.56px;
+  }
+  #section-{{ section.id }} .rc-card-title {
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    margin: 0 0 12px;
+  }
+  #section-{{ section.id }} .rc-body {
+    padding: 16px;
+  }
+  #section-{{ section.id }} .rc-text, 
+  #section-{{ section.id }} .rc-link {
+    font-size: 12px;
+    letter-spacing: 0.48px;
+  }
+  #section-{{ section.id }} .rc-text {
+    margin-bottom: 12px;
+  }
+}
+
+/* ====== -10% for medium desktops (750px–1799px) ====== */
+@media (max-width: 1799px) and (min-width: 750px) {
+  #section-{{ section.id }} .rc { 
+    padding-top: calc({{ section.settings.padding_top }}px * 0.9);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.9);
+  }
+  #section-{{ section.id }} .rc-inner { max-width: 1512px; }
+  #section-{{ section.id }} .rc-list { gap: 28.8px; }
+
+  #section-{{ section.id }} .rc-title { font-size: 43.2px; letter-spacing: 1.728px; margin-bottom: 14.4px; }
+  #section-{{ section.id }} .rc-sub { font-size: 14.4px; letter-spacing: 0.576px; margin-bottom: 43.2px; }
+
+  #section-{{ section.id }} .rc-card { border-radius: 21.6px; border-width: 1.35px; }
+  #section-{{ section.id }} .rc-media { border-bottom-width: 1.35px; }
+  #section-{{ section.id }} .rc-body { padding: 21.6px; }
+
+  #section-{{ section.id }} .rc-card-title { font-size: 21.6px; letter-spacing: 0.432px; margin-bottom: 14.4px; }
+  #section-{{ section.id }} .rc-text { font-size: 14.4px; letter-spacing: 0.576px; margin-bottom: 14.4px; }
+  #section-{{ section.id }} .rc-link { font-size: 14.4px; letter-spacing: 0.576px; }
+}
+
+/* ====== +30% for ultra-wide (≥2200px) ====== */
+@media (min-width: 2200px) {
+  #section-{{ section.id }} .rc { 
+    padding-top: calc({{ section.settings.padding_top }}px * 1.3);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px * 1.3);
+  }
+  #section-{{ section.id }} .rc-inner { max-width: 2184px; }
+  #section-{{ section.id }} .rc-list { gap: 41.6px; }
+
+  #section-{{ section.id }} .rc-title { font-size: 62.4px; letter-spacing: 2.496px; margin-bottom: 20.8px; }
+  #section-{{ section.id }} .rc-sub { font-size: 20.8px; letter-spacing: 0.832px; margin-bottom: 62.4px; }
+
+  #section-{{ section.id }} .rc-card { border-radius: 31.2px; border-width: 1.95px; }
+  #section-{{ section.id }} .rc-media { border-bottom-width: 1.95px; }
+  #section-{{ section.id }} .rc-body { padding: 31.2px; }
+
+  #section-{{ section.id }} .rc-card-title { font-size: 31.2px; letter-spacing: 0.624px; margin-bottom: 20.8px; }
+  #section-{{ section.id }} .rc-text { font-size: 20.8px; letter-spacing: 0.832px; margin-bottom: 20.8px; }
+  #section-{{ section.id }} .rc-link { font-size: 20.8px; letter-spacing: 0.832px; }
+}
+</style>
+
+<script>
+(function(){
+  // Dynamic Selector for this specific section instance
+  var sectionId = 'section-{{ section.id }}';
+  var rootSelector = '#' + sectionId;
+  var $list;
+
+  function hasSlick(){
+    return window.jQuery && typeof jQuery.fn.slick === 'function';
+  }
+
+  function initOrDestroy(){
+    if (!hasSlick()) {
+        console.warn('Slick Slider or jQuery not found in theme.');
+        return;
+    }
+
+    $list = $list || jQuery(rootSelector + ' .rc-list');
+
+    // Logic: Enable slider only under 749px
+    if (window.matchMedia('(max-width: 749px)').matches) {
+      if (!$list.hasClass('slick-initialized')) {
+        $list.slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: false,
+          dots: false,
+          swipeToSlide: true,
+          touchThreshold: 12,
+          variableWidth: true,
+          mobileFirst: true
+        });
+      }
+    } else if ($list.hasClass('slick-initialized')) {
+      $list.slick('unslick');
+    }
+  }
+
+  // Initialize on load and resize
+  document.addEventListener('DOMContentLoaded', initOrDestroy);
+  window.addEventListener('resize', function(){ 
+      clearTimeout(window.__rcT); 
+      window.__rcT = setTimeout(initOrDestroy, 120); 
+  });
+
+  // Re-init when Shopify Theme Editor updates the section
+  document.addEventListener('shopify:section:load', function(event) {
+    if (event.detail.sectionId === '{{ section.id }}') {
+      initOrDestroy();
+    }
+  });
+})();
+</script>

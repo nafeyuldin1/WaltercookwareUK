@@ -1,0 +1,478 @@
+{%- comment -%}
+  Science Sticky Video Section
+  Fully Dynamic with Sticky Logic and Responsive Scaling
+{%- endcomment -%}
+
+{%- style -%}
+  #science-{{ section.id }} .science__wrap {
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    /* CSS Vars for Local Scope */
+    --white: {{ section.settings.heading_color }};
+    --secondary: {{ section.settings.accent_color }};
+    --grey-text: {{ section.settings.text_color }};
+    --grey-light: {{ section.settings.intro_highlight_color }};
+    
+    padding: 0 80px 0 120px;
+    overflow: visible; /* Important for sticky */
+    position: relative;
+    z-index: 1;
+  }
+
+  #science-{{ section.id }} .science__grid {
+    display: grid;
+    grid-template-columns: 1fr 893px; /* Base desktop width */
+    gap: 0;
+    align-items: start;
+    overflow: visible;
+  }
+
+  /* --- LEFT COLUMN CONTENT --- */
+  #science-{{ section.id }} .science__content {
+    margin-top: {{ section.settings.text_start_offset }}px; /* Base: 444.5px */
+    padding-bottom: 100px;
+  }
+
+  #science-{{ section.id }} .science__heading {
+    margin: 0 0 16px 0;
+    color: var(--white);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.28px;
+    text-transform: capitalize;
+  }
+
+  #science-{{ section.id }} .science__kicker {
+    margin: 0 0 32px 0;
+    color: var(--white);
+    font-size: {{ section.settings.kicker_size }}px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+  }
+
+  /* Intro Text Styling */
+  #science-{{ section.id }} .science__intro p {
+    margin: 0 0 32px 0;
+    color: var(--grey-text);
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+  #science-{{ section.id }} .science__intro p:last-child,
+  #science-{{ section.id }} .science__intro strong {
+    color: var(--grey-light);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+  }
+
+  /* Content Blocks */
+  #science-{{ section.id }} .science__block {
+    margin-top: 332px; /* Spacing between blocks */
+    max-width: 700px;
+  }
+  
+  #science-{{ section.id }} .science__block:first-of-type {
+     /* First block spacing handled by margin-top of container or previous element */
+  }
+
+  #science-{{ section.id }} .science__block-title {
+    margin: 0 0 24px 0;
+    color: var(--secondary);
+    font-size: {{ section.settings.block_heading_size }}px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.92px;
+    text-transform: capitalize;
+  }
+
+  #science-{{ section.id }} .science__block-text {
+    margin-bottom: 12px;
+    color: var(--grey-text);
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+
+  /* --- RIGHT COLUMN MEDIA --- */
+  #science-{{ section.id }} .science__media {
+    align-self: start;
+    margin-top: 300px; /* Offset for video start */
+    overflow: visible;
+    /* This ensures the column is tall enough for sticky scrolling */
+    min-height: 100%; 
+  }
+
+  #science-{{ section.id }} .science__sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    /* Top is set by JS */
+    top: var(--sticky-top, 100px);
+    height: 740px;
+    width: 100%;
+    max-width: 893px;
+    flex-shrink: 0;
+    display: block;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  #science-{{ section.id }} video,
+  #science-{{ section.id }} .science__sticky img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* --- RESPONSIVE SCALING --- */
+
+  /* Laptop (-10%) */
+  @media (min-width: 751px) and (max-width: 1799px) {
+    #science-{{ section.id }} .science__wrap { padding: 0 72px 0 108px; }
+    #science-{{ section.id }} .science__grid { grid-template-columns: 1fr 803px; }
+    
+    #science-{{ section.id }} .science__content { margin-top: calc({{ section.settings.text_start_offset }}px * 0.9); }
+    #science-{{ section.id }} .science__media { margin-top: 270px; }
+    #science-{{ section.id }} .science__sticky { height: 666px; }
+
+    #science-{{ section.id }} .science__heading { font-size: calc({{ section.settings.heading_size }}px * 0.9); letter-spacing: 1.152px; }
+    #science-{{ section.id }} .science__kicker { font-size: calc({{ section.settings.kicker_size }}px * 0.9); }
+    
+    #science-{{ section.id }} .science__block { margin-top: 299px; max-width: 630px; }
+    #science-{{ section.id }} .science__block-title { font-size: calc({{ section.settings.block_heading_size }}px * 0.9); }
+  }
+
+  /* Large Screen (+30%) */
+  @media (min-width: 2200px) {
+    #science-{{ section.id }} .science__wrap { padding: 0 104px 0 156px; }
+    #science-{{ section.id }} .science__grid { grid-template-columns: 1fr 1160px; }
+
+    #science-{{ section.id }} .science__content { margin-top: calc({{ section.settings.text_start_offset }}px * 1.3); }
+    #science-{{ section.id }} .science__media { margin-top: 390px; }
+    #science-{{ section.id }} .science__sticky { height: 962px; }
+
+    #science-{{ section.id }} .science__heading { font-size: calc({{ section.settings.heading_size }}px * 1.3); letter-spacing: 1.664px; }
+    #science-{{ section.id }} .science__kicker { font-size: calc({{ section.settings.kicker_size }}px * 1.3); }
+
+    #science-{{ section.id }} .science__block { margin-top: 432px; max-width: 910px; }
+    #science-{{ section.id }} .science__block-title { font-size: calc({{ section.settings.block_heading_size }}px * 1.3); }
+  }
+
+  /* Mobile */
+  @media (max-width: 749px) {
+    #science-{{ section.id }} .science__wrap { padding: 0; }
+    #science-{{ section.id }} .science__grid { grid-template-columns: 1fr; }
+    
+    #science-{{ section.id }} .science__media { 
+      order: -1; 
+      margin-top: 0; /* JS will adjust if behind header */
+      min-height: 0;
+      padding: 0;
+    }
+
+    #science-{{ section.id }} .science__content {
+      margin-top: 0;
+      padding: 32px 16px 64px 16px;
+    }
+
+    #science-{{ section.id }} .science__sticky {
+      position: relative;
+      top: 0 !important;
+      width: 100%;
+      height: 323px;
+      border-radius: 0;
+    }
+
+    #science-{{ section.id }} .science__heading { font-size: 48px; letter-spacing: 1.82px; }
+    #science-{{ section.id }} .science__kicker { font-size: 16px; margin-bottom: 12px; }
+    
+    #science-{{ section.id }} .science__block { margin-top: 40px; padding-bottom: 0; }
+    #science-{{ section.id }} .science__block-title { font-size: 24px; }
+  }
+{%- endstyle -%}
+
+<section id="science-{{ section.id }}" class="science" aria-label="The Science Behind Titanium">
+  <div class="science__wrap">
+    <div class="science__grid">
+
+      <div class="science__content">
+        
+        {%- if section.settings.heading != blank -%}
+          <h2 class="science__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        
+        {%- if section.settings.kicker != blank -%}
+          <p class="science__kicker">{{ section.settings.kicker }}</p>
+        {%- endif -%}
+        
+        {%- if section.settings.intro_text != blank -%}
+          <div class="science__intro rte">{{ section.settings.intro_text }}</div>
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          <div class="science__block" {{ block.shopify_attributes }}>
+            {%- if block.settings.title != blank -%}
+              <h3 class="science__block-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            
+            {%- if block.settings.text != blank -%}
+              <div class="science__block-text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+
+      </div>
+
+      <div class="science__media">
+        <div class="science__sticky">
+          {%- if section.settings.video_hosted != blank -%}
+            {{ section.settings.video_hosted | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, image_size: '1000x' }}
+          {%- elsif section.settings.video_url != blank -%}
+            <video playsinline="true" autoplay="autoplay" loop="loop" muted="muted" preload="metadata" poster="{{ section.settings.poster | image_url: width: 1000 }}">
+              <source src="{{ section.settings.video_url }}" type="video/mp4">
+              {%- if section.settings.poster != blank -%}
+                {{ section.settings.poster | image_url: width: 1000 | image_tag }}
+              {%- endif -%}
+            </video>
+          {%- else -%}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var root = document.getElementById('science-{{ section.id }}');
+    var media = root.querySelector('.science__media');
+    var sticky = root.querySelector('.science__sticky');
+    var content = root.querySelector('.science__content');
+    var pullUp = {{ section.settings.pull_up_behind_header | default: false }};
+
+    function getHeaderHeight(){
+      var h = document.querySelector('.section-header') || document.querySelector('#shopify-section-header');
+      return h ? h.offsetHeight : 0;
+    }
+
+    function adjustLayout(){
+      var headerH = getHeaderHeight();
+      
+      // 1. Sticky Logic
+      // Sticky top needs to be header height + some padding (e.g., 20px)
+      var stickyTop = headerH + 20; 
+      root.style.setProperty('--sticky-top', stickyTop + 'px');
+
+      // 2. Pull Up Logic (Negative Margin)
+      if(pullUp && window.innerWidth > 749) {
+        root.style.marginTop = '-' + headerH + 'px';
+      } else if (pullUp && window.innerWidth <= 749) {
+        // On mobile, if we want video behind header, we might adjust padding top of media
+        root.style.marginTop = '-' + headerH + 'px';
+        if(media) media.style.paddingTop = headerH + 'px';
+      } else {
+        root.style.marginTop = '0px';
+        if(media) media.style.paddingTop = '0px';
+      }
+      
+      // 3. Ensure Media column is tall enough for sticky to work
+      // If content is taller than video, extend media column
+      if(content && sticky && window.innerWidth > 749){
+         var contentH = content.scrollHeight + content.offsetTop; // approx height
+         media.style.minHeight = contentH + 'px';
+      }
+    }
+
+    window.addEventListener('load', adjustLayout);
+    window.addEventListener('resize', adjustLayout);
+    document.addEventListener('shopify:section:load', adjustLayout);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Science Sticky Video",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "pull_up_behind_header",
+      "label": "Pull section behind transparent header",
+      "default": true,
+      "info": "Adds negative margin to top so it sits behind the header."
+    },
+    {
+      "type": "range",
+      "id": "text_start_offset",
+      "min": 100,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Text Start Vertical Offset",
+      "default": 440,
+      "info": "How far down the text starts scrolling relative to the video."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading & Kicker Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body Text Color",
+      "default": "#D6D6D6"
+    },
+    {
+      "type": "color",
+      "id": "intro_highlight_color",
+      "label": "Intro Highlight Color",
+      "default": "#E7E7E7"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Block Title Color",
+      "default": "#BCA588"
+    },
+    {
+      "type": "header",
+      "content": "Main Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Science Behind Titanium"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Size",
+      "default": 64
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Subheading / Kicker",
+      "default": "Why We Chose The World’s Most Trusted Metal For Your Kitchen"
+    },
+    {
+      "type": "range",
+      "id": "kicker_size",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Kicker Size",
+      "default": 20
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "<p>Few metals in human history have earned the level of trust titanium holds.</p><p><strong>Let’s break it down.</strong></p>"
+    },
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "video",
+      "id": "video_hosted",
+      "label": "Shopify Hosted Video (Preferred)"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL (Fallback)",
+      "info": "Use this if you have a direct MP4 link not on Shopify."
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Video Cover Image"
+    },
+    {
+      "type": "header",
+      "content": "Block Typography"
+    },
+    {
+      "type": "range",
+      "id": "block_heading_size",
+      "min": 24,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Block Title Size",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "Science Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "What Is Titanium?"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Titanium is not just another metal. It’s one of the strongest, most resilient materials known to man.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Sticky Video",
+      "blocks": [
+        {
+          "type": "content_block",
+          "settings": {
+            "title": "What Is Titanium & Why Is It Important",
+            "text": "<p>Titanium is not just another metal. It’s one of the strongest, most resilient, and most biocompatible materials known to man.</p>"
+          }
+        },
+        {
+          "type": "content_block",
+          "settings": {
+            "title": "Biocompatibility",
+            "text": "<p>It is the only metal used in surgery because the body does not reject it.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

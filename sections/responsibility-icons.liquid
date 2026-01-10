@@ -1,0 +1,395 @@
+{%- comment -%}
+  Responsibility Icons Section
+  Converted to Dynamic Liquid
+{%- endcomment -%}
+
+{%- style -%}
+  #responsibility-{{ section.id }} .resp__wrap {
+    /* CSS Variables mapped to settings */
+    --bg: {{ section.settings.bg_color }};
+    --heading: {{ section.settings.heading_color }};
+    --title: {{ section.settings.item_title_color }};
+    --text: {{ section.settings.text_color }};
+    --icon: {{ section.settings.icon_color }};
+    
+    background: var(--bg);
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  #responsibility-{{ section.id }} .resp__heading {
+    margin: 0 0 64px;
+    text-align: {{ section.settings.heading_alignment }};
+    color: var(--heading);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.92px;
+    text-transform: capitalize;
+  }
+
+  #responsibility-{{ section.id }} .resp__grid {
+    margin: 0 auto;
+    display: grid;
+    /* Dynamic columns based on block count or fixed to 6 as per design */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 64px;
+    align-items: start;
+    text-align: center;
+  }
+
+  #responsibility-{{ section.id }} .resp-item__icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    color: var(--icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #responsibility-{{ section.id }} .resp-item__icon svg,
+  #responsibility-{{ section.id }} .resp-item__icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Force SVG stroke to match setting */
+  #responsibility-{{ section.id }} .resp-item__icon svg path,
+  #responsibility-{{ section.id }} .resp-item__icon svg circle,
+  #responsibility-{{ section.id }} .resp-item__icon svg rect {
+    stroke: var(--icon);
+  }
+
+  #responsibility-{{ section.id }} .resp-item__title {
+    margin: 32px 0 12px;
+    color: var(--title);
+    text-align: center;
+    font-size: {{ section.settings.item_title_size }}px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+  }
+
+  #responsibility-{{ section.id }} .resp-item__text {
+    color: var(--text);
+    text-align: center;
+    font-size: {{ section.settings.text_size }}px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+
+  /* Responsive Logic (Scaled from base settings) */
+  
+  /* -10% scaling for laptops */
+  @media (min-width: 751px) and (max-width: 1799px) {
+    #responsibility-{{ section.id }} .resp__wrap { 
+      padding-top: calc({{ section.settings.padding_top }}px * 0.9);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.9);
+      padding-left: 108px; 
+      padding-right: 108px; 
+    }
+    #responsibility-{{ section.id }} .resp__heading {
+      font-size: calc({{ section.settings.heading_size }}px * 0.9);
+      letter-spacing: 1.728px;
+      margin-bottom: 57.6px;
+    }
+    #responsibility-{{ section.id }} .resp__grid { gap: 57.6px; }
+    #responsibility-{{ section.id }} .resp-item__icon { width: 90px; height: 90px; }
+    #responsibility-{{ section.id }} .resp-item__title {
+      font-size: calc({{ section.settings.item_title_size }}px * 0.9);
+      margin: 28.8px 0 10.8px;
+    }
+    #responsibility-{{ section.id }} .resp-item__text {
+      font-size: calc({{ section.settings.text_size }}px * 0.9);
+    }
+  }
+
+  /* +30% scaling for large screens */
+  @media (min-width: 2200px) {
+    #responsibility-{{ section.id }} .resp__wrap { 
+      padding-top: calc({{ section.settings.padding_top }}px * 1.3);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 1.3);
+      padding-left: 156px; 
+      padding-right: 156px; 
+    }
+    #responsibility-{{ section.id }} .resp__heading {
+      font-size: calc({{ section.settings.heading_size }}px * 1.3);
+      letter-spacing: 2.496px;
+      margin-bottom: 83.2px;
+    }
+    #responsibility-{{ section.id }} .resp__grid { gap: 83.2px; }
+    #responsibility-{{ section.id }} .resp-item__icon { width: 130px; height: 130px; }
+    #responsibility-{{ section.id }} .resp-item__title {
+      font-size: calc({{ section.settings.item_title_size }}px * 1.3);
+      margin: 41.6px 0 15.6px;
+    }
+    #responsibility-{{ section.id }} .resp-item__text {
+      font-size: calc({{ section.settings.text_size }}px * 1.3);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    #responsibility-{{ section.id }} .resp__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 749px) {
+    #responsibility-{{ section.id }} .resp__wrap { 
+      padding: {{ section.settings.padding_top }}px 16px {{ section.settings.padding_bottom }}px;
+    }
+    #responsibility-{{ section.id }} .resp__heading { 
+      font-size: 24px; 
+      letter-spacing: 0.96px; 
+    }
+    #responsibility-{{ section.id }} .resp__grid { 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 24px; 
+    }
+    #responsibility-{{ section.id }} .resp-item__icon { width: 56px; height: 56px; }
+    #responsibility-{{ section.id }} .resp-item__title { 
+      margin-top: 12px; 
+      font-size: 16px; 
+      letter-spacing: 0.4px; 
+    }
+    #responsibility-{{ section.id }} .resp-item__text { 
+      font-size: 13px; 
+      letter-spacing: 0.56px; 
+    }
+  }
+{%- endstyle -%}
+
+<section id="responsibility-{{ section.id }}" class="resp">
+  <div class="resp__wrap">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="resp__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="resp__grid">
+      {%- for block in section.blocks -%}
+        <article class="resp-item" {{ block.shopify_attributes }}>
+          <div class="resp-item__icon">
+            {%- if block.settings.svg_code != blank -%}
+              {{ block.settings.svg_code }}
+            {%- elsif block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.title }}
+            {%- else -%}
+              <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            {%- endif -%}
+          </div>
+          
+          {%- if block.settings.title != blank -%}
+            <h3 class="resp-item__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          
+          {%- if block.settings.text != blank -%}
+            <div class="resp-item__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Responsibility Icons",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Responsibility: Healthier People, Healthier Planet."
+    },
+    {
+      "type": "text_alignment",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#03231a"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#bca588"
+    },
+    {
+      "type": "color",
+      "id": "item_title_color",
+      "label": "Item Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#b0b0b0"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Stroke Color",
+      "default": "#bca588",
+      "info": "This will override the stroke color of SVG icons."
+    },
+    {
+      "type": "header",
+      "content": "Typography (Desktop Base)"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "item_title_size",
+      "min": 14,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Item Title Size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text Size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Responsibility Item",
+      "settings": [
+        {
+          "type": "html",
+          "id": "svg_code",
+          "label": "SVG Code",
+          "info": "Paste SVG code here. Leave blank to use image."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (Fallback)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Eco-Friendly"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Description of this responsibility item.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Responsibility Icons",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Eco-Friendly Manufacturing",
+            "text": "<p>Titanium production avoids the toxic chemical emissions of non-stick coatings that poison the planet.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Ethically Made",
+            "text": "<p>Our partners follow strict standards for fair wages, safe conditions, and responsible practices.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Sustainable Packaging",
+            "text": "<p>100% recycled, plastic-free packaging.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Energy Efficiency",
+            "text": "<p>Our titanium processing requires more expertise, but we’ve invested in cleaner, more efficient methods.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "100% Recyclable",
+            "text": "<p>Titanium is infinitely recyclable without losing quality.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Lifetime Sustainability",
+            "text": "<p>Designed to last a lifetime - one purchase, for life.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

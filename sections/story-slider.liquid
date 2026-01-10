@@ -1,0 +1,484 @@
+{%- comment -%}
+  Story Slider Section
+  Converted from static HTML to Dynamic Liquid
+{%- endcomment -%}
+
+{%- style -%}
+  #story-slider-{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  #story-slider-{{ section.id }} .story-slider__wrap {
+    max-width: 1360px;
+    margin: 0 auto;
+    /* CSS Variables for local scope */
+    --bg: {{ section.settings.bg_color }};
+    --heading: {{ section.settings.heading_color }};
+    --text: {{ section.settings.text_color }};
+    --accent: {{ section.settings.accent_color }};
+    --arrow-bg: {{ section.settings.arrow_bg_color }};
+    --arrow-icon: {{ section.settings.arrow_icon_color }};
+  }
+
+  #story-slider-{{ section.id }} .story-slider__slider { width: 100%; }
+  #story-slider-{{ section.id }} .slick-list { overflow: hidden; padding: 0 !important; margin: 0 !important; }
+  #story-slider-{{ section.id }} .slick-track { display: flex !important; }
+  #story-slider-{{ section.id }} .slick-slide { margin: 0 !important; outline: none; float: none; height: auto; }
+
+  #story-slider-{{ section.id }} .story-slide {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 120px;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  #story-slider-{{ section.id }} .story-slide__media img,
+  #story-slider-{{ section.id }} .story-slide__media svg {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+    box-shadow: none;
+    background: #f0f0f0; /* Placeholder bg */
+  }
+
+  #story-slider-{{ section.id }} .story-slide__title {
+    margin: 0 0 32px 0;
+    color: var(--heading);
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.92px;
+    text-transform: capitalize;
+  }
+
+  #story-slider-{{ section.id }} .story-slide__text {
+    color: var(--text);
+    font-size: {{ section.settings.text_size }}px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+
+  #story-slider-{{ section.id }} .story-slide__text strong {
+    color: #FFF; /* Highlighting strong text */
+    font-weight: 500;
+  }
+  
+  #story-slider-{{ section.id }} .story-slide__text p { margin-bottom: 12px; margin-top: 0; }
+  #story-slider-{{ section.id }} .story-slide__text p:last-child { margin-bottom: 0; }
+
+  /* Navigation */
+  #story-slider-{{ section.id }} .story-slider__nav {
+    max-width: 664px;
+    margin: 28px auto 0;
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    align-items: center;
+    gap: 64px;
+  }
+
+  #story-slider-{{ section.id }} .story-slider__next {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    border: 0;
+    background: var(--accent);
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform .15s ease;
+  }
+  
+  #story-slider-{{ section.id }} .story-slider__prev {
+    border-radius: 12px;
+    border: 1.5px solid #454545;
+    background: var(--arrow-bg);
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform .15s ease;
+    width: 48px; height: 48px;
+  }
+
+  #story-slider-{{ section.id }} .story-slider__next svg path,
+  #story-slider-{{ section.id }} .story-slider__prev svg path {
+     stroke: var(--arrow-icon);
+  }
+
+  #story-slider-{{ section.id }} .story-slider__arrow:hover { transform: translateY(-1px); }
+  #story-slider-{{ section.id }} .story-slider__arrow:disabled { opacity: .5; cursor: not-allowed; }
+
+  /* Progress Bar */
+  #story-slider-{{ section.id }} .story-slider__progress { height: 22px; display: flex; align-items: center; }
+  #story-slider-{{ section.id }} .story-slider__track {
+    position: relative;
+    height: 6px;
+    background: #252525;
+    border-radius: 999px;
+    width: 100%;
+  }
+  #story-slider-{{ section.id }} .story-slider__fill {
+    display: block;
+    position: absolute; inset: 0 auto 0 0;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width .35s ease;
+  }
+  #story-slider-{{ section.id }} .story-slider__dots {
+    position: absolute; inset: -7px 10px -7px 10px;
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-auto-flow: column; justify-content: space-between; align-items: center;
+    pointer-events: none; width: 100%; left: 0;
+  }
+  #story-slider-{{ section.id }} .story-slider__dots li {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: #252525;
+    transition: background-color .2s ease;
+  }
+  #story-slider-{{ section.id }} .story-slider__dots li.is-filled { background: var(--accent); }
+
+  /* Media Queries for Responsive Layout */
+  @media (min-width: 751px) and (max-width: 1799px) {
+    #story-slider-{{ section.id }} .story-slider__wrap { max-width: 1224px; }
+    #story-slider-{{ section.id }} .story-slide { grid-template-columns: 360px 1fr; gap: 108px; padding: 0 18px; }
+    #story-slider-{{ section.id }} .story-slide__media img { width: 360px; height: 360px; }
+    #story-slider-{{ section.id }} .story-slide__title { font-size: calc({{ section.settings.title_size }}px * 0.9); }
+    #story-slider-{{ section.id }} .story-slide__text { font-size: calc({{ section.settings.text_size }}px * 0.9); }
+  }
+
+  @media (max-width: 1024px) {
+    #story-slider-{{ section.id }} .story-slide { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    #story-slider-{{ section.id }} .story-slide__media img { margin: 0 auto; width: 100%; max-width: 400px; height: auto; }
+    #story-slider-{{ section.id }} .story-slide__title { font-size: 28px; margin-bottom: 16px; }
+  }
+
+  @media (max-width: 749px) {
+    #story-slider-{{ section.id }} { padding-top: {{ section.settings.padding_top | divided_by: 1.5 }}px; padding-bottom: {{ section.settings.padding_bottom | divided_by: 1.5 }}px; }
+    #story-slider-{{ section.id }} .story-slider__nav { gap: 32px; margin-top: 40px; }
+    #story-slider-{{ section.id }} .story-slider__dots li { width: 12px; height: 12px; }
+    #story-slider-{{ section.id }} .story-slide__title { font-size: 24px; }
+    #story-slider-{{ section.id }} .story-slide__text { font-size: 16px; }
+    #story-slider-{{ section.id }} .story-slide { padding: 0; }
+  }
+{%- endstyle -%}
+
+<section id="story-slider-{{ section.id }}" class="story-slider" aria-label="Story slider" data-section-id="{{ section.id }}">
+  <div class="story-slider__wrap">
+    
+    {%- if section.blocks.size > 0 -%}
+      <div class="story-slider__slider">
+        {%- for block in section.blocks -%}
+          <div class="story-slide" {{ block.shopify_attributes }}>
+            <div class="story-slide__media">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+            <div class="story-slide__copy">
+              {%- if block.settings.title != blank -%}
+                <h3 class="story-slide__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              
+              {%- if block.settings.text != blank -%}
+                <div class="story-slide__text rte">{{ block.settings.text }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="story-slider__nav">
+        <button class="story-slider__arrow story-slider__prev" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M14.5 7L9.5 12L14.5 17" stroke="#454545" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+
+        <div class="story-slider__progress">
+          <div class="story-slider__track">
+            <div class="story-slider__fill" style="width: 0%;"></div>
+            <ul class="story-slider__dots">
+              {%- for block in section.blocks -%}
+                <li class="{% if forloop.first %}is-filled{% endif %}"></li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+
+        <button class="story-slider__arrow story-slider__next" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9.5 7L14.5 12L9.5 17" stroke="#454545" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+    {%- else -%}
+      <div style="text-align: center; color: white;">Add slides via the editor.</div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script>
+  (function(){
+    var sectionId = 'story-slider-{{ section.id }}';
+    
+    function initSlider() {
+       var $ = window.jQuery;
+       if (!$) return; // Safety check
+
+       var $root = $('#'+sectionId);
+       var $slider = $root.find('.story-slider__slider');
+       var $prev = $root.find('.story-slider__prev');
+       var $next = $root.find('.story-slider__next');
+       var $dotsWrap = $root.find('.story-slider__dots');
+       var $fill = $root.find('.story-slider__fill');
+
+       // Destroy existing slick if exists (for editor re-renders)
+       if ($slider.hasClass('slick-initialized')) {
+         $slider.slick('unslick');
+       }
+
+       $slider.on('init', function(event, slick){
+         var total = slick.slideCount;
+         $dotsWrap.empty();
+         for (var i=0; i<total; i++){ $dotsWrap.append('<li></li>'); }
+         updateProgress(0, total);
+       });
+
+       function updateProgress(current, total){
+         var pct = total > 1 ? (100/(total-1))*current : 100;
+         $fill.css('width', pct + '%');
+         var $dots = $dotsWrap.children('li').removeClass('is-filled');
+         for (var i=0; i<=current; i++){ $dots.eq(i).addClass('is-filled'); }
+       }
+
+       $slider.slick({
+         arrows: false,
+         dots: false,
+         slidesToShow: 1,
+         slidesToScroll: 1,
+         infinite: false,
+         speed: 350,
+         cssEase: 'ease',
+         centerMode: false,
+         adaptiveHeight: true
+       });
+
+       // Unbind previous events to prevent doubles
+       $prev.off('click').on('click', function(){ $slider.slick('slickPrev'); });
+       $next.off('click').on('click', function(){ $slider.slick('slickNext'); });
+
+       $slider.on('afterChange', function(event, slick, current){
+         updateProgress(current, slick.slideCount);
+       });
+       
+       // Initial state set
+       updateProgress(0, $slider.slick('getSlick').slideCount);
+    }
+
+    function ensureSlick(cb){
+      if (window.jQuery && jQuery.fn && jQuery.fn.slick) { cb(); return; }
+      // Load jQuery if needed (usually Shopify has it, but just in case)
+      var scriptJq = document.createElement('script'); 
+      scriptJq.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+      scriptJq.onload = function() {
+          var link = document.createElement('link'); link.rel = 'stylesheet';
+          link.href = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css'; document.head.appendChild(link);
+          var script = document.createElement('script'); script.src = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js';
+          script.onload = cb; document.head.appendChild(script);
+      }
+      if(!window.jQuery) { document.head.appendChild(scriptJq); }
+      else {
+        // jQuery exists, just load slick
+          var link = document.createElement('link'); link.rel = 'stylesheet';
+          link.href = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css'; document.head.appendChild(link);
+          var script = document.createElement('script'); script.src = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js';
+          script.onload = cb; document.head.appendChild(script);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      ensureSlick(initSlider);
+    });
+
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.detail.sectionId === '{{ section.id }}') {
+        ensureSlick(initSlider);
+      }
+    });
+
+    document.addEventListener('shopify:block:select', function(event) {
+       var $ = window.jQuery;
+       if(event.detail.sectionId === '{{ section.id }}' && $) {
+          var $slider = $('#'+sectionId).find('.story-slider__slider');
+          var index = $(event.target).data('slick-index');
+          if($slider.hasClass('slick-initialized')) {
+              $slider.slick('slickGoTo', index);
+          }
+       }
+    });
+
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Story Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#A3835F"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent/Active Color",
+      "default": "#A3835F",
+      "info": "Used for progress bar and next button"
+    },
+    {
+        "type": "header",
+        "content": "Arrow Colors"
+    },
+    {
+        "type": "color",
+        "id": "arrow_bg_color",
+        "label": "Prev Arrow Background",
+        "default": "#121212"
+    },
+    {
+        "type": "color",
+        "id": "arrow_icon_color",
+        "label": "Arrow Icon Color",
+        "default": "#454545"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Font Size (Desktop)",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Text Font Size (Desktop)",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story_slide",
+      "name": "Story Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Story Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add your story text here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Story Slider",
+      "blocks": [
+        {
+          "type": "story_slide",
+          "settings": {
+            "title": "Where It All Began…",
+            "text": "<p>I thought I was doing everything right - eating clean, filtering water, cooking healthy meals for my family. Then gut issues started hitting all of us.</p>"
+          }
+        },
+        {
+          "type": "story_slide",
+          "settings": {
+            "title": "The Breaking Point",
+            "text": "<p>Not long after, I accidentally overheated a non-stick PTFE(Teflon) coated pan before cooking steak and got sick with “Teflon Flu”.</p>"
+          }
+        },
+        {
+          "type": "story_slide",
+          "settings": {
+            "title": "The Discovery",
+            "text": "<p>So I started digging into every so-called safe kitchenware option out there. But every single choice came with hidden flaws.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

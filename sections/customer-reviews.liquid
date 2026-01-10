@@ -1,0 +1,393 @@
+{% schema %}
+{
+  "name": "Customer Ratings & Loox",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#BCA588"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text/Label Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "bar_fill_color",
+      "label": "Rating Bar Fill Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "bar_bg_color",
+      "label": "Rating Bar Background",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Top Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Here’s What Our Customers Have To Say!"
+    },
+    {
+      "type": "header",
+      "content": "Loox Reviews Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_loox",
+      "label": "Show Loox Widget",
+      "default": true
+    },
+    {
+      "type": "product",
+      "id": "target_product",
+      "label": "Select Product (Optional)",
+      "info": "If left empty, it will use the current page product."
+    },
+    {
+      "type": "range",
+      "id": "loox_limit",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "label": "Reviews Limit",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_m",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_m",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rating_row",
+      "name": "Rating Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Quality Of Product"
+        },
+        {
+          "type": "text",
+          "id": "score",
+          "label": "Score (0.0 to 5.0)",
+          "default": "4.9",
+          "info": "Enter a number between 0 and 5"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Ratings & Loox",
+      "blocks": [
+        {
+          "type": "rating_row",
+          "settings": { "label": "Quality Of Product", "score": "4.9" }
+        },
+        {
+          "type": "rating_row",
+          "settings": { "label": "Value Of Product", "score": "4.8" }
+        },
+        {
+          "type": "rating_row",
+          "settings": { "label": "Satisfaction Rate", "score": "4.9" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div id="section-{{ section.id }}" class="customer-reviews-section">
+  
+  <div class="cr">
+    <div class="cr__wrap">
+      {% if section.settings.heading != blank %}
+        <h2 class="cr__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      <div class="cr__stats">
+        {% for block in section.blocks %}
+          {% assign score_num = block.settings.score | plus: 0.0 %}
+          
+          <div class="cr__row" {{ block.shopify_attributes }}>
+            <span class="cr__label">{{ block.settings.label }}</span>
+
+            <div class="cr__bar" role="img" aria-label="{{ block.settings.label }}: {{ block.settings.score }} out of 5">
+              
+              {% comment %} Loop to generate 5 segments dynamically {% endcomment %}
+              {% for i in (1..5) %}
+                {% assign fill_amount = 0 %}
+                
+                {% if score_num >= i %}
+                  {% assign fill_amount = 1 %}
+                {% else %}
+                  {% assign prev_i = i | minus: 1 %}
+                  {% if score_num > prev_i %}
+                    {% assign fill_amount = score_num | minus: prev_i %}
+                  {% endif %}
+                {% endif %}
+
+                <span class="cr__seg">
+                  <span class="cr__seg__fill" style="--fill: {{ fill_amount }}"></span>
+                </span>
+              {% endfor %}
+
+            </div>
+
+            <span class="cr__score">{{ block.settings.score }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% if section.settings.show_loox %}
+    <div class="page-width loox-container">
+      {% assign loox_product_id = product.id %}
+      {% if section.settings.target_product != blank %}
+        {% assign loox_product_id = section.settings.target_product.id %}
+      {% endif %}
+
+      <div id="looxReviews" 
+           class="loox-widget" 
+           data-limit="{{ section.settings.loox_limit }}" 
+           data-product-id="{{ loox_product_id }}"
+           data-upgraded="true">
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+
+<style>
+/* Scoped Variables */
+#section-{{ section.id }} .customer-reviews-section {
+  background: {{ section.settings.bg_color }};
+  --cr-head: {{ section.settings.heading_color }};
+  --cr-text: {{ section.settings.text_color }};
+  --cr-fill: {{ section.settings.bar_fill_color }};
+  --cr-bar-bg: {{ section.settings.bar_bg_color }};
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+/* Container */
+#section-{{ section.id }} .cr {
+  width: 100%;
+  padding-bottom: 40px; /* Space between ratings and reviews */
+}
+
+#section-{{ section.id }} .cr__wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 5rem;
+}
+
+/* Heading */
+#section-{{ section.id }} .cr__heading {
+  color: var(--cr-head);
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 130%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  margin: 0;
+  max-width: 558px;
+}
+
+/* Stats Column */
+#section-{{ section.id }} .cr__stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Row Layout */
+#section-{{ section.id }} .cr__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end; /* Keeps bars aligned right on desktop */
+}
+
+/* Label */
+#section-{{ section.id }} .cr__label {
+  flex: 0 0 220px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  text-align: right; /* Aligns text near bar */
+  text-transform: capitalize;
+  color: var(--cr-text);
+  margin-right: 12px;
+}
+
+/* Bar Segments */
+#section-{{ section.id }} .cr__bar {
+  display: flex;
+  gap: 6px;
+}
+
+#section-{{ section.id }} .cr__seg {
+  width: 28px;
+  height: 8px;
+  background: var(--cr-bar-bg);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+#section-{{ section.id }} .cr__seg__fill {
+  position: absolute;
+  inset: 0;
+  width: calc(var(--fill) * 100%);
+  background: var(--cr-fill);
+}
+
+/* Score Number */
+#section-{{ section.id }} .cr__score {
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  color: var(--cr-text);
+  margin-left: 8px;
+  min-width: 30px;
+}
+
+/* Loox Area */
+#section-{{ section.id }} .loox-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Responsive */
+@media (max-width: 750px) {
+  #section-{{ section.id }} .customer-reviews-section {
+    padding-top: {{ section.settings.padding_top_m }}px;
+    padding-bottom: {{ section.settings.padding_bottom_m }}px;
+  }
+
+  #section-{{ section.id }} .cr__wrap {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  #section-{{ section.id }} .cr__heading {
+    max-width: 100%;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  #section-{{ section.id }} .cr__stats {
+    width: 100%;
+  }
+
+  #section-{{ section.id }} .cr__row {
+    justify-content: center; /* Center bars on mobile */
+    flex-wrap: wrap;
+  }
+
+  #section-{{ section.id }} .cr__label {
+    flex: 100%; /* Label on top */
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  
+  #section-{{ section.id }} .cr {
+    padding-bottom: 20px;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 2200px) {
+  #section-{{ section.id }} .cr__heading {
+    font-size: 62.4px;
+  }
+  #section-{{ section.id }} .cr__label {
+    font-size: 26px;
+  }
+  #section-{{ section.id }} .cr__seg {
+    width: 36px;
+    height: 10px;
+  }
+  #section-{{ section.id }} .cr__score {
+    font-size: 20px;
+  }
+}
+</style>

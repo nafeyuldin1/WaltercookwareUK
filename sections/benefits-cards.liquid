@@ -1,0 +1,493 @@
+{%- comment -%}
+  Titanium Benefits Section
+  Fully Dynamic with Block Cards, Sidebar Settings, and Default Presets
+{%- endcomment -%}
+
+{%- style -%}
+  #ti-benefits-{{ section.id }} .ti-benefits__wrap {
+    /* CSS Variables from Settings */
+    --bg: {{ section.settings.bg_color }};
+    --text: {{ section.settings.text_color }};
+    --heading: {{ section.settings.heading_color }};
+    --border: {{ section.settings.border_color }};
+    --icon: {{ section.settings.icon_color }};
+    --subtext: {{ section.settings.subtext_color }};
+    --highlight: {{ section.settings.highlight_color }};
+    
+    background: var(--bg);
+    color: var(--text);
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 120px;
+    padding-right: 120px;
+    margin: 0 auto;
+  }
+
+  #ti-benefits-{{ section.id }} .ti-benefits__grid {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    gap: 120px;
+    align-items: start;
+  }
+
+  /* --- SIDEBAR (Right Column) --- */
+  #ti-benefits-{{ section.id }} .ti-benefits__heading {
+    margin: 0 0 24px;
+    color: var(--heading);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.92px;
+    text-transform: capitalize;
+  }
+  
+  #ti-benefits-{{ section.id }} .ti-benefits__heading p { margin: 0; }
+
+  #ti-benefits-{{ section.id }} .ti-benefits__subcopy {
+    margin-bottom: 48px;
+  }
+  
+  #ti-benefits-{{ section.id }} .ti-benefits__subcopy p {
+    color: var(--subtext);
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+    margin-bottom: 16px;
+  }
+  
+  #ti-benefits-{{ section.id }} .ti-benefits__subcopy strong {
+    color: var(--heading);
+    font-weight: 500;
+  }
+
+  #ti-benefits-{{ section.id }} .ti-benefits__subcopy h6 {
+    color: var(--highlight);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+    margin-top: 24px;
+  }
+
+  #ti-benefits-{{ section.id }} .ti-benefits__media {
+    overflow: hidden;
+    max-width: 375px;
+    aspect-ratio: 3 / 4;
+  }
+  
+  #ti-benefits-{{ section.id }} .ti-benefits__media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  /* --- CARDS (Left Column) --- */
+  #ti-benefits-{{ section.id }} .ti-benefits__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  #ti-benefits-{{ section.id }} .benefit-card {
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+    align-content: start;
+  }
+
+  #ti-benefits-{{ section.id }} .benefit-card__icon {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: var(--icon);
+  }
+  
+  /* Force SVG colors to match setting */
+  #ti-benefits-{{ section.id }} .benefit-card__icon svg {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+  #ti-benefits-{{ section.id }} .benefit-card__icon svg path {
+    stroke: var(--icon);
+  }
+
+  #ti-benefits-{{ section.id }} .benefit-card__title {
+    margin: 0;
+    color: var(--heading);
+    font-size: {{ section.settings.card_title_size }}px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+  }
+
+  #ti-benefits-{{ section.id }} .benefit-card__text {
+    color: var(--text);
+    font-size: {{ section.settings.card_text_size }}px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+  
+  #ti-benefits-{{ section.id }} .benefit-card__text p { margin: 0; }
+
+  /* --- RESPONSIVE SCALING --- */
+
+  /* Laptop (-10%) */
+  @media (min-width: 751px) and (max-width: 1799px) {
+    #ti-benefits-{{ section.id }} .ti-benefits__wrap { 
+      padding-top: calc({{ section.settings.padding_top }}px * 0.9);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.9);
+      padding-left: 108px; padding-right: 108px;
+    }
+    #ti-benefits-{{ section.id }} .ti-benefits__grid { grid-template-columns: 1fr 450px; gap: 108px; }
+
+    #ti-benefits-{{ section.id }} .ti-benefits__heading { font-size: calc({{ section.settings.heading_size }}px * 0.9); letter-spacing: 1.728px; margin-bottom: 21.6px; }
+    
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy { margin-bottom: 43.2px; }
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy p { font-size: 14.4px; letter-spacing: 0.576px; }
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy h6 { font-size: 18px; letter-spacing: 0.36px; }
+    #ti-benefits-{{ section.id }} .ti-benefits__media { max-width: 337.5px; }
+
+    #ti-benefits-{{ section.id }} .ti-benefits__cards { grid-template-columns: repeat(2, minmax(252px, 1fr)); gap: 21.6px; }
+    #ti-benefits-{{ section.id }} .benefit-card { padding: 18px; border-radius: 14.4px; }
+    #ti-benefits-{{ section.id }} .benefit-card__title { font-size: calc({{ section.settings.card_title_size }}px * 0.9); letter-spacing: 0.36px; }
+    #ti-benefits-{{ section.id }} .benefit-card__text { font-size: calc({{ section.settings.card_text_size }}px * 0.9); letter-spacing: 0.576px; }
+  }
+
+  /* Large Screen (+30%) */
+  @media (min-width: 2200px) {
+    #ti-benefits-{{ section.id }} .ti-benefits__wrap { 
+      padding-top: calc({{ section.settings.padding_top }}px * 1.3);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px * 1.3);
+      padding-left: 156px; padding-right: 156px;
+    }
+    #ti-benefits-{{ section.id }} .ti-benefits__grid { grid-template-columns: 1fr 650px; gap: 156px; }
+
+    #ti-benefits-{{ section.id }} .ti-benefits__heading { font-size: calc({{ section.settings.heading_size }}px * 1.3); letter-spacing: 2.496px; margin-bottom: 31.2px; }
+    
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy { margin-bottom: 62.4px; }
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy p { font-size: 20.8px; letter-spacing: 0.832px; }
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy h6 { font-size: 26px; letter-spacing: 0.52px; }
+    #ti-benefits-{{ section.id }} .ti-benefits__media { max-width: 487.5px; }
+
+    #ti-benefits-{{ section.id }} .ti-benefits__cards { grid-template-columns: repeat(2, minmax(364px, 1fr)); gap: 31.2px; }
+    #ti-benefits-{{ section.id }} .benefit-card { padding: 26px; border-radius: 20.8px; }
+    #ti-benefits-{{ section.id }} .benefit-card__title { font-size: calc({{ section.settings.card_title_size }}px * 1.3); letter-spacing: 0.52px; }
+    #ti-benefits-{{ section.id }} .benefit-card__text { font-size: calc({{ section.settings.card_text_size }}px * 1.3); letter-spacing: 0.832px; }
+    #ti-benefits-{{ section.id }} .benefit-card__icon svg { width: 41.6px; height: 41.6px; }
+  }
+
+  /* Mobile */
+  @media (max-width: 1100px) {
+    #ti-benefits-{{ section.id }} .ti-benefits__grid { grid-template-columns: 1fr; gap: 0; }
+    #ti-benefits-{{ section.id }} .ti-benefits__aside { order: -1; display: flex; flex-direction: column-reverse; margin-bottom: 32px; }
+  }
+
+  @media (max-width: 749px) {
+    #ti-benefits-{{ section.id }} .ti-benefits__wrap { 
+      padding: 32px 16px 64px 16px;
+    }
+    #ti-benefits-{{ section.id }} .ti-benefits__heading { font-size: 24px; letter-spacing: .96px; margin-bottom: 24px; margin-top: 32px; }
+    
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy { margin-bottom: 32px; }
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy p { font-size: 14px; letter-spacing: 0.56px; }
+    #ti-benefits-{{ section.id }} .ti-benefits__subcopy h6 { font-size: 16px; letter-spacing: 0.32px; margin-top: 8px; }
+    
+    #ti-benefits-{{ section.id }} .ti-benefits__cards { grid-template-columns: 1fr; gap: 12px; }
+    #ti-benefits-{{ section.id }} .benefit-card { padding: 16px; }
+    #ti-benefits-{{ section.id }} .benefit-card__title { font-size: 16px; letter-spacing: 0.32px; }
+    #ti-benefits-{{ section.id }} .benefit-card__text { font-size: 14px; letter-spacing: 0.56px; }
+    #ti-benefits-{{ section.id }} .benefit-card__icon svg { width: 24px; height: 24px; }
+  }
+{%- endstyle -%}
+
+<section id="ti-benefits-{{ section.id }}" class="ti-benefits" aria-label="Titanium Benefits">
+  <div class="ti-benefits__wrap">
+    <div class="ti-benefits__grid">
+
+      <div class="ti-benefits__cards">
+        {%- for block in section.blocks -%}
+          <div class="benefit-card" {{ block.shopify_attributes }}>
+            <div class="benefit-card__icon">
+              {%- if block.settings.svg_code != blank -%}
+                {{ block.settings.svg_code }}
+              {%- else -%}
+                <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.5"/></svg>
+              {%- endif -%}
+              <h3 class="benefit-card__title">{{ block.settings.title }}</h3>
+            </div>
+            <div class="benefit-card__text rte">{{ block.settings.text }}</div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <aside class="ti-benefits__aside">
+        <div class="ti-benefits-heading-wrapper">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="ti-benefits__heading">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.subtext != blank -%}
+            <div class="ti-benefits__subcopy rte">
+              {{ section.settings.subtext }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.image != blank -%}
+          <div class="ti-benefits__media">
+            {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+          </div>
+        {%- endif -%}
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Titanium Benefits",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Sidebar Content (Right)"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Real Pure Titanium.</p><p>Real Benefits.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>Not all titanium is created equal. Most cut costs by using titanium coatings, blends, or lower grades that compromise purity and safety.</p><p>At Taima®, we only use <strong>Grade 1 Certified Medical Titanium</strong> - the purest form possible. The same titanium trusted inside the human body for decades. No mixing. No coating. Just uncompromising purity engineered for your kitchen and ultimate safety</p><h6>And because it’s pure, you get every one of titanium’s unique benefits in your hands:</h6>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Sidebar Image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#bca588"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body Text Color",
+      "default": "#cfcfcf"
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Sidebar Text Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Sidebar Highlight (h6)",
+      "default": "#E7E7E7"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card Border Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon & Title Color",
+      "default": "#bca588"
+    },
+    {
+      "type": "header",
+      "content": "Typography (Desktop Base)"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "label": "Sidebar Heading Size",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Card Title Size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Card Text Size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 152
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 152
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_card",
+      "name": "Benefit Card",
+      "settings": [
+        {
+          "type": "html",
+          "id": "svg_code",
+          "label": "SVG Code",
+          "info": "Paste the SVG code for the icon here."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Description of the benefit.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Titanium Benefits",
+      "blocks": [
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "Completely Toxin-Free (By Design).",
+            "text": "<p>Pure titanium is chemically stable in cooking and prep conditions. It forms a stable TiO₂ passivation layer that prevents metal ions from migrating into food. There are no PFAS/PTFE coatings, no BPA/BPS or plasticizers, no nickel or chromium (like in stainless), and no aluminum cores to expose. Nothing to off-gas, flake, or leach - at any kitchen temperature.</p>",
+            "svg_code": "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'><path d='M14.4093 11.1109V13.148C14.4093 13.5554 11.9648 14.1665 11.9648 15.9998V21.7035C11.9648 22.4678 11.9648 23.3332 13.711 23.3332H18.3668C20.113 23.3332 20.113 22.4678 20.113 21.7035V15.9998C20.113 14.1665 17.6685 13.5554 17.6685 13.148V11.1109M14.4093 11.1109H13.5945V8.6665H18.4834V11.1109H17.6685M14.4093 11.1109H17.6685M17.6685 19.2591C17.6685 19.6913 17.4969 20.1058 17.1912 20.4114C16.8856 20.717 16.4711 20.8887 16.0389 20.8887C15.6067 20.8887 15.1922 20.717 14.8866 20.4114C14.581 20.1058 14.4093 19.6913 14.4093 19.2591C14.4093 18.0369 15.8654 15.9998 16.0389 15.9998C16.2125 15.9998 17.6685 18.0369 17.6685 19.2591Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path><path d='M19.5 12.5L12.5 19.5' stroke='#121212' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'></path><path d='M6.56931 25.4279C7.80742 26.666 9.27728 27.6482 10.895 28.3182C12.5126 28.9883 14.2464 29.3332 15.9974 29.3332C17.7484 29.3332 19.4822 28.9883 21.0998 28.3182C22.7175 27.6482 24.1874 26.666 25.4255 25.4279C26.6636 24.1898 27.6457 22.72 28.3158 21.1023C28.9859 19.4846 29.3307 17.7508 29.3307 15.9998C29.3307 12.4636 27.926 9.07223 25.4255 6.57175M6.56931 25.4279C5.33119 24.1898 4.34906 22.72 3.679 21.1023C3.00894 19.4846 2.66406 17.7508 2.66406 15.9998C2.66406 12.4636 4.06882 9.07223 6.56931 6.57175C9.06979 4.07126 12.4612 2.6665 15.9974 2.6665C19.5336 2.6665 22.925 4.07126 25.4255 6.57175M6.56931 25.4279L25.4255 6.57175' stroke='#BCA588' stroke-width='0.7' stroke-linecap='round' stroke-linejoin='round'></path></svg>"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "It’s the most biocompatible metal for the human body.",
+            "text": "<p>That’s why surgeons trust it in the body. It doesn’t break down, flake, or leach toxins. It’s as food-safe as it gets.</p>",
+            "svg_code": "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'><path d='M28.3158 21.1023C28.9859 19.4846 29.3307 17.7508 29.3307 15.9998C29.3307 12.4636 27.926 9.07223 25.4255 6.57175C22.925 4.07126 19.5336 2.6665 15.9974 2.6665C12.4612 2.6665 9.06979 4.07126 6.56931 6.57175C4.06882 9.07223 2.66406 12.4636 2.66406 15.9998C2.66406 17.7508 3.00894 19.4846 3.679 21.1023C4.34906 22.72 5.33119 24.1898 6.56931 25.4279C7.80742 26.666 9.27727 27.6482 10.8949 28.3182C12.5126 28.9883 14.2464 29.3332 15.9974 29.3332C17.7484 29.3332 19.4822 28.9883 21.0998 28.3182C22.7175 27.6482 24.1874 26.666 25.4255 25.4279C26.6636 24.1898 27.6457 22.72 28.3158 21.1023Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path><path d='M18.0154 20.1168C17.8809 19.7305 17.715 19.3558 17.519 18.9968C17.3436 18.7552 17.1287 18.4848 16.8872 18.2055M18.0154 20.1168C18.2089 20.6724 18.3375 21.2518 18.3973 21.8427L18.4127 22.7056M18.0154 20.1168H9.75195M18.4127 22.7056L18.4358 24M18.4127 22.7056H9.35487M9.35487 22.7056L9.33203 24M9.35487 22.7056L9.3701 21.8427C9.42997 21.2506 9.5588 20.6713 9.75195 20.1168M9.75195 20.1168C9.98967 19.4344 10.3248 18.7898 10.7488 18.2055C11.5172 17.1465 12.5483 16.3263 13.7308 15.8332M9.74584 8L9.76868 9.29439M9.76868 9.29439L9.78391 10.1573C9.84377 10.7493 9.9726 11.3287 10.1658 11.8832M9.76868 9.29439H15.4472M10.1658 11.8832C10.4035 12.5656 10.7386 13.2102 11.1626 13.7945M10.1658 11.8832H12.9642M21.1276 15.2419L20.851 15.5636C20.371 15.9746 19.7689 16.1988 19.1477 16.1978C18.5496 16.1977 17.9686 15.9898 17.4966 15.6069C17.0245 15.224 16.6883 14.688 16.5411 14.0835C16.3939 13.4791 16.4441 12.8407 16.6838 12.2694C16.9235 11.698 17.339 11.2263 17.8646 10.9287C18.3902 10.6311 18.9959 10.5247 19.586 10.6262C20.1762 10.7277 20.717 11.0315 21.123 11.4893C21.5291 11.9472 21.7771 12.5332 21.8281 13.1545C21.879 13.7759 21.7299 14.3972 21.4042 14.9203L21.1276 15.2419ZM21.1276 15.2419L22.6651 16.845' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path></svg>"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "It naturally kills bacteria (Extremely Hygienic).",
+            "text": "<p>Titanium’s dense, non-porous surface leaves nowhere for bacteria to hide. Just a quick clean, and it’s like new again.</p>",
+            "svg_code": "<svg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 16.6667L8.28 16.98C8.79733 17.5613 9.672 17.4027 10 16.6667C10.328 15.9307 11.2027 15.772 11.72 16.3533L12 16.6667M21.1213 24L21.2693 23.54C21.544 22.6853 20.8987 21.9027 20 22C19.1013 22.0973 18.456 21.3147 18.7307 20.46L18.8773 20M25.3453 17.3333H25.3333M12.012 22.6667H12M10.6787 10.6667H10.6667M22.6667 10.6667C22.6667 12.1394 21.4728 13.3333 20 13.3333C18.5272 13.3333 17.3333 12.1394 17.3333 10.6667C17.3333 9.19391 18.5272 8 20 8C21.4728 8 22.6667 9.19391 22.6667 10.6667Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path><path d='M22.6654 9.3335L9.33203 22.6668' stroke='#121212' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'></path><path d='M6.56931 25.4279C7.80742 26.666 9.27728 27.6482 10.8949 28.3182C12.5126 28.9883 14.2464 29.3332 15.9974 29.3332C17.7484 29.3332 19.4822 28.9883 21.0998 28.3182C22.7175 27.6482 24.1874 26.666 25.4255 25.4279C26.6636 24.1898 27.6457 22.72 28.3158 21.1023C28.9859 19.4846 29.3307 17.7508 29.3307 15.9998C29.3307 12.4636 27.926 9.07223 25.4255 6.57175M6.56931 25.4279C5.33119 24.1898 4.34906 22.72 3.679 21.1023C3.00894 19.4846 2.66406 17.7508 2.66406 15.9998C2.66406 12.4636 4.06882 9.07223 6.56931 6.57175C9.06979 4.07126 12.4612 2.6665 15.9974 2.6665C19.5336 2.6665 22.925 4.07126 25.4255 6.57175M6.56931 25.4279L25.4255 6.57175' stroke='#BCA588' stroke-width='0.7' stroke-linecap='round' stroke-linejoin='round'></path></svg>"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "It never rusts or degrades.",
+            "text": "<p>Steel corrodes because oxygen turns it into rust. Titanium reacts differently: it forms titanium dioxide, an ultra-stable layer that works like permanent armor - it actually strengthens over time.</p>",
+            "svg_code": "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'><path d='M15.0222 17.2199L13.8156 18.6665M16.0021 21.3313C20.4462 21.3655 22.6683 21.0016 22.6683 20.2397C22.6683 19.0971 17.4733 13.3342 16.0021 13.3342C14.5309 13.3342 9.33594 19.2161 9.33594 20.24C9.33594 20.9222 11.558 21.286 16.0021 21.3313ZM16.1688 11C16.3898 11 16.6017 10.9123 16.758 10.756C16.9143 10.5997 17.002 10.3878 17.002 10.1668C17.002 9.94577 16.9143 9.73382 16.758 9.57756C16.6017 9.42129 16.3898 9.3335 16.1688 9.3335C15.9478 9.3335 15.7358 9.42129 15.5796 9.57756C15.4233 9.73382 15.3355 9.94577 15.3355 10.1668C15.3355 10.3878 15.4233 10.5997 15.5796 10.756C15.7358 10.9123 15.9478 11 16.1688 11ZM19.3352 12.6666C19.512 12.6666 19.6816 12.5964 19.8066 12.4713C19.9316 12.3463 20.0018 12.1768 20.0018 12C20.0018 11.8232 19.9316 11.6536 19.8066 11.5286C19.6816 11.4036 19.512 11.3334 19.3352 11.3334C19.1584 11.3334 18.9889 11.4036 18.8638 11.5286C18.7388 11.6536 18.6686 11.8232 18.6686 12C18.6686 12.1768 18.7388 12.3463 18.8638 12.4713C18.9889 12.5964 19.1584 12.6666 19.3352 12.6666ZM12.0024 14.3331C12.1792 14.3331 12.3488 14.2629 12.4738 14.1379C12.5988 14.0129 12.669 13.8433 12.669 13.6665C12.669 13.4897 12.5988 13.3202 12.4738 13.1951C12.3488 13.0701 12.1792 12.9999 12.0024 12.9999C11.8256 12.9999 11.6561 13.0701 11.531 13.1951C11.406 13.3202 11.3358 13.4897 11.3358 13.6665C11.3358 13.8433 11.406 14.0129 11.531 14.1379C11.6561 14.2629 11.8256 14.3331 12.0024 14.3331ZM13.8356 12.3333C13.9682 12.3333 14.0954 12.2806 14.1891 12.1868C14.2829 12.0931 14.3356 11.9659 14.3356 11.8333C14.3356 11.7007 14.2829 11.5735 14.1891 11.4798C14.0954 11.386 13.9682 11.3334 13.8356 11.3334C13.703 11.3334 13.5758 11.386 13.4821 11.4798C13.3883 11.5735 13.3356 11.7007 13.3356 11.8333C13.3356 11.9659 13.3883 12.0931 13.4821 12.1868C13.5758 12.2806 13.703 12.3333 13.8356 12.3333Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path><path d='M22.6654 9.3335L9.33203 22.6668' stroke='#121212' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'></path><path d='M6.56931 25.4279C7.80742 26.666 9.27728 27.6482 10.8949 28.3182C12.5126 28.9883 14.2464 29.3332 15.9974 29.3332C17.7484 29.3332 19.4822 28.9883 21.0998 28.3182C22.7175 27.6482 24.1874 26.666 25.4255 25.4279C26.6636 24.1898 27.6457 22.72 28.3158 21.1023C28.9859 19.4846 29.3307 17.7508 29.3307 15.9998C29.3307 12.4636 27.926 9.07223 25.4255 6.57175M6.56931 25.4279C5.33119 24.1898 4.34906 22.72 3.679 21.1023C3.00894 19.4846 2.66406 17.7508 2.66406 15.9998C2.66406 12.4636 4.06882 9.07223 6.56931 6.57175C9.06979 4.07126 12.4612 2.6665 15.9974 2.6665C19.5336 2.6665 22.925 4.07126 25.4255 6.57175M6.56931 25.4279L25.4255 6.57175' stroke='#BCA588' stroke-width='0.7' stroke-linecap='round' stroke-linejoin='round'></path></svg>"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "It’s completely non-reactive & Acid-resistant.",
+            "text": "<p>Tomatoes, citrus, vinegar, oils - all harmless against titanium. While other metals leach nickel, chromium, or aluminum into your food, titanium stays calm and unreactive.</p>",
+            "svg_code": "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'><path d='M12.5713 11.0176C13.0847 11.0176 13.5774 11.221 13.9404 11.584C14.3034 11.947 14.5068 12.4398 14.5068 12.9531V15.2383C14.5068 16.3136 13.6466 17.1738 12.5713 17.1738H9.93555V21.7461H8.34961V11.0176H12.5713ZM19.0781 11.0166V15.5889H22.0645V11.0166H23.6504V21.7451H22.0645V17.1738H19.0781V21.7451H17.4932V11.0166H19.0781ZM9.93555 15.5889H12.9219V12.6025H9.93555V15.5889Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path><path d='M22.6654 9.3335L9.33203 22.6668' stroke='#121212' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'></path><path d='M6.56931 25.4279C7.80742 26.666 9.27728 27.6482 10.8949 28.3182C12.5126 28.9883 14.2464 29.3332 15.9974 29.3332C17.7484 29.3332 19.4822 28.9883 21.0998 28.3182C22.7175 27.6482 24.1874 26.666 25.4255 25.4279C26.6636 24.1898 27.6457 22.72 28.3158 21.1023C28.9859 19.4846 29.3307 17.7508 29.3307 15.9998C29.3307 12.4636 27.926 9.07223 25.4255 6.57175M6.56931 25.4279C5.33119 24.1898 4.34906 22.72 3.679 21.1023C3.00894 19.4846 2.66406 17.7508 2.66406 15.9998C2.66406 12.4636 4.06882 9.07223 6.56931 6.57175C9.06979 4.07126 12.4612 2.6665 15.9974 2.6665C19.5336 2.6665 22.925 4.07126 25.4255 6.57175M6.56931 25.4279L25.4255 6.57175' stroke='#BCA588' stroke-width='0.7' stroke-linecap='round' stroke-linejoin='round'></path></svg>"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "It withstands extreme heat day after day.",
+            "text": "<p>Titanium doesn’t warp, crack, or fatigue under extreme temperature changes. Where wood splits and plastics degrade, titanium remains solid.</p>",
+            "svg_code": "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'><path d='M28.3197 21.1023C28.9898 19.4846 29.3346 17.7508 29.3346 15.9998C29.3346 12.4636 27.9299 9.07223 25.4294 6.57175C22.9289 4.07126 19.5375 2.6665 16.0013 2.6665C12.4651 2.6665 9.0737 4.07126 6.57321 6.57175C4.07273 9.07223 2.66797 12.4636 2.66797 15.9998C2.66797 17.7508 3.01285 19.4846 3.68291 21.1023C4.35297 22.72 5.3351 24.1898 6.57321 25.4279C7.81133 26.666 9.28118 27.6482 10.8989 28.3182C12.5165 28.9883 14.2503 29.3332 16.0013 29.3332C17.7523 29.3332 19.4861 28.9883 21.1037 28.3182C22.7214 27.6482 24.1913 26.666 25.4294 25.4279C26.6675 24.1898 27.6496 22.72 28.3197 21.1023Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path><path d='M17.1939 14.9091C15.5575 16 12.8302 18.1818 10.6484 22M12.8302 18.7273C9.92408 12.3346 15.923 10.2575 20.3848 10.0175C20.9237 9.98806 21.192 9.97388 21.3862 10.1604C21.5793 10.3459 21.5673 10.6131 21.5455 11.1444C21.3611 15.5658 19.3702 21.5713 12.8302 18.7273Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path></svg>"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "It preserves nutrients.",
+            "text": "<p>Reactive metals can strip vitamins like Vitamin C from food through oxidation. Titanium protects nutrients intact, so your meals deliver what nature intended.</p>",
+            "svg_code": "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'><path d='M29.3307 15.9998C29.3307 17.7508 28.9858 19.4846 28.3158 21.1023C27.6457 22.72 26.6636 24.1898 25.4255 25.4279C24.1874 26.666 22.7175 27.6482 21.0998 28.3182C19.4822 28.9883 17.7484 29.3332 15.9974 29.3332C14.2464 29.3332 12.5126 28.9883 10.8949 28.3182C9.27727 27.6482 7.80742 26.666 6.5693 25.4279C5.33119 24.1898 4.34906 22.72 3.679 21.1023C3.00894 19.4846 2.66406 17.7508 2.66406 15.9998C2.66406 12.4636 4.06882 9.07223 6.5693 6.57175C9.06979 4.07126 12.4612 2.6665 15.9974 2.6665C19.5336 2.6665 22.925 4.07126 25.4255 6.57175C27.926 9.07223 29.3307 12.4636 29.3307 15.9998Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='round' stroke-linejoin='round'></path><path d='M12.2016 17.2752L20.4914 9.3042L23.9987 9.62304L17.9407 20.1448L12.2016 17.2752ZM12.2016 17.2752L9.33203 21.1013L9.95058 22.6955L14.327 18.3376M22.5748 9.49359L16.3771 19.363' stroke='#BCA588' stroke-width='0.7' stroke-miterlimit='10' stroke-linecap='square'></path></svg>"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "It endures stress.",
+            "text": "<p>Thanks to its unique crystal structure, titanium becomes more resistant with every cut, impact, or use. Instead of weakening, it hardens.</p>",
+            "svg_code": "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'><path d='M12.3708 14.3777H20.0022M12.3708 14.3777H7.9974M12.3708 14.3777L15.6022 23.2759M12.3708 14.3777L14.4956 10.8958L14.9825 9.99984M20.0022 14.3777H24.3756M20.0022 14.3777L16.7708 23.2759M20.0022 14.3777L17.8774 10.8958L17.3763 9.99984M7.9974 14.3777C7.9974 14.7495 8.06734 15.1213 8.20633 15.4719C8.39401 15.9456 8.7747 16.382 9.53429 17.254L12.6037 20.774C13.8404 22.1923 14.4584 22.9023 15.1914 23.1626C15.3266 23.2104 15.4635 23.2482 15.6022 23.2759M7.9974 14.3777C7.9974 14.0059 8.06734 13.634 8.20633 13.2826C8.39401 12.8089 8.7747 12.3733 9.53429 11.5004C9.94773 11.0277 10.154 10.7913 10.393 10.608C10.7484 10.3372 11.1602 10.1499 11.5979 10.06C11.8936 9.99984 12.207 9.99984 12.8347 9.99984H14.9825M15.6022 23.2759C15.988 23.3523 16.385 23.3523 16.7708 23.2759M14.9825 9.99984H17.3763M24.3756 14.3777C24.3756 14.7495 24.3057 15.1213 24.1667 15.4719C23.979 15.9456 23.5983 16.382 22.8387 17.254L19.7693 20.774C18.5326 22.1923 17.9146 22.9023 17.1816 23.1626C17.0475 23.21 16.9102 23.2479 16.7708 23.2759M24.3756 14.3777C24.3756 14.0059 24.3057 13.634 24.1667 13.2826C23.979 12.8089 23.5983 12.3733 22.8387 11.5004C22.4253 11.0277 22.219 10.7913 21.9799 10.608C21.6246 10.3372 21.2127 10.1499 20.775 10.06C20.4794 9.99984 20.166 9.99984 19.5383 9.99984H17.3763M29.3307 15.9998C29.3307 17.7508 28.9859 19.4846 28.3158 21.1023C27.6457 22.72 26.6636 24.1898 25.4255 25.4279C24.1874 26.666 22.7175 27.6482 21.0998 28.3182C19.4822 28.9883 17.7484 29.3332 15.9974 29.3332C14.2464 29.3332 12.5126 28.9883 10.8949 28.3182C9.27727 27.6482 7.80742 26.666 6.56931 25.4279C5.33119 24.1898 4.34906 22.72 3.679 21.1023C3.00894 19.4846 2.66406 17.7508 2.66406 15.9998C2.66406 12.4636 4.06882 9.07223 6.56931 6.57175C9.06979 4.07126 12.4612 2.6665 15.9974 2.6665C19.5336 2.6665 22.925 4.07126 25.4255 6.57175C27.926 9.07223 29.3307 12.4636 29.3307 15.9998Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path></svg>"
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "It outlasts generations.",
+            "text": "<p>One titanium board or pan replaces dozens of wood, plastic, or coated alternatives. It’s not just long-lasting, it’s heirloom quality.</p>",
+            "svg_code": "<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'><path d='M12.3708 14.3777H20.0022M12.3708 14.3777H7.9974M12.3708 14.3777L15.6022 23.2759M12.3708 14.3777L14.4956 10.8958L14.9825 9.99984M20.0022 14.3777H24.3756M20.0022 14.3777L16.7708 23.2759M20.0022 14.3777L17.8774 10.8958L17.3763 9.99984M7.9974 14.3777C7.9974 14.7495 8.06734 15.1213 8.20633 15.4719C8.39401 15.9456 8.7747 16.382 9.53429 17.254L12.6037 20.774C13.8404 22.1923 14.4584 22.9023 15.1914 23.1626C15.3266 23.2104 15.4635 23.2482 15.6022 23.2759M7.9974 14.3777C7.9974 14.0059 8.06734 13.634 8.20633 13.2826C8.39401 12.8089 8.7747 12.3733 9.53429 11.5004C9.94773 11.0277 10.154 10.7913 10.393 10.608C10.7484 10.3372 11.1602 10.1499 11.5979 10.06C11.8936 9.99984 12.207 9.99984 12.8347 9.99984H14.9825M15.6022 23.2759C15.988 23.3523 16.385 23.3523 16.7708 23.2759M14.9825 9.99984H17.3763M24.3756 14.3777C24.3756 14.7495 24.3057 15.1213 24.1667 15.4719C23.979 15.9456 23.5983 16.382 22.8387 17.254L19.7693 20.774C18.5326 22.1923 17.9146 22.9023 17.1816 23.1626C17.0475 23.21 16.9102 23.2479 16.7708 23.2759M24.3756 14.3777C24.3756 14.0059 24.3057 13.634 24.1667 13.2826C23.979 12.8089 23.5983 12.3733 22.8387 11.5004C22.4253 11.0277 22.219 10.7913 21.9799 10.608C21.6246 10.3372 21.2127 10.1499 20.775 10.06C20.4794 9.99984 20.166 9.99984 19.5383 9.99984H17.3763M29.3307 15.9998C29.3307 17.7508 28.9859 19.4846 28.3158 21.1023C27.6457 22.72 26.6636 24.1898 25.4255 25.4279C24.1874 26.666 22.7175 27.6482 21.0998 28.3182C19.4822 28.9883 17.7484 29.3332 15.9974 29.3332C14.2464 29.3332 12.5126 28.9883 10.8949 28.3182C9.27727 27.6482 7.80742 26.666 6.56931 25.4279C5.33119 24.1898 4.34906 22.72 3.679 21.1023C3.00894 19.4846 2.66406 17.7508 2.66406 15.9998C2.66406 12.4636 4.06882 9.07223 6.56931 6.57175C9.06979 4.07126 12.4612 2.6665 15.9974 2.6665C19.5336 2.6665 22.925 4.07126 25.4255 6.57175C27.926 9.07223 29.3307 12.4636 29.3307 15.9998Z' stroke='#BCA588' stroke-width='0.7' stroke-linecap='square'></path></svg>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

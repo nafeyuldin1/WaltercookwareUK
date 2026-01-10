@@ -1,0 +1,516 @@
+{% schema %}
+{
+  "name": "Benefits Carousel",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#D4C7B4"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "color",
+      "id": "card_title_color",
+      "label": "Card Title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card Text Color",
+      "default": "#B0B0B0"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Card Border Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Benefits Of Going Taima®"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading (Optional)"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_m",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_m",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_card",
+      "name": "Benefit Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "img_bottom",
+          "label": "Show Image at Bottom?",
+          "default": false,
+          "info": "Check this to flip the layout (Text Top / Image Bottom)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Description of the benefit goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Carousel",
+      "blocks": [
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "Optimize Health & Performance",
+            "text": "<p>With Taima, you're not exposing your body to chemical inflammatory triggers, allergens, or bacteria. Detox your body & watch your body and mind operate at full capacity!</p>",
+            "img_bottom": false
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "Cook Healthier Meals",
+            "text": "<p>Taima lets you use less oil and retain 30% more nutrients so every dish delivers more goodness. What you cook matters, but what you cook on matters just as much.</p>",
+            "img_bottom": true
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "Increase Longevity",
+            "text": "<p>Toxins, heavy metals, and microplastics accelerate cellular-aging & disease. Titanium eliminates exposure at the source - so your body can focus on healing, not defending.</p>",
+            "img_bottom": false
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "Convenience Without Compromise",
+            "text": "<p>Our engineered SlipScale™ embedded pattern delivers non-stick performance without chemical coatings or any compromise to durability.</p>",
+            "img_bottom": true
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "Piece Of Mind",
+            "text": "<p>Every Taima product is tested, certified, and trusted by experts. Designed for wellness, you’ll use the purest, safest food-surface ever made, period.</p>",
+            "img_bottom": false
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "title": "Buy Once, Use Forever",
+            "text": "<p>Engineered to be passed down for generations - always safe, always reliable, always ready to serve.</p>",
+            "img_bottom": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div id="section-{{ section.id }}" class="shopify-section benefits-carousel-section">
+  <section class="bc">
+    <div class="bc-inner">
+      
+      {% if section.settings.heading != blank %}
+        <h2 class="bc-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      
+      {% if section.settings.subheading != blank %}
+        <p class="bc-sub">{{ section.settings.subheading }}</p>
+      {% endif %}
+
+      <div class="bc-rail">
+        <div class="bc-slider">
+          
+          {% for block in section.blocks %}
+            <div class="bc-card {% if block.settings.img_bottom %}img-bottom{% endif %}" {{ block.shopify_attributes }}>
+              
+              <div class="bc-media">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 900 | image_tag: 
+                    loading: 'lazy', 
+                    sizes: '(max-width: 749px) 240px, 310px', 
+                    alt: block.settings.title 
+                  }}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'bc-media-placeholder' }}
+                {% endif %}
+              </div>
+
+              <div class="bc-body">
+                {% if block.settings.title != blank %}
+                  <h3 class="bc-title">{{ block.settings.title }}</h3>
+                {% endif %}
+                
+                {% if block.settings.text != blank %}
+                  <div class="bc-text rte">{{ block.settings.text }}</div>
+                {% endif %}
+              </div>
+
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<style>
+/* Scoped Variables */
+#section-{{ section.id }} {
+  --bc-bg: {{ section.settings.bg_color }};
+  --bc-heading: {{ section.settings.heading_color }};
+  --bc-sub: {{ section.settings.subheading_color }};
+  --bc-title: {{ section.settings.card_title_color }};
+  --bc-text: {{ section.settings.card_text_color }};
+  --bc-border: {{ section.settings.border_color }};
+}
+
+/* Shell */
+#section-{{ section.id }} .bc {
+  background: var(--bc-bg); 
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+#section-{{ section.id }} .bc-inner { max-width:none; margin:0; }
+
+/* Headings */
+#section-{{ section.id }} .bc-heading {
+  margin: 0 0 48px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 1.92px;
+  text-transform: capitalize;
+  color: var(--bc-heading);
+  padding-left: 120px;
+}
+#section-{{ section.id }} .bc-sub {
+  margin: 0 0 24px;
+  padding-left: 120px;
+  color: var(--bc-sub);
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: .64px;
+}
+
+/* Slider rail */
+#section-{{ section.id }} .bc-rail {
+  padding-left: 120px; /* desktop */
+  overflow: hidden;
+}
+
+/* Slick track hosts variable width slides */
+#section-{{ section.id }} .bc-slider .slick-list { overflow: visible; }
+#section-{{ section.id }} .bc-slider .slick-track { display: flex; }
+
+/* Card (variableWidth) */
+#section-{{ section.id }} .bc-card {
+  width: 310px;                /* desktop slide width */
+  margin-right: 32px;          /* desktop gap */
+  background: transparent;
+  border-radius: 24px;
+  border: 1.5px solid var(--bc-border);
+  gap: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 586px;
+}
+#section-{{ section.id }} .bc-card:last-child { margin-right: 120px; } /* nice end-padding */
+
+/* Image top/bottom toggle */
+#section-{{ section.id }} .bc-card.img-bottom { 
+  flex-direction: column-reverse; 
+  justify-content: space-between;
+}
+
+/* Media */
+#section-{{ section.id }} .bc-media {
+  padding: 0;
+  border-bottom: 1.5px solid var(--bc-border); /* Matches border color */
+  display: flex; align-items: center; justify-content: center;
+}
+/* If img is bottom, border needs to be on top */
+#section-{{ section.id }} .bc-card.img-bottom .bc-media {
+    border-bottom: none;
+    border-top: 1.5px solid var(--bc-border);
+}
+
+#section-{{ section.id }} .bc-media img,
+#section-{{ section.id }} .bc-media svg { 
+    width: 100%; height: auto; display: block; 
+}
+#section-{{ section.id }} .bc-media-placeholder {
+    background: #2a2a2a;
+    width: 100%;
+    height: 300px;
+    fill: #555;
+}
+
+/* Body */
+#section-{{ section.id }} .bc-body { padding: 0 24px 24px; }
+#section-{{ section.id }} .img-bottom .bc-body { padding: 24px 24px 0; }
+
+#section-{{ section.id }} .bc-title {
+  margin: 0 0 16px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 0.48px;
+  text-transform: capitalize;
+  color: var(--bc-title);
+}
+#section-{{ section.id }} .bc-text {
+  color: var(--bc-text);
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.64px;
+}
+#section-{{ section.id }} .bc-text p { margin: 0; }
+
+/* Mobile */
+@media (max-width: 749px) {
+  #section-{{ section.id }} .bc {
+    padding-top: {{ section.settings.padding_top_m }}px;
+    padding-bottom: {{ section.settings.padding_bottom_m }}px;
+  }
+  #section-{{ section.id }} .bc-heading { 
+    font-size: 24px; 
+    letter-spacing: 0.96px;
+    padding-left: 16px; 
+    margin: 0 0 32px;
+  }
+  #section-{{ section.id }} .bc-sub { 
+    font-size: 14px; 
+    letter-spacing: .56px; 
+    padding-left: 16px; 
+    margin-bottom: 16px; 
+  }
+
+  #section-{{ section.id }} .bc-rail { padding-left: 16px; }
+  #section-{{ section.id }} .bc-card {
+    width: 260px;             /* mobile slide width */
+    margin-right: 16px;       /* mobile gap */
+    border-radius: 16px;
+    min-height: 467.53px;
+  }
+  #section-{{ section.id }} .bc-body {
+    padding: 0 16px 16px;
+  }
+  #section-{{ section.id }} .bc-card:last-child { margin-right: 16px; } /* end pad */
+  #section-{{ section.id }} .bc-title { 
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    margin: 0 0 12px;
+  }
+  #section-{{ section.id }} .bc-text { 
+    font-size: 13px;
+    letter-spacing: 0.48px;
+  }
+}
+
+/* Large Screens (2200px+) */
+@media (min-width: 2200px) {
+  #section-{{ section.id }} .bc { 
+    padding-top: calc({{ section.settings.padding_top }}px * 1.3);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px * 1.3);
+  }
+  #section-{{ section.id }} .bc-heading { font-size: 62.4px; letter-spacing: 2.496px; padding-left: 156px; margin: 0 0 62.4px; }
+  #section-{{ section.id }} .bc-sub { font-size: 20.8px; letter-spacing: .832px; padding-left: 156px; margin: 0 0 31.2px; }
+  #section-{{ section.id }} .bc-rail { padding-left: 156px; }
+  #section-{{ section.id }} .bc-card { width: 403px; margin-right: 41.6px; border-radius: 31.2px; min-height: 761.8px; }
+  #section-{{ section.id }} .bc-card:last-child { margin-right: 156px; }
+  #section-{{ section.id }} .bc-body { padding: 0 31.2px 31.2px; }
+  #section-{{ section.id }} .img-bottom .bc-body { padding: 31.2px 31.2px 0; }
+  #section-{{ section.id }} .bc-title { font-size: 31.2px; letter-spacing: .624px; margin: 0 0 20.8px; }
+  #section-{{ section.id }} .bc-text { font-size: 20.8px; letter-spacing: .832px; }
+}
+
+/* Medium Screens (750px - 1799px) */
+@media (max-width: 1799px) and (min-width: 750px) {
+  #section-{{ section.id }} .bc { 
+    padding-top: calc({{ section.settings.padding_top }}px * 0.9);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px * 0.9);
+  }
+  #section-{{ section.id }} .bc-heading { font-size: 43.2px; letter-spacing: 1.728px; padding-left: 108px; margin: 0 0 43.2px; }
+  #section-{{ section.id }} .bc-sub { font-size: 14.4px; letter-spacing: .576px; padding-left: 108px; margin: 0 0 21.6px; }
+  #section-{{ section.id }} .bc-rail { padding-left: 108px; }
+  #section-{{ section.id }} .bc-card { width: 279px; margin-right: 28.8px; border-radius: 21.6px; min-height: 527.4px; }
+  #section-{{ section.id }} .bc-card:last-child { margin-right: 108px; }
+  #section-{{ section.id }} .bc-body { padding: 0 21.6px 21.6px; }
+  #section-{{ section.id }} .img-bottom .bc-body { padding: 21.6px 21.6px 0; }
+  #section-{{ section.id }} .bc-title { font-size: 21.6px; letter-spacing: .432px; margin: 0 0 14.4px; }
+  #section-{{ section.id }} .bc-text { font-size: 14.4px; letter-spacing: .576px; }
+}
+</style>
+
+<script>
+(function(){
+  // Dynamic Selector using Section ID
+  var selector = '#section-{{ section.id }} .bc-slider';
+
+  function haveSlick(){
+    var $ = window.jQuery || window.$;
+    return !!($ && $.fn && $.fn.slick);
+  }
+
+  function initOnce(){
+    var $ = window.jQuery || window.$;
+    if (!haveSlick()) return false;
+
+    var $el = $(selector);
+    if (!$el.length) return false;
+
+    if ($el.hasClass('slick-initialized')) return true; // already done
+
+    $el.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      infinite: false,
+      arrows: false,
+      dots: false,
+      swipeToSlide: true,
+      touchThreshold: 10,
+      cssEase: 'ease',
+      speed: 350
+    });
+    return true;
+  }
+
+  function ready(fn){
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  // Try now + retry while Slick/jQuery are still loading
+  ready(function(){
+    var tries = 0, maxTries = 30, timer = null;
+    function attempt(){
+      if (initOnce() || ++tries >= maxTries) clearInterval(timer);
+    }
+    attempt();                          // immediate try
+    if (!haveSlick()) {
+      timer = setInterval(attempt, 150); // retry until slick is ready
+    }
+  });
+
+  // Re-init inside Theme Editor when the section reloads
+  document.addEventListener('shopify:section:load', function(e){
+    if (!e || !e.detail || e.detail.sectionId !== '{{ section.id }}') return;
+    
+    // Check if slick exists
+    if (!haveSlick()) return;
+
+    var $ = window.jQuery || window.$;
+    var $el = $(selector);
+    
+    // Destroy previous instance if it exists to avoid conflicts
+    if ($el.hasClass('slick-initialized')) {
+        $el.slick('unslick');
+    }
+    // Re-initialize
+    setTimeout(initOnce, 100);
+  });
+})();
+</script>

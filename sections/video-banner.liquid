@@ -1,0 +1,535 @@
+{% comment %}
+  Custom Hero Video Section with Logo Marquee
+  Developed for Nafe - Fully Dynamic & Responsive
+{% endcomment %}
+
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  /* Section Layout & Height */
+  #Hero-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: {{ section.settings.height_mobile }}vh;
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  @media screen and (min-width: 768px) {
+    #Hero-{{ section.id }} {
+      height: {{ section.settings.height_desktop }}vh;
+    }
+  }
+
+  /* Header Overlap Logic */
+  {% if section.settings.enable_overlap %}
+    #Hero-{{ section.id }} {
+      margin-top: calc(-1 * var(--header-height, 60px));
+    }
+    /* Ensure content is pushed down so it's not hidden behind header */
+    #Hero-{{ section.id }} .hero-content-inner {
+      padding-top: var(--header-height, 60px);
+    }
+  {% endif %}
+
+  /* Background Media */
+  .hero-media-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .media-desktop { display: none; }
+  .media-mobile { display: block; height: 100%; }
+
+  @media screen and (min-width: 768px) {
+    .media-desktop { display: block; height: 100%; }
+    .media-mobile { display: none; }
+  }
+
+  /* Overlay */
+  .hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .hero-kicker {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .hero-heading {
+    font-size: clamp(28px, 5vw, {{ section.settings.heading_size }}px);
+    line-height: 1.1;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    max-width: 900px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .hero-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Button */
+  .hero-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: {{ section.settings.btn_bg }};
+    color: {{ section.settings.btn_text }};
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0.9;
+  }
+
+  /* Stars */
+  .hero-stars {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .hero-stars svg { width: 16px; height: 16px; fill: #FFB800; }
+  .star-text { font-size: 13px; font-weight: 600; opacity: 0.9; }
+
+  /* LOGO MARQUEE CSS */
+  .logo-marquee-wrap {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    background: {{ section.settings.marquee_bg }};
+    padding: 15px 0;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left {{ section.settings.marquee_speed }}s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee-logo {
+    height: {{ section.settings.logo_height }}px;
+    width: auto;
+    margin: 0 40px;
+    display: block;
+    opacity: {{ section.settings.logo_opacity | divided_by: 100.0 }};
+    filter: {{ section.settings.logo_filter }};
+    transition: opacity 0.3s;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+{%- endstyle -%}
+
+<div id="Hero-{{ section.id }}">
+  
+  <div class="hero-media-wrapper">
+    <div class="media-desktop">
+      {%- if section.settings.video_desktop != blank -%}
+        {{ section.settings.video_desktop | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'hero-media' }}
+      {%- elsif section.settings.image_desktop != blank -%}
+        <img src="{{ section.settings.image_desktop | image_url: width: 2000 }}" 
+             alt="{{ section.settings.heading | escape }}" 
+             class="hero-media" 
+             loading="eager">
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'hero-media' }}
+      {%- endif -%}
+    </div>
+
+    <div class="media-mobile">
+      {%- assign mobile_video = section.settings.video_mobile | default: section.settings.video_desktop -%}
+      {%- assign mobile_image = section.settings.image_mobile | default: section.settings.image_desktop -%}
+
+      {%- if mobile_video != blank -%}
+        {{ mobile_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'hero-media' }}
+      {%- elsif mobile_image != blank -%}
+        <img src="{{ mobile_image | image_url: width: 800 }}" 
+             alt="{{ section.settings.heading | escape }}" 
+             class="hero-media" 
+             loading="eager">
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'hero-media' }}
+      {%- endif -%}
+    </div>
+    
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content page-width">
+    <div class="hero-content-inner">
+      {%- if section.settings.kicker != blank -%}
+        <span class="hero-kicker">{{ section.settings.kicker }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="hero-heading">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="hero-text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.btn_label != blank -%}
+        <a href="{{ section.settings.btn_link }}" class="hero-btn">
+          {{ section.settings.btn_label }}
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.show_stars -%}
+        <div class="hero-stars">
+          <div class="stars-svg">
+            {%- for i in (1..5) -%}
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            {%- endfor -%}
+          </div>
+          {%- if section.settings.review_text != blank -%}
+            <span class="star-text">{{ section.settings.review_text }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="logo-marquee-wrap">
+      <div class="marquee-track">
+        {%- for i in (1..4) -%} 
+          {%- for block in section.blocks -%}
+            {%- if block.settings.logo != blank -%}
+              <img src="{{ block.settings.logo | image_url: width: 300 }}" 
+                   alt="{{ block.settings.logo.alt | escape }}" 
+                   class="marquee-logo"
+                   width="{{ block.settings.logo.width }}"
+                   height="{{ block.settings.logo.height }}"
+                   loading="lazy">
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+</div>
+
+{% schema %}
+{
+  "name": "Hero Video & Logos",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_overlap",
+      "label": "Overlap Header (Transparent Effect)",
+      "default": false,
+      "info": "This pulls the section up behind the header. Make sure your Header background is set to transparent."
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "min": 50,
+      "max": 120,
+      "step": 5,
+      "unit": "vh",
+      "label": "Desktop Height",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Mobile Height",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": -100,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Media (Desktop)"
+    },
+    {
+      "type": "video",
+      "id": "video_desktop",
+      "label": "Desktop Video (Shopify Hosted)",
+      "info": "Upload video to Shopify Files first"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Image (Fallback)"
+    },
+    {
+      "type": "header",
+      "content": "Media (Mobile)"
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Mobile Video (Optional)",
+      "info": "If empty, desktop video is used."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image (Optional)"
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Top Label (Kicker)",
+      "default": "🎁 LIMITED HOLIDAY DEALS 🎁"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Biggest Sale Of The Year!"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading Size (Desktop)",
+      "default": 48
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Subheading",
+      "default": "<p>No Toxins. No Bacteria. No Chemicals. <strong>Save Up To 55%</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button Background",
+      "default": "#932933"
+    },
+    {
+      "type": "color",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Review Trust Badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show 5 Stars",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "review_text",
+      "label": "Review Text",
+      "default": "4.9 (550,000+ Customers)"
+    },
+    {
+      "type": "header",
+      "content": "Logo Marquee Settings"
+    },
+    {
+      "type": "color",
+      "id": "marquee_bg",
+      "label": "Marquee Background",
+      "default": "rgba(0,0,0,0.3)"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Scroll Speed",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo Height",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "logo_opacity",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Logo Opacity",
+      "default": 80
+    },
+    {
+      "type": "select",
+      "id": "logo_filter",
+      "label": "Logo Color Filter",
+      "options": [
+        { "value": "none", "label": "Original Colors" },
+        { "value": "grayscale(100%)", "label": "Grayscale" },
+        { "value": "brightness(0) invert(1)", "label": "White (for dark bg)" },
+        { "value": "brightness(0)", "label": "Black (for light bg)" }
+      ],
+      "default": "brightness(0) invert(1)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Video & Logos",
+      "blocks": [
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,329 @@
+{% comment %}
+  Section: Dynamic Benefits Marquee
+  Description: Auto-scrolling marquee with icons and text.
+{% endcomment %}
+
+<div id="shopify-section-{{ section.id }}" class="shopify-section">
+  <section id="benefits-marquee-{{ section.id }}" class="benefits-marquee" role="region" aria-label="Store benefits">
+    <div class="benefits-tape">
+      <div class="benefits-tape__rail">
+        
+        <div class="benefits-tape__lane js-lane" data-lane="1">
+          {%- for block in section.blocks -%}
+            <div class="benefits-chip" {{ block.shopify_attributes }}>
+              
+              {%- if block.settings.icon != blank -%}
+                {%- assign img_height = section.settings.icon_height -%}
+                {%- assign img_width = img_height | times: block.settings.icon.aspect_ratio | ceil -%}
+                {{ block.settings.icon | image_url: width: 200 | image_tag: 
+                  loading: 'lazy', 
+                  height: img_height, 
+                  width: img_width, 
+                  alt: block.settings.text 
+                }}
+              {%- endif -%}
+
+              {%- if block.settings.text != blank -%}
+                <span class="benefits-chip__text">{{ block.settings.text }}</span>
+              {%- endif -%}
+            
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="benefits-tape__lane js-lane" data-lane="2" aria-hidden="true"></div>
+      
+      </div>
+    </div>
+  </section>
+
+  {% style %}
+    #benefits-marquee-{{ section.id }} {
+      --gap: {{ section.settings.gap_mobile }}px;
+      --speed: {{ section.settings.speed }}s;
+      --bg: {{ section.settings.bg_color }};
+      --fg: {{ section.settings.text_color }};
+      --icon-size: {{ section.settings.icon_height }}px;
+      --font-size: {{ section.settings.font_size_mobile }}px;
+      
+      background: var(--bg);
+      color: var(--fg);
+      overflow: hidden; 
+    }
+
+    /* Tape */
+    #benefits-marquee-{{ section.id }} .benefits-tape { 
+      overflow: hidden; 
+      width: 100%; 
+      padding: {{ section.settings.padding_y }}px 0;
+      contain: content;
+    }
+
+    #benefits-marquee-{{ section.id }} .benefits-tape__rail {
+      display: flex;
+      width: max-content;
+      animation: benefits-tape-scroll-{{ section.id }} var(--speed) linear infinite;
+      will-change: transform;
+      backface-visibility: hidden;
+      transform: translate3d(0,0,0);
+    }
+
+    #benefits-marquee-{{ section.id }} .benefits-tape__lane {
+      display: flex; 
+      align-items: center; 
+      flex-shrink: 0;
+    }
+
+    /* Chips */
+    #benefits-marquee-{{ section.id }} .benefits-chip {
+      display: inline-flex; 
+      align-items: center; 
+      gap: 16px;
+      margin-right: var(--gap); 
+      white-space: nowrap;
+    }
+
+    #benefits-marquee-{{ section.id }} .benefits-chip img { 
+      height: var(--icon-size); 
+      width: auto; 
+      display: block; 
+      object-fit: contain;
+    }
+
+    #benefits-marquee-{{ section.id }} .benefits-chip__text {
+      color: var(--fg);
+      font-family: inherit; /* Inherits theme font */
+      font-size: var(--font-size); 
+      font-weight: 500; 
+      line-height: 140%;
+      letter-spacing: 0.4px; 
+      text-transform: uppercase;
+    }
+
+    @keyframes benefits-tape-scroll-{{ section.id }} {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #benefits-marquee-{{ section.id }} .benefits-tape__rail {
+        animation-duration: 0.01ms; 
+        animation-iteration-count: 1;
+      }
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 751px) {
+      #benefits-marquee-{{ section.id }} {
+        --gap: {{ section.settings.gap_desktop }}px;
+        --font-size: {{ section.settings.font_size_desktop }}px;
+      }
+    }
+  {% endstyle %}
+
+  <script>
+    (function(){
+      var sectionId = "benefits-marquee-{{ section.id }}";
+      var root = document.getElementById(sectionId);
+      if (!root) return;
+
+      var lane1 = root.querySelector('.benefits-tape__lane[data-lane="1"]');
+      var lane2 = root.querySelector('.benefits-tape__lane[data-lane="2"]');
+      var rail  = root.querySelector('.benefits-tape__rail');
+      if (!lane1 || !lane2 || !rail) return;
+
+      var baseHTML = lane1.innerHTML;
+      var lastWidth = window.innerWidth;
+
+      function fillIfNeeded() {
+        // If content is empty (no blocks), do nothing
+        if (!baseHTML.trim()) return;
+
+        // Clone content until lane1 is wider than screen * 1.2
+        var safety = 0;
+        while (lane1.scrollWidth < (root.clientWidth * 1.5) && safety < 20) {
+          lane1.insertAdjacentHTML('beforeend', baseHTML);
+          safety++;
+        }
+        // Mirror into lane2 for seamless looping
+        lane2.innerHTML = lane1.innerHTML;
+      }
+
+      // 1) Initial fill
+      fillIfNeeded();
+
+      // 2) After images load
+      var imgs = lane1.querySelectorAll('img');
+      if (imgs.length) {
+        var done = 0, total = imgs.length;
+        imgs.forEach(function(img){
+          if (img.complete) { if(++done===total) fillIfNeeded(); }
+          else {
+            img.addEventListener('load', function(){ if(++done===total) fillIfNeeded(); }, {once:true});
+            img.addEventListener('error', function(){ if(++done===total) fillIfNeeded(); }, {once:true});
+          }
+        });
+      }
+
+      // 3) Resize handler
+      var resTO;
+      window.addEventListener('resize', function(){
+        clearTimeout(resTO);
+        resTO = setTimeout(function(){
+          var w = window.innerWidth;
+          if (Math.abs(w - lastWidth) >= 20) { 
+            lastWidth = w;
+            fillIfNeeded(); 
+          }
+        }, 150);
+      }, { passive:true });
+
+      // 4) Theme editor support
+      document.addEventListener('shopify:section:load', function (e) {
+        if (e.detail && e.detail.sectionId === '{{ section.id }}') {
+          // Re-init variables as DOM has been replaced
+          root = document.getElementById(sectionId);
+          if(!root) return;
+          lane1 = root.querySelector('.benefits-tape__lane[data-lane="1"]');
+          lane2 = root.querySelector('.benefits-tape__lane[data-lane="2"]');
+          if (lane1) {
+             baseHTML = lane1.innerHTML;
+             fillIfNeeded();
+          }
+        }
+      });
+    })();
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "Auto Scrolling Marquee",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#03231a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text/Icon Color",
+      "default": "#ede6da"
+    },
+    {
+      "type": "header",
+      "content": "Dimensions & Sizing"
+    },
+    {
+      "type": "range",
+      "id": "icon_height",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon Height",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "font_size_desktop",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size (Desktop)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size (Mobile)",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical Padding",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Animation & Spacing"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Animation Speed (Seconds)",
+      "info": "Lower is faster",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "min": 20,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between items (Desktop)",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between items (Mobile)",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free Shipping"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Auto Scrolling Marquee",
+      "blocks": [
+        { "type": "benefit", "settings": { "text": "Sustainable" } },
+        { "type": "benefit", "settings": { "text": "Free Returns" } },
+        { "type": "benefit", "settings": { "text": "Certified" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

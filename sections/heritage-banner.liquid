@@ -1,0 +1,293 @@
+{%- style -%}
+  /* Dynamic Variables based on settings */
+  #shopify-section-{{ section.id }} .heritage__inner {
+    --text: {{ section.settings.color_text }};
+    --accent: {{ section.settings.color_accent }};
+    --bg-color: {{ section.settings.color_bg }};
+    --kicker-color: {{ section.settings.color_kicker }};
+    --rte-color: {{ section.settings.color_rte }};
+  }
+
+  /* Section Base Styles */
+  #shopify-section-{{ section.id }} .heritage {
+    color: var(--text);
+    background: var(--bg-color);
+  }
+
+  #shopify-section-{{ section.id }} .heritage__inner {
+    position: relative;
+    height: 977px;
+    padding: 0px;
+    background-color: var(--bg-color);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  /* Desktop Background Image */
+  {% if section.settings.image_desktop != blank %}
+    #shopify-section-{{ section.id }} .heritage__inner {
+      background-image: url({{ section.settings.image_desktop | image_url: width: 2000 }});
+    }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .heritage__content {
+    position: relative;
+    z-index: 1;
+    max-width: 916px;
+    padding: 80px 120px;
+    margin-left: auto; /* Aligns content to the right */
+  }
+
+  /* Typography */
+  #shopify-section-{{ section.id }} .heritage__heading {
+    margin: 0 0 16px;
+    color: var(--text);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 1.92px;
+    text-transform: capitalize;
+  }
+  
+  #shopify-section-{{ section.id }} .heritage__heading p { margin: 0; }
+  
+  #shopify-section-{{ section.id }} .heritage__heading strong {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  #shopify-section-{{ section.id }} .heritage__kicker {
+    margin: 0 0 16px;
+    color: var(--kicker-color);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0.96px;
+    text-transform: capitalize;
+  }
+  
+  #shopify-section-{{ section.id }} .heritage__kicker p { margin: 0; }
+
+  #shopify-section-{{ section.id }} .heritage__rte {
+    color: var(--rte-color);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+  
+  #shopify-section-{{ section.id }} .heritage__rte p { margin: 0 0 16px; }
+  #shopify-section-{{ section.id }} .heritage__rte p:last-child { margin-bottom: 0; }
+  
+  #shopify-section-{{ section.id }} .heritage__rte strong {
+    color: #FFF; /* Keeping white for strong text in RTE as per original */
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0.64px;
+  }
+
+  /* Large Screens */
+  @media (min-width: 2200px) {
+    #shopify-section-{{ section.id }} .heritage__inner { height: 1270.1px; }
+    #shopify-section-{{ section.id }} .heritage__content {
+      max-width: 1190.8px;
+      padding: 104px 156px;
+    }
+    #shopify-section-{{ section.id }} .heritage__heading {
+      margin-bottom: 20.8px;
+      font-size: 62.4px;
+      letter-spacing: 2.496px;
+    }
+    #shopify-section-{{ section.id }} .heritage__kicker {
+      margin-bottom: 20.8px;
+      font-size: 31.2px;
+      letter-spacing: 1.248px;
+    }
+    #shopify-section-{{ section.id }} .heritage__rte,
+    #shopify-section-{{ section.id }} .heritage__rte strong {
+      font-size: 20.8px;
+      letter-spacing: 0.832px;
+    }
+    #shopify-section-{{ section.id }} .heritage__rte p { margin-bottom: 20.8px; }
+  }
+
+  /* Laptop Screens */
+  @media (min-width: 750px) and (max-width: 1799px) {
+    #shopify-section-{{ section.id }} .heritage__inner { height: 879.3px; }
+    #shopify-section-{{ section.id }} .heritage__content {
+      max-width: 824.4px;
+      padding: 72px 108px;
+    }
+    #shopify-section-{{ section.id }} .heritage__heading {
+      margin-bottom: 14.4px;
+      font-size: 43.2px;
+      letter-spacing: 1.728px;
+    }
+    #shopify-section-{{ section.id }} .heritage__kicker {
+      margin-bottom: 14.4px;
+      font-size: 21.6px;
+      letter-spacing: 0.864px;
+    }
+    #shopify-section-{{ section.id }} .heritage__rte,
+    #shopify-section-{{ section.id }} .heritage__rte strong {
+      font-size: 14.4px;
+      letter-spacing: 0.576px;
+    }
+    #shopify-section-{{ section.id }} .heritage__rte p { margin-bottom: 14.4px; }
+  }
+
+  /* Mobile Screens */
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .heritage__inner {
+      padding: 64px 16px 300px;
+      min-height: 520px;
+      height: auto;
+      background-position: bottom center;
+      background-size: 100% 705px;
+      
+      /* Mobile Background Image Logic */
+      {% if section.settings.image_mobile != blank %}
+        background-image: url({{ section.settings.image_mobile | image_url: width: 1200 }});
+      {% elsif section.settings.image_desktop != blank %}
+        background-image: url({{ section.settings.image_desktop | image_url: width: 1200 }});
+      {% endif %}
+    }
+
+    #shopify-section-{{ section.id }} .heritage__content {
+      margin-left: 0;
+      max-width: 480px;
+      padding: 0;
+    }
+    #shopify-section-{{ section.id }} .heritage__heading {
+      font-size: 32px;
+      letter-spacing: 1.28px;
+    }
+    #shopify-section-{{ section.id }} .heritage__kicker {
+      font-size: 20px;
+      letter-spacing: 0.4px;
+    }
+    #shopify-section-{{ section.id }} .heritage__rte,
+    #shopify-section-{{ section.id }} .heritage__rte strong {
+      font-size: 14px;
+      letter-spacing: 0.56px;
+    }
+    #shopify-section-{{ section.id }} .heritage__rte p { margin: 0 0 8px; }
+  }
+{%- endstyle -%}
+
+<section class="heritage" aria-label="{{ section.settings.heading | strip_html }}">
+  <div class="heritage__inner">
+    <div class="heritage__content">
+      
+      {%- if section.settings.heading != blank -%}
+        <h2 class="heritage__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.kicker != blank -%}
+        <div class="heritage__kicker">
+          {{ section.settings.kicker }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.content != blank -%}
+        <div class="heritage__rte rte">
+          {{ section.settings.content }}
+        </div>
+      {%- endif -%}
+      
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Heritage Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Image",
+      "info": "2000px width recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image",
+      "info": "Optional. Falls back to desktop image if empty."
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Rooted In <strong>Tradition</strong>.Designed To Outlast You."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "kicker",
+      "label": "Subheading / Kicker",
+      "default": "At Taima®, We Don’t Just Make Kitchenware. We Uphold A Standard."
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Description",
+      "default": "<p>Shaped by the legacy of Japanese craftsmanship, where perfection isn’t a choice, it’s a duty. And durability isn’t a feature - it’s expected. We chose titanium not because it was easy, but<strong> because it was right.</strong></p><p>We chose <strong>Integrity </strong>over shortcuts.<br><strong>Purpose</strong> over profit.<br><strong>Excellence</strong> over mass production.</p><p>That’s why everything we create is built with obsession, backed for life, and made to earn your trust, not your attention. Because when something is made right…It never needs to be replaced.</p><p>All of our products are crafted from 100% sustainable pure titanium. Not just for unmatched hygiene and durability. But as part of our promise to protect your health & the planet.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Background Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "Primary Text Color",
+      "default": "#F6F4F0"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Accent Color (Heading Bold)",
+      "default": "#BCA588"
+    },
+    {
+      "type": "color",
+      "id": "color_kicker",
+      "label": "Subheading Color",
+      "default": "#E9E2D8"
+    },
+    {
+      "type": "color",
+      "id": "color_rte",
+      "label": "Description Color",
+      "default": "#D1D1D1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Heritage Banner"
+    }
+  ]
+}
+{% endschema %}
