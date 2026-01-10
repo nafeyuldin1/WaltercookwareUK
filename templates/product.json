@@ -45,7 +45,8 @@
             "main_price_size": 35,
             "sale_price_color": "#ffffff",
             "compare_price_color": "#bca588",
-            "compare_price_size": 30
+            "compare_price_size": 30,
+            "badge_text": ""
           }
         },
         "benefits_grid_AbMNV3": {
@@ -69,28 +70,20 @@
             "bar_color": "#333333",
             "margin_top": 10,
             "margin_bottom": 10,
-            "icon_1": "shopify://shop_images/icons_3.png",
             "text_1_l1": "Lifetime",
             "text_1_l2": "Warranty",
-            "icon_2": "shopify://shop_images/icons_4.png",
             "text_2_l1": "Metal",
             "text_2_l2": "Utensils-Safe",
-            "icon_3": "shopify://shop_images/icons_5_e92852fd-ca83-442d-8060-1f0e685d0929.webp",
             "text_3_l1": "Oven-",
             "text_3_l2": "Safe",
-            "icon_4": "shopify://shop_images/icons_6_385c0397-df1e-470c-81c7-88dd299c1c26.avif",
             "text_4_l1": "Dishwasher",
             "text_4_l2": "Safe",
-            "icon_5": "shopify://shop_images/icons_7_f4ed2013-accb-4ee9-8d33-6b1136a97772.webp",
             "text_5_l1": "No Heavy",
             "text_5_l2": "Metals",
-            "icon_6": "shopify://shop_images/icons_8_fae0cd44-b47a-443e-9280-fc719a7b081a.avif",
             "text_6_l1": "Corrosion",
             "text_6_l2": "Resistant",
-            "icon_7": "shopify://shop_images/icons_9_66b1f924-2ae2-498f-aa98-6b995d024cd5.webp",
             "text_7_l1": "Induction",
             "text_7_l2": "Ready",
-            "icon_8": "shopify://shop_images/icons_10_bfbc64b2-eec8-4188-ac64-7211f42cb346.webp",
             "text_8_l1": "Stay-Cool",
             "text_8_l2": "Handle"
           }
@@ -193,7 +186,6 @@
             "tab_1_content": "<p>✔︎ <strong>Pure Titanium — The Safest Metal for the Body<br/></strong>Used in medical implants for decades because of its unmatched biocompatibility. Naturally non-toxic and completely inert.</p><p>✔︎ <strong>Non-Stick Without Chemicals — SlipScale™</strong><br/>No coatings. No PFAS. A constructed surface pattern that delivers food release with up to 3× less oil.</p><p>✔︎ <strong>Retains Up to 30% More Nutrients</strong><br/>Efficient heat transfer allows cooking at lower temperatures without sacrificing flavor or nutrients.</p><p>✔︎ <strong>100% Corrosion-Resistant</strong><br/>Will not corrode or leach heavy metals — even when cooking acidic foods like tomatoes, lemon, or vinegar.</p><p>✔︎ <strong>Engineered to Outlast You</strong><br/>Used in Formula racing and rocket engines. Built to survive extreme heat and pressure without degrading.</p><p>✔︎ <strong>Naturally Antibacterial</strong><br/>Resists bacterial growth for a cleaner, safer, and more hygienic cooking surface.</p><p>✔︎ <strong>Healthier Cooking by Default</strong><br/>Use less oil without compromising performance.</p><p>✔︎ <strong>Total Peace of Mind</strong><br/>Cook with one of the purest and strongest materials on earth.</p>",
             "tab_2_label": "Certified Purity",
             "tab_2_content": "<p>Each pan is made from <strong>Grade 1 Titanium (99.86% purity)</strong>, known for its exceptional cleanliness and stability. This material is widely used in medical applications and is FDA-compliant for food contact.</p><p>With <strong>Walter</strong>, safety comes built in.</p>",
-            "tab_2_image": "shopify://shop_images/Zonder_titel_350_x_350_px.png",
             "tab_3_label": "Health & Safety",
             "tab_3_content": "<p>Everyday cooking shouldn’t come with second thoughts.<br/><br/>From the materials used to the way heat is handled, every detail matters when it comes to safety. That’s why Walter is built around one simple principle: cookware should protect your food, not interfere with it. No hidden coatings. No degradation over time. Just confidence, every time you cook.</p>"
           }
@@ -202,7 +194,6 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Product Care & Details",
-            "custom_icon": "shopify://shop_images/icons_5_2fea245a-4a2d-4762-8989-55e29299c2c7.svg",
             "icon": "none",
             "content": "<h3>Seasoning (Important for Best Results)</h3><p>Before first use, heat the pan over medium-low heat with a small amount of high-smoke-point oil for 2–3 minutes. This prepares the surface for optimal cooking performance. With continued use, the pan naturally improves over time.</p><h3>Materials & Construction</h3><p>Designed with a full-clad, multi-layer build for consistent performance:</p><ul><li>Titanium cooking surface with a textured pattern to support controlled food release<br/></li><li>Two aluminum core layers to promote even heat distribution<br/></li><li>Two stainless steel outer layers for strength, stability, and resistance to warping<br/></li></ul><h3>Size & Compatibility</h3><ul><li>Suitable for all cooktops, including induction, gas, and electric<br/></li><li>Oven and open-flame safe up to 600°C / 1112°F<br/></li><li>Built for frequent use, even at high temperatures<br/></li><li>Safe to use with metal utensils<br/></li></ul><h3>Cleaning & Maintenance</h3><ul><li>Dishwasher safe for easy cleanup<br/></li><li>Durable titanium surface allows for abrasive cleaning when needed<br/></li><li>No special soaps or tools required</li></ul>",
             "page": "",
@@ -250,7 +241,6 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Review Highlights",
-            "custom_icon": "shopify://shop_images/icons_22_1.svg",
             "icon": "none",
             "content": "",
             "page": "",
@@ -258,23 +248,18 @@
             "review_name_color": "#ffffff",
             "review_role_color": "#ffffff",
             "review_text_color": "#ffffff",
-            "rev_img_1": "shopify://shop_images/chefkok.jpg",
             "rev_name_1": "Marco V.",
             "rev_role_1": "Michelin-Star Chef | Napa Valley, CA",
             "rev_text_1": "I use this pan daily in a professional kitchen. Heat distribution is consistent, searing is excellent, and food releases cleanly. Exactly what I expect from serious cookware.",
-            "rev_img_2": "shopify://shop_images/privat.jpg",
             "rev_name_2": "Ethan P.",
             "rev_role_2": "Private Yacht Chef | Fort Lauderdale, FL",
             "rev_text_2": "First trip on board, this pan went straight into service. Even heating, no hot spots, and easy cleanup. It’s now a permanent part of my galley setup.",
-            "rev_img_3": "shopify://shop_images/meterials.jpg",
             "rev_name_3": "Daniel K.",
             "rev_role_3": "Materials Engineer | San Jose, CA",
             "rev_text_3": "I tested several so-called “titanium” pans out of curiosity. This one actually matches the material claims. Solid construction and no misleading composition.",
-            "rev_img_4": "shopify://shop_images/wellness.jpg",
             "rev_name_4": "Sophie L.",
             "rev_role_4": "Wellness Creator | Santa Monica, CA",
             "rev_text_4": "I’m very careful about what comes into contact with our food. This pan feels safe, well-made, and reliable. That peace of mind matters to me.",
-            "rev_img_5": "shopify://shop_images/coach.jpg",
             "rev_name_5": "Ryan H.",
             "rev_role_5": "Coach & Biohacker | Boulder, CO",
             "rev_text_5": "I’ve removed anything questionable from my kitchen. This pan fits perfectly with a clean, intentional setup. Simple, controlled, and dependable.",
@@ -303,7 +288,6 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Your Key Questions, Answered",
-            "custom_icon": "shopify://shop_images/icons_23_1.svg",
             "icon": "none",
             "content": "<h2>Why Ours Is Priced Higher</h2><p>If you’ve come across cheaper “pure titanium” pans online — or even bought one — that’s understandable. Most of them aren’t truly titanium at all. They’re typically industrial steel alloys with a trace amount of titanium added, just enough to justify the label. That lowers production costs, but removes the very benefits people are looking for, while introducing new downsides.</p><p><strong>Walter</strong> is different. It’s crafted from <strong>certified 99.86% pure Grade 1 titanium</strong> — a material that’s exceptionally difficult and expensive to work with. That challenge is exactly why it performs the way it does, and why we’re able to support it with verified proof.</p><h2>How SlipScale™ Works</h2><p>SlipScale™ is a first-of-its-kind surface technology that redefines non-stick performance — without coatings. Instead of relying on chemicals, the surface is precisely imprinted with a micro-scale pattern that improves food release by up to <strong>3×</strong>.</p><p>These micro-ridges reduce direct contact between food and the pan while helping oils spread evenly. The result is a natural release layer that allows food to glide smoothly instead of sticking.</p><h2>How It Helps Preserve Nutrients</h2><p>Pure titanium conducts heat efficiently and evenly, allowing you to cook at lower temperatures without sacrificing performance. Research shows that lower-temperature cooking can help retain <strong>up to 30% more nutrients</strong>, particularly heat-sensitive vitamins like vitamin C, compared to conventional cookware.</p><h2>What Biocompatibility Means</h2><p>Titanium is considered the most biocompatible metal available — meaning the human body does not react negatively to it. This is why it’s widely used in surgical implants. It remains stable, non-reactive, and safe for repeated, direct contact with food.</p><h2>Why Acidic Foods Damage Other Pans</h2><p>Ingredients like lemon, tomato, and pepper release acids that can react with steel or synthetic non-stick coatings. Over time, this can degrade the surface and allow metals or chemicals to leach into food.</p><p>Titanium is the most corrosion-resistant metal known. It remains completely stable, regardless of acidity, ensuring consistent performance with any recipe.</p><h2>Is It Truly Pure?</h2><p>Yes. Each pan is tested by <strong>SGS</strong>, the world’s leading independent testing laboratory. Verification confirms a purity level of <strong>99.86% Grade 1 titanium</strong> — the highest practical purity available for cookware.</p><h2>What FDA-Compliant Means</h2><p>FDA compliance confirms the pan meets strict food-contact safety standards. That means:</p><ul><li>No harmful coatings<br/></li><li>No unsafe metals<br/></li><li>No chemical exposure<br/></li><li>Lead-free construction<br/></li></ul><p>Nothing unnecessary near your food — just clean, stable materials.</p>",
             "page": "",
@@ -351,7 +335,6 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Shipping, Returns & Warranty",
-            "custom_icon": "shopify://shop_images/icons_24_1.svg",
             "icon": "none",
             "content": "<p>Please allow <strong>1–4 business days</strong> for order processing and dispatch (up to 2 additional days during peak holiday periods).</p><p><strong>Standard delivery time:</strong> <strong>7–12 business days</strong> for orders shipped to the <strong>USA, UK, Canada, Australia, and New Zealand</strong>.</p><p>We offer a <strong>30-day return policy</strong>, giving you 30 days from delivery to request a return.</p><p>Walter products are built for everyday use and long-lasting performance.</p><p>Our warranty covers <strong>manufacturing defects and damage upon arrival</strong>.</p>",
             "page": "",
@@ -398,7 +381,6 @@
         "impact_note_KwNV8U": {
           "type": "impact_note",
           "settings": {
-            "icon": "shopify://shop_images/icons_2.avif",
             "bg_color": "#03231a",
             "text_color": "#d4c7b4",
             "text": "Every order supports the future of toxin-free living by helping fund the next generation of safe, non-toxic kitchenware."
@@ -633,8 +615,6 @@
         "testimonial_VDept8": {
           "type": "testimonial",
           "settings": {
-            "image_desktop": "shopify://shop_images/PC_daily_mail-min.png",
-            "image_mobile": "shopify://shop_images/daily_mail_smallest.webp",
             "logo_width": 120,
             "logo_width_mobile": 80,
             "quote": "<p>\"non-stick pans can emit toxins of PTFE that can cause flu-like symptoms in humans\"</p>"
@@ -643,8 +623,6 @@
         "testimonial_48Rz8m": {
           "type": "testimonial",
           "settings": {
-            "image_desktop": "shopify://shop_images/abc_6baee25f-0ac7-4107-9674-d08d28af1c3f.png",
-            "image_mobile": "shopify://shop_images/abc_6baee25f-0ac7-4107-9674-d08d28af1c3f.png",
             "logo_width": 198,
             "logo_width_mobile": 118,
             "quote": "<p>\"California Moves to Ban ‘Forever Chemicals’ in Cookware\"</p>"
@@ -653,8 +631,6 @@
         "testimonial_qhTciH": {
           "type": "testimonial",
           "settings": {
-            "image_desktop": "shopify://shop_images/Vector_fc8b58e5-1a0c-4227-92d8-7b81c1e8a2d3.webp",
-            "image_mobile": "shopify://shop_images/Vector_fc8b58e5-1a0c-4227-92d8-7b81c1e8a2d3.webp",
             "logo_width": 120,
             "logo_width_mobile": 80,
             "quote": "<p>\"Walter Titanium: The Benchmark for Non-Toxic Cookware That Lasts a Lifetime\"</p>"
@@ -663,8 +639,6 @@
         "testimonial_cxNH3D": {
           "type": "testimonial",
           "settings": {
-            "image_desktop": "shopify://shop_images/Vector.webp",
-            "image_mobile": "shopify://shop_images/Vector.webp",
             "logo_width": 120,
             "logo_width_mobile": 80,
             "quote": "<p>“Non-Stick Pans May Release PTFE Toxins Linked to Flu-Like Symptoms in Humans”</p>"
@@ -847,7 +821,6 @@
         "card_BM4wqE": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/pan_7-min_a4756bb1-2df2-477f-aa72-faca4dff9604.webp",
             "title": "Non-Stick / Teflon",
             "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
             "link_text": "Read More…",
@@ -857,7 +830,6 @@
         "card_Amxkbp": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/board_9-min_3c8a74f1-e8ef-4d6f-b216-71a175e29248.webp",
             "title": "Non-Stick / Teflon",
             "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
             "link_text": "Read More…",
@@ -867,7 +839,6 @@
         "card_jxn998": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/chef_pan-min_59dd09c3-bc24-496b-9866-a37324176598.webp",
             "title": "Non-Stick / Teflon",
             "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
             "link_text": "Read More…",
@@ -877,7 +848,6 @@
         "card_FTbHKR": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/review_man-min.webp",
             "title": "Non-Stick / Teflon",
             "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
             "link_text": "Read More…",
@@ -887,7 +857,6 @@
         "card_76b6RG": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/board-min_17b1843e-87da-43ae-b30b-95c6c3a5d98a.webp",
             "title": "Non-Stick / Teflon",
             "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
             "link_text": "Read More…",
@@ -925,7 +894,6 @@
         "benefit_card_jGgcH8": {
           "type": "benefit_card",
           "settings": {
-            "image": "shopify://shop_images/Ontwerp_zonder_titel_14.png",
             "img_bottom": false,
             "title": "Optimize Health & Performance",
             "text": "<p>With Walter, you reduce exposure to chemicals, allergens, and contaminants often found in traditional cookware. Cooking clean supports both physical well-being and mental focus.</p>"
@@ -934,7 +902,6 @@
         "benefit_card_xEPDXN": {
           "type": "benefit_card",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_q2ln7tq2ln7tq2ln.png",
             "img_bottom": true,
             "title": "Cook Healthier Meals",
             "text": "<p>Walter cookware helps you use less oil while preserving more nutrients in your food. Every dish delivers more from what you cook — because how you cook matters just as much as what’s on your plate.</p>"
@@ -943,7 +910,6 @@
         "benefit_card_qCjfiU": {
           "type": "benefit_card",
           "settings": {
-            "image": "shopify://shop_images/couple-indoors-being-happy-dancing-kitchen.jpg",
             "img_bottom": false,
             "title": "Increase Longevity",
             "text": "<p>Toxins, heavy metals, and microplastics contribute to cellular damage and long-term health risks. Titanium removes exposure at the source — allowing your body to focus on balance and recovery instead of constant defense.</p>"
@@ -952,7 +918,6 @@
         "benefit_card_9GQdWn": {
           "type": "benefit_card",
           "settings": {
-            "image": "shopify://shop_images/pattern-min.jpg",
             "img_bottom": true,
             "title": "Convenience Without Compromise",
             "text": "<p>Our engineered SlipScale™ surface pattern provides reliable non-stick performance without chemical coatings, while maintaining long-term durability</p>"
@@ -961,7 +926,6 @@
         "benefit_card_An9M6q": {
           "type": "benefit_card",
           "settings": {
-            "image": "shopify://shop_images/Ontwerp_zonder_titel_15.png",
             "img_bottom": false,
             "title": "Piece Of Mind",
             "text": "<p>Every Walter product is rigorously tested and independently certified. Designed with wellness in mind, it delivers one of the purest and safest cooking surfaces ever created.</p>"
@@ -970,7 +934,6 @@
         "benefit_card_XcqEwN": {
           "type": "benefit_card",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_8baxbf8baxbf8bax.png",
             "img_bottom": true,
             "title": "Buy Once, Use Forever",
             "text": "<p>Engineered to last for generations — consistently safe, dependable, and ready for everyday use.</p>"
@@ -1075,7 +1038,6 @@
         "bg_color": "#00221c",
         "text_color": "#c8beab",
         "focus_color": "#bca588",
-        "section_image": "shopify://shop_images/review_collectie.png",
         "btn_label": "",
         "btn_link": "shopify://collections/all",
         "btn_bg": "#ffffff",
@@ -1342,28 +1304,24 @@
         "icon_9AYkEY": {
           "type": "icon",
           "settings": {
-            "icon_image": "shopify://shop_images/Frame_1171274953.png",
             "icon_width": 40
           }
         },
         "icon_Hw8bmt": {
           "type": "icon",
           "settings": {
-            "icon_image": "shopify://shop_images/Frame_1171274951.png",
             "icon_width": 41
           }
         },
         "icon_qgUFQX": {
           "type": "icon",
           "settings": {
-            "icon_image": "shopify://shop_images/Frame_1171274950.png",
             "icon_width": 41
           }
         },
         "icon_AFDN9z": {
           "type": "icon",
           "settings": {
-            "icon_image": "shopify://shop_images/Frame_1171274952.png",
             "icon_width": 41
           }
         }
@@ -1377,7 +1335,6 @@
       "disabled": true,
       "name": "Not Available Section",
       "settings": {
-        "bg_image_desktop": "shopify://shop_images/a45b5bb6882d6dd0635f53c1c3a7c6655b5656eb.webp",
         "height_desktop": 1050,
         "height_mobile": 680,
         "heading": "Not on Amazon. Not Anywhere Else.",
@@ -1395,7 +1352,6 @@
         "layer_yDq3ct": {
           "type": "layer",
           "settings": {
-            "image": "shopify://shop_images/pan_first_with_shadow-min.webp",
             "offset_y": 0,
             "title": "Titanium SlipScale",
             "description": "Non-toxic and non-stick."
@@ -1404,7 +1360,6 @@
         "layer_3g4pcF": {
           "type": "layer",
           "settings": {
-            "image": "shopify://shop_images/pan_MID_with_shadow-min.webp",
             "offset_y": 0,
             "title": "Recycled Aluminum III",
             "description": "Even heat distribution."
@@ -1413,7 +1368,6 @@
         "layer_yUg9LH": {
           "type": "layer",
           "settings": {
-            "image": "shopify://shop_images/pan_MID_with_shadow-min_1.webp",
             "offset_y": 0,
             "title": "Recycled Aluminum II",
             "description": "Fast heat response."
@@ -1422,7 +1376,6 @@
         "layer_6PqkXa": {
           "type": "layer",
           "settings": {
-            "image": "shopify://shop_images/pan_MID_with_shadow-min_2.webp",
             "offset_y": 0,
             "title": "Induction Steel Base",
             "description": "Strong magnetic performance."
@@ -1431,7 +1384,6 @@
         "layer_LF3hE3": {
           "type": "layer",
           "settings": {
-            "image": "shopify://shop_images/pan_LAST_with_shadow-min.webp",
             "offset_y": 0,
             "title": "Daily Use Design",
             "description": "Built to last."
