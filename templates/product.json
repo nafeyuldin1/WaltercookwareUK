@@ -564,7 +564,6 @@
         "slide_9kQBcy": {
           "type": "slide",
           "settings": {
-            "video_file": "shopify://files/videos/13f4001c05324e8fad5f7a9832c77292.HD-1080p-2.5Mbps-59268184.mp4",
             "video_url": "",
             "mp4_url": "",
             "quote": "\"Nonstick without chemicals or coatings, this is revolutionary\""
@@ -573,7 +572,6 @@
         "slide_jFzY9a": {
           "type": "slide",
           "settings": {
-            "video_file": "shopify://files/videos/snaptik_7522420718802324758_v2.mp4",
             "video_url": "",
             "mp4_url": "",
             "quote": "\"I wanted to test Walter for a full week, but after the first day I already knew.\""
@@ -582,7 +580,6 @@
         "slide_ndUw9b": {
           "type": "slide",
           "settings": {
-            "video_file": "shopify://files/videos/snaptik_7568974991232879885_v2.mp4",
             "video_url": "",
             "mp4_url": "",
             "quote": "For Walter Cookware"
@@ -591,7 +588,6 @@
         "slide_yM9TtG": {
           "type": "slide",
           "settings": {
-            "video_file": "shopify://files/videos/0104 (1).mov",
             "video_url": "",
             "mp4_url": "",
             "quote": "\"Finally cooking with a pan that doesn’t rely on chemical coatings.\""
@@ -601,7 +597,6 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "video_file": "shopify://files/videos/2294eb1f6ff84074a955b6777905505b (1).mp4",
             "video_url": "",
             "mp4_url": "",
             "quote": "\"Nonstick without chemicals or coatings, this is revolutionary\""
@@ -719,7 +714,6 @@
         "signature_img": "shopify://shop_images/Gemini_Generated_Image_yxffpiyxffpiyxff.png",
         "sig_width_d": 120,
         "sig_width_m": 100,
-        "video": "shopify://files/videos/730e5c408b13408498a7fc7f26683aaf_36b40784-70ce-4a0c-951f-6e1b22c04abc.mp4",
         "video_url_mp4": "",
         "enable_autoplay": true,
         "enable_loop": true,
