@@ -854,6 +854,7 @@
         "heading_color": "#bca588",
         "heading_size_d": 48,
         "heading_size_m": 28,
+        "image_desktop": "shopify://shop_images/homepage_new_pan-min.webp",
         "bg_color": "#03231a",
         "text_item": "#d4c7b4",
         "text_muted": "#b9b2a8",
@@ -1123,6 +1124,8 @@
       "type": "missin-hero",
       "name": "Mission Hero",
       "settings": {
+        "image_desktop": "shopify://shop_images/homepage_2-min.webp",
+        "image_mobile": "shopify://shop_images/homepage_2_mob-min.avif",
         "heading": "The Mission Is Simple.",
         "subheading": "<p>Safe. Durable. Effortless.<br/>Kitchenware you never have to worry about.</p>",
         "kicker": "Simple as that.",
