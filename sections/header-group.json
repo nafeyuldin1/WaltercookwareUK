@@ -186,6 +186,7 @@
         "mobile_category_LiPJTc": {
           "type": "mobile_category",
           "settings": {
+            "icon": "shopify://shop_images/1_35cf9dc5-8b2f-4225-94c8-0b12dd5b23fc.png",
             "title": "Kitchen Essentials",
             "collection": "kitchen-essentials",
             "step2_review": "",
