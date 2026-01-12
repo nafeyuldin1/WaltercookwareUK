@@ -226,9 +226,65 @@
                     </h2>
                   </a>
                 </div>
-<a href="#looxReviews">
-    <div class="loox-rating loox-widget"  style="font-size: 16px;"><div class="loox-rating-content"><svg class="loox-icon" viewBox="0 0 24 24" data-lx-fill="full" style="color: rgb(181, 124, 70);" role="presentation"><title>4.8 rating (2,811 votes)</title><use href="#looxicons-rating-icon"></use></svg><svg class="loox-icon" viewBox="0 0 24 24" data-lx-fill="full" style="color: rgb(181, 124, 70);" aria-hidden="true"><use href="#looxicons-rating-icon"></use></svg><svg class="loox-icon" viewBox="0 0 24 24" data-lx-fill="full" style="color: rgb(181, 124, 70);" aria-hidden="true"><use href="#looxicons-rating-icon"></use></svg><svg class="loox-icon" viewBox="0 0 24 24" data-lx-fill="full" style="color: rgb(181, 124, 70);" aria-hidden="true"><use href="#looxicons-rating-icon"></use></svg><svg class="loox-icon" viewBox="0 0 24 24" data-lx-fill="full" style="color: rgb(181, 124, 70);" aria-hidden="true"><use href="#looxicons-rating-icon"></use></svg><span class="loox-rating-label" style="color: #ffffff;" aria-hidden="true">&nbsp;4.8&nbsp;- {% if product.metafields.custom.product_review_count != blank %}  ({{ product.metafields.custom.product_review_count }}) {% else %} (2,811 reviews) {% endif %} </span></div></div>
-  </a>
+<style>
+  /* Custom Rating CSS - Fast Loading */
+  .custom-rating-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Stars aur text ke darmiyan gap */
+    cursor: pointer;
+    margin: -5px 0px;
+    padding: 0px;
+  }
+
+  .custom-stars-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .custom-star-icon {
+    width: 18px; /* Star ka size */
+    height: 18px;
+    fill: rgb(181, 124, 70); /* Golden Color jo aapne diya tha */
+  }
+
+  .custom-rating-text {
+    font-size: 16px;
+    color: #ffffff; /* Text color white */
+    font-family: inherit;
+    font-weight: normal;
+  }
+  
+  /* Hover effect (Optional) */
+  .custom-rating-link:hover {
+    opacity: 0.8;
+  }
+</style>
+
+<a href="#reviews" class="custom-rating-link">
+  <div class="custom-stars-wrapper">
+    <svg class="custom-star-icon" viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+    <svg class="custom-star-icon" viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+    <svg class="custom-star-icon" viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+    <svg class="custom-star-icon" viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+    <svg class="custom-star-icon" viewBox="0 0 24 24">
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+  </div>
+  
+  <span class="custom-rating-text">
+    &nbsp;4.8&nbsp;- (1532)
+  </span>
+</a>
               {%- when 'shipping_promise_bar' -%}
   {%- comment -%} --- DATE CALCULATION LOGIC START --- {%- endcomment -%}
   {%- assign seconds_in_day = 86400 -%}
