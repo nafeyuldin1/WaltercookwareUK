@@ -1510,10 +1510,10 @@
         "icon_color": "#ffffff",
         "heading": "Frequently Asked Questions",
         "open_first": true,
-        "padding_top": 120,
-        "padding_bottom": 120,
-        "padding_top_m": 64,
-        "padding_bottom_m": 64
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_m": 28,
+        "padding_bottom_m": 28
       }
     }
   },
