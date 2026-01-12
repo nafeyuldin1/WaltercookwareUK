@@ -18,7 +18,7 @@
 
   @media screen and (min-width: 768px) {
     #Hero-{{ section.id }} {
-      height: {{ section.settings.height_desktop }}vh;
+      height: {{ section.settings.height_desktop }}px;
     }
   }
 
@@ -287,9 +287,9 @@
       "type": "range",
       "id": "height_desktop",
       "min": 50,
-      "max": 120,
-      "step": 5,
-      "unit": "vh",
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
       "label": "Desktop Height",
       "default": 90
     },
