@@ -156,6 +156,7 @@
         "mobile_category_iDb9xX": {
           "type": "mobile_category",
           "settings": {
+            "icon": "shopify://shop_images/1_d5674bc3-b03c-4b4b-862b-f39c7cb09ec7.png",
             "title": "Bundle & Save",
             "collection": "bundles",
             "step2_review": "",
