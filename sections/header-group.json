@@ -166,6 +166,7 @@
         "mobile_category_AYT3xq": {
           "type": "mobile_category",
           "settings": {
+            "icon": "shopify://shop_images/4.png",
             "title": "Titanium Cookware",
             "collection": "pans",
             "step2_review": "",
