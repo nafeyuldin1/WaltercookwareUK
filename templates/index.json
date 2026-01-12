@@ -81,10 +81,6 @@
           "settings": {
             "logo": "shopify://shop_images/Time_Magazine_logo.png"
           }
-        },
-        "logo_gJEViQ": {
-          "type": "logo",
-          "settings": {}
         }
       },
       "block_order": [
@@ -92,8 +88,7 @@
         "logo_R8RNhH",
         "logo_KGPDxC",
         "logo_NbnmLX",
-        "logo_efLXNi",
-        "logo_gJEViQ"
+        "logo_efLXNi"
       ],
       "custom_css": [],
       "name": "Hero Video & Logos",
