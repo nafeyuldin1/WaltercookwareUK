@@ -3,6 +3,7 @@
   Accepts:
   - card_collection: {Object} Collection Liquid object
   - custom_image: {Object} Image object (Optional)
+  - custom_title: {String} Custom title text (Optional)
   - media_aspect_ratio: {String}
   - columns: {Number}
   - placeholder_image: {String}
@@ -107,11 +108,15 @@
             {% endif %}
             class="full-unstyled-link"
           >
-            {%- if card_collection.title != blank -%}
+            {% comment %} === UPDATED TITLE LOGIC START === {% endcomment %}
+            {%- if custom_title != blank -%}
+              {{- custom_title | escape -}}
+            {%- elsif card_collection.title != blank -%}
               {{- card_collection.title | escape -}}
             {%- else -%}
               {{ 'onboarding.collection_title' | t }}
             {%- endif -%}
+            {% comment %} === UPDATED TITLE LOGIC END === {% endcomment %}
             
              {%- if card_collection.description == blank -%}
                 <span class="icon-wrap">
