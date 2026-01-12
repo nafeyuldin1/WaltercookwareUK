@@ -233,6 +233,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "bundles",
+            "custom_image": "shopify://shop_images/1_d5674bc3-b03c-4b4b-862b-f39c7cb09ec7.png",
             "badge_text": "50% OFF",
             "badge_bg": "#962b34",
             "badge_color": "#ffffff"
