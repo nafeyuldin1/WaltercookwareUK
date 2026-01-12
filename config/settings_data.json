@@ -10,8 +10,8 @@
 {
   "current": {
     "logo": "shopify://shop_images/WALTER_nieuw_logo_2.png",
-    "logo_width": 90,
-    "dlogo_width": 250,
+    "logo_width": 160,
+    "dlogo_width": 190,
     "type_header_font": "proza_libre_n5",
     "heading_scale": 100,
     "type_body_font": "quicksand_n4",
