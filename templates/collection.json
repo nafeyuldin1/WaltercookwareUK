@@ -70,39 +70,57 @@
       "blocks": {
         "image_nrMWc3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review7.jpg"
+          }
         },
         "image_iXgWjT": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review3.jpg"
+          }
         },
         "image_jrdw63": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review5.jpg"
+          }
         },
         "image_9BDfgY": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review4.jpg"
+          }
         },
         "image_nTTEpW": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review8.jpg"
+          }
         },
         "image_YC9hiT": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review10.jpg"
+          }
         },
         "image_qNpgP4": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review6.jpg"
+          }
         },
         "image_YTBhUc": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review12.jpg"
+          }
         },
         "image_N7RnL8": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/review1.jpg"
+          }
         }
       },
       "block_order": [
