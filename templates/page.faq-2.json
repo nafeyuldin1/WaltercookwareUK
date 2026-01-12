@@ -35,8 +35,8 @@
         "content_alignment": "center",
         "color_scheme": "background-1",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "faq_general": {
@@ -44,8 +44,8 @@
       "settings": {
         "custom_liquid": "<div class=\"page-width faq-section\" style=\"margin: 40px auto; max-width: 800px;\">\n  <h2 style=\"text-align: center; margin-bottom: 32px; color: #f5f5f5;\">\n    Frequently Asked Questions\n  </h2>\n\n  <div class=\"faq-accordion\">\n\n    <details class=\"faq-item\">\n      <summary class=\"faq-question\">\n        Why choose titanium over traditional kitchen materials?\n      </summary>\n      <div class=\"faq-answer\">\n        <p>Titanium outperforms conventional materials in almost every way:</p>\n        <ul>\n          <li>No PFAS, no Teflon, no microplastics</li>\n          <li>A cleaner and safer surface for cooking</li>\n          <li>Highly resistant to corrosion and scratches</li>\n          <li>100% recyclable</li>\n        </ul>\n      </div>\n    </details>\n\n    <details class=\"faq-item\">\n      <summary class=\"faq-question\">\n        Is titanium safe for contact with food?\n      </summary>\n      <div class=\"faq-answer\">\n        <p>\n          Yes. Titanium is non-reactive, does not leach into food, and is widely\n          used in medical applications due to its purity.\n        </p>\n      </div>\n    </details>\n\n    <details class=\"faq-item\">\n      <summary class=\"faq-question\">\n        How do Walter’s products compare to non-stick coatings?\n      </summary>\n      <div class=\"faq-answer\">\n        <p>\n          Titanium does not rely on coatings. It develops a natural patina over\n          time and requires minimal maintenance.\n        </p>\n      </div>\n    </details>\n\n    <details class=\"faq-item\">\n      <summary class=\"faq-question\">\n        Are titanium kitchen products dishwasher safe?\n      </summary>\n      <div class=\"faq-answer\">\n        <p>\n          Yes. All our pure titanium products are dishwasher safe and resistant\n          to heat and cleaning agents.\n        </p>\n      </div>\n    </details>\n\n    <details class=\"faq-item\">\n      <summary class=\"faq-question\">\n        How long do Walter’s titanium products last?\n      </summary>\n      <div class=\"faq-answer\">\n        <p>\n          Unlike coated cookware, titanium does not wear out. With proper use,\n          it lasts for decades.\n        </p>\n      </div>\n    </details>\n\n    <details class=\"faq-item\">\n      <summary class=\"faq-question\">\n        Are Walter’s products environmentally friendly?\n      </summary>\n      <div class=\"faq-answer\">\n        <p>\n          Yes. Titanium is fully recyclable, and our focus on long-lasting\n          products reduces waste.\n        </p>\n      </div>\n    </details>\n\n  </div>\n</div>\n\n<style>\n.faq-accordion {\n  border-top: 1px solid rgba(255,255,255,0.15);\n}\n\n.faq-item {\n  border-bottom: 1px solid rgba(255,255,255,0.15);\n  padding: 18px 0;\n}\n\n.faq-question {\n  font-weight: 600;\n  color: #f5f5f5;\n  cursor: pointer;\n  list-style: none;\n}\n\n.faq-answer {\n  margin-top: 14px;\n  color: #d6d6d6;\n  line-height: 1.6;\n}\n\n.faq-answer ul {\n  margin-top: 10px;\n  padding-left: 18px;\n}\n\n.faq-answer li {\n  margin-bottom: 6px;\n}\n</style>",
         "color_scheme": "scheme-e7441e89-4976-4c30-b017-d9d299769174",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "faq_shipping": {
