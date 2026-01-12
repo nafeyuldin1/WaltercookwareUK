@@ -15,20 +15,12 @@
     --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
   }
 
-  /* .section-{{ section.id }} .collection-list {
-    column-gap: var(--grid-gap);
-    row-gap: var(--grid-gap);
-  } */
-  
   /* Override Grid Gap for Desktop */
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-    /* .section-{{ section.id }} .collection-list {
-      column-gap: var(--grid-gap); 
-    } */
   }
 
   /* Card Radius & Overlay Logic */
@@ -38,6 +30,7 @@
   }
   .section-{{ section.id }} .card-wrapper {
     border-radius: var(--card-radius) !important;
+    overflow: hidden; /* Ensure border radius works */
   }
 
   /* Title Over Image Logic */
@@ -173,6 +166,7 @@
             {% render 'card-collection',
               card_collection: block.settings.collection,
               custom_image: block.settings.custom_image,
+              custom_title: block.settings.custom_title,
               media_aspect_ratio: section.settings.image_ratio,
               columns: columns,
               placeholder_image: placeholder_image,
@@ -392,6 +386,12 @@
           "type": "image_picker",
           "id": "custom_image",
           "label": "Custom Image"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom Title",
+          "info": "Leave blank to use default collection title"
         },
         {
           "type": "header",
