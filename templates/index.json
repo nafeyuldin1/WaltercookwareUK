@@ -94,7 +94,7 @@
       "name": "Hero Video & Logos",
       "settings": {
         "enable_overlap": true,
-        "height_desktop": 115,
+        "height_desktop": 900,
         "height_mobile": 90,
         "margin_top": 0,
         "margin_bottom": 0,
