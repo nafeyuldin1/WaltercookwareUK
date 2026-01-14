@@ -47,14 +47,14 @@
      }
     }
     .secure-checkout{
-     line-height: 0;
+      line-height: 0;
     }
     .pay-badges {
-     display: flex;
-     align-items: center;
-     gap: 9.55px;
-     flex-wrap: wrap;
-     justify-content: center;
+      display: flex;
+      align-items: center;
+      gap: 9.55px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .pay-badge {
         display: inline-flex;
@@ -524,7 +524,7 @@
     // Find the wrapper relative to this script
     var wrap = document.currentScript.previousElementSibling.previousElementSibling;
     if(!wrap) return;
-     
+      
     var track = wrap.querySelector('.pf-track');
     var bar = wrap.querySelector('.pf-progress__bar');
 
@@ -634,11 +634,11 @@
                 {%- if product.description != blank -%}
                   <div id="block-{{ block.id }}" class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     <style>
-                       #block-{{ block.id }} {
+                        #block-{{ block.id }} {
                           color: {{ block.settings.color_text }} !important;
                           font-size: {{ block.settings.font_size }}px !important;
-                       }
-                       #block-{{ block.id }} p, #block-{{ block.id }} li { color: inherit; font-size: inherit; }
+                        }
+                        #block-{{ block.id }} p, #block-{{ block.id }} li { color: inherit; font-size: inherit; }
                     </style>
                     {{ product.description }}
                   </div>
@@ -789,7 +789,7 @@
 
               {%- when 'buy_buttons' -%}
                 <div id="block-{{ block.id }}" {{ block.shopify_attributes }}>
-                   <style>
+                    <style>
                       #block-{{ block.id }} .product-form__submit {
                           background: {{ block.settings.atc_bg }} !important;
                           color: {{ block.settings.atc_text }} !important;
@@ -802,8 +802,8 @@
                           color: {{ block.settings.atc_text_hover }} !important;
                           opacity: 0.9;
                       }
-                   </style>
-                   {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
+                    </style>
+                    {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
                 </div>
 
               {%- when 'rating' -%}
@@ -824,7 +824,7 @@
       #pb-bundles-{{ section.id }} .pb-wrap { margin: 24px 0; border-radius: 12px; overflow: hidden; }
       #pb-bundles-{{ section.id }} .pb-option-group { margin-bottom: 20px; }
       #pb-bundles-{{ section.id }} .pb-option-title { margin-bottom: 10px; font-weight: bold; font-size: 14px; display:flex; justify-content:space-between; align-items:center; color:{{ block.settings.label_color }}; }
-       
+        
       /* --- Option Row 1 (e.g. Size/Set) - Flex Style --- */
       #pb-bundles-{{ section.id }} .pb-opt-row-1 { 
         display: flex; gap:10px; flex-wrap:wrap;
@@ -858,7 +858,7 @@
         color: {{ block.settings.color_btn_active_text }};
         font-weight: bold; border-color: {{ block.settings.color_btn_active_bg }};
       }
-       
+        
       /* Bundle Cards */
       #pb-bundles-{{ section.id }} .pb-card { 
         background: {{ block.settings.card_bg }}; 
@@ -881,7 +881,7 @@
       #pb-bundles-{{ section.id }} .pb-card.active .pb-card__compare-note {
           color: #000000 !important;
       }
-       
+        
       #pb-bundles-{{ section.id }} .pb-card__title { font-weight: bold; font-size: 15px; margin-bottom: 4px; }
       
       /* NEW SHORT INFO STYLE */
@@ -916,7 +916,7 @@
         border-top-right-radius: 8px; 
         font-weight: bold;
       }
-       
+        
       /* Gallery Images below Price - Default Hidden, Visible on Active */
       #pb-bundles-{{ section.id }} .pb-card__gallery {
         display: none; /* Hidden by default */
@@ -1022,9 +1022,14 @@
     {% endif %}
       
     <div class="pb-atc-wrap">
-      <form method="post" action="/cart/add" class="product-form" id="bundle-form-{{ section.id }}">
+      {% comment %} --- RESTORED FORM TAG --- {% endcomment %}
+      <form method="post" action="/cart/add" class="product-form" id="bundle-form-{{ section.id }}" novalidate="novalidate">
         <input type="hidden" name="id" id="bundle-variant-input" value="{{ product.selected_or_first_available_variant.id }}">
-        <button type="submit" class="pb-atc-btn" id="bundle-atc-btn">{{ 'products.product.add_to_cart' | t }} - <span id="bundle-price-display">{{ product.selected_or_first_available_variant.price | money }}</span></button>
+        
+        {% comment %} --- Button type changed back to submit, onclick retained for interception --- {% endcomment %}
+        <button type="submit" class="pb-atc-btn" id="bundle-atc-btn" onclick="handleAddToCart(event)">
+            {{ 'products.product.add_to_cart' | t }} - <span id="bundle-price-display">{{ product.selected_or_first_available_variant.price | money }}</span>
+        </button>
       </form>
     </div>
     <div class="secure-checkout" style="margin-top:15px; text-align:center;">
@@ -1053,75 +1058,47 @@
         "{{ product.options_with_values[2].selected_value | escape }}"
       ];
 
-      // --- FUNCTION TO SELECT BUNDLE CARD (Updated with Image Swap) ---
+      // --- FUNCTION TO SELECT BUNDLE CARD ---
       window.selectBundleProduct = function(card, variantId, priceText) {
-         // 1. Remove active class from all bundle cards
+         // 1. Check if already active (toggle off)
+         if (card.classList.contains('active')) {
+             card.classList.remove('active');
+             
+             // Reset price display to Main Product Price (optional logic)
+             var mainPrice = "{{ product.selected_or_first_available_variant.price | money }}";
+             var btnPrice = document.getElementById('bundle-price-display');
+             if(btnPrice) btnPrice.innerText = mainPrice;
+
+             return; 
+         }
+
+         // 2. Remove active class from all other bundle cards
          document.querySelectorAll('.pb-card').forEach(function(c) {
             c.classList.remove('active');
          });
          
-         // 2. Add active class to clicked card
+         // 3. Add active class to clicked card
          card.classList.add('active');
 
-         // 3. Update Hidden Input Value
-         var input = document.getElementById('bundle-variant-input');
-         if(input) input.value = variantId;
-
-         // 4. Update Price on Button (Bundle logic)
+         // 4. Update Price on Button (Visual only)
          var btnPrice = document.getElementById('bundle-price-display');
          if(btnPrice) btnPrice.innerText = priceText;
-
-         // --- NEW: Update Main Price Display for Bundle Selection ---
-         var mainSection = document.getElementById('ProductInfo-{{ section.id }}');
-         if(mainSection){
-             var salePrice = mainSection.querySelector('.price-item--sale');
-             var regularPrice = mainSection.querySelector('.price__regular .price-item--regular');
-             if(salePrice) salePrice.innerText = priceText;
-             if(regularPrice) regularPrice.innerText = priceText;
-         }
-
-         // 5. De-select main options
-         document.querySelectorAll('.pb-opt-btn-1, .pb-opt-btn-2').forEach(function(btn){
-            btn.classList.remove('active');
-         });
-
-         // 6. SWAP IMAGE (Force update main image)
-         var newImageSrc = card.getAttribute('data-image');
-         if(newImageSrc && newImageSrc !== "null") {
-             var mainImage = document.querySelector('.product__media img') || 
-                             document.querySelector('.product-media-modal__content img') || 
-                             document.querySelector('.global-media-settings');
-             
-             if(mainImage) {
-                 mainImage.src = newImageSrc;
-                 mainImage.srcset = newImageSrc; 
-             }
-         }
       };
 
       // --- FUNCTION TO HANDLE MAIN OPTIONS CHANGE ---
       window.handleBundleOptionChange = function(element) {
-        // 0. If user clicks options, deselect bundle cards
-        document.querySelectorAll('.pb-card').forEach(function(c) {
-            c.classList.remove('active');
-        });
-
-        // 1. Identify which Option Group this belongs to (0, 1, or 2)
         var group = element.closest('.pb-option-group');
         var optionIndex = parseInt(group.getAttribute('data-option-index'));
 
-        // 2. UI: Update Active Class (Only within THIS group)
         var buttons = group.querySelectorAll('div[data-value]');
         buttons.forEach(function(btn) {
           btn.classList.remove('active');
         });
         element.classList.add('active');
 
-        // 3. Update State
         var value = element.getAttribute('data-value');
         state[optionIndex] = value;
 
-        // 4. Find Matching Variant
         var matched = bundleVariants.find(function(v) {
           var match = true;
           if(state[0] && v.option1 !== state[0]) match = false;
@@ -1131,47 +1108,21 @@
         });
 
         if(matched) {
-          // Update Hidden Input ID
+          // Update Hidden Input ID (THIS IS THE MAIN PRODUCT ID)
           var input = document.getElementById('bundle-variant-input');
           if(input) input.value = matched.id;
 
-          // Format Prices - Using toFixed(0) so no decimals as per requested style
+          // Format Prices
           var formattedPrice = '$' + (matched.price / 100).toFixed(0);
-          var formattedCompare = '$' + (matched.compare_at_price / 100).toFixed(0);
 
-          // Update Price on Add to Cart Button
-          var btnPrice = document.getElementById('bundle-price-display');
-          if(btnPrice) btnPrice.innerText = formattedPrice;
-
-          // --- FIX: Update Main Product Price (Title k neechay) ---
-          var mainSection = document.getElementById('ProductInfo-{{ section.id }}');
-          if(mainSection){
-              var priceContainer = mainSection.querySelector('.price'); // Main container to toggle classes
-              var salePrice = mainSection.querySelector('.price-item--sale');
-              var regularPrice = mainSection.querySelector('.price__regular .price-item--regular');
-              // Try to find the compare s tag, fallback if structure varies
-              var comparePrice = mainSection.querySelector('.price__sale s.price-item--regular');
-              if(!comparePrice) comparePrice = mainSection.querySelector('.price__sale .price-item--regular');
-
-              if(matched.compare_at_price > matched.price) {
-                  // --- SHOW COMPARE PRICE (SALE ACTIVE) ---
-                  if(priceContainer) {
-                      priceContainer.classList.add('price--on-sale');
-                      priceContainer.classList.remove('price--no-compare');
-                  }
-                  if(salePrice) salePrice.innerText = formattedPrice;
-                  if(comparePrice) comparePrice.innerText = formattedCompare;
-              } else {
-                  // --- HIDE COMPARE PRICE (NORMAL PRICE) ---
-                  if(priceContainer) {
-                      priceContainer.classList.remove('price--on-sale');
-                      priceContainer.classList.add('price--no-compare');
-                  }
-                  if(regularPrice) regularPrice.innerText = formattedPrice;
-              }
+          // Update Price on Add to Cart Button (Only if no bundle selected)
+          var activeCard = document.querySelector('.pb-card.active');
+          if (!activeCard) {
+              var btnPrice = document.getElementById('bundle-price-display');
+              if(btnPrice) btnPrice.innerText = formattedPrice;
           }
 
-          // Update Media (if available in main gallery)
+          // Update Media
           if(matched.featured_media) {
              const sectionId = "{{ section.id }}";
              const gallery = document.querySelector(`product-info[id="MainProduct-${sectionId}"] media-gallery`);
@@ -1181,8 +1132,55 @@
           }
         }
       };
+
+      // --- ROBUST ADD TO CART FUNCTION (FIXED) ---
+      window.handleAddToCart = function(e) {
+         const btn = document.getElementById('bundle-atc-btn');
+         
+         // 1. Check if we should BYPASS our custom logic (flag set by us previously)
+         if (btn.getAttribute('data-bypass') === 'true') {
+             btn.removeAttribute('data-bypass');
+             return; // Let the form submit naturally -> Theme handles drawer
+         }
+
+         // 2. CHECK DOM: Is any bundle card visually selected?
+         const activeCard = document.querySelector('.pb-card.active');
+         
+         // If NO bundle selected, do nothing (Standard behavior)
+         if (!activeCard) {
+             return; 
+         }
+
+         // 3. If Bundle IS selected -> INTERCEPT
+         e.preventDefault();
+         const originalText = btn.innerHTML; // Save correct HTML
+         btn.innerText = 'Adding...';
+         
+         // Get ID from the DOM element directly
+         const bundleId = activeCard.getAttribute('data-id');
+
+         // 4. Add BUNDLE ITEM via AJAX
+         fetch(window.Shopify.routes.root + 'cart/add.js', {
+             method: 'POST',
+             headers: { 'Content-Type': 'application/json' },
+             body: JSON.stringify({ items: [{ id: bundleId, quantity: 1 }] })
+         })
+         .then(() => {
+             // 5. Success -> Set BYPASS flag and re-click button
+             // FIX: Use innerHTML instead of innerText to restore spans/tags
+             btn.innerHTML = originalText; 
+             btn.setAttribute('data-bypass', 'true');
+             btn.click(); 
+         })
+         .catch((error) => {
+             console.error('Error adding bundle:', error);
+             // FIX: Use innerHTML here too
+             btn.innerHTML = originalText;
+         });
+      };
+
     })();
-  </script>
+</script>
 
               {%- when 'shipping_bar' -%}
                 <div class="shipbar" style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};" {{ block.shopify_attributes }}>
@@ -1242,7 +1240,7 @@
       }
       /* SHADOW REMOVED as requested */
       .pit-content-wrap:not(.expanded)::after {
-         display: none;
+          display: none;
       }
     </style>
 
@@ -1321,7 +1319,7 @@
         btn.innerText = "Show Less";
       }
     }
-     
+      
     // Auto-hide button if content is short
     document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll('.pit-content-wrap').forEach(function(wrap) {
