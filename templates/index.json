@@ -326,36 +326,42 @@
         "benefit_kt7rby": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/icons.png",
             "text": "Sustainable"
           }
         },
         "benefit_rYar4w": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/icons_1_438d954c-e905-4307-a3e3-a7e3914450fc.png",
             "text": "Easy Returns"
           }
         },
         "benefit_b6DU3g": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/icons_13_1.png",
             "text": "Certified"
           }
         },
         "benefit_LREDqa": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/icons_12.png",
             "text": "100% TOXIN-FREE"
           }
         },
         "benefit_pdfnEU": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/icons_12_a7a324a9-8565-4565-a3b7-5c140f3d821e.png",
             "text": "PFAS-FREE"
           }
         },
         "benefit_rtfxiY": {
           "type": "benefit",
           "settings": {
+            "icon": "shopify://shop_images/icons_14.png",
             "text": "ANTIBACTERIAL"
           }
         }
