@@ -8,583 +8,411 @@
  * ------------------------------------------------------------
  */
 {
-  "order": [
-    "walter_product_Y7bNYJ",
-    "main",
-    "related-products",
-    "walter_trust_video_xJUVTn",
-    "walter_logo_testimonial_FdQhBX",
-    "walter_behind_scene_M9aRc7",
-    "walter_scroll_text_fade_zNEcyT",
-    "walter_rethink_cookware_MyXhDw",
-    "walter_benefits_EAnCxx",
-    "scroll_text_with_image_8XhRp4",
-    "walter_reviews_Jhczj9",
-    "walter_not_available_L7GyMg",
-    "walter_engineered_layers_TWrRby",
-    "walter_faqs_JyccRK"
-  ],
   "sections": {
-    "main": {
-      "block_order": [
-        "vendor",
-        "title",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "share"
-      ],
-      "blocks": {
-        "buy_buttons": {
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          },
-          "type": "buy_buttons"
-        },
-        "description": {
-          "settings": {},
-          "type": "description"
-        },
-        "price": {
-          "settings": {
-            "sale_badge_text": "SALE ENDS SOON!",
-            "show_description": true,
-            "use_custom_price_design": false
-          },
-          "type": "price"
-        },
-        "quantity_selector": {
-          "settings": {},
-          "type": "quantity_selector"
-        },
-        "share": {
-          "settings": {
-            "share_label": "Share"
-          },
-          "type": "share"
-        },
-        "title": {
-          "settings": {},
-          "type": "title"
-        },
-        "variant_picker": {
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          },
-          "type": "variant_picker"
-        },
-        "vendor": {
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "body"
-          },
-          "type": "text"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "atc_bg": "#ffffff",
-        "atc_text": "#121212",
-        "bundle_active_bg": "#f6f4f0",
-        "bundle_border_color": "#e9e2d8",
-        "color_scheme": "scheme-1",
-        "compare_price_color": "#888888",
-        "constrain_to_viewport": true,
-        "enable_sticky_info": true,
-        "enable_video_looping": false,
-        "gallery_layout": "stacked",
-        "hide_variants": true,
-        "image_zoom": "lightbox",
-        "media_fit": "contain",
-        "media_position": "left",
-        "media_size": "large",
-        "mobile_thumbnails": "show",
-        "padding_bottom": 12,
-        "padding_top": 36,
-        "price_color": "#e9e2d8",
-        "sale_badge_bg": "#097350",
-        "sale_badge_text": "#ffffff"
-      },
-      "type": "main-product"
-    },
-    "related-products": {
-      "disabled": true,
-      "settings": {
-        "color_scheme": "scheme-1",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "padding_bottom": 28,
-        "padding_top": 36,
-        "products_to_show": 4,
-        "show_rating": false,
-        "show_secondary_image": true,
-        "show_vendor": false
-      },
-      "type": "related-products"
-    },
-    "scroll_text_with_image_8XhRp4": {
-      "block_order": [
-        "text_line_9kFhmF",
-        "text_line_kcJcmR",
-        "text_line_hA7mgX",
-        "text_line_qqaHmf",
-        "text_line_XNfCFX",
-        "text_line_MeRLPV",
-        "text_line_Mp4rDY",
-        "text_line_79DMri",
-        "text_line_PgPWiT"
-      ],
-      "blocks": {
-        "text_line_79DMri": {
-          "settings": {
-            "text": "What You Use Every Day."
-          },
-          "type": "text_line"
-        },
-        "text_line_9kFhmF": {
-          "settings": {
-            "text": "You get one body."
-          },
-          "type": "text_line"
-        },
-        "text_line_MeRLPV": {
-          "settings": {
-            "text": "Or Slowly Wasting It."
-          },
-          "type": "text_line"
-        },
-        "text_line_Mp4rDY": {
-          "settings": {
-            "text": "Start With"
-          },
-          "type": "text_line"
-        },
-        "text_line_PgPWiT": {
-          "settings": {
-            "text": "Start With Walter®."
-          },
-          "type": "text_line"
-        },
-        "text_line_XNfCFX": {
-          "settings": {
-            "text": "Respecting That Gift,"
-          },
-          "type": "text_line"
-        },
-        "text_line_hA7mgX": {
-          "settings": {
-            "text": "Every Choice You Make Is"
-          },
-          "type": "text_line"
-        },
-        "text_line_kcJcmR": {
-          "settings": {
-            "text": "One life."
-          },
-          "type": "text_line"
-        },
-        "text_line_qqaHmf": {
-          "settings": {
-            "text": "Either A Step Toward"
-          },
-          "type": "text_line"
-        }
-      },
-      "name": "Scroll Text with Image",
-      "settings": {
-        "bg_color": "#00221c",
-        "btn_bg": "#ffffff",
-        "btn_label": "",
-        "btn_link": "shopify://collections/all",
-        "btn_text": "#121212",
-        "focus_color": "#bca588",
-        "padding_bottom": 32,
-        "padding_top": 32,
-        "section_image": "shopify://shop_images/review_collectie.png",
-        "text_color": "#c8beab"
-      },
-      "type": "scroll-text-with-image"
-    },
-    "walter_behind_scene_M9aRc7": {
-      "name": "Behind The Scenes",
-      "settings": {
-        "bg_color": "#121212",
-        "body_color": "#b0b0b0",
-        "body_size_d": 16,
-        "body_size_m": 14,
-        "col_gap": 48,
-        "enable_autoplay": true,
-        "enable_loop": true,
-        "founder_color": "#b0b0b0",
-        "founder_name": "Walter — Craftsman & Owner",
-        "founder_size_d": 20,
-        "founder_size_m": 20,
-        "heading": "Focused on Well-Being in Everything We Make",
-        "heading_color": "#bca588",
-        "heading_size_d": 48,
-        "heading_size_m": 24,
-        "layout_flip": true,
-        "max_width": 1600,
-        "overlay_opacity": 30,
-        "pad_x_m": 0,
-        "pb_d": 80,
-        "pb_m": 40,
-        "pl_d": 0,
-        "pr_d": 80,
-        "pt_d": 80,
-        "pt_m": 30,
-        "quote": "Health is one of the most important things we have.",
-        "quote_color": "#e9e2d8",
-        "quote_size_d": 24,
-        "quote_size_m": 16,
-        "show_controls": true,
-        "sig_width_d": 120,
-        "sig_width_m": 100,
-        "signature_img": "shopify://shop_images/Gemini_Generated_Image_yxffpiyxffpiyxff.png",
-        "start_muted": true,
-        "text": "<p>Titanium has been trusted for years in medical and aerospace applications due to its reliability and purity.</p><p></p>",
-        "video": "shopify://files/videos/730e5c408b13408498a7fc7f26683aaf_36b40784-70ce-4a0c-951f-6e1b22c04abc.mp4",
-        "video_radius": 0,
-        "video_url_mp4": ""
-      },
-      "type": "walter-behind-scene"
-    },
-    "walter_benefits_EAnCxx": {
-      "block_order": [
-        "benefit_card_jGgcH8",
-        "benefit_card_xEPDXN",
-        "benefit_card_qCjfiU",
-        "benefit_card_9GQdWn",
-        "benefit_card_An9M6q",
-        "benefit_card_XcqEwN"
-      ],
-      "blocks": {
-        "benefit_card_9GQdWn": {
-          "settings": {
-            "image": "shopify://shop_images/pattern-min.jpg",
-            "img_bottom": true,
-            "text": "<p>Our engineered SlipScale™ surface pattern provides reliable non-stick performance without chemical coatings, while maintaining long-term durability</p>",
-            "title": "Convenience Without Compromise"
-          },
-          "type": "benefit_card"
-        },
-        "benefit_card_An9M6q": {
-          "settings": {
-            "image": "shopify://shop_images/Ontwerp_zonder_titel_15.png",
-            "img_bottom": false,
-            "text": "<p>Every Walter product is rigorously tested and independently certified. Designed with wellness in mind, it delivers one of the purest and safest cooking surfaces ever created.</p>",
-            "title": "Piece Of Mind"
-          },
-          "type": "benefit_card"
-        },
-        "benefit_card_XcqEwN": {
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_8baxbf8baxbf8bax.png",
-            "img_bottom": true,
-            "text": "<p>Engineered to last for generations — consistently safe, dependable, and ready for everyday use.</p>",
-            "title": "Buy Once, Use Forever"
-          },
-          "type": "benefit_card"
-        },
-        "benefit_card_jGgcH8": {
-          "settings": {
-            "image": "shopify://shop_images/Ontwerp_zonder_titel_14.png",
-            "img_bottom": false,
-            "text": "<p>With Walter, you reduce exposure to chemicals, allergens, and contaminants often found in traditional cookware. Cooking clean supports both physical well-being and mental focus.</p>",
-            "title": "Optimize Health & Performance"
-          },
-          "type": "benefit_card"
-        },
-        "benefit_card_qCjfiU": {
-          "settings": {
-            "image": "shopify://shop_images/couple-indoors-being-happy-dancing-kitchen.jpg",
-            "img_bottom": false,
-            "text": "<p>Toxins, heavy metals, and microplastics contribute to cellular damage and long-term health risks. Titanium removes exposure at the source — allowing your body to focus on balance and recovery instead of constant defense.</p>",
-            "title": "Increase Longevity"
-          },
-          "type": "benefit_card"
-        },
-        "benefit_card_xEPDXN": {
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_q2ln7tq2ln7tq2ln.png",
-            "img_bottom": true,
-            "text": "<p>Walter cookware helps you use less oil while preserving more nutrients in your food. Every dish delivers more from what you cook — because how you cook matters just as much as what’s on your plate.</p>",
-            "title": "Cook Healthier Meals"
-          },
-          "type": "benefit_card"
-        }
-      },
-      "name": "Benefits Carousel",
-      "settings": {
-        "bg_color": "#121212",
-        "border_color": "#333333",
-        "card_text_color": "#b0b0b0",
-        "card_title_color": "#ffffff",
-        "heading": "Benefits Of Going Walter",
-        "heading_color": "#d4c7b4",
-        "padding_bottom": 58,
-        "padding_bottom_m": 34,
-        "padding_top": 58,
-        "padding_top_m": 34,
-        "subheading": "",
-        "subheading_color": "#b0b0b0"
-      },
-      "type": "walter-benefits"
-    },
-    "walter_engineered_layers_TWrRby": {
-      "block_order": [
-        "layer_yDq3ct",
-        "layer_3g4pcF",
-        "layer_yUg9LH",
-        "layer_6PqkXa",
-        "layer_LF3hE3"
-      ],
-      "blocks": {
-        "layer_3g4pcF": {
-          "settings": {
-            "description": "Even heat distribution.",
-            "image": "shopify://shop_images/pan_MID_with_shadow-min.webp",
-            "offset_y": 0,
-            "title": "Recycled Aluminum III"
-          },
-          "type": "layer"
-        },
-        "layer_6PqkXa": {
-          "settings": {
-            "description": "Strong magnetic performance.",
-            "image": "shopify://shop_images/pan_MID_with_shadow-min_2.webp",
-            "offset_y": 0,
-            "title": "Induction Steel Base"
-          },
-          "type": "layer"
-        },
-        "layer_LF3hE3": {
-          "settings": {
-            "description": "Built to last.",
-            "image": "shopify://shop_images/pan_LAST_with_shadow-min.webp",
-            "offset_y": 0,
-            "title": "Daily Use Design"
-          },
-          "type": "layer"
-        },
-        "layer_yDq3ct": {
-          "settings": {
-            "description": "Non-toxic and non-stick.",
-            "image": "shopify://shop_images/pan_first_with_shadow-min.webp",
-            "offset_y": 0,
-            "title": "Titanium SlipScale"
-          },
-          "type": "layer"
-        },
-        "layer_yUg9LH": {
-          "settings": {
-            "description": "Fast heat response.",
-            "image": "shopify://shop_images/pan_MID_with_shadow-min_1.webp",
-            "offset_y": 0,
-            "title": "Recycled Aluminum II"
-          },
-          "type": "layer"
-        }
-      },
-      "name": "Engineered Layers",
-      "settings": {
-        "anim_speed": 220,
-        "bg_color": "#07231b",
-        "heading": "Engineered From The Inside Out",
-        "heading_size": 48,
-        "item_desc_color": "#b0b0b0",
-        "item_title_color": "#ffffff",
-        "line_color": "#a3835f",
-        "padding_bottom": 24,
-        "padding_top": 24,
-        "title_color": "#bca588"
-      },
-      "type": "walter-engineered-layers"
-    },
-    "walter_faqs_JyccRK": {
-      "block_order": [
-        "faq_item_QFcyXz",
-        "faq_item_LqUfqw",
-        "faq_item_6hF98A",
-        "faq_item_XkqEiy",
-        "faq_item_D9FLmT"
-      ],
-      "blocks": {
-        "faq_item_6hF98A": {
-          "settings": {
-            "answer": "<p>Because this pan is engineered to outperform conventional cookware in the areas that matter most: clean cooking, consistent heat control, and long-term durability. It delivers reliable performance day after day, without relying on coatings or frequent replacement.</p>",
-            "question": "Why Should I Switch From My Existing Pan?"
-          },
-          "type": "faq_item"
-        },
-        "faq_item_D9FLmT": {
-          "settings": {
-            "answer": "<p>Yes. Walter® Titanium cookware is designed for versatility and performs reliably across all common cooking surfaces, including gas, electric, ceramic, and induction. It is also oven-safe, allowing seamless transitions from stovetop to oven without compromising performance.</p>",
-            "question": "Is It Safe to Use on All Stovetops and in Ovens?"
-          },
-          "type": "faq_item"
-        },
-        "faq_item_LqUfqw": {
-          "settings": {
-            "answer": "<p>Pure titanium offers excellent thermal conductivity, allowing food to cook evenly and efficiently at lower temperatures. More controlled heat reduces overcooking and unnecessary heat exposure, helping ingredients retain more of their natural nutrients during the cooking process.</p>",
-            "question": "How Does Titanium Cookware Help Food Retain More Nutrients?"
-          },
-          "type": "faq_item"
-        },
-        "faq_item_QFcyXz": {
-          "settings": {
-            "answer": "<p>SlipScale™ is an engineered surface design developed to improve food release without the use of coatings. The imprinted surface structure reduces contact points, allowing food to release more easily — up to three times more effectively compared to flat surfaces.</p>",
-            "question": "How does SlipScale™ non-stick surface work?"
-          },
-          "type": "faq_item"
-        },
-        "faq_item_XkqEiy": {
-          "settings": {
-            "answer": "<p>Yes. Titanium is highly stable and non-reactive, meaning it does not interact with food during cooking. It maintains its structure under high heat and does not release unwanted substances, making it well suited for direct food contact across a wide range of temperatures.</p>",
-            "question": "Is titanium safe for food contact?"
-          },
-          "type": "faq_item"
-        }
-      },
-      "name": "FAQ Accordion",
-      "settings": {
-        "answer_color": "#b0b0b0",
-        "bg_color": "#121212",
-        "border_color": "#454545",
-        "heading": "Frequently Asked Questions",
-        "heading_color": "#bca588",
-        "icon_color": "#ffffff",
-        "open_first": true,
-        "padding_bottom": 120,
-        "padding_bottom_m": 64,
-        "padding_top": 120,
-        "padding_top_m": 64,
-        "question_color": "#ffffff"
-      },
-      "type": "walter-faqs"
-    },
-    "walter_logo_testimonial_FdQhBX": {
-      "block_order": [
-        "testimonial_VDept8",
-        "testimonial_48Rz8m",
-        "testimonial_qhTciH",
-        "testimonial_cxNH3D"
-      ],
-      "blocks": {
-        "testimonial_48Rz8m": {
-          "settings": {
-            "image_desktop": "shopify://shop_images/abc_6baee25f-0ac7-4107-9674-d08d28af1c3f.png",
-            "image_mobile": "shopify://shop_images/abc_6baee25f-0ac7-4107-9674-d08d28af1c3f.png",
-            "logo_width": 198,
-            "logo_width_mobile": 118,
-            "quote": "<p>\"California Moves to Ban ‘Forever Chemicals’ in Cookware\"</p>"
-          },
-          "type": "testimonial"
-        },
-        "testimonial_VDept8": {
-          "settings": {
-            "image_desktop": "shopify://shop_images/PC_daily_mail-min.png",
-            "image_mobile": "shopify://shop_images/daily_mail_smallest.webp",
-            "logo_width": 120,
-            "logo_width_mobile": 80,
-            "quote": "<p>\"non-stick pans can emit toxins of PTFE that can cause flu-like symptoms in humans\"</p>"
-          },
-          "type": "testimonial"
-        },
-        "testimonial_cxNH3D": {
-          "settings": {
-            "image_desktop": "shopify://shop_images/Vector.webp",
-            "image_mobile": "shopify://shop_images/Vector.webp",
-            "logo_width": 120,
-            "logo_width_mobile": 80,
-            "quote": "<p>“Non-Stick Pans May Release PTFE Toxins Linked to Flu-Like Symptoms in Humans”</p>"
-          },
-          "type": "testimonial"
-        },
-        "testimonial_qhTciH": {
-          "settings": {
-            "image_desktop": "shopify://shop_images/Vector_fc8b58e5-1a0c-4227-92d8-7b81c1e8a2d3.webp",
-            "image_mobile": "shopify://shop_images/Vector_fc8b58e5-1a0c-4227-92d8-7b81c1e8a2d3.webp",
-            "logo_width": 120,
-            "logo_width_mobile": 80,
-            "quote": "<p>\"Walter Titanium: The Benchmark for Non-Toxic Cookware That Lasts a Lifetime\"</p>"
-          },
-          "type": "testimonial"
-        }
-      },
-      "name": "Logo Testimonials",
-      "settings": {
-        "bg_color": "#03231a",
-        "padding_bottom": 80,
-        "padding_bottom_m": 64,
-        "padding_top": 80,
-        "padding_top_m": 64,
-        "text_color": "#ded2bc"
-      },
-      "type": "walter-logo-testimonial"
-    },
-    "walter_not_available_L7GyMg": {
-      "block_order": [
-        "icon_9AYkEY",
-        "icon_Hw8bmt",
-        "icon_qgUFQX",
-        "icon_AFDN9z"
-      ],
-      "blocks": {
-        "icon_9AYkEY": {
-          "settings": {
-            "icon_image": "shopify://shop_images/Frame_1171274953.png",
-            "icon_width": 40
-          },
-          "type": "icon"
-        },
-        "icon_AFDN9z": {
-          "settings": {
-            "icon_image": "shopify://shop_images/Frame_1171274952.png",
-            "icon_width": 41
-          },
-          "type": "icon"
-        },
-        "icon_Hw8bmt": {
-          "settings": {
-            "icon_image": "shopify://shop_images/Frame_1171274951.png",
-            "icon_width": 41
-          },
-          "type": "icon"
-        },
-        "icon_qgUFQX": {
-          "settings": {
-            "icon_image": "shopify://shop_images/Frame_1171274950.png",
-            "icon_width": 41
-          },
-          "type": "icon"
-        }
-      },
-      "disabled": true,
-      "name": "Not Available Section",
-      "settings": {
-        "bg_image_desktop": "shopify://shop_images/a45b5bb6882d6dd0635f53c1c3a7c6655b5656eb.webp",
-        "bottom_link": "",
-        "bottom_text": "www.taimatitanium.com",
-        "heading": "Not on Amazon. Not Anywhere Else.",
-        "height_desktop": 1050,
-        "height_mobile": 680,
-        "padding_top": 80,
-        "padding_top_m": 64,
-        "subtext": "Beware of imitators & counterfeit listings using our name on Amazon & other platforms. The only place to get certified Taima® Pure Titanium products is right here, through our official website.",
-        "text_color": "#bca588"
-      },
-      "type": "walter-not-available"
-    },
     "walter_product_Y7bNYJ": {
+      "type": "walter-product",
+      "blocks": {
+        "text_BzQfKy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Many Imitate. Only One Is Real.</p>",
+            "text_style": "body",
+            "color_text": "#ffffff",
+            "font_size": 16
+          }
+        },
+        "title_fkmVzK": {
+          "type": "title",
+          "settings": {
+            "color_text": "#f3f3f3",
+            "font_size": 45
+          }
+        },
+        "text_TCBfXG": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.product_short_info | metafield_tag }}",
+            "text_style": "body",
+            "color_text": "#ffffff",
+            "font_size": 14
+          }
+        },
+        "price_Fkwx4M": {
+          "type": "price",
+          "settings": {
+            "bg_color": "rgba(0,0,0,0)",
+            "price_color": "#f3f3f3",
+            "main_price_size": 35,
+            "sale_price_color": "#ffffff",
+            "compare_price_color": "#bca588",
+            "compare_price_size": 30,
+            "badge_text": ""
+          }
+        },
+        "benefits_grid_AbMNV3": {
+          "type": "benefits_grid",
+          "settings": {
+            "text_color": "#b0b0b0",
+            "icon_1": "shopify://shop_images/icons_31.svg",
+            "text_1": "No PFAS, PTFE & PFOA. <strong>No hormone disruptors</strong>",
+            "icon_2": "shopify://shop_images/icons_33.svg",
+            "text_2": "Constructed <strong>Non-Stick SlipScale</strong> surface",
+            "icon_3": "shopify://shop_images/icons_32.svg",
+            "text_3": "Extreme Heat Resistant up to <strong>1112°F / 600°C</strong>",
+            "icon_4": "shopify://shop_images/icons_34.svg",
+            "text_4": "Compatible With All Cooktops"
+          }
+        },
+        "product_icons_block_HVDikV": {
+          "type": "product_icons_block",
+          "settings": {
+            "text_color": "#d4c7b4",
+            "bar_color": "#333333",
+            "margin_top": 10,
+            "margin_bottom": 10,
+            "icon_1": "shopify://shop_images/icons_3_1.png",
+            "text_1_l1": "Lifetime",
+            "text_1_l2": "Warranty",
+            "icon_2": "shopify://shop_images/icons_4_1.png",
+            "text_2_l1": "Metal",
+            "text_2_l2": "Utensils-Safe",
+            "icon_3": "shopify://shop_images/icons_5_e92852fd-ca83-442d-8060-1f0e685d0929.webp",
+            "text_3_l1": "Oven-",
+            "text_3_l2": "Safe",
+            "icon_4": "shopify://shop_images/icons_6_385c0397-df1e-470c-81c7-88dd299c1c26.avif",
+            "text_4_l1": "Dishwasher",
+            "text_4_l2": "Safe",
+            "icon_5": "shopify://shop_images/icons_7_f4ed2013-accb-4ee9-8d33-6b1136a97772.webp",
+            "text_5_l1": "No Heavy",
+            "text_5_l2": "Metals",
+            "icon_6": "shopify://shop_images/icons_8_fae0cd44-b47a-443e-9280-fc719a7b081a.avif",
+            "text_6_l1": "Corrosion",
+            "text_6_l2": "Resistant",
+            "icon_7": "shopify://shop_images/icons_9_66b1f924-2ae2-498f-aa98-6b995d024cd5.webp",
+            "text_7_l1": "Induction",
+            "text_7_l2": "Ready",
+            "icon_8": "shopify://shop_images/icons_10_bfbc64b2-eec8-4188-ac64-7211f42cb346.webp",
+            "text_8_l1": "Stay-Cool",
+            "text_8_l2": "Handle"
+          }
+        },
+        "sticky_atc_DWhMJx": {
+          "type": "sticky_atc",
+          "settings": {
+            "alert_text": "ALMOST SOLD OUT",
+            "btn_text": "ADD TO CART"
+          }
+        },
+        "bundle_widget_NPmFLG": {
+          "type": "bundle_widget",
+          "settings": {
+            "tab_text_inactive": "#ffffff",
+            "tab_bg_inactive": "rgba(0,0,0,0)",
+            "tab_text_active": "#121212",
+            "tab_bg_active": "#f6f4f0",
+            "tab_border": "#dddddd",
+            "color_btn_bg": "#121212",
+            "color_btn_text": "#ffffff",
+            "color_btn_border": "#dddddd",
+            "color_btn_active_bg": "#ffffff",
+            "color_btn_active_text": "#121212",
+            "card_bg": "rgba(0,0,0,0)",
+            "card_border": "#f6f4f0",
+            "card_text": "#ffffff",
+            "card_price_color": "#ffffff",
+            "active_card_bg": "rgba(0,0,0,0)",
+            "active_card_border": "#03231a",
+            "badge_bg": "#e7d9bf",
+            "badge_text": "#000000",
+            "badge_font_size": 10,
+            "desc_color": "#ffffff",
+            "desc_font_size": 12,
+            "info_color": "#ffffff",
+            "info_font_size": 13,
+            "price_font_size": 16,
+            "compare_note_color": "#888888",
+            "compare_note_size": 12,
+            "btn_bg": "#ffffff",
+            "btn_text": "#121212",
+            "btn_hover_bg": "#03231a",
+            "btn_hover_text": "#ffffff",
+            "label_color": "#ffffff",
+            "size_label": "",
+            "size_guide_text": "",
+            "guarantee_color": "#ffffff",
+            "guarantee_text": "Guaranteed Safe & Secure Checkout",
+            "enable_bundles": false,
+            "bundles_heading": "Or Select Bundle & Save",
+            "bundle_product_1": "titanium-hammered-pan",
+            "bundle_title_1": "",
+            "bundle_info_1": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
+            "bundle_desc_1": "",
+            "bundle_badge_1": "MOST POPULAR",
+            "bundle_product_2": "haelyra-2-0",
+            "bundle_title_2": "",
+            "bundle_info_2": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
+            "bundle_desc_2": "",
+            "bundle_badge_2": "GREAT VALUE",
+            "bundle_product_3": "serving-tongs",
+            "bundle_title_3": "",
+            "bundle_info_3": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
+            "bundle_desc_3": "",
+            "bundle_badge_3": "LIMITED OFFER"
+          }
+        },
+        "shipping_promise_bar_gCTx4U": {
+          "type": "shipping_promise_bar",
+          "settings": {
+            "bg_color": "#03231a",
+            "border_color": "rgba(0,0,0,0)",
+            "divider_color": "#ffffff14",
+            "margin_top": 16,
+            "margin_bottom": 16,
+            "label_text": "Ships By",
+            "label_color": "#d4c7b4",
+            "fs_label": 16,
+            "date_text": "Jan 4th",
+            "date_color": "#ffffff",
+            "fs_date": 20,
+            "text_color": "#d4c7b4",
+            "fs_list": 12,
+            "icon_size": 24,
+            "default_icon_1": "//taimatitanium.com/cdn/shop/files/icons_26.svg?v=1754881915",
+            "text_1": "FREE Shipping & Easy Returns",
+            "default_icon_2": "//taimatitanium.com/cdn/shop/files/icons_27.svg?v=1754881940",
+            "text_2": "30-Day-Guarantee",
+            "default_icon_3": "//taimatitanium.com/cdn/shop/files/icons_28.svg?v=1754881963",
+            "text_3": "Lifetime Warranty",
+            "default_icon_4": "//taimatitanium.com/cdn/shop/files/icons_29.svg?v=1754881985",
+            "text_4": "100% Toxin-Free Guarantee"
+          }
+        },
+        "info_tabs_zVjBHC": {
+          "type": "info_tabs",
+          "settings": {
+            "tab_1_label": "Health & Safety",
+            "tab_1_content": "<p>✔︎ <strong>Pure Titanium — The Safest Metal for the Body<br/></strong>Used in medical implants for decades because of its unmatched biocompatibility. Naturally non-toxic and completely inert.</p><p>✔︎ <strong>Non-Stick Without Chemicals — SlipScale™</strong><br/>No coatings. No PFAS. A constructed surface pattern that delivers food release with up to 3× less oil.</p><p>✔︎ <strong>Retains Up to 30% More Nutrients</strong><br/>Efficient heat transfer allows cooking at lower temperatures without sacrificing flavor or nutrients.</p><p>✔︎ <strong>100% Corrosion-Resistant</strong><br/>Will not corrode or leach heavy metals — even when cooking acidic foods like tomatoes, lemon, or vinegar.</p><p>✔︎ <strong>Engineered to Outlast You</strong><br/>Used in Formula racing and rocket engines. Built to survive extreme heat and pressure without degrading.</p><p>✔︎ <strong>Naturally Antibacterial</strong><br/>Resists bacterial growth for a cleaner, safer, and more hygienic cooking surface.</p><p>✔︎ <strong>Healthier Cooking by Default</strong><br/>Use less oil without compromising performance.</p><p>✔︎ <strong>Total Peace of Mind</strong><br/>Cook with one of the purest and strongest materials on earth.</p>",
+            "tab_2_label": "Certified Purity",
+            "tab_2_content": "<p>Each pan is made from <strong>Grade 1 Titanium (99.86% purity)</strong>, known for its exceptional cleanliness and stability. This material is widely used in medical applications and is FDA-compliant for food contact.</p><p>With <strong>Walter</strong>, safety comes built in.</p>",
+            "tab_3_label": "Health & Safety",
+            "tab_3_content": "<p>Everyday cooking shouldn’t come with second thoughts.<br/><br/>From the materials used to the way heat is handled, every detail matters when it comes to safety. That’s why Walter is built around one simple principle: cookware should protect your food, not interfere with it. No hidden coatings. No degradation over time. Just confidence, every time you cook.</p>"
+          }
+        },
+        "collapsible_tab_6xK6QW": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Care & Details",
+            "custom_icon": "shopify://shop_images/icons_5_2fea245a-4a2d-4762-8989-55e29299c2c7.svg",
+            "icon": "none",
+            "content": "<h3>Seasoning (Important for Best Results)</h3><p>Before first use, heat the pan over medium-low heat with a small amount of high-smoke-point oil for 2–3 minutes. This prepares the surface for optimal cooking performance. With continued use, the pan naturally improves over time.</p><h3>Materials & Construction</h3><p>Designed with a full-clad, multi-layer build for consistent performance:</p><ul><li>Titanium cooking surface with a textured pattern to support controlled food release<br/></li><li>Two aluminum core layers to promote even heat distribution<br/></li><li>Two stainless steel outer layers for strength, stability, and resistance to warping<br/></li></ul><h3>Size & Compatibility</h3><ul><li>Suitable for all cooktops, including induction, gas, and electric<br/></li><li>Oven and open-flame safe up to 600°C / 1112°F<br/></li><li>Built for frequent use, even at high temperatures<br/></li><li>Safe to use with metal utensils<br/></li></ul><h3>Cleaning & Maintenance</h3><ul><li>Dishwasher safe for easy cleanup<br/></li><li>Durable titanium surface allows for abrasive cleaning when needed<br/></li><li>No special soaps or tools required</li></ul>",
+            "page": "",
+            "enable_reviews": false,
+            "review_name_color": "#121212",
+            "review_role_color": "#555555",
+            "review_text_color": "#333333",
+            "rev_name_1": "",
+            "rev_role_1": "",
+            "rev_text_1": "",
+            "rev_name_2": "",
+            "rev_role_2": "",
+            "rev_text_2": "",
+            "rev_name_3": "",
+            "rev_role_3": "",
+            "rev_text_3": "",
+            "rev_name_4": "",
+            "rev_role_4": "",
+            "rev_text_4": "",
+            "rev_name_5": "",
+            "rev_role_5": "",
+            "rev_text_5": "",
+            "rev_name_6": "",
+            "rev_role_6": "",
+            "rev_text_6": "",
+            "rev_name_7": "",
+            "rev_role_7": "",
+            "rev_text_7": "",
+            "rev_name_8": "",
+            "rev_role_8": "",
+            "rev_text_8": "",
+            "rev_name_9": "",
+            "rev_role_9": "",
+            "rev_text_9": "",
+            "rev_name_10": "",
+            "rev_role_10": "",
+            "rev_text_10": "",
+            "review_link_text": "Read All Reviews",
+            "review_link_url": "",
+            "button_label": "See More",
+            "button_link": ""
+          }
+        },
+        "collapsible_tab_ymbgQi": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Review Highlights",
+            "custom_icon": "shopify://shop_images/icons_22_1.svg",
+            "icon": "none",
+            "content": "",
+            "page": "",
+            "enable_reviews": true,
+            "review_name_color": "#ffffff",
+            "review_role_color": "#ffffff",
+            "review_text_color": "#ffffff",
+            "rev_img_1": "shopify://shop_images/chefkok.jpg",
+            "rev_name_1": "Marco V.",
+            "rev_role_1": "Michelin-Star Chef | Napa Valley, CA",
+            "rev_text_1": "I use this pan daily in a professional kitchen. Heat distribution is consistent, searing is excellent, and food releases cleanly. Exactly what I expect from serious cookware.",
+            "rev_img_2": "shopify://shop_images/privat.jpg",
+            "rev_name_2": "Ethan P.",
+            "rev_role_2": "Private Yacht Chef | Fort Lauderdale, FL",
+            "rev_text_2": "First trip on board, this pan went straight into service. Even heating, no hot spots, and easy cleanup. It’s now a permanent part of my galley setup.",
+            "rev_img_3": "shopify://shop_images/meterials.jpg",
+            "rev_name_3": "Daniel K.",
+            "rev_role_3": "Materials Engineer | San Jose, CA",
+            "rev_text_3": "I tested several so-called “titanium” pans out of curiosity. This one actually matches the material claims. Solid construction and no misleading composition.",
+            "rev_img_4": "shopify://shop_images/wellness.jpg",
+            "rev_name_4": "Sophie L.",
+            "rev_role_4": "Wellness Creator | Santa Monica, CA",
+            "rev_text_4": "I’m very careful about what comes into contact with our food. This pan feels safe, well-made, and reliable. That peace of mind matters to me.",
+            "rev_img_5": "shopify://shop_images/coach.jpg",
+            "rev_name_5": "Ryan H.",
+            "rev_role_5": "Coach & Biohacker | Boulder, CO",
+            "rev_text_5": "I’ve removed anything questionable from my kitchen. This pan fits perfectly with a clean, intentional setup. Simple, controlled, and dependable.",
+            "rev_name_6": "",
+            "rev_role_6": "",
+            "rev_text_6": "",
+            "rev_name_7": "",
+            "rev_role_7": "",
+            "rev_text_7": "",
+            "rev_name_8": "",
+            "rev_role_8": "",
+            "rev_text_8": "",
+            "rev_name_9": "",
+            "rev_role_9": "",
+            "rev_text_9": "",
+            "rev_name_10": "",
+            "rev_role_10": "",
+            "rev_text_10": "",
+            "review_link_text": "Read All Reviews",
+            "review_link_url": "",
+            "button_label": "Read All Reviews",
+            "button_link": "#walter_reviews"
+          }
+        },
+        "collapsible_tab_Xg64Ew": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Your Key Questions, Answered",
+            "custom_icon": "shopify://shop_images/icons_23_1.svg",
+            "icon": "none",
+            "content": "<h2>Why Ours Is Priced Higher</h2><p>If you’ve come across cheaper “pure titanium” pans online — or even bought one — that’s understandable. Most of them aren’t truly titanium at all. They’re typically industrial steel alloys with a trace amount of titanium added, just enough to justify the label. That lowers production costs, but removes the very benefits people are looking for, while introducing new downsides.</p><p><strong>Walter</strong> is different. It’s crafted from <strong>certified 99.86% pure Grade 1 titanium</strong> — a material that’s exceptionally difficult and expensive to work with. That challenge is exactly why it performs the way it does, and why we’re able to support it with verified proof.</p><h2>How SlipScale™ Works</h2><p>SlipScale™ is a first-of-its-kind surface technology that redefines non-stick performance — without coatings. Instead of relying on chemicals, the surface is precisely imprinted with a micro-scale pattern that improves food release by up to <strong>3×</strong>.</p><p>These micro-ridges reduce direct contact between food and the pan while helping oils spread evenly. The result is a natural release layer that allows food to glide smoothly instead of sticking.</p><h2>How It Helps Preserve Nutrients</h2><p>Pure titanium conducts heat efficiently and evenly, allowing you to cook at lower temperatures without sacrificing performance. Research shows that lower-temperature cooking can help retain <strong>up to 30% more nutrients</strong>, particularly heat-sensitive vitamins like vitamin C, compared to conventional cookware.</p><h2>What Biocompatibility Means</h2><p>Titanium is considered the most biocompatible metal available — meaning the human body does not react negatively to it. This is why it’s widely used in surgical implants. It remains stable, non-reactive, and safe for repeated, direct contact with food.</p><h2>Why Acidic Foods Damage Other Pans</h2><p>Ingredients like lemon, tomato, and pepper release acids that can react with steel or synthetic non-stick coatings. Over time, this can degrade the surface and allow metals or chemicals to leach into food.</p><p>Titanium is the most corrosion-resistant metal known. It remains completely stable, regardless of acidity, ensuring consistent performance with any recipe.</p><h2>Is It Truly Pure?</h2><p>Yes. Each pan is tested by <strong>SGS</strong>, the world’s leading independent testing laboratory. Verification confirms a purity level of <strong>99.86% Grade 1 titanium</strong> — the highest practical purity available for cookware.</p><h2>What FDA-Compliant Means</h2><p>FDA compliance confirms the pan meets strict food-contact safety standards. That means:</p><ul><li>No harmful coatings<br/></li><li>No unsafe metals<br/></li><li>No chemical exposure<br/></li><li>Lead-free construction<br/></li></ul><p>Nothing unnecessary near your food — just clean, stable materials.</p>",
+            "page": "",
+            "enable_reviews": false,
+            "review_name_color": "#121212",
+            "review_role_color": "#555555",
+            "review_text_color": "#333333",
+            "rev_name_1": "",
+            "rev_role_1": "",
+            "rev_text_1": "",
+            "rev_name_2": "",
+            "rev_role_2": "",
+            "rev_text_2": "",
+            "rev_name_3": "",
+            "rev_role_3": "",
+            "rev_text_3": "",
+            "rev_name_4": "",
+            "rev_role_4": "",
+            "rev_text_4": "",
+            "rev_name_5": "",
+            "rev_role_5": "",
+            "rev_text_5": "",
+            "rev_name_6": "",
+            "rev_role_6": "",
+            "rev_text_6": "",
+            "rev_name_7": "",
+            "rev_role_7": "",
+            "rev_text_7": "",
+            "rev_name_8": "",
+            "rev_role_8": "",
+            "rev_text_8": "",
+            "rev_name_9": "",
+            "rev_role_9": "",
+            "rev_text_9": "",
+            "rev_name_10": "",
+            "rev_role_10": "",
+            "rev_text_10": "",
+            "review_link_text": "Read All Reviews",
+            "review_link_url": "",
+            "button_label": "See More",
+            "button_link": ""
+          }
+        },
+        "collapsible_tab_rKd7FV": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping, Returns & Warranty",
+            "custom_icon": "shopify://shop_images/icons_24_1.svg",
+            "icon": "none",
+            "content": "<p>Please allow <strong>1–4 business days</strong> for order processing and dispatch (up to 2 additional days during peak holiday periods).</p><p><strong>Standard delivery time:</strong> <strong>7–12 business days</strong> for orders shipped to the <strong>USA, UK, Canada, Australia, and New Zealand</strong>.</p><p>We offer a <strong>30-day return policy</strong>, giving you 30 days from delivery to request a return.</p><p>Walter products are built for everyday use and long-lasting performance.</p><p>Our warranty covers <strong>manufacturing defects and damage upon arrival</strong>.</p>",
+            "page": "",
+            "enable_reviews": false,
+            "review_name_color": "#121212",
+            "review_role_color": "#555555",
+            "review_text_color": "#333333",
+            "rev_name_1": "",
+            "rev_role_1": "",
+            "rev_text_1": "",
+            "rev_name_2": "",
+            "rev_role_2": "",
+            "rev_text_2": "",
+            "rev_name_3": "",
+            "rev_role_3": "",
+            "rev_text_3": "",
+            "rev_name_4": "",
+            "rev_role_4": "",
+            "rev_text_4": "",
+            "rev_name_5": "",
+            "rev_role_5": "",
+            "rev_text_5": "",
+            "rev_name_6": "",
+            "rev_role_6": "",
+            "rev_text_6": "",
+            "rev_name_7": "",
+            "rev_role_7": "",
+            "rev_text_7": "",
+            "rev_name_8": "",
+            "rev_role_8": "",
+            "rev_text_8": "",
+            "rev_name_9": "",
+            "rev_role_9": "",
+            "rev_text_9": "",
+            "rev_name_10": "",
+            "rev_role_10": "",
+            "rev_text_10": "",
+            "review_link_text": "Read All Reviews",
+            "review_link_url": "",
+            "button_label": "See More",
+            "button_link": ""
+          }
+        },
+        "impact_note_KwNV8U": {
+          "type": "impact_note",
+          "settings": {
+            "icon": "shopify://shop_images/icons_2_1.avif",
+            "bg_color": "#03231a",
+            "text_color": "#d4c7b4",
+            "text": "Every order supports the future of toxin-free living by helping fund the next generation of safe, non-toxic kitchenware."
+          }
+        },
+        "upsells_fwcWLq": {
+          "type": "upsells",
+          "settings": {
+            "title": "Complete Your Toxin-Free Kitchen",
+            "product_1": "titanium-utensils-set",
+            "product_2": "pure-titanium-cutting-board-set-3-piece"
+          }
+        }
+      },
       "block_order": [
         "text_BzQfKy",
         "title_fkmVzK",
@@ -603,408 +431,6 @@
         "impact_note_KwNV8U",
         "upsells_fwcWLq"
       ],
-      "blocks": {
-        "benefits_grid_AbMNV3": {
-          "settings": {
-            "icon_1": "shopify://shop_images/icons_31.svg",
-            "icon_2": "shopify://shop_images/icons_33.svg",
-            "icon_3": "shopify://shop_images/icons_32.svg",
-            "icon_4": "shopify://shop_images/icons_34.svg",
-            "text_1": "No PFAS, PTFE & PFOA. <strong>No hormone disruptors</strong>",
-            "text_2": "Constructed <strong>Non-Stick SlipScale</strong> surface",
-            "text_3": "Extreme Heat Resistant up to <strong>1112°F / 600°C</strong>",
-            "text_4": "Compatible With All Cooktops",
-            "text_color": "#b0b0b0"
-          },
-          "type": "benefits_grid"
-        },
-        "bundle_widget_NPmFLG": {
-          "settings": {
-            "active_card_bg": "rgba(0,0,0,0)",
-            "active_card_border": "#03231a",
-            "badge_bg": "#e7d9bf",
-            "badge_font_size": 10,
-            "badge_text": "#000000",
-            "btn_bg": "#ffffff",
-            "btn_hover_bg": "#03231a",
-            "btn_hover_text": "#ffffff",
-            "btn_text": "#121212",
-            "bundle_badge_1": "MOST POPULAR",
-            "bundle_badge_2": "GREAT VALUE",
-            "bundle_badge_3": "LIMITED OFFER",
-            "bundle_desc_1": "",
-            "bundle_desc_2": "",
-            "bundle_desc_3": "",
-            "bundle_info_1": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
-            "bundle_info_2": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
-            "bundle_info_3": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
-            "bundle_product_1": "titanium-hammered-pan",
-            "bundle_product_2": "haelyra-2-0",
-            "bundle_product_3": "serving-tongs",
-            "bundle_title_1": "",
-            "bundle_title_2": "",
-            "bundle_title_3": "",
-            "bundles_heading": "Or Select Bundle & Save",
-            "card_bg": "rgba(0,0,0,0)",
-            "card_border": "#f6f4f0",
-            "card_price_color": "#ffffff",
-            "card_text": "#ffffff",
-            "color_btn_active_bg": "#ffffff",
-            "color_btn_active_text": "#121212",
-            "color_btn_bg": "#121212",
-            "color_btn_border": "#dddddd",
-            "color_btn_text": "#ffffff",
-            "compare_note_color": "#888888",
-            "compare_note_size": 12,
-            "desc_color": "#ffffff",
-            "desc_font_size": 12,
-            "enable_bundles": false,
-            "guarantee_color": "#ffffff",
-            "guarantee_text": "Guaranteed Safe & Secure Checkout",
-            "info_color": "#ffffff",
-            "info_font_size": 13,
-            "label_color": "#ffffff",
-            "price_font_size": 16,
-            "size_guide_text": "",
-            "size_label": "",
-            "tab_bg_active": "#f6f4f0",
-            "tab_bg_inactive": "rgba(0,0,0,0)",
-            "tab_border": "#dddddd",
-            "tab_text_active": "#121212",
-            "tab_text_inactive": "#ffffff"
-          },
-          "type": "bundle_widget"
-        },
-        "collapsible_tab_6xK6QW": {
-          "settings": {
-            "button_label": "See More",
-            "button_link": "",
-            "content": "<h3>Seasoning (Important for Best Results)</h3><p>Before first use, heat the pan over medium-low heat with a small amount of high-smoke-point oil for 2–3 minutes. This prepares the surface for optimal cooking performance. With continued use, the pan naturally improves over time.</p><h3>Materials & Construction</h3><p>Designed with a full-clad, multi-layer build for consistent performance:</p><ul><li>Titanium cooking surface with a textured pattern to support controlled food release<br/></li><li>Two aluminum core layers to promote even heat distribution<br/></li><li>Two stainless steel outer layers for strength, stability, and resistance to warping<br/></li></ul><h3>Size & Compatibility</h3><ul><li>Suitable for all cooktops, including induction, gas, and electric<br/></li><li>Oven and open-flame safe up to 600°C / 1112°F<br/></li><li>Built for frequent use, even at high temperatures<br/></li><li>Safe to use with metal utensils<br/></li></ul><h3>Cleaning & Maintenance</h3><ul><li>Dishwasher safe for easy cleanup<br/></li><li>Durable titanium surface allows for abrasive cleaning when needed<br/></li><li>No special soaps or tools required</li></ul>",
-            "custom_icon": "shopify://shop_images/icons_5_2fea245a-4a2d-4762-8989-55e29299c2c7.svg",
-            "enable_reviews": false,
-            "heading": "Product Care & Details",
-            "icon": "none",
-            "page": "",
-            "rev_name_1": "",
-            "rev_name_10": "",
-            "rev_name_2": "",
-            "rev_name_3": "",
-            "rev_name_4": "",
-            "rev_name_5": "",
-            "rev_name_6": "",
-            "rev_name_7": "",
-            "rev_name_8": "",
-            "rev_name_9": "",
-            "rev_role_1": "",
-            "rev_role_10": "",
-            "rev_role_2": "",
-            "rev_role_3": "",
-            "rev_role_4": "",
-            "rev_role_5": "",
-            "rev_role_6": "",
-            "rev_role_7": "",
-            "rev_role_8": "",
-            "rev_role_9": "",
-            "rev_text_1": "",
-            "rev_text_10": "",
-            "rev_text_2": "",
-            "rev_text_3": "",
-            "rev_text_4": "",
-            "rev_text_5": "",
-            "rev_text_6": "",
-            "rev_text_7": "",
-            "rev_text_8": "",
-            "rev_text_9": "",
-            "review_link_text": "Read All Reviews",
-            "review_link_url": "",
-            "review_name_color": "#121212",
-            "review_role_color": "#555555",
-            "review_text_color": "#333333"
-          },
-          "type": "collapsible_tab"
-        },
-        "collapsible_tab_Xg64Ew": {
-          "settings": {
-            "button_label": "See More",
-            "button_link": "",
-            "content": "<h2>Why Ours Is Priced Higher</h2><p>If you’ve come across cheaper “pure titanium” pans online — or even bought one — that’s understandable. Most of them aren’t truly titanium at all. They’re typically industrial steel alloys with a trace amount of titanium added, just enough to justify the label. That lowers production costs, but removes the very benefits people are looking for, while introducing new downsides.</p><p><strong>Walter</strong> is different. It’s crafted from <strong>certified 99.86% pure Grade 1 titanium</strong> — a material that’s exceptionally difficult and expensive to work with. That challenge is exactly why it performs the way it does, and why we’re able to support it with verified proof.</p><h2>How SlipScale™ Works</h2><p>SlipScale™ is a first-of-its-kind surface technology that redefines non-stick performance — without coatings. Instead of relying on chemicals, the surface is precisely imprinted with a micro-scale pattern that improves food release by up to <strong>3×</strong>.</p><p>These micro-ridges reduce direct contact between food and the pan while helping oils spread evenly. The result is a natural release layer that allows food to glide smoothly instead of sticking.</p><h2>How It Helps Preserve Nutrients</h2><p>Pure titanium conducts heat efficiently and evenly, allowing you to cook at lower temperatures without sacrificing performance. Research shows that lower-temperature cooking can help retain <strong>up to 30% more nutrients</strong>, particularly heat-sensitive vitamins like vitamin C, compared to conventional cookware.</p><h2>What Biocompatibility Means</h2><p>Titanium is considered the most biocompatible metal available — meaning the human body does not react negatively to it. This is why it’s widely used in surgical implants. It remains stable, non-reactive, and safe for repeated, direct contact with food.</p><h2>Why Acidic Foods Damage Other Pans</h2><p>Ingredients like lemon, tomato, and pepper release acids that can react with steel or synthetic non-stick coatings. Over time, this can degrade the surface and allow metals or chemicals to leach into food.</p><p>Titanium is the most corrosion-resistant metal known. It remains completely stable, regardless of acidity, ensuring consistent performance with any recipe.</p><h2>Is It Truly Pure?</h2><p>Yes. Each pan is tested by <strong>SGS</strong>, the world’s leading independent testing laboratory. Verification confirms a purity level of <strong>99.86% Grade 1 titanium</strong> — the highest practical purity available for cookware.</p><h2>What FDA-Compliant Means</h2><p>FDA compliance confirms the pan meets strict food-contact safety standards. That means:</p><ul><li>No harmful coatings<br/></li><li>No unsafe metals<br/></li><li>No chemical exposure<br/></li><li>Lead-free construction<br/></li></ul><p>Nothing unnecessary near your food — just clean, stable materials.</p>",
-            "custom_icon": "shopify://shop_images/icons_23_1.svg",
-            "enable_reviews": false,
-            "heading": "Your Key Questions, Answered",
-            "icon": "none",
-            "page": "",
-            "rev_name_1": "",
-            "rev_name_10": "",
-            "rev_name_2": "",
-            "rev_name_3": "",
-            "rev_name_4": "",
-            "rev_name_5": "",
-            "rev_name_6": "",
-            "rev_name_7": "",
-            "rev_name_8": "",
-            "rev_name_9": "",
-            "rev_role_1": "",
-            "rev_role_10": "",
-            "rev_role_2": "",
-            "rev_role_3": "",
-            "rev_role_4": "",
-            "rev_role_5": "",
-            "rev_role_6": "",
-            "rev_role_7": "",
-            "rev_role_8": "",
-            "rev_role_9": "",
-            "rev_text_1": "",
-            "rev_text_10": "",
-            "rev_text_2": "",
-            "rev_text_3": "",
-            "rev_text_4": "",
-            "rev_text_5": "",
-            "rev_text_6": "",
-            "rev_text_7": "",
-            "rev_text_8": "",
-            "rev_text_9": "",
-            "review_link_text": "Read All Reviews",
-            "review_link_url": "",
-            "review_name_color": "#121212",
-            "review_role_color": "#555555",
-            "review_text_color": "#333333"
-          },
-          "type": "collapsible_tab"
-        },
-        "collapsible_tab_rKd7FV": {
-          "settings": {
-            "button_label": "See More",
-            "button_link": "",
-            "content": "<p>Please allow <strong>1–4 business days</strong> for order processing and dispatch (up to 2 additional days during peak holiday periods).</p><p><strong>Standard delivery time:</strong> <strong>7–12 business days</strong> for orders shipped to the <strong>USA, UK, Canada, Australia, and New Zealand</strong>.</p><p>We offer a <strong>30-day return policy</strong>, giving you 30 days from delivery to request a return.</p><p>Walter products are built for everyday use and long-lasting performance.</p><p>Our warranty covers <strong>manufacturing defects and damage upon arrival</strong>.</p>",
-            "custom_icon": "shopify://shop_images/icons_24_1.svg",
-            "enable_reviews": false,
-            "heading": "Shipping, Returns & Warranty",
-            "icon": "none",
-            "page": "",
-            "rev_name_1": "",
-            "rev_name_10": "",
-            "rev_name_2": "",
-            "rev_name_3": "",
-            "rev_name_4": "",
-            "rev_name_5": "",
-            "rev_name_6": "",
-            "rev_name_7": "",
-            "rev_name_8": "",
-            "rev_name_9": "",
-            "rev_role_1": "",
-            "rev_role_10": "",
-            "rev_role_2": "",
-            "rev_role_3": "",
-            "rev_role_4": "",
-            "rev_role_5": "",
-            "rev_role_6": "",
-            "rev_role_7": "",
-            "rev_role_8": "",
-            "rev_role_9": "",
-            "rev_text_1": "",
-            "rev_text_10": "",
-            "rev_text_2": "",
-            "rev_text_3": "",
-            "rev_text_4": "",
-            "rev_text_5": "",
-            "rev_text_6": "",
-            "rev_text_7": "",
-            "rev_text_8": "",
-            "rev_text_9": "",
-            "review_link_text": "Read All Reviews",
-            "review_link_url": "",
-            "review_name_color": "#121212",
-            "review_role_color": "#555555",
-            "review_text_color": "#333333"
-          },
-          "type": "collapsible_tab"
-        },
-        "collapsible_tab_ymbgQi": {
-          "settings": {
-            "button_label": "Read All Reviews",
-            "button_link": "#walter_reviews",
-            "content": "",
-            "custom_icon": "shopify://shop_images/icons_22_1.svg",
-            "enable_reviews": true,
-            "heading": "Review Highlights",
-            "icon": "none",
-            "page": "",
-            "rev_img_1": "shopify://shop_images/chefkok.jpg",
-            "rev_img_2": "shopify://shop_images/privat.jpg",
-            "rev_img_3": "shopify://shop_images/meterials.jpg",
-            "rev_img_4": "shopify://shop_images/wellness.jpg",
-            "rev_img_5": "shopify://shop_images/coach.jpg",
-            "rev_name_1": "Marco V.",
-            "rev_name_10": "",
-            "rev_name_2": "Ethan P.",
-            "rev_name_3": "Daniel K.",
-            "rev_name_4": "Sophie L.",
-            "rev_name_5": "Ryan H.",
-            "rev_name_6": "",
-            "rev_name_7": "",
-            "rev_name_8": "",
-            "rev_name_9": "",
-            "rev_role_1": "Michelin-Star Chef | Napa Valley, CA",
-            "rev_role_10": "",
-            "rev_role_2": "Private Yacht Chef | Fort Lauderdale, FL",
-            "rev_role_3": "Materials Engineer | San Jose, CA",
-            "rev_role_4": "Wellness Creator | Santa Monica, CA",
-            "rev_role_5": "Coach & Biohacker | Boulder, CO",
-            "rev_role_6": "",
-            "rev_role_7": "",
-            "rev_role_8": "",
-            "rev_role_9": "",
-            "rev_text_1": "I use this pan daily in a professional kitchen. Heat distribution is consistent, searing is excellent, and food releases cleanly. Exactly what I expect from serious cookware.",
-            "rev_text_10": "",
-            "rev_text_2": "First trip on board, this pan went straight into service. Even heating, no hot spots, and easy cleanup. It’s now a permanent part of my galley setup.",
-            "rev_text_3": "I tested several so-called “titanium” pans out of curiosity. This one actually matches the material claims. Solid construction and no misleading composition.",
-            "rev_text_4": "I’m very careful about what comes into contact with our food. This pan feels safe, well-made, and reliable. That peace of mind matters to me.",
-            "rev_text_5": "I’ve removed anything questionable from my kitchen. This pan fits perfectly with a clean, intentional setup. Simple, controlled, and dependable.",
-            "rev_text_6": "",
-            "rev_text_7": "",
-            "rev_text_8": "",
-            "rev_text_9": "",
-            "review_link_text": "Read All Reviews",
-            "review_link_url": "",
-            "review_name_color": "#ffffff",
-            "review_role_color": "#ffffff",
-            "review_text_color": "#ffffff"
-          },
-          "type": "collapsible_tab"
-        },
-        "impact_note_KwNV8U": {
-          "settings": {
-            "bg_color": "#03231a",
-            "icon": "shopify://shop_images/icons_2.avif",
-            "text": "Every order supports the future of toxin-free living by helping fund the next generation of safe, non-toxic kitchenware.",
-            "text_color": "#d4c7b4"
-          },
-          "type": "impact_note"
-        },
-        "info_tabs_zVjBHC": {
-          "settings": {
-            "tab_1_content": "<p>✔︎ <strong>Pure Titanium — The Safest Metal for the Body<br/></strong>Used in medical implants for decades because of its unmatched biocompatibility. Naturally non-toxic and completely inert.</p><p>✔︎ <strong>Non-Stick Without Chemicals — SlipScale™</strong><br/>No coatings. No PFAS. A constructed surface pattern that delivers food release with up to 3× less oil.</p><p>✔︎ <strong>Retains Up to 30% More Nutrients</strong><br/>Efficient heat transfer allows cooking at lower temperatures without sacrificing flavor or nutrients.</p><p>✔︎ <strong>100% Corrosion-Resistant</strong><br/>Will not corrode or leach heavy metals — even when cooking acidic foods like tomatoes, lemon, or vinegar.</p><p>✔︎ <strong>Engineered to Outlast You</strong><br/>Used in Formula racing and rocket engines. Built to survive extreme heat and pressure without degrading.</p><p>✔︎ <strong>Naturally Antibacterial</strong><br/>Resists bacterial growth for a cleaner, safer, and more hygienic cooking surface.</p><p>✔︎ <strong>Healthier Cooking by Default</strong><br/>Use less oil without compromising performance.</p><p>✔︎ <strong>Total Peace of Mind</strong><br/>Cook with one of the purest and strongest materials on earth.</p>",
-            "tab_1_label": "Health & Safety",
-            "tab_2_content": "<p>Each pan is made from <strong>Grade 1 Titanium (99.86% purity)</strong>, known for its exceptional cleanliness and stability. This material is widely used in medical applications and is FDA-compliant for food contact.</p><p>With <strong>Walter</strong>, safety comes built in.</p>",
-            "tab_2_image": "shopify://shop_images/Zonder_titel_350_x_350_px.png",
-            "tab_2_label": "Certified Purity",
-            "tab_3_content": "<p>Everyday cooking shouldn’t come with second thoughts.<br/><br/>From the materials used to the way heat is handled, every detail matters when it comes to safety. That’s why Walter is built around one simple principle: cookware should protect your food, not interfere with it. No hidden coatings. No degradation over time. Just confidence, every time you cook.</p>",
-            "tab_3_label": "Health & Safety"
-          },
-          "type": "info_tabs"
-        },
-        "price_Fkwx4M": {
-          "settings": {
-            "bg_color": "rgba(0,0,0,0)",
-            "compare_price_color": "#bca588",
-            "compare_price_size": 30,
-            "main_price_size": 35,
-            "price_color": "#f3f3f3",
-            "sale_price_color": "#ffffff"
-          },
-          "type": "price"
-        },
-        "product_icons_block_HVDikV": {
-          "settings": {
-            "bar_color": "#333333",
-            "icon_1": "shopify://shop_images/icons_3.png",
-            "icon_2": "shopify://shop_images/icons_4.png",
-            "icon_3": "shopify://shop_images/icons_5_e92852fd-ca83-442d-8060-1f0e685d0929.webp",
-            "icon_4": "shopify://shop_images/icons_6_385c0397-df1e-470c-81c7-88dd299c1c26.avif",
-            "icon_5": "shopify://shop_images/icons_7_f4ed2013-accb-4ee9-8d33-6b1136a97772.webp",
-            "icon_6": "shopify://shop_images/icons_8_fae0cd44-b47a-443e-9280-fc719a7b081a.avif",
-            "icon_7": "shopify://shop_images/icons_9_66b1f924-2ae2-498f-aa98-6b995d024cd5.webp",
-            "icon_8": "shopify://shop_images/icons_10_bfbc64b2-eec8-4188-ac64-7211f42cb346.webp",
-            "margin_bottom": 10,
-            "margin_top": 10,
-            "text_1_l1": "Lifetime",
-            "text_1_l2": "Warranty",
-            "text_2_l1": "Metal",
-            "text_2_l2": "Utensils-Safe",
-            "text_3_l1": "Oven-",
-            "text_3_l2": "Safe",
-            "text_4_l1": "Dishwasher",
-            "text_4_l2": "Safe",
-            "text_5_l1": "No Heavy",
-            "text_5_l2": "Metals",
-            "text_6_l1": "Corrosion",
-            "text_6_l2": "Resistant",
-            "text_7_l1": "Induction",
-            "text_7_l2": "Ready",
-            "text_8_l1": "Stay-Cool",
-            "text_8_l2": "Handle",
-            "text_color": "#d4c7b4"
-          },
-          "type": "product_icons_block"
-        },
-        "shipping_promise_bar_gCTx4U": {
-          "settings": {
-            "bg_color": "#03231a",
-            "border_color": "rgba(0,0,0,0)",
-            "date_color": "#ffffff",
-            "date_text": "Jan 4th",
-            "default_icon_1": "//taimatitanium.com/cdn/shop/files/icons_26.svg?v=1754881915",
-            "default_icon_2": "//taimatitanium.com/cdn/shop/files/icons_27.svg?v=1754881940",
-            "default_icon_3": "//taimatitanium.com/cdn/shop/files/icons_28.svg?v=1754881963",
-            "default_icon_4": "//taimatitanium.com/cdn/shop/files/icons_29.svg?v=1754881985",
-            "divider_color": "#ffffff14",
-            "fs_date": 20,
-            "fs_label": 16,
-            "fs_list": 12,
-            "icon_size": 24,
-            "label_color": "#d4c7b4",
-            "label_text": "Ships By",
-            "margin_bottom": 16,
-            "margin_top": 16,
-            "text_1": "FREE Shipping & Easy Returns",
-            "text_2": "30-Day-Guarantee",
-            "text_3": "Lifetime Warranty",
-            "text_4": "100% Toxin-Free Guarantee",
-            "text_color": "#d4c7b4"
-          },
-          "type": "shipping_promise_bar"
-        },
-        "sticky_atc_DWhMJx": {
-          "settings": {
-            "alert_text": "ALMOST SOLD OUT",
-            "btn_text": "ADD TO CART"
-          },
-          "type": "sticky_atc"
-        },
-        "text_BzQfKy": {
-          "settings": {
-            "color_text": "#ffffff",
-            "font_size": 16,
-            "text": "<p>Many Imitate. Only One Is Real.</p>",
-            "text_style": "body"
-          },
-          "type": "text"
-        },
-        "text_TCBfXG": {
-          "settings": {
-            "color_text": "#ffffff",
-            "font_size": 14,
-            "text": "{{ product.metafields.custom.product_short_info | metafield_tag }}",
-            "text_style": "body"
-          },
-          "type": "text"
-        },
-        "title_fkmVzK": {
-          "settings": {
-            "color_text": "#f3f3f3",
-            "font_size": 45
-          },
-          "type": "title"
-        },
-        "upsells_fwcWLq": {
-          "settings": {
-            "product_1": "titanium-utensils-set",
-            "product_2": "pure-titanium-cutting-board-set-3-piece",
-            "title": "Complete Your Toxin-Free Kitchen"
-          },
-          "type": "upsells"
-        }
-      },
       "custom_css": [
         "@media screen and (min-width: 750px) {.product {padding: 40px 0px; }}",
         ".product {overflow-x: hidden;}",
@@ -1012,23 +438,463 @@
       ],
       "name": "Main Product Dynamic",
       "settings": {
-        "color_scheme": "",
-        "constrain_to_viewport": true,
         "enable_sticky_info": true,
-        "enable_video_looping": false,
-        "gallery_layout": "thumbnail_slider",
-        "hide_variants": false,
-        "image_zoom": "none",
-        "media_fit": "cover",
-        "media_position": "left",
+        "color_scheme": "",
         "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "show",
-        "padding_bottom": 36,
-        "padding_top": 36
+        "media_position": "left",
+        "image_zoom": "none",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "body"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "use_custom_price_design": false,
+            "sale_badge_text": "SALE ENDS SOON!",
+            "show_description": true
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
       },
-      "type": "walter-product"
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12,
+        "price_color": "#e9e2d8",
+        "compare_price_color": "#888888",
+        "sale_badge_bg": "#097350",
+        "sale_badge_text": "#ffffff",
+        "bundle_active_bg": "#f6f4f0",
+        "bundle_border_color": "#e9e2d8",
+        "atc_bg": "#ffffff",
+        "atc_text": "#121212"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "walter_trust_video_xJUVTn": {
+      "type": "walter-trust-video",
+      "blocks": {
+        "slide_9kQBcy": {
+          "type": "slide",
+          "settings": {
+            "video_file": "shopify://files/videos/bdfa6c735e554e90a06f619daae8244e (1).mp4",
+            "video_url": "",
+            "mp4_url": "",
+            "quote": "\"Nonstick without chemicals or coatings, this is revolutionary\""
+          }
+        },
+        "slide_jFzY9a": {
+          "type": "slide",
+          "settings": {
+            "video_file": "shopify://files/videos/2098cc6d0de04fba80b47c709be211a8 (1).mp4",
+            "video_url": "",
+            "mp4_url": "",
+            "quote": "\"I wanted to test Walter for a full week, but after the first day I already knew.\""
+          }
+        },
+        "slide_ndUw9b": {
+          "type": "slide",
+          "settings": {
+            "video_file": "shopify://files/videos/d19dce61594e4ad3b2805dea173624a1 (1).mp4",
+            "video_url": "",
+            "mp4_url": "",
+            "quote": "For Walter Cookware"
+          }
+        },
+        "slide_yM9TtG": {
+          "type": "slide",
+          "settings": {
+            "video_file": "shopify://files/videos/f94025676a7c423e9153b70fa434a4f9.mov",
+            "video_url": "",
+            "mp4_url": "",
+            "quote": "\"Finally cooking with a pan that doesn’t rely on chemical coatings.\""
+          }
+        },
+        "slide_kfgtba": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "video_url": "",
+            "mp4_url": "",
+            "quote": "\"Nonstick without chemicals or coatings, this is revolutionary\""
+          }
+        }
+      },
+      "block_order": [
+        "slide_9kQBcy",
+        "slide_jFzY9a",
+        "slide_ndUw9b",
+        "slide_yM9TtG",
+        "slide_kfgtba"
+      ],
+      "name": "Trusted Video Slider",
+      "settings": {
+        "heading_text_before": "Trusted By",
+        "heading_highlight": "650,000+",
+        "heading_text_after": "People Worldwide",
+        "heading_size": 48,
+        "heading_size_mobile": 32,
+        "bg_color": "#121212",
+        "heading_color": "#ffffff",
+        "highlight_color": "#bca588",
+        "quote_color": "#e9e2d8",
+        "star_color": "#b57c46",
+        "padding_top": 68,
+        "padding_bottom": 68,
+        "slides_to_show": 7
+      }
+    },
+    "walter_logo_testimonial_FdQhBX": {
+      "type": "walter-logo-testimonial",
+      "blocks": {
+        "testimonial_VDept8": {
+          "type": "testimonial",
+          "settings": {
+            "image_desktop": "shopify://shop_images/PC_daily_mail-min.png",
+            "image_mobile": "shopify://shop_images/PC_daily_mail-min.png",
+            "logo_width": 120,
+            "logo_width_mobile": 80,
+            "quote": "<p>\"non-stick pans can emit toxins of PTFE that can cause flu-like symptoms in humans\"</p>"
+          }
+        },
+        "testimonial_48Rz8m": {
+          "type": "testimonial",
+          "settings": {
+            "image_desktop": "shopify://shop_images/abc_6baee25f-0ac7-4107-9674-d08d28af1c3f.png",
+            "image_mobile": "shopify://shop_images/abc_6baee25f-0ac7-4107-9674-d08d28af1c3f.png",
+            "logo_width": 198,
+            "logo_width_mobile": 118,
+            "quote": "<p>\"California Moves to Ban ‘Forever Chemicals’ in Cookware\"</p>"
+          }
+        },
+        "testimonial_qhTciH": {
+          "type": "testimonial",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Vector_fc8b58e5-1a0c-4227-92d8-7b81c1e8a2d3.webp",
+            "image_mobile": "shopify://shop_images/Vector_fc8b58e5-1a0c-4227-92d8-7b81c1e8a2d3.webp",
+            "logo_width": 120,
+            "logo_width_mobile": 80,
+            "quote": "<p>\"Walter Titanium: The Benchmark for Non-Toxic Cookware That Lasts a Lifetime\"</p>"
+          }
+        },
+        "testimonial_cxNH3D": {
+          "type": "testimonial",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Vector.webp",
+            "image_mobile": "shopify://shop_images/Vector.webp",
+            "logo_width": 120,
+            "logo_width_mobile": 80,
+            "quote": "<p>“Non-Stick Pans May Release PTFE Toxins Linked to Flu-Like Symptoms in Humans”</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_VDept8",
+        "testimonial_48Rz8m",
+        "testimonial_qhTciH",
+        "testimonial_cxNH3D"
+      ],
+      "name": "Logo Testimonials",
+      "settings": {
+        "bg_color": "#03231a",
+        "text_color": "#ded2bc",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_m": 64,
+        "padding_bottom_m": 64
+      }
+    },
+    "walter_behind_scene_M9aRc7": {
+      "type": "walter-behind-scene",
+      "name": "Behind The Scenes",
+      "settings": {
+        "bg_color": "#121212",
+        "max_width": 1600,
+        "layout_flip": true,
+        "col_gap": 48,
+        "heading": "Focused on Well-Being in Everything We Make",
+        "heading_color": "#bca588",
+        "heading_size_d": 48,
+        "heading_size_m": 24,
+        "text": "<p>Titanium has been trusted for years in medical and aerospace applications due to its reliability and purity.</p><p></p>",
+        "body_color": "#b0b0b0",
+        "body_size_d": 16,
+        "body_size_m": 14,
+        "quote": "Health is one of the most important things we have.",
+        "quote_color": "#e9e2d8",
+        "quote_size_d": 24,
+        "quote_size_m": 16,
+        "founder_name": "Walter — Craftsman & Owner",
+        "founder_color": "#b0b0b0",
+        "founder_size_d": 20,
+        "founder_size_m": 20,
+        "signature_img": "shopify://shop_images/Gemini_Generated_Image_yxffpiyxffpiyxff.png",
+        "sig_width_d": 120,
+        "sig_width_m": 100,
+        "video": "shopify://files/videos/39096c381ed148688fa55fc0abf345e7 (1).mp4",
+        "video_url_mp4": "",
+        "enable_autoplay": true,
+        "enable_loop": true,
+        "start_muted": true,
+        "show_controls": true,
+        "video_radius": 0,
+        "overlay_opacity": 30,
+        "pt_d": 80,
+        "pb_d": 80,
+        "pl_d": 0,
+        "pr_d": 80,
+        "pt_m": 30,
+        "pb_m": 40,
+        "pad_x_m": 0
+      }
+    },
+    "walter_scroll_text_fade_zNEcyT": {
+      "type": "walter-scroll-text-fade",
+      "blocks": {
+        "line_aFfnfE": {
+          "type": "line",
+          "disabled": true,
+          "settings": {
+            "text": "At Taima®, Non-Toxic Isn’t A Feature.",
+            "visibility": "desktop",
+            "base_opacity": 40,
+            "base_size_d": 64,
+            "base_size_m": 24
+          }
+        },
+        "line_GKEKTx": {
+          "type": "line",
+          "settings": {
+            "text": "At Walter®",
+            "visibility": "mobile",
+            "base_opacity": 40,
+            "base_size_d": 48,
+            "base_size_m": 30
+          }
+        },
+        "line_WV6tND": {
+          "type": "line",
+          "settings": {
+            "text": "Non-Toxic",
+            "visibility": "mobile",
+            "base_opacity": 40,
+            "base_size_d": 48,
+            "base_size_m": 30
+          }
+        },
+        "line_JznQCK": {
+          "type": "line",
+          "settings": {
+            "text": "Isn’t an Extra.",
+            "visibility": "mobile",
+            "base_opacity": 40,
+            "base_size_d": 48,
+            "base_size_m": 28
+          }
+        },
+        "line_UCEWDr": {
+          "type": "line",
+          "settings": {
+            "text": "This is the standard.",
+            "visibility": "always",
+            "base_opacity": 30,
+            "base_size_d": 48,
+            "base_size_m": 24
+          }
+        },
+        "line_YLqWdi": {
+          "type": "line",
+          "settings": {
+            "text": "Excellence isn’t the finish line.",
+            "visibility": "always",
+            "base_opacity": 20,
+            "base_size_d": 48,
+            "base_size_m": 24
+          }
+        },
+        "line_6p7bfE": {
+          "type": "line",
+          "settings": {
+            "text": "It’s the starting point.",
+            "visibility": "always",
+            "base_opacity": 10,
+            "base_size_d": 32,
+            "base_size_m": 24
+          }
+        },
+        "line_T9EggT": {
+          "type": "line",
+          "disabled": true,
+          "settings": {
+            "text": "Your Text Here",
+            "visibility": "always",
+            "base_opacity": 30,
+            "base_size_d": 48,
+            "base_size_m": 24
+          }
+        }
+      },
+      "block_order": [
+        "line_aFfnfE",
+        "line_GKEKTx",
+        "line_WV6tND",
+        "line_JznQCK",
+        "line_UCEWDr",
+        "line_YLqWdi",
+        "line_6p7bfE",
+        "line_T9EggT"
+      ],
+      "name": "Scroll Text Fade",
+      "settings": {
+        "bg_color": "#00221c",
+        "active_color": "#bca588",
+        "inactive_color": "#bca588",
+        "font_family": "bebas_neue_n4",
+        "active_font_size_d": 64,
+        "active_font_size_m": 32,
+        "line_gap": 24,
+        "pt_d": 30,
+        "pb_d": 30,
+        "pt_m": 25,
+        "pb_m": 30
+      }
     },
     "walter_rethink_cookware_MyXhDw": {
+      "type": "walter-rethink-cookware",
+      "blocks": {
+        "card_BM4wqE": {
+          "type": "card",
+          "settings": {
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        },
+        "card_Amxkbp": {
+          "type": "card",
+          "settings": {
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        },
+        "card_jxn998": {
+          "type": "card",
+          "settings": {
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        },
+        "card_FTbHKR": {
+          "type": "card",
+          "settings": {
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        },
+        "card_76b6RG": {
+          "type": "card",
+          "settings": {
+            "title": "Non-Stick / Teflon",
+            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
+            "link_text": "Read More…",
+            "link_url": ""
+          }
+        }
+      },
       "block_order": [
         "card_BM4wqE",
         "card_Amxkbp",
@@ -1036,77 +902,386 @@
         "card_FTbHKR",
         "card_76b6RG"
       ],
-      "blocks": {
-        "card_76b6RG": {
-          "settings": {
-            "image": "shopify://shop_images/board-min_17b1843e-87da-43ae-b30b-95c6c3a5d98a.webp",
-            "link_text": "Read More…",
-            "link_url": "",
-            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
-            "title": "Non-Stick / Teflon"
-          },
-          "type": "card"
-        },
-        "card_Amxkbp": {
-          "settings": {
-            "image": "shopify://shop_images/board_9-min_3c8a74f1-e8ef-4d6f-b216-71a175e29248.webp",
-            "link_text": "Read More…",
-            "link_url": "",
-            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
-            "title": "Non-Stick / Teflon"
-          },
-          "type": "card"
-        },
-        "card_BM4wqE": {
-          "settings": {
-            "image": "shopify://shop_images/pan_7-min_a4756bb1-2df2-477f-aa72-faca4dff9604.webp",
-            "link_text": "Read More…",
-            "link_url": "",
-            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
-            "title": "Non-Stick / Teflon"
-          },
-          "type": "card"
-        },
-        "card_FTbHKR": {
-          "settings": {
-            "image": "shopify://shop_images/review_man-min.webp",
-            "link_text": "Read More…",
-            "link_url": "",
-            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
-            "title": "Non-Stick / Teflon"
-          },
-          "type": "card"
-        },
-        "card_jxn998": {
-          "settings": {
-            "image": "shopify://shop_images/chef_pan-min_59dd09c3-bc24-496b-9866-a37324176598.webp",
-            "link_text": "Read More…",
-            "link_url": "",
-            "text": "<p>Worst type of pan surface there is. Teflon / majority of non-stick pans release toxic PFAS chemicals, known as \"forever chemicals\" which have been linked to cancer and liver damage. The coating easily shaves off over time and can’t handle the heat exposing your food to toxins. </p>",
-            "title": "Non-Stick / Teflon"
-          },
-          "type": "card"
-        }
-      },
       "disabled": true,
       "name": "Rethink Cookware",
       "settings": {
         "bg_color": "#121212",
-        "border_color": "#333333",
+        "heading_color": "#d4c7b4",
+        "subheading_color": "#b0b0b0",
         "card_text_color": "#b0b0b0",
         "card_title_color": "#ffffff",
-        "heading_color": "#d4c7b4",
-        "padding_bottom": 54,
-        "padding_bottom_m": 38,
-        "padding_top": 54,
-        "padding_top_m": 38,
-        "subheading_color": "#b0b0b0",
+        "border_color": "#333333",
+        "title": "It’s Time To Rethink Your Cookware",
         "subtitle": "From toxin risks to high maintenance, these outdated pans just don’t measure up to Titanium…",
-        "title": "It’s Time To Rethink Your Cookware"
+        "padding_top": 54,
+        "padding_bottom": 54,
+        "padding_top_m": 38,
+        "padding_bottom_m": 38
+      }
+    },
+    "walter_benefits_EAnCxx": {
+      "type": "walter-benefits",
+      "blocks": {
+        "benefit_card_jGgcH8": {
+          "type": "benefit_card",
+          "settings": {
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_14.png",
+            "img_bottom": false,
+            "title": "Optimize Health & Performance",
+            "text": "<p>With Walter, you reduce exposure to chemicals, allergens, and contaminants often found in traditional cookware. Cooking clean supports both physical well-being and mental focus.</p>"
+          }
+        },
+        "benefit_card_xEPDXN": {
+          "type": "benefit_card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_q2ln7tq2ln7tq2ln.png",
+            "img_bottom": true,
+            "title": "Cook Healthier Meals",
+            "text": "<p>Walter cookware helps you use less oil while preserving more nutrients in your food. Every dish delivers more from what you cook — because how you cook matters just as much as what’s on your plate.</p>"
+          }
+        },
+        "benefit_card_qCjfiU": {
+          "type": "benefit_card",
+          "settings": {
+            "image": "shopify://shop_images/couple-indoors-being-happy-dancing-kitchen.jpg",
+            "img_bottom": false,
+            "title": "Increase Longevity",
+            "text": "<p>Toxins, heavy metals, and microplastics contribute to cellular damage and long-term health risks. Titanium removes exposure at the source — allowing your body to focus on balance and recovery instead of constant defense.</p>"
+          }
+        },
+        "benefit_card_9GQdWn": {
+          "type": "benefit_card",
+          "settings": {
+            "image": "shopify://shop_images/pattern-min.jpg",
+            "img_bottom": true,
+            "title": "Convenience Without Compromise",
+            "text": "<p>Our engineered SlipScale™ surface pattern provides reliable non-stick performance without chemical coatings, while maintaining long-term durability</p>"
+          }
+        },
+        "benefit_card_An9M6q": {
+          "type": "benefit_card",
+          "settings": {
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_15.png",
+            "img_bottom": false,
+            "title": "Piece Of Mind",
+            "text": "<p>Every Walter product is rigorously tested and independently certified. Designed with wellness in mind, it delivers one of the purest and safest cooking surfaces ever created.</p>"
+          }
+        },
+        "benefit_card_XcqEwN": {
+          "type": "benefit_card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_8baxbf8baxbf8bax.png",
+            "img_bottom": true,
+            "title": "Buy Once, Use Forever",
+            "text": "<p>Engineered to last for generations — consistently safe, dependable, and ready for everyday use.</p>"
+          }
+        }
       },
-      "type": "walter-rethink-cookware"
+      "block_order": [
+        "benefit_card_jGgcH8",
+        "benefit_card_xEPDXN",
+        "benefit_card_qCjfiU",
+        "benefit_card_9GQdWn",
+        "benefit_card_An9M6q",
+        "benefit_card_XcqEwN"
+      ],
+      "name": "Benefits Carousel",
+      "settings": {
+        "bg_color": "#121212",
+        "heading_color": "#d4c7b4",
+        "subheading_color": "#b0b0b0",
+        "card_title_color": "#ffffff",
+        "card_text_color": "#b0b0b0",
+        "border_color": "#333333",
+        "heading": "Benefits Of Going Walter",
+        "subheading": "",
+        "padding_top": 58,
+        "padding_bottom": 58,
+        "padding_top_m": 34,
+        "padding_bottom_m": 34
+      }
+    },
+    "scroll_text_with_image_8XhRp4": {
+      "type": "scroll-text-with-image",
+      "blocks": {
+        "text_line_9kFhmF": {
+          "type": "text_line",
+          "settings": {
+            "text": "You get one body."
+          }
+        },
+        "text_line_kcJcmR": {
+          "type": "text_line",
+          "settings": {
+            "text": "One life."
+          }
+        },
+        "text_line_hA7mgX": {
+          "type": "text_line",
+          "settings": {
+            "text": "Every Choice You Make Is"
+          }
+        },
+        "text_line_qqaHmf": {
+          "type": "text_line",
+          "settings": {
+            "text": "Either A Step Toward"
+          }
+        },
+        "text_line_XNfCFX": {
+          "type": "text_line",
+          "settings": {
+            "text": "Respecting That Gift,"
+          }
+        },
+        "text_line_MeRLPV": {
+          "type": "text_line",
+          "settings": {
+            "text": "Or Slowly Wasting It."
+          }
+        },
+        "text_line_Mp4rDY": {
+          "type": "text_line",
+          "settings": {
+            "text": "Start With"
+          }
+        },
+        "text_line_79DMri": {
+          "type": "text_line",
+          "settings": {
+            "text": "What You Use Every Day."
+          }
+        },
+        "text_line_PgPWiT": {
+          "type": "text_line",
+          "settings": {
+            "text": "Start With Walter®."
+          }
+        }
+      },
+      "block_order": [
+        "text_line_9kFhmF",
+        "text_line_kcJcmR",
+        "text_line_hA7mgX",
+        "text_line_qqaHmf",
+        "text_line_XNfCFX",
+        "text_line_MeRLPV",
+        "text_line_Mp4rDY",
+        "text_line_79DMri",
+        "text_line_PgPWiT"
+      ],
+      "name": "Scroll Text with Image",
+      "settings": {
+        "bg_color": "#00221c",
+        "text_color": "#c8beab",
+        "focus_color": "#bca588",
+        "section_image": "shopify://shop_images/review_collectie.png",
+        "btn_label": "",
+        "btn_link": "shopify://collections/all",
+        "btn_bg": "#ffffff",
+        "btn_text": "#121212",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
     },
     "walter_reviews_Jhczj9": {
+      "type": "walter-reviews",
+      "blocks": {
+        "tab_gU4CnR": {
+          "type": "tab",
+          "settings": {
+            "title": "Pans",
+            "cat_id": "pans"
+          }
+        },
+        "tab_CehQff": {
+          "type": "tab",
+          "settings": {
+            "title": "Cutting board",
+            "cat_id": "board"
+          }
+        },
+        "review_MNKUDD": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/Frame_427318199_5_8b2bc32b-31cb-4649-9ad6-b3d64b514283.png",
+            "name": "Sarah",
+            "text": "I’ve cooked with a lot of pans over the years, but this one surprised me. Heat distribution is even, nothing sticks, and cleaning takes seconds. It just feels solid and well thought out."
+          }
+        },
+        "review_cUehVg": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_559118356_IMTAH7GFqQryY31UuUUkeqzGULsK63jv.jpg",
+            "name": "Sophie L.",
+            "text": "Honestly didn’t expect to like it this much. I use it daily now and it still looks brand new. No weird coating, no hassle."
+          }
+        },
+        "review_yDybDX": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_380701970_y1Kl4n5yt0oWaaso9q6ehWNahdCzfxsU.jpg",
+            "name": "Daniel R",
+            "text": "The weight feels right, not too heavy but definitely not cheap. I like knowing I’m not dealing with coatings that wear off. This feels like something I’ll use for years."
+          }
+        },
+        "review_M3ikd8": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_272237170_MOq1cLrwJPFXSeG4jtOEH9424Vm6z2GB.jpg",
+            "name": "Emma K.",
+            "text": "I cook for my family almost every day and this pan made things easier immediately. Food releases well, cleaning is quick, and it just feels more hygienic than what I had before."
+          }
+        },
+        "review_HWRzWW": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_144596516_QKBKJW8fSrWYBW7S4BHAVcegYq5nCwXT.jpg",
+            "name": "Lucas",
+            "text": "At first I was skeptical because it’s different from what I’m used to. After a week, I get it. Great control, easy maintenance, and no fuss."
+          }
+        },
+        "review_4BaaiJ": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_503416148_p7Bi9dBjXGPu9jDBD8ucNRQsMMXacVZE.jpg",
+            "name": "Nina S.",
+            "text": "This pan replaced two others in my kitchen. I use it for everything now. Simple, sturdy, and does exactly what it’s supposed to do."
+          }
+        },
+        "review_JfyNnB": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_501018486_SQE0vK8bwMaFAbsHbp5JV2r1rnE1hT9z.jpg",
+            "name": "Robert J.",
+            "text": "You can tell this isn’t mass-market cookware. The build quality stands out, and I like that there’s nothing to flake or peel over time."
+          }
+        },
+        "review_MhyKP7": {
+          "type": "review",
+          "settings": {
+            "cat_id": "cat1",
+            "image": "shopify://shop_images/240_F_118536990_7Rm4ncWkWNUln4zv8w3UZduWAIWpkVDi.jpg",
+            "name": "Laura",
+            "text": "I was mainly looking for something easier to clean. Ended up loving how evenly it cooks as well. Big upgrade from my old pan."
+          }
+        },
+        "review_Ny9qDt": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_310879035_AigVCcewILsIlmibph8MmAMioBYHK9NL.jpg",
+            "name": "Thomas W.",
+            "text": "Used it on gas and induction, works perfectly on both. No learning curve, just a solid pan that performs consistently."
+          }
+        },
+        "review_h9TCVR": {
+          "type": "review",
+          "settings": {
+            "cat_id": "pans",
+            "image": "shopify://shop_images/240_F_548704461_KqiE8A53nXLaE30s3pFmX2uwm0nszjIG.jpg",
+            "name": "Anna",
+            "text": "This feels like cookware made by someone who actually cooks. Practical, durable, and not overdesigned. Very happy with it"
+          }
+        },
+        "review_AiTRmg": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_567507965_MGA37X5EKGSiKWMQYjlCF9m40FBel8ZQ.jpg",
+            "name": "Mark J.",
+            "text": "I didn’t expect to replace all my boards, but here we are. This one is just easier to live with."
+          }
+        },
+        "review_NtEkHy": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_299219009_E5kSuYAUP9FygYqSfLiLcs1ltKLauAtz.jpg",
+            "name": "Kevin R",
+            "text": "Cleaning used to annoy me. With this board it’s a non-issue."
+          }
+        },
+        "review_R6FWVH": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_306161749_BmNByNMUXfsk5iBWXY3L02wFgkRYrG7s.jpg",
+            "name": "Laura",
+            "text": "I like that it doesn’t absorb anything. It feels cleaner when prepping food."
+          }
+        },
+        "review_HikDje": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_436299039_nMXOyMWsoDPJIXK05mGK7emCRAa6FlWs.jpg",
+            "name": "Thomas B.",
+            "text": "At first it felt different, now it feels normal. My old wooden boards feel outdated."
+          }
+        },
+        "review_9DEK46": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_604976565_7S9VCiGlwFlYfDnpp9Tect8QptezlU9h.jpg",
+            "name": "Daniel S.",
+            "text": "This feels like something you buy once and don’t think about again."
+          }
+        },
+        "review_pzakUG": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_488491148_HfKqygPZcDdDHTZJMr2KZQrQxjDY6X3f.jpg",
+            "name": "Emma",
+            "text": "I cook a lot and this board stays neutral. No smells, no stains."
+          }
+        },
+        "review_cYnqcA": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_448408464_AAI9YjQesKAojm0BH3Bsky0g12zk35oc.jpg",
+            "name": "Peter L.",
+            "text": "Very low maintenance. That’s the biggest win for me."
+          }
+        },
+        "review_NmccGd": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_322272754_zIqTdyYL5MKRy3Bz8ifSSXeTuE3UMMIC.jpg",
+            "name": "Sophie K.",
+            "text": "I didn’t know a cutting board could feel this solid. It doesn’t move or flex."
+          }
+        },
+        "review_XEcywW": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/1000_F_581648206_YD6pOlR16m82WLdjqpd30eiMkgCZGJRl.jpg",
+            "name": "Ryan M.",
+            "text": "I was skeptical, but after a few weeks I get why people like this.”"
+          }
+        },
+        "review_aNChDj": {
+          "type": "review",
+          "settings": {
+            "cat_id": "board",
+            "image": "shopify://shop_images/240_F_443711688_LCPcTeda2wlKFJNTPjTLPVFmuf0nnP1F.jpg",
+            "name": "Anna",
+            "text": "Simple, clean, and practical. That’s all I really want in my kitchen."
+          }
+        }
+      },
       "block_order": [
         "tab_gU4CnR",
         "tab_CehQff",
@@ -1131,417 +1306,231 @@
         "review_XEcywW",
         "review_aNChDj"
       ],
-      "blocks": {
-        "review_4BaaiJ": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_503416148_p7Bi9dBjXGPu9jDBD8ucNRQsMMXacVZE.jpg",
-            "name": "Nina S.",
-            "text": "This pan replaced two others in my kitchen. I use it for everything now. Simple, sturdy, and does exactly what it’s supposed to do."
-          },
-          "type": "review"
-        },
-        "review_9DEK46": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_604976565_7S9VCiGlwFlYfDnpp9Tect8QptezlU9h.jpg",
-            "name": "Daniel S.",
-            "text": "This feels like something you buy once and don’t think about again."
-          },
-          "type": "review"
-        },
-        "review_AiTRmg": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_567507965_MGA37X5EKGSiKWMQYjlCF9m40FBel8ZQ.jpg",
-            "name": "Mark J.",
-            "text": "I didn’t expect to replace all my boards, but here we are. This one is just easier to live with."
-          },
-          "type": "review"
-        },
-        "review_HWRzWW": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_144596516_QKBKJW8fSrWYBW7S4BHAVcegYq5nCwXT.jpg",
-            "name": "Lucas",
-            "text": "At first I was skeptical because it’s different from what I’m used to. After a week, I get it. Great control, easy maintenance, and no fuss."
-          },
-          "type": "review"
-        },
-        "review_HikDje": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_436299039_nMXOyMWsoDPJIXK05mGK7emCRAa6FlWs.jpg",
-            "name": "Thomas B.",
-            "text": "At first it felt different, now it feels normal. My old wooden boards feel outdated."
-          },
-          "type": "review"
-        },
-        "review_JfyNnB": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_501018486_SQE0vK8bwMaFAbsHbp5JV2r1rnE1hT9z.jpg",
-            "name": "Robert J.",
-            "text": "You can tell this isn’t mass-market cookware. The build quality stands out, and I like that there’s nothing to flake or peel over time."
-          },
-          "type": "review"
-        },
-        "review_M3ikd8": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_272237170_MOq1cLrwJPFXSeG4jtOEH9424Vm6z2GB.jpg",
-            "name": "Emma K.",
-            "text": "I cook for my family almost every day and this pan made things easier immediately. Food releases well, cleaning is quick, and it just feels more hygienic than what I had before."
-          },
-          "type": "review"
-        },
-        "review_MNKUDD": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/Frame_427318199_5_8b2bc32b-31cb-4649-9ad6-b3d64b514283.png",
-            "name": "Sarah",
-            "text": "I’ve cooked with a lot of pans over the years, but this one surprised me. Heat distribution is even, nothing sticks, and cleaning takes seconds. It just feels solid and well thought out."
-          },
-          "type": "review"
-        },
-        "review_MhyKP7": {
-          "settings": {
-            "cat_id": "cat1",
-            "image": "shopify://shop_images/240_F_118536990_7Rm4ncWkWNUln4zv8w3UZduWAIWpkVDi.jpg",
-            "name": "Laura",
-            "text": "I was mainly looking for something easier to clean. Ended up loving how evenly it cooks as well. Big upgrade from my old pan."
-          },
-          "type": "review"
-        },
-        "review_NmccGd": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_322272754_zIqTdyYL5MKRy3Bz8ifSSXeTuE3UMMIC.jpg",
-            "name": "Sophie K.",
-            "text": "I didn’t know a cutting board could feel this solid. It doesn’t move or flex."
-          },
-          "type": "review"
-        },
-        "review_NtEkHy": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_299219009_E5kSuYAUP9FygYqSfLiLcs1ltKLauAtz.jpg",
-            "name": "Kevin R",
-            "text": "Cleaning used to annoy me. With this board it’s a non-issue."
-          },
-          "type": "review"
-        },
-        "review_Ny9qDt": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_310879035_AigVCcewILsIlmibph8MmAMioBYHK9NL.jpg",
-            "name": "Thomas W.",
-            "text": "Used it on gas and induction, works perfectly on both. No learning curve, just a solid pan that performs consistently."
-          },
-          "type": "review"
-        },
-        "review_R6FWVH": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_306161749_BmNByNMUXfsk5iBWXY3L02wFgkRYrG7s.jpg",
-            "name": "Laura",
-            "text": "I like that it doesn’t absorb anything. It feels cleaner when prepping food."
-          },
-          "type": "review"
-        },
-        "review_XEcywW": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/1000_F_581648206_YD6pOlR16m82WLdjqpd30eiMkgCZGJRl.jpg",
-            "name": "Ryan M.",
-            "text": "I was skeptical, but after a few weeks I get why people like this.”"
-          },
-          "type": "review"
-        },
-        "review_aNChDj": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_443711688_LCPcTeda2wlKFJNTPjTLPVFmuf0nnP1F.jpg",
-            "name": "Anna",
-            "text": "Simple, clean, and practical. That’s all I really want in my kitchen."
-          },
-          "type": "review"
-        },
-        "review_cUehVg": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_559118356_IMTAH7GFqQryY31UuUUkeqzGULsK63jv.jpg",
-            "name": "Sophie L.",
-            "text": "Honestly didn’t expect to like it this much. I use it daily now and it still looks brand new. No weird coating, no hassle."
-          },
-          "type": "review"
-        },
-        "review_cYnqcA": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_448408464_AAI9YjQesKAojm0BH3Bsky0g12zk35oc.jpg",
-            "name": "Peter L.",
-            "text": "Very low maintenance. That’s the biggest win for me."
-          },
-          "type": "review"
-        },
-        "review_h9TCVR": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_548704461_KqiE8A53nXLaE30s3pFmX2uwm0nszjIG.jpg",
-            "name": "Anna",
-            "text": "This feels like cookware made by someone who actually cooks. Practical, durable, and not overdesigned. Very happy with it"
-          },
-          "type": "review"
-        },
-        "review_pzakUG": {
-          "settings": {
-            "cat_id": "board",
-            "image": "shopify://shop_images/240_F_488491148_HfKqygPZcDdDHTZJMr2KZQrQxjDY6X3f.jpg",
-            "name": "Emma",
-            "text": "I cook a lot and this board stays neutral. No smells, no stains."
-          },
-          "type": "review"
-        },
-        "review_yDybDX": {
-          "settings": {
-            "cat_id": "pans",
-            "image": "shopify://shop_images/240_F_380701970_y1Kl4n5yt0oWaaso9q6ehWNahdCzfxsU.jpg",
-            "name": "Daniel R",
-            "text": "The weight feels right, not too heavy but definitely not cheap. I like knowing I’m not dealing with coatings that wear off. This feels like something I’ll use for years."
-          },
-          "type": "review"
-        },
-        "tab_CehQff": {
-          "settings": {
-            "cat_id": "board",
-            "title": "Cutting board"
-          },
-          "type": "tab"
-        },
-        "tab_gU4CnR": {
-          "settings": {
-            "cat_id": "pans",
-            "title": "Pans"
-          },
-          "type": "tab"
-        }
-      },
       "name": "Reviews Slider Custom",
       "settings": {
-        "arrow_bg_active": "#a3835f",
-        "arrow_border": "#454545",
-        "arrow_icon": "#454545",
-        "arrow_icon_active": "#121212",
-        "bg_color": "#121212",
-        "border_color": "#454545",
-        "card_bg": "#f6f4f0",
-        "card_gap": 10,
-        "card_text": "#252525",
-        "center_heading": false,
         "heading": "6,500+ 5-Star Reviews",
-        "heading_color": "#bca588",
-        "heading_size_d": 48,
-        "heading_size_m": 24,
-        "max_width": 1600,
-        "name_color": "#2c1f1c",
-        "pb_d": 105,
-        "pb_m": 50,
-        "pt_d": 105,
-        "pt_m": 50,
+        "center_heading": false,
         "slides_desktop": 2,
         "slides_mobile": 1.2,
-        "star_color": "#b57c46",
+        "card_gap": 10,
+        "bg_color": "#121212",
+        "heading_color": "#bca588",
+        "border_color": "#454545",
+        "tab_text_inactive": "#b0b0b0",
         "tab_bg_active": "#a3835f",
         "tab_text_active": "#121212",
-        "tab_text_inactive": "#b0b0b0"
-      },
-      "type": "walter-reviews"
+        "arrow_border": "#454545",
+        "arrow_icon": "#454545",
+        "arrow_bg_active": "#a3835f",
+        "arrow_icon_active": "#121212",
+        "card_bg": "#f6f4f0",
+        "card_text": "#252525",
+        "name_color": "#2c1f1c",
+        "star_color": "#b57c46",
+        "max_width": 1600,
+        "heading_size_d": 48,
+        "heading_size_m": 24,
+        "pt_d": 105,
+        "pb_d": 105,
+        "pt_m": 50,
+        "pb_m": 50
+      }
     },
-    "walter_scroll_text_fade_zNEcyT": {
-      "block_order": [
-        "line_aFfnfE",
-        "line_GKEKTx",
-        "line_WV6tND",
-        "line_JznQCK",
-        "line_UCEWDr",
-        "line_YLqWdi",
-        "line_6p7bfE",
-        "line_T9EggT"
-      ],
+    "walter_not_available_L7GyMg": {
+      "type": "walter-not-available",
       "blocks": {
-        "line_6p7bfE": {
+        "icon_9AYkEY": {
+          "type": "icon",
           "settings": {
-            "base_opacity": 10,
-            "base_size_d": 32,
-            "base_size_m": 24,
-            "text": "It’s the starting point.",
-            "visibility": "always"
-          },
-          "type": "line"
+            "icon_width": 40
+          }
         },
-        "line_GKEKTx": {
+        "icon_Hw8bmt": {
+          "type": "icon",
           "settings": {
-            "base_opacity": 40,
-            "base_size_d": 48,
-            "base_size_m": 30,
-            "text": "At Walter®",
-            "visibility": "mobile"
-          },
-          "type": "line"
+            "icon_width": 41
+          }
         },
-        "line_JznQCK": {
+        "icon_qgUFQX": {
+          "type": "icon",
           "settings": {
-            "base_opacity": 40,
-            "base_size_d": 48,
-            "base_size_m": 28,
-            "text": "Isn’t an Extra.",
-            "visibility": "mobile"
-          },
-          "type": "line"
+            "icon_width": 41
+          }
         },
-        "line_T9EggT": {
-          "disabled": true,
+        "icon_AFDN9z": {
+          "type": "icon",
           "settings": {
-            "base_opacity": 30,
-            "base_size_d": 48,
-            "base_size_m": 24,
-            "text": "Your Text Here",
-            "visibility": "always"
-          },
-          "type": "line"
-        },
-        "line_UCEWDr": {
-          "settings": {
-            "base_opacity": 30,
-            "base_size_d": 48,
-            "base_size_m": 24,
-            "text": "This is the standard.",
-            "visibility": "always"
-          },
-          "type": "line"
-        },
-        "line_WV6tND": {
-          "settings": {
-            "base_opacity": 40,
-            "base_size_d": 48,
-            "base_size_m": 30,
-            "text": "Non-Toxic",
-            "visibility": "mobile"
-          },
-          "type": "line"
-        },
-        "line_YLqWdi": {
-          "settings": {
-            "base_opacity": 20,
-            "base_size_d": 48,
-            "base_size_m": 24,
-            "text": "Excellence isn’t the finish line.",
-            "visibility": "always"
-          },
-          "type": "line"
-        },
-        "line_aFfnfE": {
-          "disabled": true,
-          "settings": {
-            "base_opacity": 40,
-            "base_size_d": 64,
-            "base_size_m": 24,
-            "text": "At Taima®, Non-Toxic Isn’t A Feature.",
-            "visibility": "desktop"
-          },
-          "type": "line"
+            "icon_width": 41
+          }
         }
       },
-      "name": "Scroll Text Fade",
+      "block_order": [
+        "icon_9AYkEY",
+        "icon_Hw8bmt",
+        "icon_qgUFQX",
+        "icon_AFDN9z"
+      ],
+      "disabled": true,
+      "name": "Not Available Section",
       "settings": {
-        "active_color": "#bca588",
-        "active_font_size_d": 64,
-        "active_font_size_m": 32,
-        "bg_color": "#00221c",
-        "font_family": "bebas_neue_n4",
-        "inactive_color": "#bca588",
-        "line_gap": 24,
-        "pb_d": 30,
-        "pb_m": 30,
-        "pt_d": 30,
-        "pt_m": 25
-      },
-      "type": "walter-scroll-text-fade"
+        "height_desktop": 1050,
+        "height_mobile": 680,
+        "heading": "Not on Amazon. Not Anywhere Else.",
+        "subtext": "Beware of imitators & counterfeit listings using our name on Amazon & other platforms. The only place to get certified Taima® Pure Titanium products is right here, through our official website.",
+        "bottom_text": "www.taimatitanium.com",
+        "bottom_link": "",
+        "text_color": "#bca588",
+        "padding_top": 80,
+        "padding_top_m": 64
+      }
     },
-    "walter_trust_video_xJUVTn": {
-      "block_order": [
-        "slide_9kQBcy",
-        "slide_jFzY9a",
-        "slide_ndUw9b",
-        "slide_yM9TtG",
-        "slide_kfgtba"
-      ],
+    "walter_engineered_layers_TWrRby": {
+      "type": "walter-engineered-layers",
       "blocks": {
-        "slide_9kQBcy": {
+        "layer_yDq3ct": {
+          "type": "layer",
           "settings": {
-            "mp4_url": "",
-            "quote": "\"Nonstick without chemicals or coatings, this is revolutionary\"",
-            "video_file": "shopify://files/videos/13f4001c05324e8fad5f7a9832c77292.HD-1080p-2.5Mbps-59268184.mp4",
-            "video_url": ""
-          },
-          "type": "slide"
+            "image": "shopify://shop_images/pan_first_with_shadow-min.webp",
+            "offset_y": 0,
+            "title": "Titanium SlipScale",
+            "description": "Non-toxic and non-stick."
+          }
         },
-        "slide_jFzY9a": {
+        "layer_3g4pcF": {
+          "type": "layer",
           "settings": {
-            "mp4_url": "",
-            "quote": "\"I wanted to test Walter for a full week, but after the first day I already knew.\"",
-            "video_file": "shopify://files/videos/snaptik_7522420718802324758_v2.mp4",
-            "video_url": ""
-          },
-          "type": "slide"
+            "image": "shopify://shop_images/pan_MID_with_shadow-min.webp",
+            "offset_y": 0,
+            "title": "Recycled Aluminum III",
+            "description": "Even heat distribution."
+          }
         },
-        "slide_kfgtba": {
-          "disabled": true,
+        "layer_yUg9LH": {
+          "type": "layer",
           "settings": {
-            "mp4_url": "",
-            "quote": "\"Nonstick without chemicals or coatings, this is revolutionary\"",
-            "video_file": "shopify://files/videos/2294eb1f6ff84074a955b6777905505b (1).mp4",
-            "video_url": ""
-          },
-          "type": "slide"
+            "image": "shopify://shop_images/pan_MID_with_shadow-min_1.webp",
+            "offset_y": 0,
+            "title": "Recycled Aluminum II",
+            "description": "Fast heat response."
+          }
         },
-        "slide_ndUw9b": {
+        "layer_6PqkXa": {
+          "type": "layer",
           "settings": {
-            "mp4_url": "",
-            "quote": "For Walter Cookware",
-            "video_file": "shopify://files/videos/snaptik_7568974991232879885_v2.mp4",
-            "video_url": ""
-          },
-          "type": "slide"
+            "image": "shopify://shop_images/pan_MID_with_shadow-min_2.webp",
+            "offset_y": 0,
+            "title": "Induction Steel Base",
+            "description": "Strong magnetic performance."
+          }
         },
-        "slide_yM9TtG": {
+        "layer_LF3hE3": {
+          "type": "layer",
           "settings": {
-            "mp4_url": "",
-            "quote": "\"Finally cooking with a pan that doesn’t rely on chemical coatings.\"",
-            "video_file": "shopify://files/videos/0104 (1).mov",
-            "video_url": ""
-          },
-          "type": "slide"
+            "image": "shopify://shop_images/pan_LAST_with_shadow-min.webp",
+            "offset_y": 0,
+            "title": "Daily Use Design",
+            "description": "Built to last."
+          }
         }
       },
-      "name": "Trusted Video Slider",
+      "block_order": [
+        "layer_yDq3ct",
+        "layer_3g4pcF",
+        "layer_yUg9LH",
+        "layer_6PqkXa",
+        "layer_LF3hE3"
+      ],
+      "name": "Engineered Layers",
+      "settings": {
+        "bg_color": "#07231b",
+        "title_color": "#bca588",
+        "line_color": "#a3835f",
+        "item_title_color": "#ffffff",
+        "item_desc_color": "#b0b0b0",
+        "heading": "Engineered From The Inside Out",
+        "heading_size": 48,
+        "anim_speed": 220,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "walter_faqs_JyccRK": {
+      "type": "walter-faqs",
+      "blocks": {
+        "faq_item_QFcyXz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does SlipScale™ non-stick surface work?",
+            "answer": "<p>SlipScale™ is an engineered surface design developed to improve food release without the use of coatings. The imprinted surface structure reduces contact points, allowing food to release more easily — up to three times more effectively compared to flat surfaces.</p>"
+          }
+        },
+        "faq_item_LqUfqw": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How Does Titanium Cookware Help Food Retain More Nutrients?",
+            "answer": "<p>Pure titanium offers excellent thermal conductivity, allowing food to cook evenly and efficiently at lower temperatures. More controlled heat reduces overcooking and unnecessary heat exposure, helping ingredients retain more of their natural nutrients during the cooking process.</p>"
+          }
+        },
+        "faq_item_6hF98A": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why Should I Switch From My Existing Pan?",
+            "answer": "<p>Because this pan is engineered to outperform conventional cookware in the areas that matter most: clean cooking, consistent heat control, and long-term durability. It delivers reliable performance day after day, without relying on coatings or frequent replacement.</p>"
+          }
+        },
+        "faq_item_XkqEiy": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is titanium safe for food contact?",
+            "answer": "<p>Yes. Titanium is highly stable and non-reactive, meaning it does not interact with food during cooking. It maintains its structure under high heat and does not release unwanted substances, making it well suited for direct food contact across a wide range of temperatures.</p>"
+          }
+        },
+        "faq_item_D9FLmT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is It Safe to Use on All Stovetops and in Ovens?",
+            "answer": "<p>Yes. Walter® Titanium cookware is designed for versatility and performs reliably across all common cooking surfaces, including gas, electric, ceramic, and induction. It is also oven-safe, allowing seamless transitions from stovetop to oven without compromising performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_QFcyXz",
+        "faq_item_LqUfqw",
+        "faq_item_6hF98A",
+        "faq_item_XkqEiy",
+        "faq_item_D9FLmT"
+      ],
+      "name": "FAQ Accordion",
       "settings": {
         "bg_color": "#121212",
-        "heading_color": "#ffffff",
-        "heading_highlight": "650,000+",
-        "heading_size": 48,
-        "heading_size_mobile": 32,
-        "heading_text_after": "People Worldwide",
-        "heading_text_before": "Trusted By",
-        "highlight_color": "#bca588",
-        "padding_bottom": 68,
-        "padding_top": 68,
-        "quote_color": "#e9e2d8",
-        "slides_to_show": 7,
-        "star_color": "#b57c46"
-      },
-      "type": "walter-trust-video"
+        "heading_color": "#bca588",
+        "question_color": "#ffffff",
+        "answer_color": "#b0b0b0",
+        "border_color": "#454545",
+        "icon_color": "#ffffff",
+        "heading": "Frequently Asked Questions",
+        "open_first": true,
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_m": 28,
+        "padding_bottom_m": 28
+      }
     }
-  }
+  },
+  "order": [
+    "walter_product_Y7bNYJ",
+    "main",
+    "related-products",
+    "walter_trust_video_xJUVTn",
+    "walter_logo_testimonial_FdQhBX",
+    "walter_behind_scene_M9aRc7",
+    "walter_scroll_text_fade_zNEcyT",
+    "walter_rethink_cookware_MyXhDw",
+    "walter_benefits_EAnCxx",
+    "scroll_text_with_image_8XhRp4",
+    "walter_reviews_Jhczj9",
+    "walter_not_available_L7GyMg",
+    "walter_engineered_layers_TWrRby",
+    "walter_faqs_JyccRK"
+  ]
 }
