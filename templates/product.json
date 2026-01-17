@@ -141,23 +141,26 @@
             "size_guide_text": "",
             "guarantee_color": "#ffffff",
             "guarantee_text": "Guaranteed Safe & Secure Checkout",
-            "enable_bundles": false,
+            "enable_bundles": true,
             "bundles_heading": "Or Select Bundle & Save",
             "bundle_product_1": "titanium-hammered-pan",
             "bundle_title_1": "",
             "bundle_info_1": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
             "bundle_desc_1": "",
             "bundle_badge_1": "MOST POPULAR",
+            "enable_custom_img_1": false,
             "bundle_product_2": "haelyra-2-0",
             "bundle_title_2": "",
             "bundle_info_2": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
             "bundle_desc_2": "",
             "bundle_badge_2": "GREAT VALUE",
+            "enable_custom_img_2": false,
             "bundle_product_3": "serving-tongs",
             "bundle_title_3": "",
             "bundle_info_3": "Includes Standard, Large & Extra Large Pan + Spatula & Turner. Skimmer, Dipper & 3 lids are FREE.",
             "bundle_desc_3": "",
-            "bundle_badge_3": "LIMITED OFFER"
+            "bundle_badge_3": "LIMITED OFFER",
+            "enable_custom_img_3": false
           }
         },
         "shipping_promise_bar_gCTx4U": {
